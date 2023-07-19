@@ -1,0 +1,684 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://jenkov.com/tutorials/javafx/choicebox.html
+Subject: JavaFX ChoiceBox
+Date: Sat, 5 Nov 2022 04:55:25 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--PkeZiTdreRi9xE7ojuxxmIwKhwAaBRqFWaUhjHlfwy----"
+
+
+------MultipartBoundary--PkeZiTdreRi9xE7ojuxxmIwKhwAaBRqFWaUhjHlfwy----
+Content-Type: text/html
+Content-ID: <frame-B712A3004E8E710098BDFB57F2C0ED4A@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://jenkov.com/tutorials/javafx/choicebox.html
+
+<!DOCTYPE html><html><head lang=3D"en"><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/=
+css" href=3D"cid:css-6587da32-10c1-4a97-ab9c-eadeaf8a2400@mhtml.blink" /><l=
+ink rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-89cccac4-0275-45e4=
+-9b26-55aa296dba67@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css=
+" href=3D"cid:css-d7c76cc4-3daa-4e28-927e-f294e71de436@mhtml.blink" /><link=
+ rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-bca70dac-80e8-4da2-b0=
+3d-3090f89877c1@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css" h=
+ref=3D"cid:css-b80ef47a-f3cf-4d62-8560-aa9b41b548ee@mhtml.blink" />
+   =20
+    <meta name=3D"HandheldFriendly" content=3D"True">
+    <meta name=3D"MobileOptimized" content=3D"480">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, height=3Ddevic=
+e-height initial-scale=3D1, user-scalable=3D1">
+
+    <title>JavaFX ChoiceBox</title>
+
+    <meta name=3D"description" content=3D"A JavaFX ChoiceBox control enable=
+s the user to select an option from a predefined list of choices. This Java=
+FX ChoiceBox tutorial explains how to use the JavaFX ChoiceBox.">
+    <meta name=3D"keywords" content=3D"javafx choiceBox tutorial">
+    <meta name=3D"author" content=3D"Jakob Jenkov">
+
+    <meta name=3D"twitter:card" content=3D"summary_large_image">
+    <meta name=3D"twitter:site" content=3D"@jjenkov">
+    <meta name=3D"twitter:title" content=3D"JavaFX ChoiceBox">
+    <meta name=3D"twitter:description" content=3D"A JavaFX ChoiceBox contro=
+l enables the user to select an option from a predefined list of choices. T=
+his JavaFX ChoiceBox tutorial explains how to use the JavaFX ChoiceBox.">
+    <meta name=3D"twitter:creator" content=3D"@jjenkov">
+    <meta name=3D"twitter:domain" content=3D"jenkov.com">
+
+    <meta name=3D"twitter:image:src" content=3D"http://tutorials.jenkov.com=
+/images/java-javafx/javafx-teaser-500-300.png">
+
+    <meta name=3D"og:type" content=3D"article">
+    <meta name=3D"og:title" content=3D"JavaFX ChoiceBox">
+    <meta property=3D"og:url" content=3D"http://tutorials.jenkov.com/tutori=
+als/javafx/choicebox.html">
+    <meta property=3D"og:description" content=3D"A JavaFX ChoiceBox control=
+ enables the user to select an option from a predefined list of choices. Th=
+is JavaFX ChoiceBox tutorial explains how to use the JavaFX ChoiceBox.">
+
+    <meta property=3D"og:image" content=3D"http://tutorials.jenkov.com/imag=
+es/java-javafx/javafx-teaser-500-300.png">
+
+    <meta name=3D"google-site-verification" content=3D"i_TwzdElg-by5uXLvyAj=
+uIaCjxo0yjtW8LdRPUDEEcw">
+
+    <link rel=3D"icon" href=3D"https://jenkov.com/favicon.ico" type=3D"imag=
+e/x-icon">
+</head>
+
+<body>
+<!-- Layout specific styles -->
+
+<div id=3D"header">
+
+    <div id=3D"topBarLogo">
+        <svg x=3D"0px" y=3D"0px" width=3D"380px" height=3D"48px" viewBox=3D=
+"0 0 380 100" style=3D"enable-background:new 0 0 380 100;" xml:space=3D"pre=
+serve">
+        <path d=3D"M3,32 l10,0  l0,26  c-7,21 -30,21 -53,10  l4,-9  c18,11 =
+33,10 39,-3  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></=
+path>
+            <path d=3D"M19,32 l50,0  l0,9  l-50,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M19,49 l50,0  l0,9  l-50,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M19,65 l50,0  l0,9  l-50,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M76,32 l13,0  l40,31  l0,-31  l10,0  l0,42  l-10,0 l=
+-43,-32 l0,32 l-10,0 z " style=3D"stroke: none; stroke-width: 1; fill: #fff=
+fff;"></path>
+            <path d=3D"M129,32  l10,0  l0,15 l5,0  l32.5,-14.5  l19,0  l-41=
+,19  l40,22  l-19,0  l-33,-18  l-3.5,0  l0,19  l-10,0 z " style=3D"stroke: =
+none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M188,49  c10,-24 60,-24 70,0  l-11,0  c-10,-12 -38,-=
+12 -48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></pat=
+h>
+            <path d=3D"M188,57  c10,24 60,24 70,0  l-11,0  c-10,12 -38,12 -=
+48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M254,32  l13,0  l25,34 l25,-34  l13,0  l-32,42 l-12.=
+5,0 z" style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M319,65  l12,0 l0,8 l-12,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M340,53  c3,-27 54,-27 67,-10  l-15,0  c-10,-5 -40,-=
+5 -41.5,10 l-10,0  " style=3D"stroke: none;  stroke-width: 1; fill: #ffffff=
+;"></path>
+            <path d=3D"M340,53  c3,27 54,27 67,10  l-15,0  c-10,5 -40,5 -41=
+.5,-10 l-10,0  " style=3D"stroke: none;  stroke-width: 1; fill: #ffffff;"><=
+/path>
+            <path d=3D"M410,49  c10,-24 60,-24 70,0  l-11,0  c-10,-12 -38,-=
+12 -48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></pat=
+h>
+            <path d=3D"M410,57  c10,24 60,24 70,0  l-11,0  c-10,12 -38,12 -=
+48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M484,34  l10,0  l0,6 c13,-10 26,-10 37,0  c12,-10 32=
+,-10 39,3  l0,30  l-10,0  l0,-27  c-3,-9 -24,-9 -28,3 l0,24  -10,0  l0,-27 =
+ c-3,-9 -24,-9 -28,3 l0,24  -10,0 z" style=3D"stroke: none; stroke-width: 1=
+; fill: #ffffff;"></path>
+        </svg>
+    </div>
+
+    <div id=3D"logoLink">Tech &amp; Media Labs</div>
+
+
+    <div id=3D"menuButton">
+        <svg x=3D"0px" y=3D"0px" width=3D"24px" height=3D"24px" viewBox=3D"=
+0 0 24 24" style=3D"enable-background:new 0 0 24 24;" xml:space=3D"preserve=
+">
+            <rect x=3D"0" y=3D"0" width=3D"24" height=3D"24" style=3D"strok=
+e:none; fill: #000000;"></rect>
+            <path d=3D"M0,2 l20,0" style=3D"stroke: #ffffff; stroke-width: =
+2; fill: none;"></path>
+            <path d=3D"M0,8 l20,0" style=3D"stroke: #ffffff; stroke-width: =
+2; fill: none;"></path>
+            <path d=3D"M0,14 l20,0" style=3D"stroke: #ffffff; stroke-width:=
+ 2; fill: none;"></path>
+        </svg>
+    </div>
+
+</div>
+
+<div id=3D"menuItems">
+    <div class=3D"menuItem"><a href=3D"http://tutorials.jenkov.com/">Tutori=
+als</a></div>
+    <!--
+    <div class=3D"menuItem">Tools</div>
+    <div class=3D"menuItem">Themes</div>
+    <div class=3D"menuItem">News</div>
+    -->
+    <div class=3D"menuItem"><a href=3D"https://jenkov.com/rss.xml">RSS</a><=
+/div>
+    <div class=3D"menuItem"><a href=3D"https://jenkov.com/">Home</a></div>
+    <!--
+    <div class=3D"menuItem">About</div>
+    -->
+</div>
+
+<div style=3D"height: 82px;"></div>
+
+<!-- Navigation Specific Styles -->
+
+
+
+<!-- article specific styles -->
+
+
+
+
+<div id=3D"mainWrapper">
+    <div id=3D"navWrapper">
+        <div id=3D"navPath"></div>
+        <div id=3D"navigation">
+            <div id=3D"navThemes"></div><div id=3D"navTopics"></div><div id=
+=3D"navArticles"></div>
+        </div>
+        <div id=3D"trailToc">
+            <div id=3D"trailTitle">JavaFX</div><ol><li><a href=3D"https://j=
+enkov.com/tutorials/javafx/index.html">JavaFX Tutorial</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/overview.html">JavaFX Overview</a><=
+/li><li><a href=3D"https://jenkov.com/tutorials/javafx/your-first-javafx-ap=
+plication.html">Your First JavaFX Application</a></li><li><a href=3D"https:=
+//jenkov.com/tutorials/javafx/stage.html">JavaFX Stage</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/scene.html">JavaFX Scene</a></li><l=
+i><a href=3D"https://jenkov.com/tutorials/javafx/node.html">JavaFX Node</a>=
+</li><li><a href=3D"https://jenkov.com/tutorials/javafx/properties.html">Ja=
+vaFX Properties</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/=
+fxml.html">JavaFX FXML</a></li><li><a href=3D"https://jenkov.com/tutorials/=
+javafx/css-styling.html">JavaFX CSS Styling</a></li><li><a href=3D"https://=
+jenkov.com/tutorials/javafx/imageview.html">JavaFX ImageView</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/text.html">JavaFX Text</a></li=
+><li><a href=3D"https://jenkov.com/tutorials/javafx/fonts.html">JavaFX Font=
+s</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/hyperlink.html=
+">JavaFX Hyperlink</a></li><li><a href=3D"https://jenkov.com/tutorials/java=
+fx/label.html">JavaFX Label</a></li><li><a href=3D"https://jenkov.com/tutor=
+ials/javafx/button.html">JavaFX Button</a></li><li><a href=3D"https://jenko=
+v.com/tutorials/javafx/menubutton.html">JavaFX MenuButton</a></li><li><a hr=
+ef=3D"https://jenkov.com/tutorials/javafx/splitmenubutton.html">JavaFX Spli=
+tMenuButton</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/togg=
+lebutton.html">JavaFX ToggleButton</a></li><li><a href=3D"https://jenkov.co=
+m/tutorials/javafx/radiobutton.html">JavaFX RadioButton</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/checkbox.html">JavaFX CheckBox</a><=
+/li><li><a href=3D"https://jenkov.com/tutorials/javafx/choicebox.html">Java=
+FX ChoiceBox</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/com=
+bobox.html">JavaFX ComboBox</a></li><li><a href=3D"https://jenkov.com/tutor=
+ials/javafx/listview.html">JavaFX ListView</a></li><li><a href=3D"https://j=
+enkov.com/tutorials/javafx/datepicker.html">JavaFX DatePicker</a></li><li><=
+a href=3D"https://jenkov.com/tutorials/javafx/colorpicker.html">JavaFX Colo=
+rPicker</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/textfiel=
+d.html">JavaFX TextField</a></li><li><a href=3D"https://jenkov.com/tutorial=
+s/javafx/passwordfield.html">JavaFX PasswordField</a></li><li><a href=3D"ht=
+tps://jenkov.com/tutorials/javafx/slider.html">JavaFX Slider</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/textarea.html">JavaFX TextArea=
+</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/toolbar.html">J=
+avaFX ToolBar</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/to=
+oltip.html">JavaFX Tooltip</a></li><li><a href=3D"https://jenkov.com/tutori=
+als/javafx/progressbar.html">JavaFX ProgressBar</a></li><li><a href=3D"http=
+s://jenkov.com/tutorials/javafx/filechooser.html">JavaFX FileChooser</a></l=
+i><li><a href=3D"https://jenkov.com/tutorials/javafx/directorychooser.html"=
+>JavaFX DirectoryChooser</a></li><li><a href=3D"https://jenkov.com/tutorial=
+s/javafx/accordion.html">JavaFX Accordion</a></li><li><a href=3D"https://je=
+nkov.com/tutorials/javafx/titledpane.html">JavaFX TitledPane</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/splitpane.html">JavaFX SplitPa=
+ne</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/tabpane.html"=
+>JavaFX TabPane</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/=
+scrollpane.html">JavaFX ScrollPane</a></li><li><a href=3D"https://jenkov.co=
+m/tutorials/javafx/group.html">JavaFX Group</a></li><li><a href=3D"https://=
+jenkov.com/tutorials/javafx/region.html">JavaFX Region</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/pane.html">JavaFX Pane</a></li><li>=
+<a href=3D"https://jenkov.com/tutorials/javafx/hbox.html">JavaFX HBox</a></=
+li><li><a href=3D"https://jenkov.com/tutorials/javafx/vbox.html">JavaFX VBo=
+x</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/separator.html=
+">JavaFX Separator</a></li><li><a href=3D"https://jenkov.com/tutorials/java=
+fx/flowpane.html">JavaFX FlowPane</a></li><li><a href=3D"https://jenkov.com=
+/tutorials/javafx/tilepane.html">JavaFX TilePane</a></li><li><a href=3D"htt=
+ps://jenkov.com/tutorials/javafx/gridpane.html">JavaFX GridPane</a></li><li=
+><a href=3D"https://jenkov.com/tutorials/javafx/menubar.html">JavaFX MenuBa=
+r</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/contextmenu.ht=
+ml">JavaFX ContexMenu</a></li><li><a href=3D"https://jenkov.com/tutorials/j=
+avafx/webview.html">JavaFX WebView</a></li><li><a href=3D"https://jenkov.co=
+m/tutorials/javafx/piechart.html">JavaFX PieChart</a></li><li><a href=3D"ht=
+tps://jenkov.com/tutorials/javafx/tableview.html">JavaFX TableView</a></li>=
+<li><a href=3D"https://jenkov.com/tutorials/javafx/treeview.html">JavaFX Tr=
+eeView</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/treetable=
+view.html">JavaFX TreeTableView</a></li><li><a href=3D"https://jenkov.com/t=
+utorials/javafx/htmleditor.html">JavaFX HTMLEditor</a></li><li><a href=3D"h=
+ttps://jenkov.com/tutorials/javafx/pagination.html">JavaFX Pagination</a></=
+li><li><a href=3D"https://jenkov.com/tutorials/javafx/barchart.html">JavaFX=
+ BarChart</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/stacke=
+dbarchart.html">JavaFX StackedBarChart</a></li><li><a href=3D"https://jenko=
+v.com/tutorials/javafx/scatterchart.html">JavaFX ScatterChart</a></li><li><=
+a href=3D"https://jenkov.com/tutorials/javafx/linechart.html">JavaFX LineCh=
+art</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/areachart.ht=
+ml">JavaFX AreaChart</a></li><li><a href=3D"https://jenkov.com/tutorials/ja=
+vafx/stackedareachart.html">JavaFX StackedAreaChart</a></li><li><a href=3D"=
+https://jenkov.com/tutorials/javafx/color.html">JavaFX Color</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/2d.html">JavaFX 2D</a></li><li=
+><a href=3D"https://jenkov.com/tutorials/javafx/effects.html">JavaFX Effect=
+s</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/3d.html">JavaF=
+X 3D</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/transformat=
+ion.html">JavaFX Transformation</a></li><li><a href=3D"https://jenkov.com/t=
+utorials/javafx/animation.html">JavaFX Animation</a></li><li><a href=3D"htt=
+ps://jenkov.com/tutorials/javafx/media.html">JavaFX Media - JavaFX Video an=
+d Audio Support</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/=
+canvas.html">JavaFX Canvas</a></li><li><a href=3D"https://jenkov.com/tutori=
+als/javafx/drag-and-drop.html">JavaFX Drag and Drop</a></li><li><a href=3D"=
+https://jenkov.com/tutorials/javafx/concurrency.html">JavaFX Concurrency</a=
+></li></ol>
+        </div>
+    </div>
+    <div id=3D"main">
+
+        <h1 style=3D"text-align: left;">JavaFX ChoiceBox</h1>
+
+        <div id=3D"pageToc" itemscope=3D"" itemtype=3D"http://schema.org/Si=
+teNavigationElement">
+            <ul><li><a href=3D"https://jenkov.com/tutorials/javafx/choicebo=
+x.html#creating-a-choicebox">Creating a ChoiceBox</a></li><li><a href=3D"ht=
+tps://jenkov.com/tutorials/javafx/choicebox.html#adding-choices-to-a-choice=
+box">Adding Choices to a ChoiceBox</a></li><li><a href=3D"https://jenkov.co=
+m/tutorials/javafx/choicebox.html#adding-a-choicebox-to-the-scene-graph">Ad=
+ding a ChoiceBox to the Scene Graph</a></li><li><a href=3D"https://jenkov.c=
+om/tutorials/javafx/choicebox.html#reading-the-selected-value">Reading the =
+Selected Value</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/c=
+hoicebox.html#listening-for-selection">Listening for Selection</a></li></ul=
+>
+        </div>
+
+        <div id=3D"lastUpdate">
+            <table><tbody><tr><td class=3D"authorPhoto"></td>
+                <td><p style=3D"margin: 0px 0px 6px 0px;">
+                    Jakob Jenkov<br>
+                    Last update: 2020-12-14
+                    </p>
+                    <div class=3D"authorSocialLinks"></div>
+                </td>
+            </tr>
+            </tbody></table>
+        </div>
+
+        <div id=3D"mainBody">
+            <p>
+    The JavaFX ChoiceBox control enables users to choose an option from a p=
+redefined list of choices. The
+    JavaFX ChoiceBox control is represented by the class <code>javafx.scene=
+.control.ChoiceBox</code> . This
+    JavaFX ChoiceBox tutorial will explain how to use the <code>ChoiceBox</=
+code> class.
+</p>
+
+
+
+
+<a name=3D"creating-a-choicebox"></a>
+<h2>Creating a ChoiceBox</h2>
+
+<p>
+    You create a <code>ChoiceBox</code> simply by creating a new instance o=
+f the <code>ChoiceBox</code> class.
+    Here is a JavaFX <code>ChoiceBox</code> instantiation example:
+</p>
+
+<pre class=3D"codeBox">ChoiceBox choiceBox =3D new ChoiceBox();
+</pre>
+
+
+
+
+<a name=3D"adding-choices-to-a-choicebox"></a>
+<h2>Adding Choices to a ChoiceBox</h2>
+
+<p>
+    You can add choices to a <code>ChoiceBox</code> by obtaining its item c=
+ollection and add items to it.
+    Here is an example that adds choices to a JavaFX <code>ChoiceBox</code>=
+ :
+</p>
+
+<pre class=3D"codeBox">choiceBox.getItems().add("Choice 1");
+choiceBox.getItems().add("Choice 2");
+choiceBox.getItems().add("Choice 3");
+</pre>
+
+
+
+
+<a name=3D"adding-a-choicebox-to-the-scene-graph"></a>
+<h2>Adding a ChoiceBox to the Scene Graph</h2>
+<p>
+    To make a <code>ChoiceBox</code> visible you must add it to the scene g=
+raph. This means that you must add
+    the <code>ChoiceBox</code> to a <code>Scene</code> object or to some la=
+yout component which is then attached
+    to the <code>Scene</code> object.
+</p>
+
+<p>
+    Here is an example showing how to add a JavaFX <code>ChoiceBox</code> t=
+o the scene graph:
+</p>
+
+
+<pre class=3D"codeBox">package com.jenkov.javafx.controls;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
+public class ChoiceBoxExperiments extends Application  {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("ChoiceBox Experiment 1");
+
+        ChoiceBox choiceBox =3D new ChoiceBox();
+
+        choiceBox.getItems().add("Choice 1");
+        choiceBox.getItems().add("Choice 2");
+        choiceBox.getItems().add("Choice 3");
+
+        HBox hbox =3D new HBox(choiceBox);
+
+        Scene scene =3D new Scene(hbox, 200, 100);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+}
+</pre>
+
+<p>
+    The application resulting from running this example would look similar =
+to this:
+</p>
+
+<img src=3D"https://jenkov.com/images/java-javafx/javafx-choicebox-1.png" a=
+lt=3D"A JavaFX ChoiceBox displayed via the scene graph">
+
+
+
+
+<a name=3D"reading-the-selected-value"></a>
+<h2>Reading the Selected Value</h2>
+
+<p>
+    You can read the selected value of a <code>ChoiceBox</code> via its <co=
+de>getValue()</code> method. If no
+    choice is selected, the <code>getValue()</code> method returns <code>nu=
+ll</code>. Here is an example of calling
+    <code>getValue()</code>:
+</p>
+
+<pre class=3D"codeBox">String value =3D (String) choiceBox.getValue();
+</pre>
+
+
+
+<a name=3D"listening-for-selection"></a>
+<h2>Listening for Selection</h2>
+<p>
+    It is possible to listen for selection changes in a JavaFX ChoiceBox by=
+ setting an action listener on the
+    ChoiceBox via its <code>setOnAction()</code> method. Here is an example=
+ of setting an action listener on a ChoiceBox
+    which reads what value was selected in the ChoiceBox:
+</p>
+
+<pre class=3D"codeBox">ChoiceBox choiceBox =3D new ChoiceBox();
+
+choiceBox.getItems().add("Choice 1");
+choiceBox.getItems().add("Choice 2");
+choiceBox.getItems().add("Choice 3");
+
+choiceBox.setOnAction((event) -&gt; {
+    int selectedIndex =3D choiceBox.getSelectionModel().getSelectedIndex();
+    Object selectedItem =3D choiceBox.getSelectionModel().getSelectedItem()=
+;
+
+    System.out.println("Selection made: [" + selectedIndex + "] " + selecte=
+dItem);
+    System.out.println("   ChoiceBox.getValue(): " + choiceBox.getValue());
+});
+</pre>
+
+        </div>
+
+        <div id=3D"next">Next: <a href=3D"https://jenkov.com/tutorials/java=
+fx/combobox.html">JavaFX ComboBox</a></div>
+        <div id=3D"bottomSocial">
+
+            <div style=3D"display:inline-block;">
+                <table>
+                    <tbody><tr><td colspan=3D"2">
+                        <a href=3D"https://twitter.com/intent/tweet?url=3Dh=
+ttp://tutorials.jenkov.com/tutorials/javafx/choicebox.html&amp;original_ref=
+erer=3Djjenkov" class=3D"twitter-share-button" data-via=3D"jjenkov" target=
+=3D"_blank">Tweet</a>
+                    </td></tr>
+                    <tr><td class=3D"authorPhoto"></td><td><p style=3D"marg=
+in: 0px 0px 6px 0px;">Jakob Jenkov</p><div class=3D"authorSocialLinks"></di=
+v></td></tr>
+                </tbody></table>
+            </div>
+            <div style=3D"display: none;" class=3D"newsletterForm"></div>
+        </div>
+    </div>
+
+    <div id=3D"rightWrapper">
+        <b>Featured Videos</b><br><br>
+
+
+
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DEgOj=
+klzlnFw&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D23"><img =
+src=3D"https://jenkov.com/images/java-concurrency/java-thread-signaling-vid=
+eo-screenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DULlF=
+WomaPVw"><img src=3D"https://jenkov.com/images/dev-essentials/software-perf=
+ormance-optimization-principles-video-screenshot-small.png" alt=3D"Core Sof=
+tware Performance Optimization Principles"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DDqpP=
+RxCmxrM&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D22"><img =
+src=3D"https://jenkov.com/images/java-concurrency/thread-congestion-video-s=
+creenshot-small.png" alt=3D"Thread Congestion in Java - Video Tutorial"></a=
+><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DQrYI=
+Os1dA3M&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D21"><img =
+src=3D"https://jenkov.com/images/java-concurrency/single-threaded-design-vi=
+deo-screenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DcsXv=
+BjBOHws"><img src=3D"https://jenkov.com/images/polymorph/polymorph-video-sc=
+reenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DneaG=
+eFZ2j_w"><img src=3D"https://jenkov.com/images/java/what-I-love-about-Java-=
+video-screenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DtLS8=
+5IfsbYE&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D20"><img =
+src=3D"https://jenkov.com/images/java-concurrency/false-sharing-video-scree=
+nshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DnNXk=
+zDS6dOg&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D7"><img s=
+rc=3D"https://jenkov.com/images/java-concurrency/java-concurrency-plus-cach=
+e-coherence-video-screenshot-small.png"></a><br><br>
+        <!-- <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=
+=3DufWVK7CHOAk&list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&index=3D18"><img s=
+rc=3D"/images/java-concurrency/compare-and-swap-video-screenshot-small.png"=
+></a><br><br> -->
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DmTGd=
+tC9f4EU&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D1"><img s=
+rc=3D"https://jenkov.com/images/java-concurrency/java-concurrency-video-scr=
+eenshot-small.jpg"></a><br><br>
+    </div>
+</div>
+
+<div id=3D"footer">
+    Copyright Jenkov Aps
+</div>
+
+</body></html>
+------MultipartBoundary--PkeZiTdreRi9xE7ojuxxmIwKhwAaBRqFWaUhjHlfwy----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-6587da32-10c1-4a97-ab9c-eadeaf8a2400@mhtml.blink
+
+@charset "utf-8";
+
+#body { margin: 0px; font-family: Arial; background-color: rgb(34, 34, 34);=
+ color: rgb(255, 255, 255); }
+
+body { margin: 0px; font-family: Arial; background-color: rgb(240, 240, 240=
+); color: rgb(255, 255, 255); }
+
+#header { height: 66px; background-color: rgb(0, 0, 0); position: fixed; to=
+p: 0px; left: 0px; width: 100%; box-shadow: rgb(153, 153, 153) 0px 8px 6px =
+-6px; }
+
+#menuButton { width: 20px; height: 18px; position: absolute; top: 24px; lef=
+t: 24px; }
+
+#menuButton div { position: relative; height: 2px; width: 20px; margin-bott=
+om: 4px; background-color: rgb(255, 255, 255); }
+
+#menuButton:hover { cursor: pointer; }
+
+#topBarLogo { position: relative; left: 0px; top: 5px; width: 370px; }
+
+#logoLink { position: relative; top: -8px; left: 236px; height: 40px; width=
+: 300px; }
+
+#logoLink:hover { cursor: pointer; }
+
+#menuItems { background-color: rgba(0, 0, 0, 0.8); display: none; position:=
+ fixed; top: 66px; left: 0px; width: 100%; }
+
+.menuItem { color: rgb(255, 255, 255); display: inline-block; padding: 24px=
+; }
+
+#menuItems a { color: rgb(255, 255, 255); text-decoration: none; }
+
+#footer { padding: 24px; margin: 16px 0px 0px; background-color: rgb(0, 0, =
+0); }
+------MultipartBoundary--PkeZiTdreRi9xE7ojuxxmIwKhwAaBRqFWaUhjHlfwy----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-89cccac4-0275-45e4-9b26-55aa296dba67@mhtml.blink
+
+@charset "utf-8";
+
+#navWrapper { display: inline-block; height: calc(100% - 164px); background=
+-color: rgb(240, 240, 240); width: 550px; color: rgb(51, 51, 51); }
+
+#navigation { display: inline-block; }
+
+#navigation a { color: rgb(0, 0, 0); }
+
+#navigation > div { display: inline-block; border-right: 1px solid rgb(208,=
+ 208, 208); vertical-align: top; cursor: pointer; }
+
+#navigation > div > div { border-top: 1px solid rgb(208, 208, 208); }
+
+#navThemes { width: 150px; box-sizing: border-box; }
+
+#navThemes > div { padding: 6px 12px 6px 24px; border-bottom: 1px solid rgb=
+(208, 208, 208); }
+
+#navTopics { width: 150px; box-sizing: border-box; }
+
+#navArticles { width: 250px; box-sizing: border-box; }
+
+#navTopics > div, #navArticles > div { padding: 6px 12px; border-bottom: 1p=
+x solid rgb(208, 208, 208); }
+
+.selected { font-weight: bold; background-color: rgb(255, 255, 255); }
+
+.notSelected { }
+
+#navPath { padding: 8px 8px 8px 22px; color: rgb(102, 102, 102); font-size:=
+ 0.9em; background-color: rgb(255, 255, 255); border: 1px solid rgb(208, 20=
+8, 208); box-shadow: rgb(153, 153, 153) 0px 4px 3px -3px; margin-bottom: 8p=
+x; }
+
+#navPath > a { cursor: pointer; font-weight: bold; }
+------MultipartBoundary--PkeZiTdreRi9xE7ojuxxmIwKhwAaBRqFWaUhjHlfwy----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-d7c76cc4-3daa-4e28-927e-f294e71de436@mhtml.blink
+
+@charset "utf-8";
+
+#mainAreas { width: 100%; }
+
+.mainArea { display: inline-block; width: 25%; padding: 24px; box-sizing: b=
+order-box; border-width: 1px; border-style: solid; border-color: rgb(51, 51=
+, 51) rgb(0, 0, 0) rgb(0, 0, 0) rgb(51, 51, 51); text-align: center; color:=
+ rgb(255, 255, 255); font-size: 1.2em; }
+------MultipartBoundary--PkeZiTdreRi9xE7ojuxxmIwKhwAaBRqFWaUhjHlfwy----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-bca70dac-80e8-4da2-b03d-3090f89877c1@mhtml.blink
+
+@charset "utf-8";
+
+#main { display: inline-block; text-align: left; vertical-align: top; paddi=
+ng: 20px 30px; margin: 0px 0px 0px 2px; }
+
+#main { width: calc((100% - 550px) - 100px); max-width: 1000px; background-=
+color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: 1px solid rgb(208, =
+208, 208); box-shadow: rgb(153, 153, 153) 0px 8px 6px -6px; }
+
+@media only screen and (min-width: 1px) and (max-width: 1200px) {
+  #navWrapper { display: none; }
+  #main { width: 100%; box-sizing: border-box; }
+}
+
+#trailToc { visibility: hidden; }
+
+#pageToc { border: 1px solid rgb(238, 238, 238); }
+
+#pageToc a { text-decoration: none; }
+
+#lastUpdate { border-right: 1px solid rgb(238, 238, 238); border-bottom: 1p=
+x solid rgb(238, 238, 238); border-left: 1px solid rgb(238, 238, 238); bord=
+er-image: initial; border-top: none; color: rgb(102, 102, 102); font-size: =
+0.8em; }
+
+a { text-decoration: none; }
+
+#pageToc a { color: rgb(0, 0, 102); }
+
+#mainBody a { font-weight: bold; color: rgb(0, 0, 102); }
+
+#mainBody img { max-width: 100%; }
+
+#next a { font-weight: bold; color: rgb(0, 0, 102); }
+
+#next { border-top: 1px solid rgb(238, 238, 238); border-bottom: 1px solid =
+rgb(238, 238, 238); padding: 8px 0px; font-size: 1.2em; }
+
+.codebox, .codeBox { border: 1px solid rgb(204, 204, 204); padding: 8px; ba=
+ckground-color: rgb(240, 255, 240); }
+------MultipartBoundary--PkeZiTdreRi9xE7ojuxxmIwKhwAaBRqFWaUhjHlfwy----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-b80ef47a-f3cf-4d62-8560-aa9b41b548ee@mhtml.blink
+
+@charset "utf-8";
+
+#rightWrapper { display: inline-block; color: rgb(0, 0, 0); vertical-align:=
+ top; background-color: rgb(255, 255, 255); border: 1px solid rgb(208, 208,=
+ 208); box-shadow: rgb(153, 153, 153) 0px 8px 6px -6px; margin: 0px 0px 0px=
+ 8px; padding: 20px; }
+
+@media only screen and (min-width: 1px) and (max-width: 1200px) {
+  #rightWrapper { display: none; }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1900px) {
+  #rightWrapper { display: none; }
+}
+------MultipartBoundary--PkeZiTdreRi9xE7ojuxxmIwKhwAaBRqFWaUhjHlfwy------

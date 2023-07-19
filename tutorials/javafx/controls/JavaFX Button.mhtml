@@ -1,0 +1,2405 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://jenkov.com/tutorials/javafx/button.html
+Subject: JavaFX Button
+Date: Sat, 5 Nov 2022 04:54:11 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk----"
+
+
+------MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk----
+Content-Type: text/html
+Content-ID: <frame-B712A3004E8E710098BDFB57F2C0ED4A@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://jenkov.com/tutorials/javafx/button.html
+
+<!DOCTYPE html><html><head lang=3D"en"><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/=
+css" href=3D"cid:css-78005b89-70be-430b-a7a9-8a8d084ad9da@mhtml.blink" /><l=
+ink rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-a8be7593-0777-4c2d=
+-8e5f-a56e4086c378@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css=
+" href=3D"cid:css-78431277-08de-452c-9a1d-0bc63b8802c9@mhtml.blink" /><link=
+ rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-4f5d9e03-c216-44c1-93=
+3a-cf4ef70f2ebc@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css" h=
+ref=3D"cid:css-9165b4c2-ae81-48fb-ba0e-e03640220a34@mhtml.blink" /><link re=
+l=3D"stylesheet" type=3D"text/css" href=3D"cid:css-6e800cf1-c7a7-4327-9eee-=
+c638ca28d5eb@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css" href=
+=3D"cid:css-95a2455a-0b78-4684-85e6-3fae129a9acc@mhtml.blink" />
+   =20
+    <meta name=3D"HandheldFriendly" content=3D"True">
+    <meta name=3D"MobileOptimized" content=3D"480">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, height=3Ddevic=
+e-height initial-scale=3D1, user-scalable=3D1">
+
+    <title>JavaFX Button</title>
+
+    <meta name=3D"description" content=3D"A JavaFX Button control enables a=
+ JavaFX application to have an action executed when the application user cl=
+icks the button. This JavaFX Button tutorial explains how to use a JavaFX B=
+utton control.">
+    <meta name=3D"keywords" content=3D"javafx button tutorial">
+    <meta name=3D"author" content=3D"Jakob Jenkov">
+
+    <meta name=3D"twitter:card" content=3D"summary_large_image">
+    <meta name=3D"twitter:site" content=3D"@jjenkov">
+    <meta name=3D"twitter:title" content=3D"JavaFX Button">
+    <meta name=3D"twitter:description" content=3D"A JavaFX Button control e=
+nables a JavaFX application to have an action executed when the application=
+ user clicks the button. This JavaFX Button tutorial explains how to use a =
+JavaFX Button control.">
+    <meta name=3D"twitter:creator" content=3D"@jjenkov">
+    <meta name=3D"twitter:domain" content=3D"jenkov.com">
+
+    <meta name=3D"twitter:image:src" content=3D"http://tutorials.jenkov.com=
+/images/java-javafx/javafx-teaser-500-300.png">
+
+    <meta name=3D"og:type" content=3D"article">
+    <meta name=3D"og:title" content=3D"JavaFX Button">
+    <meta property=3D"og:url" content=3D"http://tutorials.jenkov.com/tutori=
+als/javafx/button.html">
+    <meta property=3D"og:description" content=3D"A JavaFX Button control en=
+ables a JavaFX application to have an action executed when the application =
+user clicks the button. This JavaFX Button tutorial explains how to use a J=
+avaFX Button control.">
+
+    <meta property=3D"og:image" content=3D"http://tutorials.jenkov.com/imag=
+es/java-javafx/javafx-teaser-500-300.png">
+
+    <meta name=3D"google-site-verification" content=3D"i_TwzdElg-by5uXLvyAj=
+uIaCjxo0yjtW8LdRPUDEEcw">
+
+    <link rel=3D"icon" href=3D"https://jenkov.com/favicon.ico" type=3D"imag=
+e/x-icon">
+</head>
+
+<body>
+<!-- Layout specific styles -->
+
+<div id=3D"header">
+
+    <div id=3D"topBarLogo">
+        <svg x=3D"0px" y=3D"0px" width=3D"380px" height=3D"48px" viewBox=3D=
+"0 0 380 100" style=3D"enable-background:new 0 0 380 100;" xml:space=3D"pre=
+serve">
+        <path d=3D"M3,32 l10,0  l0,26  c-7,21 -30,21 -53,10  l4,-9  c18,11 =
+33,10 39,-3  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></=
+path>
+            <path d=3D"M19,32 l50,0  l0,9  l-50,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M19,49 l50,0  l0,9  l-50,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M19,65 l50,0  l0,9  l-50,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M76,32 l13,0  l40,31  l0,-31  l10,0  l0,42  l-10,0 l=
+-43,-32 l0,32 l-10,0 z " style=3D"stroke: none; stroke-width: 1; fill: #fff=
+fff;"></path>
+            <path d=3D"M129,32  l10,0  l0,15 l5,0  l32.5,-14.5  l19,0  l-41=
+,19  l40,22  l-19,0  l-33,-18  l-3.5,0  l0,19  l-10,0 z " style=3D"stroke: =
+none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M188,49  c10,-24 60,-24 70,0  l-11,0  c-10,-12 -38,-=
+12 -48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></pat=
+h>
+            <path d=3D"M188,57  c10,24 60,24 70,0  l-11,0  c-10,12 -38,12 -=
+48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M254,32  l13,0  l25,34 l25,-34  l13,0  l-32,42 l-12.=
+5,0 z" style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M319,65  l12,0 l0,8 l-12,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M340,53  c3,-27 54,-27 67,-10  l-15,0  c-10,-5 -40,-=
+5 -41.5,10 l-10,0  " style=3D"stroke: none;  stroke-width: 1; fill: #ffffff=
+;"></path>
+            <path d=3D"M340,53  c3,27 54,27 67,10  l-15,0  c-10,5 -40,5 -41=
+.5,-10 l-10,0  " style=3D"stroke: none;  stroke-width: 1; fill: #ffffff;"><=
+/path>
+            <path d=3D"M410,49  c10,-24 60,-24 70,0  l-11,0  c-10,-12 -38,-=
+12 -48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></pat=
+h>
+            <path d=3D"M410,57  c10,24 60,24 70,0  l-11,0  c-10,12 -38,12 -=
+48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M484,34  l10,0  l0,6 c13,-10 26,-10 37,0  c12,-10 32=
+,-10 39,3  l0,30  l-10,0  l0,-27  c-3,-9 -24,-9 -28,3 l0,24  -10,0  l0,-27 =
+ c-3,-9 -24,-9 -28,3 l0,24  -10,0 z" style=3D"stroke: none; stroke-width: 1=
+; fill: #ffffff;"></path>
+        </svg>
+    </div>
+
+    <div id=3D"logoLink">Tech &amp; Media Labs</div>
+
+
+    <div id=3D"menuButton">
+        <svg x=3D"0px" y=3D"0px" width=3D"24px" height=3D"24px" viewBox=3D"=
+0 0 24 24" style=3D"enable-background:new 0 0 24 24;" xml:space=3D"preserve=
+">
+            <rect x=3D"0" y=3D"0" width=3D"24" height=3D"24" style=3D"strok=
+e:none; fill: #000000;"></rect>
+            <path d=3D"M0,2 l20,0" style=3D"stroke: #ffffff; stroke-width: =
+2; fill: none;"></path>
+            <path d=3D"M0,8 l20,0" style=3D"stroke: #ffffff; stroke-width: =
+2; fill: none;"></path>
+            <path d=3D"M0,14 l20,0" style=3D"stroke: #ffffff; stroke-width:=
+ 2; fill: none;"></path>
+        </svg>
+    </div>
+
+</div>
+
+<div id=3D"menuItems">
+    <div class=3D"menuItem"><a href=3D"http://tutorials.jenkov.com/">Tutori=
+als</a></div>
+    <!--
+    <div class=3D"menuItem">Tools</div>
+    <div class=3D"menuItem">Themes</div>
+    <div class=3D"menuItem">News</div>
+    -->
+    <div class=3D"menuItem"><a href=3D"https://jenkov.com/rss.xml">RSS</a><=
+/div>
+    <div class=3D"menuItem"><a href=3D"https://jenkov.com/">Home</a></div>
+    <!--
+    <div class=3D"menuItem">About</div>
+    -->
+</div>
+
+<div style=3D"height: 82px;"></div>
+
+<!-- Navigation Specific Styles -->
+
+
+
+<!-- article specific styles -->
+
+
+
+
+<div id=3D"mainWrapper">
+    <div id=3D"navWrapper">
+        <div id=3D"navPath"><a>Top</a>&nbsp;=C2=BB&nbsp;<a>Java</a>&nbsp;=
+=C2=BB&nbsp;<a>Java JavaFX</a>&nbsp;=C2=BB&nbsp;<a>JavaFX Button</a></div>
+        <div id=3D"navigation">
+            <div id=3D"navThemes"><div class=3D"notSelected">Dev Essentials=
+</div><div class=3D"notSelected">Decentralized Systems</div><div class=3D"n=
+otSelected">Polymorph</div><div class=3D"notSelected">Data Formats</div><di=
+v class=3D"notSelected">Web Tech</div><div class=3D"selected">Java</div><di=
+v class=3D"notSelected">GraalVM</div><div class=3D"notSelected">Build Tools=
+</div><div class=3D"notSelected">Butterfly</div><div class=3D"notSelected">=
+IT Architecture</div><div class=3D"notSelected">AWS</div><div class=3D"notS=
+elected">Software Entrepreneurship</div><div class=3D"notSelected">My Opini=
+ons</div><div class=3D"notSelected">Scala</div></div><div id=3D"navTopics">=
+<div class=3D"notSelected">Java Language</div><div class=3D"notSelected">Ja=
+va Collections</div><div class=3D"notSelected">Java Concurrency</div><div c=
+lass=3D"notSelected">Java Concurrency Utils</div><div class=3D"notSelected"=
+>Java Cryptography</div><div class=3D"notSelected">Java Date &amp; Time</di=
+v><div class=3D"notSelected">Java Exception Handling</div><div class=3D"not=
+Selected">Java Functional Programming</div><div class=3D"notSelected">Java =
+Generics</div><div class=3D"notSelected">Java How-To</div><div class=3D"not=
+Selected">Java Internationalization</div><div class=3D"notSelected">Java IO=
+</div><div class=3D"selected">Java JavaFX</div><div class=3D"notSelected">J=
+ava JDBC</div><div class=3D"notSelected">Java JSON</div><div class=3D"notSe=
+lected">Java Logging</div><div class=3D"notSelected">Java Multithreaded Ser=
+vers</div><div class=3D"notSelected">Java Networking</div><div class=3D"not=
+Selected">Java NIO</div><div class=3D"notSelected">Java Performance</div><d=
+iv class=3D"notSelected">Java Persistence</div><div class=3D"notSelected">J=
+ava Reflection</div><div class=3D"notSelected">Java Regular Expressions</di=
+v><div class=3D"notSelected">Java Servlets</div><div class=3D"notSelected">=
+Java Unit Testing</div><div class=3D"notSelected">Java XML</div><div class=
+=3D"notSelected">Java Zip</div><div class=3D"notSelected">Exception Handlin=
+g Strategies</div></div><div id=3D"navArticles"><div class=3D"notSelected">=
+<a href=3D"https://jenkov.com/tutorials/javafx/index.html">JavaFX Tutorial<=
+/a></div><div class=3D"notSelected"><a href=3D"https://jenkov.com/tutorials=
+/javafx/overview.html">JavaFX Overview</a></div><div class=3D"notSelected">=
+<a href=3D"https://jenkov.com/tutorials/javafx/your-first-javafx-applicatio=
+n.html">Your First JavaFX Application</a></div><div class=3D"notSelected"><=
+a href=3D"https://jenkov.com/tutorials/javafx/stage.html">JavaFX Stage</a><=
+/div><div class=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/jav=
+afx/scene.html">JavaFX Scene</a></div><div class=3D"notSelected"><a href=3D=
+"https://jenkov.com/tutorials/javafx/node.html">JavaFX Node</a></div><div c=
+lass=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/propert=
+ies.html">JavaFX Properties</a></div><div class=3D"notSelected"><a href=3D"=
+https://jenkov.com/tutorials/javafx/fxml.html">JavaFX FXML</a></div><div cl=
+ass=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/css-styl=
+ing.html">JavaFX CSS Styling</a></div><div class=3D"notSelected"><a href=3D=
+"https://jenkov.com/tutorials/javafx/imageview.html">JavaFX ImageView</a></=
+div><div class=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/java=
+fx/text.html">JavaFX Text</a></div><div class=3D"notSelected"><a href=3D"ht=
+tps://jenkov.com/tutorials/javafx/fonts.html">JavaFX Fonts</a></div><div cl=
+ass=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/hyperlin=
+k.html">JavaFX Hyperlink</a></div><div class=3D"notSelected"><a href=3D"htt=
+ps://jenkov.com/tutorials/javafx/label.html">JavaFX Label</a></div><div cla=
+ss=3D"selected"><a href=3D"https://jenkov.com/tutorials/javafx/button.html"=
+>JavaFX Button</a></div><div class=3D"notSelected"><a href=3D"https://jenko=
+v.com/tutorials/javafx/menubutton.html">JavaFX MenuButton</a></div><div cla=
+ss=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/splitmenu=
+button.html">JavaFX SplitMenuButton</a></div><div class=3D"notSelected"><a =
+href=3D"https://jenkov.com/tutorials/javafx/togglebutton.html">JavaFX Toggl=
+eButton</a></div><div class=3D"notSelected"><a href=3D"https://jenkov.com/t=
+utorials/javafx/radiobutton.html">JavaFX RadioButton</a></div><div class=3D=
+"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/checkbox.html"=
+>JavaFX CheckBox</a></div><div class=3D"notSelected"><a href=3D"https://jen=
+kov.com/tutorials/javafx/choicebox.html">JavaFX ChoiceBox</a></div><div cla=
+ss=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/combobox.=
+html">JavaFX ComboBox</a></div><div class=3D"notSelected"><a href=3D"https:=
+//jenkov.com/tutorials/javafx/listview.html">JavaFX ListView</a></div><div =
+class=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/datepi=
+cker.html">JavaFX DatePicker</a></div><div class=3D"notSelected"><a href=3D=
+"https://jenkov.com/tutorials/javafx/colorpicker.html">JavaFX ColorPicker</=
+a></div><div class=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/=
+javafx/textfield.html">JavaFX TextField</a></div><div class=3D"notSelected"=
+><a href=3D"https://jenkov.com/tutorials/javafx/passwordfield.html">JavaFX =
+PasswordField</a></div><div class=3D"notSelected"><a href=3D"https://jenkov=
+.com/tutorials/javafx/slider.html">JavaFX Slider</a></div><div class=3D"not=
+Selected"><a href=3D"https://jenkov.com/tutorials/javafx/textarea.html">Jav=
+aFX TextArea</a></div><div class=3D"notSelected"><a href=3D"https://jenkov.=
+com/tutorials/javafx/toolbar.html">JavaFX ToolBar</a></div><div class=3D"no=
+tSelected"><a href=3D"https://jenkov.com/tutorials/javafx/tooltip.html">Jav=
+aFX Tooltip</a></div><div class=3D"notSelected"><a href=3D"https://jenkov.c=
+om/tutorials/javafx/progressbar.html">JavaFX ProgressBar</a></div><div clas=
+s=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/filechoose=
+r.html">JavaFX FileChooser</a></div><div class=3D"notSelected"><a href=3D"h=
+ttps://jenkov.com/tutorials/javafx/directorychooser.html">JavaFX DirectoryC=
+hooser</a></div><div class=3D"notSelected"><a href=3D"https://jenkov.com/tu=
+torials/javafx/accordion.html">JavaFX Accordion</a></div><div class=3D"notS=
+elected"><a href=3D"https://jenkov.com/tutorials/javafx/titledpane.html">Ja=
+vaFX TitledPane</a></div><div class=3D"notSelected"><a href=3D"https://jenk=
+ov.com/tutorials/javafx/splitpane.html">JavaFX SplitPane</a></div><div clas=
+s=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/tabpane.ht=
+ml">JavaFX TabPane</a></div><div class=3D"notSelected"><a href=3D"https://j=
+enkov.com/tutorials/javafx/scrollpane.html">JavaFX ScrollPane</a></div><div=
+ class=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/group=
+.html">JavaFX Group</a></div><div class=3D"notSelected"><a href=3D"https://=
+jenkov.com/tutorials/javafx/region.html">JavaFX Region</a></div><div class=
+=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/pane.html">=
+JavaFX Pane</a></div><div class=3D"notSelected"><a href=3D"https://jenkov.c=
+om/tutorials/javafx/hbox.html">JavaFX HBox</a></div><div class=3D"notSelect=
+ed"><a href=3D"https://jenkov.com/tutorials/javafx/vbox.html">JavaFX VBox</=
+a></div><div class=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/=
+javafx/separator.html">JavaFX Separator</a></div><div class=3D"notSelected"=
+><a href=3D"https://jenkov.com/tutorials/javafx/flowpane.html">JavaFX FlowP=
+ane</a></div><div class=3D"notSelected"><a href=3D"https://jenkov.com/tutor=
+ials/javafx/tilepane.html">JavaFX TilePane</a></div><div class=3D"notSelect=
+ed"><a href=3D"https://jenkov.com/tutorials/javafx/gridpane.html">JavaFX Gr=
+idPane</a></div><div class=3D"notSelected"><a href=3D"https://jenkov.com/tu=
+torials/javafx/menubar.html">JavaFX MenuBar</a></div><div class=3D"notSelec=
+ted"><a href=3D"https://jenkov.com/tutorials/javafx/contextmenu.html">JavaF=
+X ContexMenu</a></div><div class=3D"notSelected"><a href=3D"https://jenkov.=
+com/tutorials/javafx/webview.html">JavaFX WebView</a></div><div class=3D"no=
+tSelected"><a href=3D"https://jenkov.com/tutorials/javafx/piechart.html">Ja=
+vaFX PieChart</a></div><div class=3D"notSelected"><a href=3D"https://jenkov=
+.com/tutorials/javafx/tableview.html">JavaFX TableView</a></div><div class=
+=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/treeview.ht=
+ml">JavaFX TreeView</a></div><div class=3D"notSelected"><a href=3D"https://=
+jenkov.com/tutorials/javafx/treetableview.html">JavaFX TreeTableView</a></d=
+iv><div class=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javaf=
+x/htmleditor.html">JavaFX HTMLEditor</a></div><div class=3D"notSelected"><a=
+ href=3D"https://jenkov.com/tutorials/javafx/pagination.html">JavaFX Pagina=
+tion</a></div><div class=3D"notSelected"><a href=3D"https://jenkov.com/tuto=
+rials/javafx/barchart.html">JavaFX BarChart</a></div><div class=3D"notSelec=
+ted"><a href=3D"https://jenkov.com/tutorials/javafx/stackedbarchart.html">J=
+avaFX StackedBarChart</a></div><div class=3D"notSelected"><a href=3D"https:=
+//jenkov.com/tutorials/javafx/scatterchart.html">JavaFX ScatterChart</a></d=
+iv><div class=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javaf=
+x/linechart.html">JavaFX LineChart</a></div><div class=3D"notSelected"><a h=
+ref=3D"https://jenkov.com/tutorials/javafx/areachart.html">JavaFX AreaChart=
+</a></div><div class=3D"notSelected"><a href=3D"https://jenkov.com/tutorial=
+s/javafx/stackedareachart.html">JavaFX StackedAreaChart</a></div><div class=
+=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx/color.html"=
+>JavaFX Color</a></div><div class=3D"notSelected"><a href=3D"https://jenkov=
+.com/tutorials/javafx/2d.html">JavaFX 2D</a></div><div class=3D"notSelected=
+"><a href=3D"https://jenkov.com/tutorials/javafx/3d.html">JavaFX 3D</a></di=
+v><div class=3D"notSelected"><a href=3D"https://jenkov.com/tutorials/javafx=
+/effects.html">JavaFX Effects</a></div><div class=3D"notSelected"><a href=
+=3D"https://jenkov.com/tutorials/javafx/transformation.html">JavaFX Transfo=
+rmation</a></div><div class=3D"notSelected"><a href=3D"https://jenkov.com/t=
+utorials/javafx/animation.html">JavaFX Animation</a></div><div class=3D"not=
+Selected"><a href=3D"https://jenkov.com/tutorials/javafx/media.html">JavaFX=
+ Media - JavaFX Video and Audio Support</a></div><div class=3D"notSelected"=
+><a href=3D"https://jenkov.com/tutorials/javafx/canvas.html">JavaFX Canvas<=
+/a></div><div class=3D"notSelected"><a href=3D"https://jenkov.com/tutorials=
+/javafx/drag-and-drop.html">JavaFX Drag and Drop</a></div><div class=3D"not=
+Selected"><a href=3D"https://jenkov.com/tutorials/javafx/concurrency.html">=
+JavaFX Concurrency</a></div></div>
+        </div>
+        <div id=3D"trailToc">
+            <div id=3D"trailTitle">JavaFX</div><ol><li><a href=3D"https://j=
+enkov.com/tutorials/javafx/index.html">JavaFX Tutorial</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/overview.html">JavaFX Overview</a><=
+/li><li><a href=3D"https://jenkov.com/tutorials/javafx/your-first-javafx-ap=
+plication.html">Your First JavaFX Application</a></li><li><a href=3D"https:=
+//jenkov.com/tutorials/javafx/stage.html">JavaFX Stage</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/scene.html">JavaFX Scene</a></li><l=
+i><a href=3D"https://jenkov.com/tutorials/javafx/node.html">JavaFX Node</a>=
+</li><li><a href=3D"https://jenkov.com/tutorials/javafx/properties.html">Ja=
+vaFX Properties</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/=
+fxml.html">JavaFX FXML</a></li><li><a href=3D"https://jenkov.com/tutorials/=
+javafx/css-styling.html">JavaFX CSS Styling</a></li><li><a href=3D"https://=
+jenkov.com/tutorials/javafx/imageview.html">JavaFX ImageView</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/text.html">JavaFX Text</a></li=
+><li><a href=3D"https://jenkov.com/tutorials/javafx/fonts.html">JavaFX Font=
+s</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/hyperlink.html=
+">JavaFX Hyperlink</a></li><li><a href=3D"https://jenkov.com/tutorials/java=
+fx/label.html">JavaFX Label</a></li><li><a href=3D"https://jenkov.com/tutor=
+ials/javafx/button.html">JavaFX Button</a></li><li><a href=3D"https://jenko=
+v.com/tutorials/javafx/menubutton.html">JavaFX MenuButton</a></li><li><a hr=
+ef=3D"https://jenkov.com/tutorials/javafx/splitmenubutton.html">JavaFX Spli=
+tMenuButton</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/togg=
+lebutton.html">JavaFX ToggleButton</a></li><li><a href=3D"https://jenkov.co=
+m/tutorials/javafx/radiobutton.html">JavaFX RadioButton</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/checkbox.html">JavaFX CheckBox</a><=
+/li><li><a href=3D"https://jenkov.com/tutorials/javafx/choicebox.html">Java=
+FX ChoiceBox</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/com=
+bobox.html">JavaFX ComboBox</a></li><li><a href=3D"https://jenkov.com/tutor=
+ials/javafx/listview.html">JavaFX ListView</a></li><li><a href=3D"https://j=
+enkov.com/tutorials/javafx/datepicker.html">JavaFX DatePicker</a></li><li><=
+a href=3D"https://jenkov.com/tutorials/javafx/colorpicker.html">JavaFX Colo=
+rPicker</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/textfiel=
+d.html">JavaFX TextField</a></li><li><a href=3D"https://jenkov.com/tutorial=
+s/javafx/passwordfield.html">JavaFX PasswordField</a></li><li><a href=3D"ht=
+tps://jenkov.com/tutorials/javafx/slider.html">JavaFX Slider</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/textarea.html">JavaFX TextArea=
+</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/toolbar.html">J=
+avaFX ToolBar</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/to=
+oltip.html">JavaFX Tooltip</a></li><li><a href=3D"https://jenkov.com/tutori=
+als/javafx/progressbar.html">JavaFX ProgressBar</a></li><li><a href=3D"http=
+s://jenkov.com/tutorials/javafx/filechooser.html">JavaFX FileChooser</a></l=
+i><li><a href=3D"https://jenkov.com/tutorials/javafx/directorychooser.html"=
+>JavaFX DirectoryChooser</a></li><li><a href=3D"https://jenkov.com/tutorial=
+s/javafx/accordion.html">JavaFX Accordion</a></li><li><a href=3D"https://je=
+nkov.com/tutorials/javafx/titledpane.html">JavaFX TitledPane</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/splitpane.html">JavaFX SplitPa=
+ne</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/tabpane.html"=
+>JavaFX TabPane</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/=
+scrollpane.html">JavaFX ScrollPane</a></li><li><a href=3D"https://jenkov.co=
+m/tutorials/javafx/group.html">JavaFX Group</a></li><li><a href=3D"https://=
+jenkov.com/tutorials/javafx/region.html">JavaFX Region</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/pane.html">JavaFX Pane</a></li><li>=
+<a href=3D"https://jenkov.com/tutorials/javafx/hbox.html">JavaFX HBox</a></=
+li><li><a href=3D"https://jenkov.com/tutorials/javafx/vbox.html">JavaFX VBo=
+x</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/separator.html=
+">JavaFX Separator</a></li><li><a href=3D"https://jenkov.com/tutorials/java=
+fx/flowpane.html">JavaFX FlowPane</a></li><li><a href=3D"https://jenkov.com=
+/tutorials/javafx/tilepane.html">JavaFX TilePane</a></li><li><a href=3D"htt=
+ps://jenkov.com/tutorials/javafx/gridpane.html">JavaFX GridPane</a></li><li=
+><a href=3D"https://jenkov.com/tutorials/javafx/menubar.html">JavaFX MenuBa=
+r</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/contextmenu.ht=
+ml">JavaFX ContexMenu</a></li><li><a href=3D"https://jenkov.com/tutorials/j=
+avafx/webview.html">JavaFX WebView</a></li><li><a href=3D"https://jenkov.co=
+m/tutorials/javafx/piechart.html">JavaFX PieChart</a></li><li><a href=3D"ht=
+tps://jenkov.com/tutorials/javafx/tableview.html">JavaFX TableView</a></li>=
+<li><a href=3D"https://jenkov.com/tutorials/javafx/treeview.html">JavaFX Tr=
+eeView</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/treetable=
+view.html">JavaFX TreeTableView</a></li><li><a href=3D"https://jenkov.com/t=
+utorials/javafx/htmleditor.html">JavaFX HTMLEditor</a></li><li><a href=3D"h=
+ttps://jenkov.com/tutorials/javafx/pagination.html">JavaFX Pagination</a></=
+li><li><a href=3D"https://jenkov.com/tutorials/javafx/barchart.html">JavaFX=
+ BarChart</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/stacke=
+dbarchart.html">JavaFX StackedBarChart</a></li><li><a href=3D"https://jenko=
+v.com/tutorials/javafx/scatterchart.html">JavaFX ScatterChart</a></li><li><=
+a href=3D"https://jenkov.com/tutorials/javafx/linechart.html">JavaFX LineCh=
+art</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/areachart.ht=
+ml">JavaFX AreaChart</a></li><li><a href=3D"https://jenkov.com/tutorials/ja=
+vafx/stackedareachart.html">JavaFX StackedAreaChart</a></li><li><a href=3D"=
+https://jenkov.com/tutorials/javafx/color.html">JavaFX Color</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/2d.html">JavaFX 2D</a></li><li=
+><a href=3D"https://jenkov.com/tutorials/javafx/effects.html">JavaFX Effect=
+s</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/3d.html">JavaF=
+X 3D</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/transformat=
+ion.html">JavaFX Transformation</a></li><li><a href=3D"https://jenkov.com/t=
+utorials/javafx/animation.html">JavaFX Animation</a></li><li><a href=3D"htt=
+ps://jenkov.com/tutorials/javafx/media.html">JavaFX Media - JavaFX Video an=
+d Audio Support</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/=
+canvas.html">JavaFX Canvas</a></li><li><a href=3D"https://jenkov.com/tutori=
+als/javafx/drag-and-drop.html">JavaFX Drag and Drop</a></li><li><a href=3D"=
+https://jenkov.com/tutorials/javafx/concurrency.html">JavaFX Concurrency</a=
+></li></ol>
+        </div>
+    </div>
+    <div id=3D"main">
+
+        <h1 style=3D"text-align: left;">JavaFX Button</h1>
+
+        <div id=3D"pageToc" itemscope=3D"" itemtype=3D"http://schema.org/Si=
+teNavigationElement">
+            <ul><li><a href=3D"https://jenkov.com/tutorials/javafx/button.h=
+tml#creating-a-button">Creating a Button</a></li><li><a href=3D"https://jen=
+kov.com/tutorials/javafx/button.html#adding-a-button-to-the-scene-graph">Ad=
+ding a Button to the Scene Graph</a></li><li><a href=3D"https://jenkov.com/=
+tutorials/javafx/button.html#button-text">Button Text</a><ul><li><a href=3D=
+"https://jenkov.com/tutorials/javafx/button.html#button-text-size">Button T=
+ext Size</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/button.=
+html#button-text-wrap">Button Text Wrap</a></li></ul></li><li><a href=3D"ht=
+tps://jenkov.com/tutorials/javafx/button.html#button-font">Button Font</a><=
+/li><li><a href=3D"https://jenkov.com/tutorials/javafx/button.html#default-=
+button-mode">Default Button Mode</a></li><li><a href=3D"https://jenkov.com/=
+tutorials/javafx/button.html#cancel-button-mode">Cancel Button Mode</a></li=
+><li><a href=3D"https://jenkov.com/tutorials/javafx/button.html#button-imag=
+e">Button Image</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/=
+button.html#button-size">Button Size</a></li><li><a href=3D"https://jenkov.=
+com/tutorials/javafx/button.html#button-events">Button Events</a></li><li><=
+a href=3D"https://jenkov.com/tutorials/javafx/button.html#button-mnemonic">=
+Button Mnemonic</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/=
+button.html#button-css-styles">Button CSS Styles</a></li><li><a href=3D"htt=
+ps://jenkov.com/tutorials/javafx/button.html#disable-button">Disable Button=
+</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/button.html#but=
+ton-fxml">Button FXML</a></li><li><a href=3D"https://jenkov.com/tutorials/j=
+avafx/button.html#button-transformations">Button Transformations</a></li></=
+ul>
+        </div>
+
+        <div id=3D"lastUpdate">
+            <table><tbody><tr><td class=3D"authorPhoto"><img src=3D"data:im=
+age/jpeg;base64,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
+H+dtZWFzAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAACjwAAAAJzaWcgAAAAAENSVCBjdXJ2AAA=
+AAAAABAAAAAAFAAoADwAUABkAHgAjACgALQAyADcAOwBAAEUASgBPAFQAWQBeAGMAaABtAHIAdw=
+B8AIEAhgCLAJAAlQCaAJ8ApACpAK4AsgC3ALwAwQDGAMsA0ADVANsA4ADlAOsA8AD2APsBAQEHA=
+Q0BEwEZAR8BJQErATIBOAE+AUUBTAFSAVkBYAFnAW4BdQF8AYMBiwGSAZoBoQGpAbEBuQHBAckB=
+0QHZAeEB6QHyAfoCAwIMAhQCHQImAi8COAJBAksCVAJdAmcCcQJ6AoQCjgKYAqICrAK2AsECywL=
+VAuAC6wL1AwADCwMWAyEDLQM4A0MDTwNaA2YDcgN+A4oDlgOiA64DugPHA9MD4APsA/kEBgQTBC=
+AELQQ7BEgEVQRjBHEEfgSMBJoEqAS2BMQE0wThBPAE/gUNBRwFKwU6BUkFWAVnBXcFhgWWBaYFt=
+QXFBdUF5QX2BgYGFgYnBjcGSAZZBmoGewaMBp0GrwbABtEG4wb1BwcHGQcrBz0HTwdhB3QHhgeZ=
+B6wHvwfSB+UH+AgLCB8IMghGCFoIbgiCCJYIqgi+CNII5wj7CRAJJQk6CU8JZAl5CY8JpAm6Cc8=
+J5Qn7ChEKJwo9ClQKagqBCpgKrgrFCtwK8wsLCyILOQtRC2kLgAuYC7ALyAvhC/kMEgwqDEMMXA=
+x1DI4MpwzADNkM8w0NDSYNQA1aDXQNjg2pDcMN3g34DhMOLg5JDmQOfw6bDrYO0g7uDwkPJQ9BD=
+14Peg+WD7MPzw/sEAkQJhBDEGEQfhCbELkQ1xD1ERMRMRFPEW0RjBGqEckR6BIHEiYSRRJkEoQS=
+oxLDEuMTAxMjE0MTYxODE6QTxRPlFAYUJxRJFGoUixStFM4U8BUSFTQVVhV4FZsVvRXgFgMWJhZ=
+JFmwWjxayFtYW+hcdF0EXZReJF64X0hf3GBsYQBhlGIoYrxjVGPoZIBlFGWsZkRm3Gd0aBBoqGl=
+EadxqeGsUa7BsUGzsbYxuKG7Ib2hwCHCocUhx7HKMczBz1HR4dRx1wHZkdwx3sHhYeQB5qHpQev=
+h7pHxMfPh9pH5Qfvx/qIBUgQSBsIJggxCDwIRwhSCF1IaEhziH7IiciVSKCIq8i3SMKIzgjZiOU=
+I8Ij8CQfJE0kfCSrJNolCSU4JWgllyXHJfcmJyZXJocmtyboJxgnSSd6J6sn3CgNKD8ocSiiKNQ=
+pBik4KWspnSnQKgIqNSpoKpsqzysCKzYraSudK9EsBSw5LG4soizXLQwtQS12Last4S4WLkwugi=
+63Lu4vJC9aL5Evxy/+MDUwbDCkMNsxEjFKMYIxujHyMioyYzKbMtQzDTNGM38zuDPxNCs0ZTSeN=
+Ng1EzVNNYc1wjX9Njc2cjauNuk3JDdgN5w31zgUOFA4jDjIOQU5Qjl/Obw5+To2OnQ6sjrvOy07=
+azuqO+g8JzxlPKQ84z0iPWE9oT3gPiA+YD6gPuA/IT9hP6I/4kAjQGRApkDnQSlBakGsQe5CMEJ=
+yQrVC90M6Q31DwEQDREdEikTORRJFVUWaRd5GIkZnRqtG8Ec1R3tHwEgFSEtIkUjXSR1JY0mpSf=
+BKN0p9SsRLDEtTS5pL4kwqTHJMuk0CTUpNk03cTiVObk63TwBPSU+TT91QJ1BxULtRBlFQUZtR5=
+lIxUnxSx1MTU19TqlP2VEJUj1TbVShVdVXCVg9WXFapVvdXRFeSV+BYL1h9WMtZGllpWbhaB1pW=
+WqZa9VtFW5Vb5Vw1XIZc1l0nXXhdyV4aXmxevV8PX2Ffs2AFYFdgqmD8YU9homH1YklinGLwY0N=
+jl2PrZEBklGTpZT1lkmXnZj1mkmboZz1nk2fpaD9olmjsaUNpmmnxakhqn2r3a09rp2v/bFdsr2=
+0IbWBtuW4SbmtuxG8eb3hv0XArcIZw4HE6cZVx8HJLcqZzAXNdc7h0FHRwdMx1KHWFdeF2Pnabd=
+vh3VnezeBF4bnjMeSp5iXnnekZ6pXsEe2N7wnwhfIF84X1BfaF+AX5ifsJ/I3+Ef+WAR4CogQqB=
+a4HNgjCCkoL0g1eDuoQdhICE44VHhauGDoZyhteHO4efiASIaYjOiTOJmYn+imSKyoswi5aL/Ix=
+jjMqNMY2Yjf+OZo7OjzaPnpAGkG6Q1pE/kaiSEZJ6kuOTTZO2lCCUipT0lV+VyZY0lp+XCpd1l+=
+CYTJi4mSSZkJn8mmia1ZtCm6+cHJyJnPedZJ3SnkCerp8dn4uf+qBpoNihR6G2oiailqMGo3aj5=
+qRWpMelOKWpphqmi6b9p26n4KhSqMSpN6mpqhyqj6sCq3Wr6axcrNCtRK24ri2uoa8Wr4uwALB1=
+sOqxYLHWskuywrM4s660JbSctRO1irYBtnm28Ldot+C4WbjRuUq5wro7urW7LrunvCG8m70VvY+=
++Cr6Evv+/er/1wHDA7MFnwePCX8Lbw1jD1MRRxM7FS8XIxkbGw8dBx7/IPci8yTrJuco4yrfLNs=
+u2zDXMtc01zbXONs62zzfPuNA50LrRPNG+0j/SwdNE08bUSdTL1U7V0dZV1tjXXNfg2GTY6Nls2=
+fHadtr724DcBdyK3RDdlt4c3qLfKd+v4DbgveFE4cziU+Lb42Pj6+Rz5PzlhOYN5pbnH+ep6DLo=
+vOlG6dDqW+rl63Dr++yG7RHtnO4o7rTvQO/M8Fjw5fFy8f/yjPMZ86f0NPTC9VD13vZt9vv3ivg=
+Z+Kj5OPnH+lf65/t3/Af8mP0p/br+S/7c/23////+ACxPcHRpbWl6ZWQgYnkgSlBFR21pbmkgMy=
+4xMi4wLjIgMHg2ZTVjZDUyNAD/2wBDAAYEBQUFBAYFBQUHBgYHCQ8KCQgICRINDQsPFRIWFhQSF=
+BQXGiEcFxgfGRQUHScdHyIjJSUlFhsoKygkKyEkJSP/2wBDAQYHBwkICREKChEjGBQYIyMjIyMj=
+IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyP/wAARCABAADgDASI=
+AAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABgADBAUHCAL/xAA0EAABAwMDAQcBBQkAAAAAAA=
+ABAgMEAAURBhIhMQcTQVFhcYGxIiNCweEIFBUWMnKRocL/xAAYAQEAAwEAAAAAAAAAAAAAAAAEA=
+QIDAP/EAB8RAAIDAAICAwAAAAAAAAAAAAABAhEhAxIxQRMicf/aAAwDAQACEQMRAD8A2jQlzUtL=
+7T75W8h0pCT5elHKe+WjK8AeQrGOzGY3Ku0uW6SHNxKAfKiDtB7SGLDb5EdttKphThI7wJ258T5=
+fWqRfpms1toNZmobTAd7mZLaYPmpYHvmq6brrT8KW3HkzEpQ6cIeScp+cfNcgalv10uch2S066F=
+KUVkpVwSeOPz8Kp13F5t5syZLjqjzkE+Bq5XqdgTtQsXh4tQJTb8JQ4dQc7qpiQmQtlKspHQ1zJ=
+a9YzIC2FRHHGA24obQo46dcfBrcdGaqg6khqIX3ctoZWk8Z9RWHK+i7ejbjrwTLjKdZ3pS2t0F1=
+KRhQG0H38OP9mlTV3jS13CNKQ+tLDKFksjIDpUMDn05pU6CuKYOT1lVop99u6rDKk4CDnPkKzjX=
+ch2+aifWgEKUvwyMD19eK0eJETaL33ihhpzKUqBx18DQzf7HNhXUK7vf+9uAtuJ6KJJGPijPHYx=
+fZHvRWjm7wy4qVkIaAAA/FRQOy7TwH3jLh5zjecUT2eHD07bURy4VO4y4vzPj8U9FvNvmuKajvl=
+S09QUkYq6p+SaZnd97KLMqK45ELjLnVODxms90PKm6f1JJt6wU5Km1gjqR45rf5d1tqHDGcmNpf=
+IyEE9ayuHZ13rtTdtzYBSSHgseA25zVZxUlRDzQzmPSEyosjetLGEbm9m5LuUjg+XvSqZdoz8bM=
+chfKdv2SCFbRj4pUqGRSBy2TZoeobVarzCSkxxvSQUqHBBFCV0hOOTWESDhmK6hTSdvCjnkk+ec=
+cetHSQ2hO1JAqpvcdlTQkbiFJUM46EetBjg+Mqwp7tbYs9kpkt78px1PQ+xqts1ki21xbrASM8b=
+QOnGKfu1xMSOpwqVjOAAMnmqCXcbmylKozDzYUMq3dSfPkVrFqi8Y2xr+WESpi5ZedC1LJO1wjB=
+qfpmPFteqZckqCHO4bZDqvHqVf8ANVVsvUhEvujuLqwSonO0+vPSptxhqmwkPBSm3SCrKeOv6Yq=
+PwiaS8sZ1IiYzqBcx19gwHm96ccL3Zx9oeIwP0pVH1BJiPBiE+wTIYSja4TkK4zyPkilSIvAEkr=
+LHU3bDo+0uPxoLz12lNpPEZP3QV4ArPGP7c1XdmV7veox/F71JU4m4NPlllB2tNIQtACUp8Tkqy=
+Tk8DnrXM6UlMWR4KUD9K6U7D0G8dlyDBwblZ5bhQnPK0LCVFPsfqkV3xpRZ0eS5JsIrk63Fwl4F=
+SAeFmoEi7RJCE4lqbKT+EirXvWJ7OVoBCxhST9CKHZ2mbapxS9paQOVYUUgUemh12MwLjbLhqaH=
+AkTEMIfJQjecKdI5KAfM/nW0t26EiFksJAxxxXInbywqx3uxNw1LY7mGh9KQcFBUtXPnn7KTRFa=
+v2gtTNwI8a4W2DNShASXU723HMDGSckZ+KRCNAuafZhtqeS8q/y2Gm46WWAkIWr+ok53Z46Y2/5=
+pUGO9otrvMgrO+3urVuKHjuT7buhHuKVTRnen//2Q=3D=3D" alt=3D"Jakob Jenkov"></td>
+                <td><p style=3D"margin: 0px 0px 6px 0px;">
+                    Jakob Jenkov<br>
+                    Last update: 2020-12-09
+                    </p>
+                    <div class=3D"authorSocialLinks"><a class=3D"iconLink" =
+href=3D"https://twitter.com/#!/jjenkov" title=3D"Follow on Twitter" target=
+=3D"_blank"><img src=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAA=
+AAYCAYAAADgdz34AAABpElEQVRIx2NgwAOUlZWVFBUVqxQUFPYC8XMg/gvFIPZekBxIDQOpQAkI=
+gAashhr2nwAGqVkN0kOU4UBXxQA1fCbCYHT8GaSXkOFlZBiMgkFm4HM5RYYjWYLqE2iYkxMsOIM=
+LJU6gEUqqIaCUdB1PQlgNT4rYFAG9uRVXqgHKpejp6TFBfa8BFJsPpEHx9xtZHTgJQ9M5hkEqKi=
+pyQLkkIPs7mtxM9PizsLBgAloQBZR7jObIKgZoJsKwAKjBCOpCNSB/KcwioKYIbIkEKLceizl7G=
+aBhiS0lLNXS0mKCGaCmpsYDtMwO6G05HBZgSyTPGXBFEtAgI3V1dS5iMqeqqqoIrvjCaQEQzyW2=
+aAH6NgSfBc9xSILioQIYTByELACq3Y4rKeOMZGg81BEyHOgIFzx5ZS/OZIqEF4LiA4fhckD5p3g=
+cWIUro4GS5FsgPg5UVASMRC4shpsA5R/iK8bhdQWWogJkwUSgIXrIhurr64MylBkoAaDlWtxFBR=
+GF3Xsgvgwtd4gtED9jVEA0La6RLKFdhYPmE9pUmWhxQptKHxlQo9kCAHsFA8aGHksTAAAAAElFT=
+kSuQmCC"></a> <a class=3D"iconLink" href=3D"http://www.linkedin.com/pub/jak=
+ob-jenkov/0/a8/4a3" title=3D"Connect on LinkedIn" target=3D"_blank"><img sr=
+c=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAB=
+EklEQVRIx2NgwAOUlZWVFBUVqxQUFPYC8XMg/gvFIPZekBxIDQOpQAkIgAashhr2nwAGqVkN0kO=
+U4UBXxQA1fCbCYHT8GaSXkOFlZBiMgkFm4HM5RYYjWYLqE2iYkxMsOIMLJU6gEYpL8XcoJtWS1f=
+CkiCe1fAfKy4AwGZb8BSdhaDr/TwMLQHFRxQDNRP9pEEQgvJcBmitxKkKKp/9IKa5bTU2NT0VFR=
+Qoovh+P/ucMhHIrNguABosAg00MmgJ18MUDWRYA2beB+D6IbW1tzUTIApKDCCbX0tLChMzHFUR7=
+aWjBXkLJlCILwMmUQEajBP+F1xUEigpy8Wr6FXY0L67pUuHQpcpEixPaVPrIgBrNFgAzO0iIN1M=
+JVQAAAABJRU5ErkJggg=3D=3D"></a> <a class=3D"iconLink" href=3D"https://www.y=
+outube.com/user/jjenkov" title=3D"Subscribe on YouTube" target=3D"_blank"><=
+img src=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz=
+34AAABNElEQVRIx7VWSwrCMBANxYW48gTS2kJFaBfiHdq1uxbP4cJNz+K6eIQeR3oAlyI6T0Zpw=
+lj7MYEHJZN5k8zMS6pUy/B9f+l53tF13YpQE+4MfFewYY3qO5Y0iKBksscPYE0Jn07ktKs9OVw7=
+EJu4wvcX+WEAsQZwtO18FHkjiH4SzvmQtHxNl1YTLui/yN8oP60odMuFjrkLgmARhuE8juNpkiS=
+ToigcAN+Ygw1rsBY+Zne9Wpj73Mxh3re14SPwHBWLSDNgV4Lo3LYA8BHSVClWpWaIomhmEtD8jX=
+Ci2q2lAPARAtRKUmue544QoKncMwXaNu1ZljmSyscE2HQN0DdFq74psltk623aVWhpmg4TGufX3=
+lWBYf2y4xzau64bQew9OMZJ7DyZRk3sPPqGuEb/tjwB4iHvG88CuqcAAAAASUVORK5CYII=3D">=
+</a> <a class=3D"iconLink" href=3D"http://jenkov.com/rss.xml" title=3D"Subs=
+cribe to RSS Feed" target=3D"_blank"><img src=3D"data:image/png;base64,iVBO=
+Rw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABqUlEQVRIx71WwUrDQBANEqQnP6AUSZo=
+0JDnkByLSU/HkB0g/o0jJVUrx5MGvkHxDzuKxZ/HgoeQsOXiQom9kVjbJZhON7cKDbDI7M/vezG=
+4MQzMcxxnbtp1YlpUBObBj0HNG38jG+O0YY8BBys4+W0A2Ka3p5BxZzbGg6OC4ioLWtjm//oPjE=
+siHLvNezqUg5Z0w5zVa4jg2XdcdYsEM81vgtStdJU1Y0JphdZdBEJgIdtUxUPpTippquYfDJZKZ=
+knMRCLs6wbeHtur6LmGu8y7bzmG78DzvWNLtrkWLxOAmUhog01PKHs8rYMvvNzK/LTvJDO5KpYH=
+M/2QyGSCjNdO5FUGYriZNckPXrcQ/VZDv+6ZEy5zXbARdLLxSB20ACc9wciYFWXMCC5qHYXjUsI=
+udliLgA3gC3oB3EYToYk1yUV3cJ0qKGkUGzZdcyiMO8iLoQrAbtpnyfKYUWVemURQNpGp5ZFouu=
+PvPhU4s9lBZprpGg8GKgtBOmC56n7DDkWhGmtOxomw03VHRE2nrYdcDRe0C2utxfZAL5yBXZkWT=
+/Vz68viP35Yv1q4mS+AFuV8AAAAASUVORK5CYII=3D"></a> <a class=3D"iconLink" href=
+=3D"https://t.me/jenkov_com" title=3D"Subscribe to Telegram Channel" target=
+=3D"_blank"><img src=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAA=
+AAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABv0lEQVRIx71WPUsDQRB9bya7FyQE=
+I0QsJaSwsLKwFAsh/gArC/FnWARBUoullYWIiBxibRFSWVhbilhYBSuRVCbEIhs5l9vLaYgD09w=
+y7+2++Togw1S1TrIJoA2gC2DgvAugTbKpqnX81lS1BiB2YMMJPgAQu5jJRnIPQC8HsO89F5sJfv=
+AH4B/uMII3nwo8QfLzJU6/v8gSlMvPSTwF2AvJFoA773s8vn09Z7Uk/QPAuYhsVioVcZe89KtLV=
+etwdZ4XuENy31pbKhaLVkR2Eyo8peSiCYyaKAv0meShqi6PkURkneSNiNQAwFq7EIhtA6Ou9A/e=
+AZyJyEa1Wh1LAGNMieQJgAdVXUwQbgUIukjRP7bWzvllLCLbAF4A3BUKhVLO/hmkEfQAXJPcNcb=
+MG2NK4wSSvIyiyKa00W0WQRdh/T9VdQ2jMXBcLpcF6faaJVFmkkkekbwIAMMYs5QR3xaSHWTYcD=
+jcUdVTl4cVEVlJnvf7/fVQLMlOrkZT1VURWQPw5uTabzQa4kBaIf2Tu2LSqHjEqHST366iKFoEc=
+B+Iib+f8h/DbrbjOkEyu4XjvWQ2K9PLyWyWvkc09W/LFx++dNA/GYlaAAAAAElFTkSuQmCC"></=
+a> </div>
+                </td>
+            </tr>
+            </tbody></table>
+        </div>
+
+        <div id=3D"mainBody">
+            <p>
+    A JavaFX Button control enables a JavaFX application to have some actio=
+n executed when the application user
+    clicks the button. The JavaFX Button control is represented by the clas=
+s <code>javafx.scene.control.Button</code> .
+    A JavaFX Button can have a text and an icon on it which indicate to the=
+ user what clicking the button will do.
+</p>
+
+
+
+
+<a name=3D"creating-a-button"></a>
+<h2>Creating a Button</h2>
+
+<p>
+    You create a button control by creating an instance of the <code>Button=
+</code> class.
+    Here is a JavaFX <code>Button</code> instantiation example:
+</p>
+
+<pre class=3D"codeBox">Button button =3D new Button("My Label");
+</pre>
+
+<p>
+    The text to be displayed on the button is passed as parameters to the <=
+code>Button</code> constructor.
+</p>
+
+
+
+<a name=3D"adding-a-button-to-the-scene-graph"></a>
+<h2>Adding a Button to the Scene Graph</h2>
+
+<p>
+    For a JavaFX <code>Button</code> to be visible the button object must b=
+e added to the scene graph.
+    This means adding it to a
+    <code>Scene</code> object, or as child of a layout which is attached to=
+ a <code>Scene</code> object.
+</p>
+
+<p>
+    Here is an example that attaches a JavaFX <code>Button</code> to the sc=
+ene graph:
+</p>
+
+<pre class=3D"codeBox">package com.jenkov.javafx.controls;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
+
+public class ButtonExperiments extends Application  {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("HBox Experiment 1");
+
+        Button button =3D new Button("My Button");
+
+        Scene scene =3D new Scene(button, 200, 100);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+}
+</pre>
+
+<p>
+    Notice that the <code>Button</code> is added directly to the <code>Scen=
+e</code> object. Normally you would
+    nest the <code>Button</code> inside a layout component of some kind. I =
+have left that out here to keep the
+    example simple. See the tutorials about layout components to see how th=
+ey work.
+</p>
+
+<p>
+    The result of running the above JavaFX <code>Button</code> example is a=
+n application that looks like this:
+</p>
+
+<img src=3D"https://jenkov.com/images/java-javafx/javafx-button-1.png" alt=
+=3D"A JavaFX Button component displayed in the scene graph.">
+
+<p>
+    Notice that the button takes up all the space available in the window. =
+That is why it is hard to see the edges
+    of the button. When a JavaFX button is added to a layout component you =
+can more easily see the edges of the
+    button.
+</p>
+
+
+
+
+<a name=3D"button-text"></a>
+<h2>Button Text</h2>
+
+<p>
+    There are two ways to set the text of a JavaFX button. The first way is=
+ to pass the text to the <code>Button</code>
+    constructor. You have already seen this in earlier examples.
+</p>
+
+<p>
+    The second way to set the button text is by calling the <code>setText()=
+</code> method on the <code>Button</code>
+    instance. This can be done after the <code>Button</code> instance is cr=
+eated. Thus it can be used to change
+    the text of a <code>Button</code> that is already visible. Here is an e=
+xample how how calling <code>setText()</code>
+    on a JavaFX <code>Button</code> looks:
+</p>
+
+<pre class=3D"codeBox">button.setText("Click me if you dare!");
+</pre>
+
+
+
+<a name=3D"button-text-size"></a>
+<h3>Button Text Size</h3>
+
+<p>
+    You can set the text size of a JavaFX <code>Button</code>. You do so us=
+ing the CSS property <code>-fx-text-size</code>.
+    This CSS property is explained in the section about <a href=3D"https://=
+jenkov.com/tutorials/javafx/button.html#button-css-styles">Button CSS Styli=
+ng</a>
+</p>
+
+
+
+
+<a name=3D"button-text-wrap"></a>
+<h3>Button Text Wrap</h3>
+
+<p>
+    The JavaFX <code>Button</code> control supports text wrapping of the bu=
+tton text. By text wrapping is meant that
+    if the text is too long to be displayed on a single line inside the but=
+ton, the text is broken onto multiple lines.
+</p>
+
+<p>
+    You enable text wrapping on a JavaFX <code>Button</code> instance using=
+ the method <code>setWrapText()</code>.
+    The <code>setWrapText()</code> method takes a single <code>boolean</cod=
+e> parameter. If you pass a value of
+    <code>true</code> to <code>setWrapText()</code> then you enable text wr=
+apping. If you pass a value of
+    <code>false</code> to <code>setWrapText()</code> then you disable text =
+wrapping. Here is an example that
+    enables text wrapping on a JavaFX button:
+</p>
+
+<pre class=3D"codeBox">button.setWrapText(true);
+</pre>
+
+<p>
+    Here is a screenshot of two JavaFX buttons one of which has text wrappi=
+ng enabled:
+</p>
+
+
+<img src=3D"https://jenkov.com/images/java-javafx/javafx-button-7.png" alt=
+=3D"Two JavaFX Button instances, one with text wrap enabled.">
+
+
+
+<a name=3D"button-font"></a>
+<h2>Button Font</h2>
+<p>
+    You can specify what font the text on a JavaFX Button should be rendere=
+d with via its <code>setFont()</code>
+    method. You can read more about creating fonts in my <a href=3D"https:/=
+/jenkov.com/tutorials/javafx/fonts.html">JavaFX Fonts</a> tutorial.
+    Here is an example of setting a font on a JavaFX Button:
+</p>
+
+<pre class=3D"codeBox">Button button =3D new Button("Click me!");
+
+Font font =3D Font.font("Courier New", FontWeight.BOLD, 36);
+
+button.setFont(font);
+</pre>
+
+
+
+<a name=3D"default-button-mode"></a>
+<h2>Default Button Mode</h2>
+
+<p>
+    A JavaFX Button can be set into a <em>default mode</em>. When a Button =
+is in default mode it is rendered differently,
+    so the user can see that this is the default button. On Windows, the Bu=
+tton's background color changes, although
+    I guess that also depends on the color theme used in the application et=
+c. and may change in future versions of
+    JavaFX.
+</p>
+
+<p>
+    The default button is intended to be used for the "default choice" in a=
+ dialog or form. Thus, it becomes easier
+    for the user to select the choice that the user is most likely making m=
+ost often.
+</p>
+
+<p>
+    The default button of a dialog or form has some additional keyboard sho=
+rtcuts to help the user click it:
+</p>
+
+<ul>
+    <li>Windows + Linux
+       <ul>
+           <li>If no other button has focus, pressing the ENTER keyboard ke=
+y will activate the default button.</li>
+           <li>If the default button has focus, pressing the ENTER keyboard=
+ key will activate the default button.</li>
+       </ul>
+    </li>
+    <li>Mac
+        <ul>
+            <li>Only the default button can be activated by pressing the EN=
+TER keyboard key.
+                All other buttons are activated by pressing the the SPACE k=
+eyboard key.
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<p>
+    Setting a JavaFX Button as the default button is done via its <code>set=
+DefaultButton()</code> method.
+    Here is an example of setting a JavaFX button as default button:
+</p>
+
+<pre class=3D"codeBox">button.setDefaultButton(true);
+</pre>
+
+
+
+
+<a name=3D"cancel-button-mode"></a>
+<h2>Cancel Button Mode</h2>
+<p>
+    A JavaFX Button can be set into <em>cancel mode</em>. When a Button is =
+in cancel mode it can be activated
+    more easily by pressing the ESC keyboard key - if no other node in the =
+Scene graph consumes this key press.
+</p>
+
+<p>
+    Setting a JavaFX Button in cancel mode (as cancel button) is done via i=
+ts <code>setCancelButton()</code> method.
+    Here is an example of setting a JavaFX Button in cancel mode:
+</p>
+
+<pre class=3D"codeBox">buttonDefault.setCancelButton(true);
+</pre>
+
+
+
+<a name=3D"button-image"></a>
+<h2>Button Image</h2>
+
+<p>
+    It is possible to display an image inside a button next to the button t=
+ext. The JavaFX <code>Button</code> class
+    contains a constructor that can take a <code>Node</code> as extra param=
+eter. Here is a JavaFX label example
+    that adds an image to the button using an <a href=3D"https://jenkov.com=
+/tutorials/javafx/imageview.html">JavaFX ImageView</a> component:
+</p>
+
+<pre class=3D"codeBox">package com.jenkov.javafx.controls;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
+import java.io.FileInputStream;
+
+
+public class ButtonExperiments extends Application  {
+
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("HBox Experiment 1");
+
+        FileInputStream input =3D new FileInputStream("resources/images/ico=
+nmonstr-home-6-48.png");
+        Image image =3D new Image(input);
+        ImageView imageView =3D new ImageView(image);
+
+        Button button =3D new Button("Home", imageView);
+
+        Scene scene =3D new Scene(button, 200, 100);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+}
+</pre>
+
+<p>
+    The result of running the above JavaFX <code>Button</code> example is a=
+n application that looks like this:
+</p>
+
+<img src=3D"https://jenkov.com/images/java-javafx/javafx-button-2.png" alt=
+=3D"A JavaFX Label component with an image embedded.">
+
+
+
+
+<a name=3D"button-size"></a>
+<h2>Button Size</h2>
+
+<p>
+    The JavaFX Button class contains a set of methods you can use to set th=
+e button size. The methods controlling
+    the button size are:
+</p>
+
+<pre class=3D"codeBox">button.setMinWidth()
+button.setMaxWidth()
+button.setPrefWidth()
+
+button.setMinHeight()
+button.setMaxHeight()
+button.setPrefHeight()
+
+button.setMinSize()
+button.setMaxSize()
+button.setPrefSize()
+</pre>
+
+<p>
+    The methods <code>setMinWidth()</code> and <code>setMaxWidth()</code> s=
+ets the minimum and maximum width the
+    button should be allowed to have. The method <code>setPrefWidth()</code=
+> sets the preferred width of the button.
+    When there is space enough to display a button in its preferred width, =
+JavaFX will do so. If not, JavaFX will
+    scale the button down until it reaches its minimum width.
+</p>
+
+<p>
+    The methods <code>setMinHeight()</code> and <code>setMaxHeight()</code>=
+ sets the minimum and maximum height the
+    button should be allowed to have. The method <code>setPrefHeight()</cod=
+e> sets the preferred height of the button.
+    When there is space enough to display a button in its preferred height,=
+ JavaFX will do so. If not, JavaFX will
+    scale the button down until it reaches its minimum height.
+</p>
+
+<p>
+    The methods <code>setMinSize()</code>, <code>setMaxSize()</code> and <c=
+ode>setPrefSize()</code> sets both width
+    and height for the button in a single call. Thus, these methods takes b=
+oth a width and a height parameter.
+    For instance, calling
+</p>
+
+<pre class=3D"codeBox">button.setMaxSize(100, 200);
+</pre>
+
+<p>
+    is equivalent to calling
+</p>
+
+<pre class=3D"codeBox">button.setMaxWidth(100);
+button.setMaxHeight(200);
+</pre>
+
+<p>
+    Here is a screenshot of two JavaFX buttons. The first button has the de=
+fault size calculated from its button text
+    and the layout component it is nested inside. The second button has a p=
+referred width of 200 and height of 48
+    set on it:
+</p>
+
+<img src=3D"https://jenkov.com/images/java-javafx/javafx-button-6.png" alt=
+=3D"Two JavaFX Button instances - one with preferred width and height set o=
+n it.">
+
+
+
+
+
+
+<a name=3D"button-events"></a>
+<h2>Button Events</h2>
+
+<p>
+    In order to respond to the click of a button you need to attach an even=
+t listener to the <code>Button</code>
+    object. Here is how that looks:
+</p>
+
+<pre class=3D"codeBox">button.setOnAction(new EventHandler<actionevent>() {
+    @Override
+    public void handle(ActionEvent actionEvent) {
+        //... do something in here.
+    }
+});
+</actionevent></pre>
+
+<p>
+    Here is how attaching a click event listener looks with a <a href=3D"ht=
+tps://jenkov.com/java/lambda-expressions.html">Java Lambda expression</a>:
+</p>
+
+<pre class=3D"codeBox">button.setOnAction(actionEvent -&gt;  {
+    //... do something in here.   =20
+});
+</pre>
+
+<p>
+    Finally, let us see a full example that changes the text of a <a href=
+=3D"https://jenkov.com/tutorials/javafx/label.html">JavaFX Label</a> when t=
+he
+    button is clicked:
+</p>
+
+<pre class=3D"codeBox">package com.jenkov.javafx.controls;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
+public class ButtonExperiments extends Application  {
+
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("HBox Experiment 1");
+
+        Label label =3D new Label("Not clicked");
+        Button button =3D new Button("Click");
+
+        button.setOnAction(value -&gt;  {
+           label.setText("Clicked!");
+        });
+
+        HBox hbox =3D new HBox(button, label);
+
+        Scene scene =3D new Scene(hbox, 200, 100);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+}
+</pre>
+
+
+
+
+<a name=3D"button-mnemonic"></a>
+<h2>Button Mnemonic</h2>
+
+<p>
+    You can set a mnemonic on a JavaFX <code>Button</code> instance. A <i>m=
+nemonic</i> is a keyboard key which
+    activates the button when pressed in conjunction with the ALT key. Thus=
+, a mnemonic is a keyboard shortcut
+    to activating the button. I will explain how to activate a button via i=
+ts mnemonic later.
+</p>
+
+<p>
+    The mnemonic for a button is specified inside the button text. You mark=
+ which key is to be used as mnemonic by
+    placing an underscore character (<code>_</code>) in front of the charac=
+ter in the button text you want to set
+    as mnemonic for that button. The underscore character will not be displ=
+ayed in the button text.
+    Here is an example setting a mnemonic for a button:
+</p>
+
+<pre class=3D"codeBox">button.setMnemonicParsing(true);
+
+button.setText("_Click");
+</pre>
+
+<p>
+    Notice that it is necessary to first call <code>setMnemonicParsing()</c=
+ode> on the button with a value of
+    <code>true</code>. This instructs the button to parse mnemonics in the =
+button text. If you call this method
+    with a value of <code>false</code> instead, the underscore character in=
+ the button text will just show
+    up as text, and will not be interpreted as a mnemonic.
+</p>
+
+<p>
+    The second line sets the text <code>_Click</code> on the button. This t=
+ells the button to use the key <code>c</code>
+    as mnemonic. Mnemonics are case insensitive, so it does not have to be =
+an a uppercase <code>C</code> that activates
+    the button.
+</p>
+
+<p>
+    To activate the button you can now press ALT-C (both at the same time).=
+ That will activate the button just as if
+    you had clicked it with the mouse.
+</p>
+
+<p>
+    You can also first press the ALT key once. That will show the mnemonic =
+of the button in the button text. You
+    can then press the <code>c</code> key. If you press ALT and then ALT ag=
+ain, the mnemonic is first shown, then
+    hidden again. When the mnemonic is visible you can activate the button =
+with the mnemonic key alone, without ALT
+    pressed at the same time. When the mnemonic is not visible you have to =
+press both ALT and the mnemonic key
+    at the same time to activate the button.
+</p>
+
+<p>
+    Here are two screenshots showing what it looks like when the mnemonic i=
+s invisible and visible:
+</p>
+
+<img src=3D"https://jenkov.com/images/java-javafx/javafx-button-3.png" alt=
+=3D"A JavaFX Button with its mnemonic hidden.">
+<img src=3D"https://jenkov.com/images/java-javafx/javafx-button-4.png" alt=
+=3D"A JavaFX Button with its mnemonic visible.">
+
+
+
+
+<a name=3D"button-css-styles"></a>
+<h2>Button CSS Styles</h2>
+<p>
+    You can style a JavaFX button using CSS styles. The JavaFX <code>Button=
+</code> control supports the following
+    CSS styles:
+</p>
+
+<pre class=3D"codeBox">-fx-border-width
+-fx-border-color
+-fx-background-color
+-fx-font-size
+-fx-text-fill
+</pre>
+
+<p>
+    Here is an example setting the background color of a JavaFX button to r=
+ed:
+</p>
+
+<pre class=3D"codeBox">Button button =3D new Button("My Button");
+
+button.setStyle("-fx-background-color: #ff0000; ");
+</pre>
+
+<p>
+    This example sets the style directly on the button via the <code>setSty=
+le()</code> method, but you can also
+    style a JavaFX button via style sheets. See my <a href=3D"https://jenko=
+v.com/tutorials/javafx/css-styling.html">JavaFX CSS Styling</a> tutorial
+    for more information about using CSS stylesheets with JavaFX.
+</p>
+
+<p>
+    Here is a JavaFX button example which creates 4 different buttons. Each=
+ button has a CSS style set on
+    them. After the code example I have included a screenshot of how the bu=
+ttons look with the given styling.
+</p>
+
+<pre class=3D"codeBox">package com.jenkov.javafx.controls;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+
+public class ButtonExperiments extends Application  {
+
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Button Experiment 1");
+
+        Button button1 =3D new Button("Button 1");
+        Button button2 =3D new Button("Button 2");
+        Button button3 =3D new Button("Button 3");
+        Button button4 =3D new Button("Button 4");
+
+        button1.setStyle("-fx-border-color: #ff0000; -fx-border-width: 5px;=
+");
+        button2.setStyle("-fx-background-color: #00ff00");
+        button3.setStyle("-fx-font-size: 2em; ");
+        button4.setStyle("-fx-text-fill: #0000ff");
+
+
+        HBox hbox =3D new HBox(button1, button2, button3, button4);
+
+
+        Scene scene =3D new Scene(hbox, 400, 100);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+}
+</pre>
+
+
+<p>
+    Here is a screenshot of the 4 JavaFX buttons with their CSS styling:
+</p>
+
+<img src=3D"https://jenkov.com/images/java-javafx/javafx-button-5.png" alt=
+=3D"4 JavaFX Button instances with different CSS styling set on them.">
+
+<p>
+    The first button has both the <code>-fx-border-width</code> and <code>-=
+fx-border-color</code> CSS properties set.
+    This results in a 5 pixel wide red border for the button.
+</p>
+
+<p>
+    The second button has the <code>-fx-background-color</code> CSS propert=
+y set. This results in a green background color
+    for the button.
+</p>
+
+<p>
+    The third button has the <code>-fx-font-size</code> CSS property set. T=
+his results in a button with a text that
+    is 2 times as big as normal.
+</p>
+
+<p>
+    The fourth button has the <code>-fx-text-fill</code> CSS property set. =
+This results in a button with a blue
+    text color.
+</p>
+
+<p>
+    You can combine the CSS styles for a JavaFX button simply by setting mu=
+ltiple CSS properties on it, like the
+    first button in the example above has.
+</p>
+
+
+
+
+<a name=3D"disable-button"></a>
+<h2>Disable Button</h2>
+
+<p>
+    You can disable a JavaFX Button via its <code>setDisable()</code> metho=
+d. The <code>setDisable()</code> method
+    takes a <code>boolean</code> parameter which specify if the button shou=
+ld be disabled or not. A value of
+    <code>true</code> means the button will be disabled, and a value of <co=
+de>false</code> means it will not be
+    disabled - which means enabled. Here is an example of disabling a JavaF=
+X Button via its <code>setDisable()</code>
+    method:
+</p>
+
+
+<pre class=3D"codeBox">Button button =3D new Button();
+button.setText("Click me!");
+
+// here the app is running, and something happens so
+// the button should now be disabled.
+
+<b>button.setDisable(true);</b>
+
+
+// again the app runs, and something happens so
+// the button should now be enabled again.
+
+<b>button.setDisable(false);</b>
+</pre>
+
+
+
+<a name=3D"button-fxml"></a>
+<h2>Button FXML</h2>
+
+<p>
+    It is possible to declare a JavaFX Button inside a <a href=3D"https://j=
+enkov.com/tutorials/javafx/fxml.html">JavaFX FXML</a> file. I will not expl=
+ain
+    FXML in every detail here. Click on the link in the first sentence to r=
+ead more about how FXML works.
+    I will just show you the parts of FXML related to the JavaFX Button con=
+trol.
+    Here is a very simple FXML file example that shows how to declare a But=
+ton:
+</p>
+
+<pre class=3D"codeBox">&lt;?xml version=3D"1.0" encoding=3D"UTF-8"?&gt;
+    &lt;?import javafx.scene.layout.VBox?&gt;
+    &lt;?import javafx.scene.control.Button?&gt;
+    &lt;VBox xmlns:fx=3D"http://javafx.com/fxml" spacing=3D"20"&gt;
+    &lt;children&gt;
+        &lt;Button fx:id=3D"button1" text=3D"Click me!" onAction=3D"#button=
+Clicked"/&gt;
+    &lt;/children&gt;
+&lt;/VBox&gt;
+</pre>
+
+<p>
+    It is the &lt;Button&gt; element that declares the Button control. The =
+<code>fx:id</code> attribute can be used
+    to wire up the declared Button to a Button member variable inside an FX=
+ML Controller object.
+</p>
+
+<p>
+    The <code>text</code> attribute is used to set the corresponding <code>=
+text</code> property value in the
+    Button instance created for this Button declaration. That is the text d=
+isplayed on the button.
+</p>
+
+<p>
+    The <code>onAction</code> attribute is used to link the Button's <code>=
+onAction</code> event to a method
+    in the FXML controller object. In this example it is the method named <=
+code>buttonClicked()</code> in
+    the FXML controller.
+</p>
+
+<p>
+    Here is how the corresponding FXML controller object's class looks. Not=
+ice the name of the <code>button1</code>
+    Button member variable matches the <code>fx:id</code> attribute value i=
+n the FXML file. This member variable must
+    be public, by the way. Notice also the method <code>buttonClicked()</co=
+de> which is referenced from the
+    Button <code>onAction</code> attribute in the FXML file.
+</p>
+
+<pre class=3D"codeBox">import javafx.event.Event;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
+public class ButtonFXMLController {
+
+    public Button button1 =3D null;
+    private int   button1ClickCount =3D 0;
+
+    @FXML
+    public void buttonClicked(Event e){
+        this.button1ClickCount++;
+
+        String text =3D "Button1 clicked " + this.button1ClickCount + " tim=
+es";
+
+        System.out.println(text);
+
+        button1.setText(text);
+    }
+
+}
+</pre>
+
+<p>
+    And here is the full JavaFX app that loads the FXML file and creates th=
+e FXML controller etc. :
+</p>
+
+<pre class=3D"codeBox">import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.File;
+import java.net.URL;
+
+public class ButtonFXMLExample extends Application {
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        FXMLLoader loader =3D new FXMLLoader();
+
+        ButtonFXMLController controller =3D new ButtonFXMLController();
+        loader.setController(controller);
+
+        File fxmlFile =3D new File("assets/fxml/button-example.fxml");
+        URL fxmlUrl =3D fxmlFile.toURI().toURL();
+        loader.setLocation(fxmlUrl);
+
+        VBox vbox =3D loader.&lt;VBox&gt;load();
+        Scene scene =3D new Scene(vbox);
+
+        primaryStage.setScene(scene);
+
+        primaryStage.setTitle("Button FXML Example");
+        primaryStage.setWidth(300);
+        primaryStage.setHeight(300);
+        primaryStage.show();
+    }
+}
+</pre>
+
+
+
+<a name=3D"button-transformations"></a>
+<h2>Button Transformations</h2>
+<p>
+    You can add <a href=3D"https://jenkov.com/tutorials/javafx/transformati=
+ons.html">JavaFX transformations</a> to a JavaFX Button such as scaling, ro=
+tation,
+    translation etc. You add transformation objects to a JavaFX Button like=
+ this:
+</p>
+
+<pre class=3D"codeBox">button.getTransforms().add(scaleTransformation);
+</pre>
+
+<p>
+    Here is a full example of adding a Scale transformation to a JavaFX But=
+ton:
+</p>
+
+<pre class=3D"codeBox">import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.scene.transform.Scale;
+import javafx.stage.Stage;
+
+public class ButtonTransformationExample extends Application {
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+
+        Button button =3D new Button();
+
+        button.setText("Click me!");
+
+        button.setOnAction((event) -&gt; {
+            System.out.println("Button clicked!");
+        });
+
+        Scale scaleTransformation =3D new Scale();
+        scaleTransformation.setX(3.0);
+        scaleTransformation.setY(2.0);
+        scaleTransformation.setPivotX(0);
+        scaleTransformation.setPivotY(0);
+
+        button.getTransforms().add(scaleTransformation);
+
+        VBox  vbox  =3D new VBox(button);
+        Scene scene =3D new Scene(vbox);
+        primaryStage.setScene(scene);
+        primaryStage.setWidth(512);
+        primaryStage.setHeight(256);
+        primaryStage.show();
+    }
+
+}
+</pre>
+
+
+
+<!--
+    - image buttons
+
+-->
+
+        </div>
+
+        <div id=3D"next">Next: <a href=3D"https://jenkov.com/tutorials/java=
+fx/menubutton.html">JavaFX MenuButton</a></div>
+        <div id=3D"bottomSocial">
+
+            <div style=3D"display:inline-block;">
+                <table>
+                    <tbody><tr><td colspan=3D"2">
+                        <a href=3D"https://twitter.com/intent/tweet?url=3Dh=
+ttp://tutorials.jenkov.com/tutorials/javafx/button.html&amp;original_refere=
+r=3Djjenkov" class=3D"twitter-share-button" data-via=3D"jjenkov" target=3D"=
+_blank">Tweet</a>
+                    </td></tr>
+                    <tr><td class=3D"authorPhoto"><img src=3D"data:image/jp=
+eg;base64,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
+FzAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAACjwAAAAJzaWcgAAAAAENSVCBjdXJ2AAAAAAAAB=
+AAAAAAFAAoADwAUABkAHgAjACgALQAyADcAOwBAAEUASgBPAFQAWQBeAGMAaABtAHIAdwB8AIEA=
+hgCLAJAAlQCaAJ8ApACpAK4AsgC3ALwAwQDGAMsA0ADVANsA4ADlAOsA8AD2APsBAQEHAQ0BEwE=
+ZAR8BJQErATIBOAE+AUUBTAFSAVkBYAFnAW4BdQF8AYMBiwGSAZoBoQGpAbEBuQHBAckB0QHZAe=
+EB6QHyAfoCAwIMAhQCHQImAi8COAJBAksCVAJdAmcCcQJ6AoQCjgKYAqICrAK2AsECywLVAuAC6=
+wL1AwADCwMWAyEDLQM4A0MDTwNaA2YDcgN+A4oDlgOiA64DugPHA9MD4APsA/kEBgQTBCAELQQ7=
+BEgEVQRjBHEEfgSMBJoEqAS2BMQE0wThBPAE/gUNBRwFKwU6BUkFWAVnBXcFhgWWBaYFtQXFBdU=
+F5QX2BgYGFgYnBjcGSAZZBmoGewaMBp0GrwbABtEG4wb1BwcHGQcrBz0HTwdhB3QHhgeZB6wHvw=
+fSB+UH+AgLCB8IMghGCFoIbgiCCJYIqgi+CNII5wj7CRAJJQk6CU8JZAl5CY8JpAm6Cc8J5Qn7C=
+hEKJwo9ClQKagqBCpgKrgrFCtwK8wsLCyILOQtRC2kLgAuYC7ALyAvhC/kMEgwqDEMMXAx1DI4M=
+pwzADNkM8w0NDSYNQA1aDXQNjg2pDcMN3g34DhMOLg5JDmQOfw6bDrYO0g7uDwkPJQ9BD14Peg+=
+WD7MPzw/sEAkQJhBDEGEQfhCbELkQ1xD1ERMRMRFPEW0RjBGqEckR6BIHEiYSRRJkEoQSoxLDEu=
+MTAxMjE0MTYxODE6QTxRPlFAYUJxRJFGoUixStFM4U8BUSFTQVVhV4FZsVvRXgFgMWJhZJFmwWj=
+xayFtYW+hcdF0EXZReJF64X0hf3GBsYQBhlGIoYrxjVGPoZIBlFGWsZkRm3Gd0aBBoqGlEadxqe=
+GsUa7BsUGzsbYxuKG7Ib2hwCHCocUhx7HKMczBz1HR4dRx1wHZkdwx3sHhYeQB5qHpQevh7pHxM=
+fPh9pH5Qfvx/qIBUgQSBsIJggxCDwIRwhSCF1IaEhziH7IiciVSKCIq8i3SMKIzgjZiOUI8Ij8C=
+QfJE0kfCSrJNolCSU4JWgllyXHJfcmJyZXJocmtyboJxgnSSd6J6sn3CgNKD8ocSiiKNQpBik4K=
+WspnSnQKgIqNSpoKpsqzysCKzYraSudK9EsBSw5LG4soizXLQwtQS12Last4S4WLkwugi63Lu4v=
+JC9aL5Evxy/+MDUwbDCkMNsxEjFKMYIxujHyMioyYzKbMtQzDTNGM38zuDPxNCs0ZTSeNNg1EzV=
+NNYc1wjX9Njc2cjauNuk3JDdgN5w31zgUOFA4jDjIOQU5Qjl/Obw5+To2OnQ6sjrvOy07azuqO+=
+g8JzxlPKQ84z0iPWE9oT3gPiA+YD6gPuA/IT9hP6I/4kAjQGRApkDnQSlBakGsQe5CMEJyQrVC9=
+0M6Q31DwEQDREdEikTORRJFVUWaRd5GIkZnRqtG8Ec1R3tHwEgFSEtIkUjXSR1JY0mpSfBKN0p9=
+SsRLDEtTS5pL4kwqTHJMuk0CTUpNk03cTiVObk63TwBPSU+TT91QJ1BxULtRBlFQUZtR5lIxUnx=
+Sx1MTU19TqlP2VEJUj1TbVShVdVXCVg9WXFapVvdXRFeSV+BYL1h9WMtZGllpWbhaB1pWWqZa9V=
+tFW5Vb5Vw1XIZc1l0nXXhdyV4aXmxevV8PX2Ffs2AFYFdgqmD8YU9homH1YklinGLwY0Njl2PrZ=
+EBklGTpZT1lkmXnZj1mkmboZz1nk2fpaD9olmjsaUNpmmnxakhqn2r3a09rp2v/bFdsr20IbWBt=
+uW4SbmtuxG8eb3hv0XArcIZw4HE6cZVx8HJLcqZzAXNdc7h0FHRwdMx1KHWFdeF2Pnabdvh3Vne=
+zeBF4bnjMeSp5iXnnekZ6pXsEe2N7wnwhfIF84X1BfaF+AX5ifsJ/I3+Ef+WAR4CogQqBa4HNgj=
+CCkoL0g1eDuoQdhICE44VHhauGDoZyhteHO4efiASIaYjOiTOJmYn+imSKyoswi5aL/IxjjMqNM=
+Y2Yjf+OZo7OjzaPnpAGkG6Q1pE/kaiSEZJ6kuOTTZO2lCCUipT0lV+VyZY0lp+XCpd1l+CYTJi4=
+mSSZkJn8mmia1ZtCm6+cHJyJnPedZJ3SnkCerp8dn4uf+qBpoNihR6G2oiailqMGo3aj5qRWpMe=
+lOKWpphqmi6b9p26n4KhSqMSpN6mpqhyqj6sCq3Wr6axcrNCtRK24ri2uoa8Wr4uwALB1sOqxYL=
+HWskuywrM4s660JbSctRO1irYBtnm28Ldot+C4WbjRuUq5wro7urW7LrunvCG8m70VvY++Cr6Ev=
+v+/er/1wHDA7MFnwePCX8Lbw1jD1MRRxM7FS8XIxkbGw8dBx7/IPci8yTrJuco4yrfLNsu2zDXM=
+tc01zbXONs62zzfPuNA50LrRPNG+0j/SwdNE08bUSdTL1U7V0dZV1tjXXNfg2GTY6Nls2fHadtr=
+724DcBdyK3RDdlt4c3qLfKd+v4DbgveFE4cziU+Lb42Pj6+Rz5PzlhOYN5pbnH+ep6DLovOlG6d=
+DqW+rl63Dr++yG7RHtnO4o7rTvQO/M8Fjw5fFy8f/yjPMZ86f0NPTC9VD13vZt9vv3ivgZ+Kj5O=
+PnH+lf65/t3/Af8mP0p/br+S/7c/23////+ACxPcHRpbWl6ZWQgYnkgSlBFR21pbmkgMy4xMi4w=
+LjIgMHg2ZTVjZDUyNAD/2wBDAAYEBQUFBAYFBQUHBgYHCQ8KCQgICRINDQsPFRIWFhQSFBQXGiE=
+cFxgfGRQUHScdHyIjJSUlFhsoKygkKyEkJSP/2wBDAQYHBwkICREKChEjGBQYIyMjIyMjIyMjIy=
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyP/wAARCABAADgDASIAAhEBA=
+xEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABgADBAUHCAL/xAA0EAABAwMDAQcBBQkAAAAAAAABAgME=
+AAURBhIhMQcTQVFhcYGxIiNCweEIFBUWMnKRocL/xAAYAQEAAwEAAAAAAAAAAAAAAAAEAQIDAP/=
+EAB8RAAIDAAICAwAAAAAAAAAAAAABAhEhAxIxQRMicf/aAAwDAQACEQMRAD8A2jQlzUtL7T75W8=
+h0pCT5elHKe+WjK8AeQrGOzGY3Ku0uW6SHNxKAfKiDtB7SGLDb5EdttKphThI7wJ258T5fWqRfp=
+ms1toNZmobTAd7mZLaYPmpYHvmq6brrT8KW3HkzEpQ6cIeScp+cfNcgalv10uch2S066FKUVkpV=
+wSeOPz8Kp13F5t5syZLjqjzkE+Bq5XqdgTtQsXh4tQJTb8JQ4dQc7qpiQmQtlKspHQ1zJa9YzIC=
+2FRHHGA24obQo46dcfBrcdGaqg6khqIX3ctoZWk8Z9RWHK+i7ejbjrwTLjKdZ3pS2t0F1KRhQG0=
+H38OP9mlTV3jS13CNKQ+tLDKFksjIDpUMDn05pU6CuKYOT1lVop99u6rDKk4CDnPkKzjXch2+ai=
+fWgEKUvwyMD19eK0eJETaL33ihhpzKUqBx18DQzf7HNhXUK7vf+9uAtuJ6KJJGPijPHYxfZHvRW=
+jm7wy4qVkIaAAA/FRQOy7TwH3jLh5zjecUT2eHD07bURy4VO4y4vzPj8U9FvNvmuKajvlS09QUk=
+Yq6p+SaZnd97KLMqK45ELjLnVODxms90PKm6f1JJt6wU5Km1gjqR45rf5d1tqHDGcmNpfIyEE9a=
+yuHZ13rtTdtzYBSSHgseA25zVZxUlRDzQzmPSEyosjetLGEbm9m5LuUjg+XvSqZdoz8bMchfKdv=
+2SCFbRj4pUqGRSBy2TZoeobVarzCSkxxvSQUqHBBFCV0hOOTWESDhmK6hTSdvCjnkk+eccetHSQ=
+2hO1JAqpvcdlTQkbiFJUM46EetBjg+Mqwp7tbYs9kpkt78px1PQ+xqts1ki21xbrASM8bQOnGKf=
+u1xMSOpwqVjOAAMnmqCXcbmylKozDzYUMq3dSfPkVrFqi8Y2xr+WESpi5ZedC1LJO1wjBqfpmPF=
+teqZckqCHO4bZDqvHqVf8ANVVsvUhEvujuLqwSonO0+vPSptxhqmwkPBSm3SCrKeOv6YqPwiaS8=
+sZ1IiYzqBcx19gwHm96ccL3Zx9oeIwP0pVH1BJiPBiE+wTIYSja4TkK4zyPkilSIvAEkrLHU3bD=
+o+0uPxoLz12lNpPEZP3QV4ArPGP7c1XdmV7veox/F71JU4m4NPlllB2tNIQtACUp8TkqyTk8Dnr=
+XM6UlMWR4KUD9K6U7D0G8dlyDBwblZ5bhQnPK0LCVFPsfqkV3xpRZ0eS5JsIrk63Fwl4FSAeFmo=
+Ei7RJCE4lqbKT+EirXvWJ7OVoBCxhST9CKHZ2mbapxS9paQOVYUUgUemh12MwLjbLhqaHAkTEMI=
+fJQjecKdI5KAfM/nW0t26EiFksJAxxxXInbywqx3uxNw1LY7mGh9KQcFBUtXPnn7KTRFav2gtTN=
+wI8a4W2DNShASXU723HMDGSckZ+KRCNAuafZhtqeS8q/y2Gm46WWAkIWr+ok53Z46Y2/5pUGO9o=
+trvMgrO+3urVuKHjuT7buhHuKVTRnen//2Q=3D=3D" alt=3D"Jakob Jenkov"></td><td><p=
+ style=3D"margin: 0px 0px 6px 0px;">Jakob Jenkov</p><div class=3D"authorSoc=
+ialLinks"><a class=3D"iconLink" href=3D"https://twitter.com/#!/jjenkov" tit=
+le=3D"Follow on Twitter" target=3D"_blank"><img src=3D"data:image/png;base6=
+4,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABpElEQVRIx2NgwAOUlZWVFBUVq=
+xQUFPYC8XMg/gvFIPZekBxIDQOpQAkIgAashhr2nwAGqVkN0kOU4UBXxQA1fCbCYHT8GaSXkOFl=
+ZBiMgkFm4HM5RYYjWYLqE2iYkxMsOIMLJU6gEUqqIaCUdB1PQlgNT4rYFAG9uRVXqgHKpejp6TF=
+Bfa8BFJsPpEHx9xtZHTgJQ9M5hkEqKipyQLkkIPs7mtxM9PizsLBgAloQBZR7jObIKgZoJsKwAK=
+jBCOpCNSB/KcwioKYIbIkEKLceizl7GaBhiS0lLNXS0mKCGaCmpsYDtMwO6G05HBZgSyTPGXBFE=
+tAgI3V1dS5iMqeqqqoIrvjCaQEQzyW2aAH6NgSfBc9xSILioQIYTByELACq3Y4rKeOMZGg81BEy=
+HOgIFzx5ZS/OZIqEF4LiA4fhckD5p3gcWIUro4GS5FsgPg5UVASMRC4shpsA5R/iK8bhdQWWogJ=
+kwUSgIXrIhurr64MylBkoAaDlWtxFBRGF3Xsgvgwtd4gtED9jVEA0La6RLKFdhYPmE9pUmWhxQp=
+tKHxlQo9kCAHsFA8aGHksTAAAAAElFTkSuQmCC"></a> <a class=3D"iconLink" href=3D"=
+http://www.linkedin.com/pub/jakob-jenkov/0/a8/4a3" title=3D"Connect on Link=
+edIn" target=3D"_blank"><img src=3D"data:image/png;base64,iVBORw0KGgoAAAANS=
+UhEUgAAABgAAAAYCAYAAADgdz34AAABEklEQVRIx2NgwAOUlZWVFBUVqxQUFPYC8XMg/gvFIPZe=
+kBxIDQOpQAkIgAashhr2nwAGqVkN0kOU4UBXxQA1fCbCYHT8GaSXkOFlZBiMgkFm4HM5RYYjWYL=
+qE2iYkxMsOIMLJU6gEYpL8XcoJtWS1fCkiCe1fAfKy4AwGZb8BSdhaDr/TwMLQHFRxQDNRP9pEE=
+QgvJcBmitxKkKKp/9IKa5bTU2NT0VFRQoovh+P/ucMhHIrNguABosAg00MmgJ18MUDWRYA2beB+=
+D6IbW1tzUTIApKDCCbX0tLChMzHFUR7aWjBXkLJlCILwMmUQEajBP+F1xUEigpy8Wr6FXY0L67p=
+UuHQpcpEixPaVPrIgBrNFgAzO0iIN1MJVQAAAABJRU5ErkJggg=3D=3D"></a> <a class=3D"=
+iconLink" href=3D"https://www.youtube.com/user/jjenkov" title=3D"Subscribe =
+on YouTube" target=3D"_blank"><img src=3D"data:image/png;base64,iVBORw0KGgo=
+AAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABNElEQVRIx7VWSwrCMBANxYW48gTS2kJFaBfiHd=
+q1uxbP4cJNz+K6eIQeR3oAlyI6T0Zpwlj7MYEHJZN5k8zMS6pUy/B9f+l53tF13YpQE+4MfFewY=
+Y3qO5Y0iKBksscPYE0Jn07ktKs9OVw7EJu4wvcX+WEAsQZwtO18FHkjiH4SzvmQtHxNl1YTLui/=
+yN8oP60odMuFjrkLgmARhuE8juNpkiSToigcAN+Ygw1rsBY+Zne9Wpj73Mxh3re14SPwHBWLSDN=
+gV4Lo3LYA8BHSVClWpWaIomhmEtD8jXCi2q2lAPARAtRKUmue544QoKncMwXaNu1ZljmSyscE2H=
+QN0DdFq74psltk623aVWhpmg4TGufX3lWBYf2y4xzau64bQew9OMZJ7DyZRk3sPPqGuEb/tjwB4=
+iHvG88CuqcAAAAASUVORK5CYII=3D"></a> <a class=3D"iconLink" href=3D"http://je=
+nkov.com/rss.xml" title=3D"Subscribe to RSS Feed" target=3D"_blank"><img sr=
+c=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAB=
+qUlEQVRIx71WwUrDQBANEqQnP6AUSZo0JDnkByLSU/HkB0g/o0jJVUrx5MGvkHxDzuKxZ/HgoeQ=
+sOXiQom9kVjbJZhON7cKDbDI7M/vezG4MQzMcxxnbtp1YlpUBObBj0HNG38jG+O0YY8BBys4+W0=
+A2Ka3p5BxZzbGg6OC4ioLWtjm//oPjEsiHLvNezqUg5Z0w5zVa4jg2XdcdYsEM81vgtStdJU1Y0=
+JphdZdBEJgIdtUxUPpTippquYfDJZKZknMRCLs6wbeHtur6LmGu8y7bzmG78DzvWNLtrkWLxOAm=
+Uhog01PKHs8rYMvvNzK/LTvJDO5KpYHM/2QyGSCjNdO5FUGYriZNckPXrcQ/VZDv+6ZEy5zXbAR=
+dLLxSB20ACc9wciYFWXMCC5qHYXjUsIudliLgA3gC3oB3EYToYk1yUV3cJ0qKGkUGzZdcyiMO8i=
+LoQrAbtpnyfKYUWVemURQNpGp5ZFouuPvPhU4s9lBZprpGg8GKgtBOmC56n7DDkWhGmtOxomw03=
+VHRE2nrYdcDRe0C2utxfZAL5yBXZkWT/Vz68viP35Yv1q4mS+AFuV8AAAAASUVORK5CYII=3D">=
+</a> <a class=3D"iconLink" href=3D"https://t.me/jenkov_com" title=3D"Subscr=
+ibe to Telegram Channel" target=3D"_blank"><img src=3D"data:image/png;base6=
+4,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bA=
+AABv0lEQVRIx71WPUsDQRB9bya7FyQEI0QsJaSwsLKwFAsh/gArC/FnWARBUoullYWIiBxibRFS=
+WVhbilhYBSuRVCbEIhs5l9vLaYgD09wy7+2++Togw1S1TrIJoA2gC2DgvAugTbKpqnX81lS1BiB=
+2YMMJPgAQu5jJRnIPQC8HsO89F5sJfvAH4B/uMII3nwo8QfLzJU6/v8gSlMvPSTwF2AvJFoA773=
+s8vn09Z7Uk/QPAuYhsVioVcZe89KtLVetwdZ4XuENy31pbKhaLVkR2Eyo8peSiCYyaKAv0meShq=
+i6PkURkneSNiNQAwFq7EIhtA6Ou9A/eAZyJyEa1Wh1LAGNMieQJgAdVXUwQbgUIukjRP7bWzvll=
+LCLbAF4A3BUKhVLO/hmkEfQAXJPcNcbMG2NK4wSSvIyiyKa00W0WQRdh/T9VdQ2jMXBcLpcF6fa=
+aJVFmkkkekbwIAMMYs5QR3xaSHWTYcDjcUdVTl4cVEVlJnvf7/fVQLMlOrkZT1VURWQPw5uTabz=
+Qa4kBaIf2Tu2LSqHjEqHST366iKFoEcB+Iib+f8h/DbrbjOkEyu4XjvWQ2K9PLyWyWvkc09W/LF=
+x++dNA/GYlaAAAAAElFTkSuQmCC"></a> </div></td></tr>
+                </tbody></table>
+            </div>
+            <div style=3D"display: none;" class=3D"newsletterForm"></div>
+        </div>
+    </div>
+
+    <div id=3D"rightWrapper">
+        <b>Featured Videos</b><br><br>
+
+
+
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DEgOj=
+klzlnFw&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D23"><img =
+src=3D"https://jenkov.com/images/java-concurrency/java-thread-signaling-vid=
+eo-screenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DULlF=
+WomaPVw"><img src=3D"https://jenkov.com/images/dev-essentials/software-perf=
+ormance-optimization-principles-video-screenshot-small.png" alt=3D"Core Sof=
+tware Performance Optimization Principles"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DDqpP=
+RxCmxrM&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D22"><img =
+src=3D"https://jenkov.com/images/java-concurrency/thread-congestion-video-s=
+creenshot-small.png" alt=3D"Thread Congestion in Java - Video Tutorial"></a=
+><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DQrYI=
+Os1dA3M&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D21"><img =
+src=3D"https://jenkov.com/images/java-concurrency/single-threaded-design-vi=
+deo-screenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DcsXv=
+BjBOHws"><img src=3D"https://jenkov.com/images/polymorph/polymorph-video-sc=
+reenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DneaG=
+eFZ2j_w"><img src=3D"https://jenkov.com/images/java/what-I-love-about-Java-=
+video-screenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DtLS8=
+5IfsbYE&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D20"><img =
+src=3D"https://jenkov.com/images/java-concurrency/false-sharing-video-scree=
+nshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DnNXk=
+zDS6dOg&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D7"><img s=
+rc=3D"https://jenkov.com/images/java-concurrency/java-concurrency-plus-cach=
+e-coherence-video-screenshot-small.png"></a><br><br>
+        <!-- <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=
+=3DufWVK7CHOAk&list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&index=3D18"><img s=
+rc=3D"/images/java-concurrency/compare-and-swap-video-screenshot-small.png"=
+></a><br><br> -->
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DmTGd=
+tC9f4EU&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D1"><img s=
+rc=3D"https://jenkov.com/images/java-concurrency/java-concurrency-video-scr=
+eenshot-small.jpg"></a><br><br>
+    </div>
+</div>
+
+<div id=3D"footer">
+    Copyright Jenkov Aps
+</div>
+
+
+
+
+
+
+
+
+<div id=3D"trailTocFixedDiv">
+    <div id=3D"trailTocFixedCloseButton">Close TOC</div>
+    <div id=3D"trailTocFixedInnerDiv"></div>
+</div>
+
+<div id=3D"bottomNavBar2Parent">
+    <div id=3D"bottomNavBar2">
+
+        <div id=3D"allTrailsButtonDiv2">
+            <span><img src=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA=
+AABgAAAAYCAYAAADgdz34AAAAbUlEQVRIx+3SQQrAIAxEUenNewrvmkXUQgVJEwWdQEED4kb+Qz=
+SEPw0z389yi6d3JJKaWY5ryBKgxSVS9jgF9OItQkRXRaBxDYHHJeISt34XND5EEHETQcY/iEfcv=
+AkqbD7yAaYB1PkD7AB4TAY0StbUr69awQAAAABJRU5ErkJggg=3D=3D"></span> <br>
+            <span class=3D"navButton" style=3D"position:relative; top:-4px;=
+">All Trails</span>
+        </div>
+
+        <div id=3D"trailTocButtonDiv2">
+            <span><img src=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA=
+AABgAAAAYCAYAAADgdz34AAAAPElEQVRIx2P4TwPAgAzoZgEDrQDdLaB6cI1aMHgtoFriGRkWEB=
+3eg9YHo0E08BaM8CAiWoLaFlAL0NwCANELs4XjmhvVAAAAAElFTkSuQmCC"></span> <br>
+            <span class=3D"navButton" style=3D"position:relative; top:-4px;=
+">Trail TOC</span>
+        </div>
+
+        <div id=3D"pageTocButtonDiv2">
+            <span><img src=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA=
+AABgAAAAYCAYAAADgdz34AAAANUlEQVRIx2NggIL/VAYM6GDUglELqGcBA4Vg1ALqWkBOhA4uH4=
+wG0cBbMBpEw9QCagG6WQAAX980BcIgiscAAAAASUVORK5CYII=3D"></span> <br>
+            <span class=3D"navButton" style=3D"position:relative; top:-4px;=
+">Page TOC</span>
+        </div>
+
+        <div id=3D"prevButtonDiv2">
+            <span><img src=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA=
+AABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADs=
+MAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuNvyMY98AAACCSURBVEhL3=
+ZRRCsAgDEM9iez+dxJPUl0K9W+MtKMiC/RL80Lz0eKViNQxRpsvwnvHv8ssvGD8ORzjh7Odf4F3=
+4zxK30O1qImEV7Pw0nUJeEuFY/xwspZceKiWVLgqPUC1JQSAc0Iwh2+iZiIkdiqWdobknOslmM8=
+JwcbxELaujSGl3GNH6mWcCMu2AAAAAElFTkSuQmCC"></span> <br>
+            <span class=3D"navButton" style=3D"position:relative; top:-4px;=
+">Previous</span>
+        </div>
+
+        <div id=3D"nextButtonDiv2">
+            <!--<span class=3D"navButton" id=3D"nextButton1_2" style=3D"pos=
+ition:relative; top:-4px;">Next</span>-->
+            <span><img src=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA=
+AABgAAAAYCAYAAADgdz34AAAAb0lEQVRIx82W2w1AIQhDmcS4/07GScDbu4AvUlMSv9QeA6Rohn=
+D3GhF9TAL7DeeK3cYuBEscgss6kBc16VlI2YTULKStIH9aMzXRgTxJlzaECpAQv+okaptSX35gF=
+ed+RBWn2jV14FBHJvVnwRT/AGJL6mWb6M7pAAAAAElFTkSuQmCC"></span> <br>
+            <span class=3D"navButton" id=3D"nextButton2_2" style=3D"positio=
+n:relative; top:-4px;">Next</span>
+        </div>
+
+    </div>
+</div>
+
+<!-- Top menu script -->
+
+
+
+<!-- Nav bar code -->
+
+
+
+
+
+
+
+<!-- Google Analytics Script -->
+
+
+
+</body></html>
+------MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-78005b89-70be-430b-a7a9-8a8d084ad9da@mhtml.blink
+
+@charset "utf-8";
+
+#body { margin: 0px; font-family: Arial; background-color: rgb(34, 34, 34);=
+ color: rgb(255, 255, 255); }
+
+body { margin: 0px; font-family: Arial; background-color: rgb(240, 240, 240=
+); color: rgb(255, 255, 255); }
+
+#header { height: 66px; background-color: rgb(0, 0, 0); position: fixed; to=
+p: 0px; left: 0px; width: 100%; box-shadow: rgb(153, 153, 153) 0px 8px 6px =
+-6px; }
+
+#menuButton { width: 20px; height: 18px; position: absolute; top: 24px; lef=
+t: 24px; }
+
+#menuButton div { position: relative; height: 2px; width: 20px; margin-bott=
+om: 4px; background-color: rgb(255, 255, 255); }
+
+#menuButton:hover { cursor: pointer; }
+
+#topBarLogo { position: relative; left: 0px; top: 5px; width: 370px; }
+
+#logoLink { position: relative; top: -8px; left: 236px; height: 40px; width=
+: 300px; }
+
+#logoLink:hover { cursor: pointer; }
+
+#menuItems { background-color: rgba(0, 0, 0, 0.8); display: none; position:=
+ fixed; top: 66px; left: 0px; width: 100%; }
+
+.menuItem { color: rgb(255, 255, 255); display: inline-block; padding: 24px=
+; }
+
+#menuItems a { color: rgb(255, 255, 255); text-decoration: none; }
+
+#footer { padding: 24px; margin: 16px 0px 0px; background-color: rgb(0, 0, =
+0); }
+------MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-a8be7593-0777-4c2d-8e5f-a56e4086c378@mhtml.blink
+
+@charset "utf-8";
+
+#navWrapper { display: inline-block; height: calc(100% - 164px); background=
+-color: rgb(240, 240, 240); width: 550px; color: rgb(51, 51, 51); }
+
+#navigation { display: inline-block; }
+
+#navigation a { color: rgb(0, 0, 0); }
+
+#navigation > div { display: inline-block; border-right: 1px solid rgb(208,=
+ 208, 208); vertical-align: top; cursor: pointer; }
+
+#navigation > div > div { border-top: 1px solid rgb(208, 208, 208); }
+
+#navThemes { width: 150px; box-sizing: border-box; }
+
+#navThemes > div { padding: 6px 12px 6px 24px; border-bottom: 1px solid rgb=
+(208, 208, 208); }
+
+#navTopics { width: 150px; box-sizing: border-box; }
+
+#navArticles { width: 250px; box-sizing: border-box; }
+
+#navTopics > div, #navArticles > div { padding: 6px 12px; border-bottom: 1p=
+x solid rgb(208, 208, 208); }
+
+.selected { font-weight: bold; background-color: rgb(255, 255, 255); }
+
+.notSelected { }
+
+#navPath { padding: 8px 8px 8px 22px; color: rgb(102, 102, 102); font-size:=
+ 0.9em; background-color: rgb(255, 255, 255); border: 1px solid rgb(208, 20=
+8, 208); box-shadow: rgb(153, 153, 153) 0px 4px 3px -3px; margin-bottom: 8p=
+x; }
+
+#navPath > a { cursor: pointer; font-weight: bold; }
+------MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-78431277-08de-452c-9a1d-0bc63b8802c9@mhtml.blink
+
+@charset "utf-8";
+
+#mainAreas { width: 100%; }
+
+.mainArea { display: inline-block; width: 25%; padding: 24px; box-sizing: b=
+order-box; border-width: 1px; border-style: solid; border-color: rgb(51, 51=
+, 51) rgb(0, 0, 0) rgb(0, 0, 0) rgb(51, 51, 51); text-align: center; color:=
+ rgb(255, 255, 255); font-size: 1.2em; }
+------MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-4f5d9e03-c216-44c1-933a-cf4ef70f2ebc@mhtml.blink
+
+@charset "utf-8";
+
+#main { display: inline-block; text-align: left; vertical-align: top; paddi=
+ng: 20px 30px; margin: 0px 0px 0px 2px; }
+
+#main { width: calc((100% - 550px) - 100px); max-width: 1000px; background-=
+color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: 1px solid rgb(208, =
+208, 208); box-shadow: rgb(153, 153, 153) 0px 8px 6px -6px; }
+
+@media only screen and (min-width: 1px) and (max-width: 1200px) {
+  #navWrapper { display: none; }
+  #main { width: 100%; box-sizing: border-box; }
+}
+
+#trailToc { visibility: hidden; }
+
+#pageToc { border: 1px solid rgb(238, 238, 238); }
+
+#pageToc a { text-decoration: none; }
+
+#lastUpdate { border-right: 1px solid rgb(238, 238, 238); border-bottom: 1p=
+x solid rgb(238, 238, 238); border-left: 1px solid rgb(238, 238, 238); bord=
+er-image: initial; border-top: none; color: rgb(102, 102, 102); font-size: =
+0.8em; }
+
+a { text-decoration: none; }
+
+#pageToc a { color: rgb(0, 0, 102); }
+
+#mainBody a { font-weight: bold; color: rgb(0, 0, 102); }
+
+#mainBody img { max-width: 100%; }
+
+#next a { font-weight: bold; color: rgb(0, 0, 102); }
+
+#next { border-top: 1px solid rgb(238, 238, 238); border-bottom: 1px solid =
+rgb(238, 238, 238); padding: 8px 0px; font-size: 1.2em; }
+
+.codebox, .codeBox { border: 1px solid rgb(204, 204, 204); padding: 8px; ba=
+ckground-color: rgb(240, 255, 240); }
+------MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-9165b4c2-ae81-48fb-ba0e-e03640220a34@mhtml.blink
+
+@charset "utf-8";
+
+#rightWrapper { display: inline-block; color: rgb(0, 0, 0); vertical-align:=
+ top; background-color: rgb(255, 255, 255); border: 1px solid rgb(208, 208,=
+ 208); box-shadow: rgb(153, 153, 153) 0px 8px 6px -6px; margin: 0px 0px 0px=
+ 8px; padding: 20px; }
+
+@media only screen and (min-width: 1px) and (max-width: 1200px) {
+  #rightWrapper { display: none; }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1900px) {
+  #rightWrapper { display: none; }
+}
+------MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-6e800cf1-c7a7-4327-9eee-c638ca28d5eb@mhtml.blink
+
+@charset "utf-8";
+
+.navButton { color: rgb(255, 255, 255); font-weight: bold; }
+
+#trailTocFixedDiv { position: fixed; top: 0px; left: 0px; width: 100%; heig=
+ht: 100%; display: none; background-color: rgb(255, 255, 255); }
+
+#trailTocFixedInnerDiv { width: 400px; max-width: 94%; height: calc(100% - =
+72px); overflow: auto; margin: 20px auto; padding: 0px 0px 180px; }
+
+#trailTocFixedInnerDiv th { border-bottom: 1px solid rgb(240, 240, 240); pa=
+dding: 6px 10px; text-align: left; font-size: 1.2em; }
+
+#trailTocFixedInnerDiv td { border-bottom: 1px solid rgb(240, 240, 240); pa=
+dding: 6px 20px; vertical-align: top; }
+
+#trailTocFixedCloseButton { width: 72px; padding: 10px 20px; background-col=
+or: rgb(0, 153, 0); border: 2px solid rgb(0, 102, 0); color: rgb(255, 255, =
+255); font-size: 0.8em; font-weight: bold; position: absolute; right: 0px; =
+cursor: pointer; box-shadow: rgb(204, 204, 204) 2px 2px 2px 2px; }
+
+#bottomNavBarDiv { position: fixed; bottom: 0px; width: 100%; background-co=
+lor: rgb(32, 32, 32); border-top: 1px solid rgb(68, 68, 68); }
+
+.buttonNavBarButtonDivActive { background-color: rgb(64, 64, 64); }
+
+#bottomNavBarRow > div { border-left: 1px solid rgb(64, 64, 64); border-rig=
+ht: 1px solid rgb(0, 0, 0); height: 48px; padding-top: 16px; text-align: ce=
+nter; cursor: pointer; }
+
+#bottomNavBarDiv a { color: rgb(255, 255, 255); font-weight: bold; }
+
+#bottomNavBarDiv br { display: none; }
+
+#bottomNavBarDiv img { height: 20px; }
+
+#nextButton2 { display: none; }
+
+.dataTable { border-top: 1px solid rgb(204, 204, 204); border-right: 1px so=
+lid rgb(204, 204, 204); border-spacing: 0px; }
+
+.dataTable th { padding: 4px 8px; border-left: 1px solid rgb(204, 204, 204)=
+; border-bottom: 1px solid rgb(204, 204, 204); background-color: rgb(238, 2=
+38, 238); }
+
+.dataTable td { padding: 4px 8px; border-left: 1px solid rgb(204, 204, 204)=
+; border-bottom: 1px solid rgb(204, 204, 204); }
+
+@media only screen and (max-width: 700px) {
+  #bottomNavBarDiv, #bottomNavBarDiv [jqc-cell] { height: 58px; }
+  #bottomNavBarDiv [jqc-cell] { padding-top: 12px; }
+  #bottomNavBarDiv a { font-size: 0.8em; }
+  #bottomNavBarDiv br { display: inline; }
+  #nextButton1 { display: none; }
+  #nextButton2 { display: inline; }
+}
+
+@media only screen and (max-width: 400px) {
+  #bottomNavBarDiv [jqc-cell] { padding-top: 10px; }
+  #bottomNavBarDiv a { font-size: 0.5em; }
+  #bottomNavBarDiv img { height: 24px; }
+}
+------MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-95a2455a-0b78-4684-85e6-3fae129a9acc@mhtml.blink
+
+@charset "utf-8";
+
+#bottomNavBar2Parent { position: fixed; bottom: 0px; width: 100%; backgroun=
+d-color: rgb(32, 32, 32); border-top: 1px solid rgb(68, 68, 68); }
+
+#bottomNavBar2 > div { border-left: 1px solid rgb(64, 64, 64); border-right=
+: 1px solid rgb(0, 0, 0); height: 48px; padding-top: 16px; text-align: cent=
+er; cursor: pointer; }
+
+#bottomNavBar2 { display: grid; }
+
+#allTrailsButtonDiv2 { grid-column: 1 / 3; }
+
+#trailTocButtonDiv2 { grid-column: 3 / 5; }
+
+#pageTocButtonDiv2 { grid-column: 5 / 7; }
+
+#prevButtonDiv2 { grid-column: 7 / 9; }
+
+#nextButtonDiv2 { grid-column: 9 / 13; }
+------MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jenkov.com/images/java-javafx/javafx-button-1.png
+
+iVBORw0KGgoAAAANSUhEUgAAANgAAACKCAYAAADIZoQRAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA
+B3RJTUUH4AUNCAUPA8Fe4wAAAAd0RVh0QXV0aG9yAKmuzEgAAAAMdEVYdERlc2NyaXB0aW9uABMJ
+ISMAAAAKdEVYdENvcHlyaWdodACsD8w6AAAADnRFWHRDcmVhdGlvbiB0aW1lADX3DwkAAAAJdEVY
+dFNvZnR3YXJlAF1w/zoAAAALdEVYdERpc2NsYWltZXIAt8C0jwAAAAh0RVh0V2FybmluZwDAG+aH
+AAAAB3RFWHRTb3VyY2UA9f+D6wAAAAh0RVh0Q29tbWVudAD2zJa/AAAABnRFWHRUaXRsZQCo7tIn
+AAAgAElEQVR4nO2de5QV1Z3vP7tO9eluHgIqgjbQ4pCLQUYdH0jQ1pDE1wTaGR4i3FlyczO5PmeC
+RkcUJo4ZSDRAYDRjYsbcK1yXCkJugtdFlKww2qPCRL0zxKDEtRSBVsBHy7u7z6na94967V2Pc+o0
+LZi4v1B9qva7du3v/v32b+9dJaSUqLjzzjvl6rXrMDAwqA1XfKmFBx54QKhuIiDY4sWL5UOPPIot
+BLfceit/9V9nHZNCfjohKvjJCn61ISulYkFw/fXX85Mf/6jX8qqGHz/0ENdfd91Ryetfbr2Bb/zg
+6N1bb2L2Vy/nkaef5X/+78dYumQJZSm56oqvsHjxYgFgg0euxUvvZ+F3v8fkv5zGhwfLvP7eIT8J
+4TUvq2cFEBkXImhNQmSFjlwFyN5rx2FWqUnKRLBK3jWh0j2keUn/z8gTinQccth7uMzBLidXXpW6
+hMqe0FgscKhbcrgk+fhQd2rU7FtJ+lTKrqFo45bKdLz5Jgd+/zoABQHCb28FP75Aeo0VrylaCMDF
+Cv2rQ6aEk/7h+imr1xJw/DtwwzDec3Qk9BlxKq7rcLBb8uXJM5g2/Rr+z+qVzJt3J4BcvHixsAEe
+euRRFiz8Ll+ZNIUdHd0IIRDBHYqgUHluIYziVbPw/sQrQIgwUZ1flVLMn30CNZEiM58jKEAFSCCu
+piPBRYY5evUn/OcioojRT1DVRwz9WYuge80IV5tPemiBdCS4LpRLILxGbQGWELi4FPywLmAJ7zdo
+U64fNu8zTgvnxoodkCt4LME10grJJwDpODguIARdDuw64HLlX8xAIrlv0RIWLwb75ptvlrYQtE6Z
+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
+UiAAAAAASUVORK5CYII=
+
+------MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jenkov.com/images/java-javafx/javafx-button-4.png
+
+iVBORw0KGgoAAAANSUhEUgAAANgAAACKCAYAAADIZoQRAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA
+B3RJTUUH4AUfByshJVyCKQAAAAd0RVh0QXV0aG9yAKmuzEgAAAAMdEVYdERlc2NyaXB0aW9uABMJ
+ISMAAAAKdEVYdENvcHlyaWdodACsD8w6AAAADnRFWHRDcmVhdGlvbiB0aW1lADX3DwkAAAAJdEVY
+dFNvZnR3YXJlAF1w/zoAAAALdEVYdERpc2NsYWltZXIAt8C0jwAAAAh0RVh0V2FybmluZwDAG+aH
+AAAAB3RFWHRTb3VyY2UA9f+D6wAAAAh0RVh0Q29tbWVudAD2zJa/AAAABnRFWHRUaXRsZQCo7tIn
+AAAgAElEQVR4nO2dfZgVxZ3vP9Wn58wMMwKjIogMipoElateIbpZ380SJIKL4UXx5m7i47q+kSiQ
+3AcliTGrxnudQRNyibp4zbp5DCC6vsDiyz4SZVXMI95czTUk100MMxoQEeVFZuac03X/qK7u6j7d
+5/SZGYaRrS/0dJ967+r61u9Xv6quFlJKTNx0003y0aeeBSGwsLDIjinnfYGlS5dGiCM0wdra2uR9
+P3sY14EFCxbyXy6fq4P0LjczmkwN1evkP7WoVBcpyOfg6muu4f57l/V/eVJw7333c83Vfzcgef3D
+gmu5aslPBySv/sbXLprCz/7lOR586BfcvaSdohRcPOU82traBIALilxtdy/ltjt+yMWXzGbHJyU2
+b+sGQCB6J80EIGP8EeVB1EXl9Cv59qK9qhRFryP3vhyyhrCA55/HtTh8tM9jV5fH3u5S7YXzkfUp
+NuRz7CtI9hXg408KNeRQe4U25nN4hSI7336bPb//LQA5AY5f2By63FI1VsDxD/BwVAvttcKlS+z5
+KUvfzfPPqrYFHuHzkBJKEoaMPQbPK7G3B77413OZeelc/vmRFSy++SYA2dbWJlyAe//Xz/n722/n
+i1++hC0fdiMcB9EHFVHoUoQMijxcM2mhG3sYMzm9BMgKfplQIbKsHiR7OaokFm+W+iE7SZ59QC31
+JXuVr069tsiyJMHzoKjIXPJTyAko4QUk81DE8/zfgRsC2YeGoNMzf0vCOtDkktIJyAfgFUuU/B9d
+Rdi6B6ZechlIyX9vW0JbG7jz5s2TrgPTZ8xiy4c9OI7jkyOu41W/g5AnMvJb+H80zXTSEV6J6jlk
+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
+Wxfh3/8H2lqkMBw+8IoAAAAASUVORK5CYII=
+
+------MultipartBoundary--NsBZla9JWLFLsDMiqVKkH1KYl3gKBa3jMJRObBG3nk------

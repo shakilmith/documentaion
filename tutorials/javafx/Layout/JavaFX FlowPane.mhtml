@@ -1,0 +1,977 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://jenkov.com/tutorials/javafx/flowpane.html
+Subject: JavaFX FlowPane
+Date: Sat, 5 Nov 2022 04:52:27 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--s45NvD4UrloCfoLVUP8FAiYaf0yxSiacZ6TwT9sm5j----"
+
+
+------MultipartBoundary--s45NvD4UrloCfoLVUP8FAiYaf0yxSiacZ6TwT9sm5j----
+Content-Type: text/html
+Content-ID: <frame-B712A3004E8E710098BDFB57F2C0ED4A@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://jenkov.com/tutorials/javafx/flowpane.html
+
+<!DOCTYPE html><html><head lang=3D"en"><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/=
+css" href=3D"cid:css-4982f2dd-3222-4442-abb9-fe51eaf3c9e7@mhtml.blink" /><l=
+ink rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-f1218509-4772-4fa9=
+-bd12-c84f2ad1b611@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css=
+" href=3D"cid:css-b346d116-679b-47b2-b003-1c9da7e2a7c3@mhtml.blink" /><link=
+ rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-17c90555-06c2-4c3f-b8=
+69-67757a7e63ad@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css" h=
+ref=3D"cid:css-a850f672-9e2f-4934-9e6d-f439c2b242b0@mhtml.blink" />
+   =20
+    <meta name=3D"HandheldFriendly" content=3D"True">
+    <meta name=3D"MobileOptimized" content=3D"480">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, height=3Ddevic=
+e-height initial-scale=3D1, user-scalable=3D1">
+
+    <title>JavaFX FlowPane</title>
+
+    <meta name=3D"description" content=3D"A JavaFX FlowPane is a layout com=
+ponent which lays out its child components either vertically or horizontall=
+y, and which can wrap the components onto the next row or column if there i=
+s not enough space in one row.">
+    <meta name=3D"keywords" content=3D"javafx flowpane tutorial">
+    <meta name=3D"author" content=3D"Jakob Jenkov">
+
+    <meta name=3D"twitter:card" content=3D"summary_large_image">
+    <meta name=3D"twitter:site" content=3D"@jjenkov">
+    <meta name=3D"twitter:title" content=3D"JavaFX FlowPane">
+    <meta name=3D"twitter:description" content=3D"A JavaFX FlowPane is a la=
+yout component which lays out its child components either vertically or hor=
+izontally, and which can wrap the components onto the next row or column if=
+ there is not enough space in one row.">
+    <meta name=3D"twitter:creator" content=3D"@jjenkov">
+    <meta name=3D"twitter:domain" content=3D"jenkov.com">
+
+    <meta name=3D"twitter:image:src" content=3D"http://tutorials.jenkov.com=
+/images/java-javafx/javafx-teaser-500-300.png">
+
+    <meta name=3D"og:type" content=3D"article">
+    <meta name=3D"og:title" content=3D"JavaFX FlowPane">
+    <meta property=3D"og:url" content=3D"http://tutorials.jenkov.com/tutori=
+als/javafx/flowpane.html">
+    <meta property=3D"og:description" content=3D"A JavaFX FlowPane is a lay=
+out component which lays out its child components either vertically or hori=
+zontally, and which can wrap the components onto the next row or column if =
+there is not enough space in one row.">
+
+    <meta property=3D"og:image" content=3D"http://tutorials.jenkov.com/imag=
+es/java-javafx/javafx-teaser-500-300.png">
+
+    <meta name=3D"google-site-verification" content=3D"i_TwzdElg-by5uXLvyAj=
+uIaCjxo0yjtW8LdRPUDEEcw">
+
+    <link rel=3D"icon" href=3D"https://jenkov.com/favicon.ico" type=3D"imag=
+e/x-icon">
+</head>
+
+<body>
+<!-- Layout specific styles -->
+
+<div id=3D"header">
+
+    <div id=3D"topBarLogo">
+        <svg x=3D"0px" y=3D"0px" width=3D"380px" height=3D"48px" viewBox=3D=
+"0 0 380 100" style=3D"enable-background:new 0 0 380 100;" xml:space=3D"pre=
+serve">
+        <path d=3D"M3,32 l10,0  l0,26  c-7,21 -30,21 -53,10  l4,-9  c18,11 =
+33,10 39,-3  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></=
+path>
+            <path d=3D"M19,32 l50,0  l0,9  l-50,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M19,49 l50,0  l0,9  l-50,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M19,65 l50,0  l0,9  l-50,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M76,32 l13,0  l40,31  l0,-31  l10,0  l0,42  l-10,0 l=
+-43,-32 l0,32 l-10,0 z " style=3D"stroke: none; stroke-width: 1; fill: #fff=
+fff;"></path>
+            <path d=3D"M129,32  l10,0  l0,15 l5,0  l32.5,-14.5  l19,0  l-41=
+,19  l40,22  l-19,0  l-33,-18  l-3.5,0  l0,19  l-10,0 z " style=3D"stroke: =
+none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M188,49  c10,-24 60,-24 70,0  l-11,0  c-10,-12 -38,-=
+12 -48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></pat=
+h>
+            <path d=3D"M188,57  c10,24 60,24 70,0  l-11,0  c-10,12 -38,12 -=
+48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M254,32  l13,0  l25,34 l25,-34  l13,0  l-32,42 l-12.=
+5,0 z" style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M319,65  l12,0 l0,8 l-12,0 z" style=3D"stroke: none;=
+ stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M340,53  c3,-27 54,-27 67,-10  l-15,0  c-10,-5 -40,-=
+5 -41.5,10 l-10,0  " style=3D"stroke: none;  stroke-width: 1; fill: #ffffff=
+;"></path>
+            <path d=3D"M340,53  c3,27 54,27 67,10  l-15,0  c-10,5 -40,5 -41=
+.5,-10 l-10,0  " style=3D"stroke: none;  stroke-width: 1; fill: #ffffff;"><=
+/path>
+            <path d=3D"M410,49  c10,-24 60,-24 70,0  l-11,0  c-10,-12 -38,-=
+12 -48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></pat=
+h>
+            <path d=3D"M410,57  c10,24 60,24 70,0  l-11,0  c-10,12 -38,12 -=
+48,0  z " style=3D"stroke: none; stroke-width: 1; fill: #ffffff;"></path>
+            <path d=3D"M484,34  l10,0  l0,6 c13,-10 26,-10 37,0  c12,-10 32=
+,-10 39,3  l0,30  l-10,0  l0,-27  c-3,-9 -24,-9 -28,3 l0,24  -10,0  l0,-27 =
+ c-3,-9 -24,-9 -28,3 l0,24  -10,0 z" style=3D"stroke: none; stroke-width: 1=
+; fill: #ffffff;"></path>
+        </svg>
+    </div>
+
+    <div id=3D"logoLink">Tech &amp; Media Labs</div>
+
+
+    <div id=3D"menuButton">
+        <svg x=3D"0px" y=3D"0px" width=3D"24px" height=3D"24px" viewBox=3D"=
+0 0 24 24" style=3D"enable-background:new 0 0 24 24;" xml:space=3D"preserve=
+">
+            <rect x=3D"0" y=3D"0" width=3D"24" height=3D"24" style=3D"strok=
+e:none; fill: #000000;"></rect>
+            <path d=3D"M0,2 l20,0" style=3D"stroke: #ffffff; stroke-width: =
+2; fill: none;"></path>
+            <path d=3D"M0,8 l20,0" style=3D"stroke: #ffffff; stroke-width: =
+2; fill: none;"></path>
+            <path d=3D"M0,14 l20,0" style=3D"stroke: #ffffff; stroke-width:=
+ 2; fill: none;"></path>
+        </svg>
+    </div>
+
+</div>
+
+<div id=3D"menuItems">
+    <div class=3D"menuItem"><a href=3D"http://tutorials.jenkov.com/">Tutori=
+als</a></div>
+    <!--
+    <div class=3D"menuItem">Tools</div>
+    <div class=3D"menuItem">Themes</div>
+    <div class=3D"menuItem">News</div>
+    -->
+    <div class=3D"menuItem"><a href=3D"https://jenkov.com/rss.xml">RSS</a><=
+/div>
+    <div class=3D"menuItem"><a href=3D"https://jenkov.com/">Home</a></div>
+    <!--
+    <div class=3D"menuItem">About</div>
+    -->
+</div>
+
+<div style=3D"height: 82px;"></div>
+
+<!-- Navigation Specific Styles -->
+
+
+
+<!-- article specific styles -->
+
+
+
+
+<div id=3D"mainWrapper">
+    <div id=3D"navWrapper">
+        <div id=3D"navPath"></div>
+        <div id=3D"navigation">
+            <div id=3D"navThemes"></div><div id=3D"navTopics"></div><div id=
+=3D"navArticles"></div>
+        </div>
+        <div id=3D"trailToc">
+            <div id=3D"trailTitle">JavaFX</div><ol><li><a href=3D"https://j=
+enkov.com/tutorials/javafx/index.html">JavaFX Tutorial</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/overview.html">JavaFX Overview</a><=
+/li><li><a href=3D"https://jenkov.com/tutorials/javafx/your-first-javafx-ap=
+plication.html">Your First JavaFX Application</a></li><li><a href=3D"https:=
+//jenkov.com/tutorials/javafx/stage.html">JavaFX Stage</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/scene.html">JavaFX Scene</a></li><l=
+i><a href=3D"https://jenkov.com/tutorials/javafx/node.html">JavaFX Node</a>=
+</li><li><a href=3D"https://jenkov.com/tutorials/javafx/properties.html">Ja=
+vaFX Properties</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/=
+fxml.html">JavaFX FXML</a></li><li><a href=3D"https://jenkov.com/tutorials/=
+javafx/css-styling.html">JavaFX CSS Styling</a></li><li><a href=3D"https://=
+jenkov.com/tutorials/javafx/imageview.html">JavaFX ImageView</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/text.html">JavaFX Text</a></li=
+><li><a href=3D"https://jenkov.com/tutorials/javafx/fonts.html">JavaFX Font=
+s</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/hyperlink.html=
+">JavaFX Hyperlink</a></li><li><a href=3D"https://jenkov.com/tutorials/java=
+fx/label.html">JavaFX Label</a></li><li><a href=3D"https://jenkov.com/tutor=
+ials/javafx/button.html">JavaFX Button</a></li><li><a href=3D"https://jenko=
+v.com/tutorials/javafx/menubutton.html">JavaFX MenuButton</a></li><li><a hr=
+ef=3D"https://jenkov.com/tutorials/javafx/splitmenubutton.html">JavaFX Spli=
+tMenuButton</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/togg=
+lebutton.html">JavaFX ToggleButton</a></li><li><a href=3D"https://jenkov.co=
+m/tutorials/javafx/radiobutton.html">JavaFX RadioButton</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/checkbox.html">JavaFX CheckBox</a><=
+/li><li><a href=3D"https://jenkov.com/tutorials/javafx/choicebox.html">Java=
+FX ChoiceBox</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/com=
+bobox.html">JavaFX ComboBox</a></li><li><a href=3D"https://jenkov.com/tutor=
+ials/javafx/listview.html">JavaFX ListView</a></li><li><a href=3D"https://j=
+enkov.com/tutorials/javafx/datepicker.html">JavaFX DatePicker</a></li><li><=
+a href=3D"https://jenkov.com/tutorials/javafx/colorpicker.html">JavaFX Colo=
+rPicker</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/textfiel=
+d.html">JavaFX TextField</a></li><li><a href=3D"https://jenkov.com/tutorial=
+s/javafx/passwordfield.html">JavaFX PasswordField</a></li><li><a href=3D"ht=
+tps://jenkov.com/tutorials/javafx/slider.html">JavaFX Slider</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/textarea.html">JavaFX TextArea=
+</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/toolbar.html">J=
+avaFX ToolBar</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/to=
+oltip.html">JavaFX Tooltip</a></li><li><a href=3D"https://jenkov.com/tutori=
+als/javafx/progressbar.html">JavaFX ProgressBar</a></li><li><a href=3D"http=
+s://jenkov.com/tutorials/javafx/filechooser.html">JavaFX FileChooser</a></l=
+i><li><a href=3D"https://jenkov.com/tutorials/javafx/directorychooser.html"=
+>JavaFX DirectoryChooser</a></li><li><a href=3D"https://jenkov.com/tutorial=
+s/javafx/accordion.html">JavaFX Accordion</a></li><li><a href=3D"https://je=
+nkov.com/tutorials/javafx/titledpane.html">JavaFX TitledPane</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/splitpane.html">JavaFX SplitPa=
+ne</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/tabpane.html"=
+>JavaFX TabPane</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/=
+scrollpane.html">JavaFX ScrollPane</a></li><li><a href=3D"https://jenkov.co=
+m/tutorials/javafx/group.html">JavaFX Group</a></li><li><a href=3D"https://=
+jenkov.com/tutorials/javafx/region.html">JavaFX Region</a></li><li><a href=
+=3D"https://jenkov.com/tutorials/javafx/pane.html">JavaFX Pane</a></li><li>=
+<a href=3D"https://jenkov.com/tutorials/javafx/hbox.html">JavaFX HBox</a></=
+li><li><a href=3D"https://jenkov.com/tutorials/javafx/vbox.html">JavaFX VBo=
+x</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/separator.html=
+">JavaFX Separator</a></li><li><a href=3D"https://jenkov.com/tutorials/java=
+fx/flowpane.html">JavaFX FlowPane</a></li><li><a href=3D"https://jenkov.com=
+/tutorials/javafx/tilepane.html">JavaFX TilePane</a></li><li><a href=3D"htt=
+ps://jenkov.com/tutorials/javafx/gridpane.html">JavaFX GridPane</a></li><li=
+><a href=3D"https://jenkov.com/tutorials/javafx/menubar.html">JavaFX MenuBa=
+r</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/contextmenu.ht=
+ml">JavaFX ContexMenu</a></li><li><a href=3D"https://jenkov.com/tutorials/j=
+avafx/webview.html">JavaFX WebView</a></li><li><a href=3D"https://jenkov.co=
+m/tutorials/javafx/piechart.html">JavaFX PieChart</a></li><li><a href=3D"ht=
+tps://jenkov.com/tutorials/javafx/tableview.html">JavaFX TableView</a></li>=
+<li><a href=3D"https://jenkov.com/tutorials/javafx/treeview.html">JavaFX Tr=
+eeView</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/treetable=
+view.html">JavaFX TreeTableView</a></li><li><a href=3D"https://jenkov.com/t=
+utorials/javafx/htmleditor.html">JavaFX HTMLEditor</a></li><li><a href=3D"h=
+ttps://jenkov.com/tutorials/javafx/pagination.html">JavaFX Pagination</a></=
+li><li><a href=3D"https://jenkov.com/tutorials/javafx/barchart.html">JavaFX=
+ BarChart</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/stacke=
+dbarchart.html">JavaFX StackedBarChart</a></li><li><a href=3D"https://jenko=
+v.com/tutorials/javafx/scatterchart.html">JavaFX ScatterChart</a></li><li><=
+a href=3D"https://jenkov.com/tutorials/javafx/linechart.html">JavaFX LineCh=
+art</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/areachart.ht=
+ml">JavaFX AreaChart</a></li><li><a href=3D"https://jenkov.com/tutorials/ja=
+vafx/stackedareachart.html">JavaFX StackedAreaChart</a></li><li><a href=3D"=
+https://jenkov.com/tutorials/javafx/color.html">JavaFX Color</a></li><li><a=
+ href=3D"https://jenkov.com/tutorials/javafx/2d.html">JavaFX 2D</a></li><li=
+><a href=3D"https://jenkov.com/tutorials/javafx/effects.html">JavaFX Effect=
+s</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/3d.html">JavaF=
+X 3D</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/transformat=
+ion.html">JavaFX Transformation</a></li><li><a href=3D"https://jenkov.com/t=
+utorials/javafx/animation.html">JavaFX Animation</a></li><li><a href=3D"htt=
+ps://jenkov.com/tutorials/javafx/media.html">JavaFX Media - JavaFX Video an=
+d Audio Support</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx/=
+canvas.html">JavaFX Canvas</a></li><li><a href=3D"https://jenkov.com/tutori=
+als/javafx/drag-and-drop.html">JavaFX Drag and Drop</a></li><li><a href=3D"=
+https://jenkov.com/tutorials/javafx/concurrency.html">JavaFX Concurrency</a=
+></li></ol>
+        </div>
+    </div>
+    <div id=3D"main">
+
+        <h1 style=3D"text-align: left;">JavaFX FlowPane</h1>
+
+        <div id=3D"pageToc" itemscope=3D"" itemtype=3D"http://schema.org/Si=
+teNavigationElement">
+            <ul><li><a href=3D"https://jenkov.com/tutorials/javafx/flowpane=
+.html#creating-a-flowpane">Creating a FlowPane</a></li><li><a href=3D"https=
+://jenkov.com/tutorials/javafx/flowpane.html#adding-children-to-a-flowpane"=
+>Adding Children to a FlowPane</a></li><li><a href=3D"https://jenkov.com/tu=
+torials/javafx/flowpane.html#adding-a-flowpane-to-the-scene-graph">Adding a=
+ FlowPane to the Scene Graph</a></li><li><a href=3D"https://jenkov.com/tuto=
+rials/javafx/flowpane.html#horizontal-and-vertical-spacing">Horizontal and =
+Vertical Spacing</a></li><li><a href=3D"https://jenkov.com/tutorials/javafx=
+/flowpane.html#orientation">Orientation</a></li></ul>
+        </div>
+
+        <div id=3D"lastUpdate">
+            <table><tbody><tr><td class=3D"authorPhoto"></td>
+                <td><p style=3D"margin: 0px 0px 6px 0px;">
+                    Jakob Jenkov<br>
+                    Last update: 2016-05-22
+                    </p>
+                    <div class=3D"authorSocialLinks"></div>
+                </td>
+            </tr>
+            </tbody></table>
+        </div>
+
+        <div id=3D"mainBody">
+            <p>
+    A JavaFX FlowPane is a layout component which lays out its child compon=
+ents either vertically or horizontally,
+    and which can wrap the components onto the next row or column if there =
+is not enough space in one row.
+    The JavaFX FlowPane layout component is represented by the class <code>=
+javafx.scene.layout.FlowPane</code>
+</p>
+
+
+
+
+<a name=3D"creating-a-flowpane"></a>
+<h2>Creating a FlowPane</h2>
+<p>
+    You create a JavaFX <code>FlowPane</code> via its constructor. Here is =
+a JavaFX <code>FlowPane</code>
+    instantiation example:
+</p>
+
+<pre class=3D"codeBox">FlowPane flowpane =3D new FlowPane();
+</pre>
+
+
+
+
+<a name=3D"adding-children-to-a-flowpane"></a>
+<h2>Adding Children to a FlowPane</h2>
+
+<p>
+    You can add children to a <code>FlowPane</code> by obtaining its child =
+collection and add adding the components
+    to it you want the <code>FlowPane</code> to layout. Here is an example =
+of adding 3 buttons to a <code>FlowPane</code>:
+</p>
+
+<pre class=3D"codeBox">Button button1 =3D new Button("Button Number 1");
+Button button2 =3D new Button("Button Number 2");
+Button button3 =3D new Button("Button Number 3");
+
+FlowPane flowpane =3D new FlowPane();
+
+flowpane.getChildren().add(button1);
+flowpane.getChildren().add(button2);
+        flowpane.getChildren().add(button3);
+</pre>
+
+
+
+
+
+<a name=3D"adding-a-flowpane-to-the-scene-graph"></a>
+<h2>Adding a FlowPane to the Scene Graph</h2>
+
+<p>
+    To make a <code>FlowPane</code> visible you must add it to the JavaFX s=
+cene graph. To do so you must add
+    the <code>FlowPane</code> instance to a <code>Scene</code> object, or a=
+dd the <code>FlowPane</code> to a
+    layout component which is added to a <code>Scene</code> object.
+</p>
+
+<p>
+    Here is an example of adding a JavaFX <code>FlowPane</code> to the scen=
+e graph:
+</p>
+
+<pre class=3D"codeBox">package com.jenkov.javafx.layouts;
+
+import javafx.application.Application;
+import javafx.geometry.Orientation;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.FlowPane;
+import javafx.stage.Stage;
+
+
+public class FlowPaneExperiments extends Application  {
+
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("HBox Experiment 1");
+
+        Button button1 =3D new Button("Button Number 1");
+        Button button2 =3D new Button("Button Number 2");
+        Button button3 =3D new Button("Button Number 3");
+
+        FlowPane flowpane =3D new FlowPane();
+
+        flowpane.getChildren().add(button1);
+        flowpane.getChildren().add(button2);
+        flowpane.getChildren().add(button3);
+
+        Scene scene =3D new Scene(flowpane, 200, 100);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+}
+</pre>
+
+<p>
+    The application resulting from this application looks like the followin=
+g screen shots. Notice how the buttons
+    flow down onto the next horizontal line when the window becomes too sma=
+ll to show them all in a single horizontal
+    row.
+</p>
+
+<img src=3D"https://jenkov.com/images/java-javafx/javafx-flowpane-1.png" al=
+t=3D"A JavaFX FlowPane added to the scene graph">
+<img src=3D"https://jenkov.com/images/java-javafx/javafx-flowpane-2.png" al=
+t=3D"A JavaFX FlowPane added to the scene graph">
+
+
+
+
+<a name=3D"horizontal-and-vertical-spacing"></a>
+<h2>Horizontal and Vertical Spacing</h2>
+
+<p>
+    You can set the horizontal and vertical spacing between the components =
+shown inside a JavaFX <code>FlowPane</code>
+    using its <code>setHGap()</code> and <code>setVGap()</code> methods. He=
+re is an example that shows how to set
+    the horizontal and vertical gap between components in a <code>FlowPane<=
+/code> :
+</p>
+
+<pre class=3D"codeBox">flowpane.setHgap(10);
+flowpane.setVgap(10);
+</pre>
+
+<p>
+    When added to the example earlier, the resulting application would look=
+ like this:
+</p>
+
+<img src=3D"https://jenkov.com/images/java-javafx/javafx-flowpane-3.png" al=
+t=3D"A JavaFX FlowPane with horizontal and vertical gaps between components=
+.">
+
+
+<p>
+    Notice the horizontal and vertical gaps between the buttons now.
+</p>
+
+
+
+
+<a name=3D"orientation"></a>
+<h2>Orientation</h2>
+
+<p>
+    By default the components in a <code>FlowPane</code> are layed out hori=
+zontally, wrapping onto the next horizontal
+    line when there is no longer space enough inside the <code>FlowPane</co=
+de> to show more components horizontally.
+</p>
+
+<p>
+    You can change the flow orientation (direction) of a <code>FlowPane</co=
+de> using its <code>setOrientation()</code>
+    method. You can force the components to be layed out in columns from to=
+p to bottom, and then change column when
+    there is no more space in the height to show more components. Here is h=
+ow you do that:
+</p>
+
+<pre class=3D"codeBox">flowpane.setOrientation(Orientation.VERTICAL);
+</pre>
+
+        </div>
+
+        <div id=3D"next">Next: <a href=3D"https://jenkov.com/tutorials/java=
+fx/tilepane.html">JavaFX TilePane</a></div>
+        <div id=3D"bottomSocial">
+
+            <div style=3D"display:inline-block;">
+                <table>
+                    <tbody><tr><td colspan=3D"2">
+                        <a href=3D"https://twitter.com/intent/tweet?url=3Dh=
+ttp://tutorials.jenkov.com/tutorials/javafx/flowpane.html&amp;original_refe=
+rer=3Djjenkov" class=3D"twitter-share-button" data-via=3D"jjenkov" target=
+=3D"_blank">Tweet</a>
+                    </td></tr>
+                    <tr><td class=3D"authorPhoto"></td><td><p style=3D"marg=
+in: 0px 0px 6px 0px;">Jakob Jenkov</p><div class=3D"authorSocialLinks"></di=
+v></td></tr>
+                </tbody></table>
+            </div>
+            <div style=3D"display: none;" class=3D"newsletterForm"></div>
+        </div>
+    </div>
+
+    <div id=3D"rightWrapper">
+        <b>Featured Videos</b><br><br>
+
+
+
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DEgOj=
+klzlnFw&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D23"><img =
+src=3D"https://jenkov.com/images/java-concurrency/java-thread-signaling-vid=
+eo-screenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DULlF=
+WomaPVw"><img src=3D"https://jenkov.com/images/dev-essentials/software-perf=
+ormance-optimization-principles-video-screenshot-small.png" alt=3D"Core Sof=
+tware Performance Optimization Principles"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DDqpP=
+RxCmxrM&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D22"><img =
+src=3D"https://jenkov.com/images/java-concurrency/thread-congestion-video-s=
+creenshot-small.png" alt=3D"Thread Congestion in Java - Video Tutorial"></a=
+><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DQrYI=
+Os1dA3M&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D21"><img =
+src=3D"https://jenkov.com/images/java-concurrency/single-threaded-design-vi=
+deo-screenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DcsXv=
+BjBOHws"><img src=3D"https://jenkov.com/images/polymorph/polymorph-video-sc=
+reenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DneaG=
+eFZ2j_w"><img src=3D"https://jenkov.com/images/java/what-I-love-about-Java-=
+video-screenshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DtLS8=
+5IfsbYE&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D20"><img =
+src=3D"https://jenkov.com/images/java-concurrency/false-sharing-video-scree=
+nshot-small.png"></a><br><br>
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DnNXk=
+zDS6dOg&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D7"><img s=
+rc=3D"https://jenkov.com/images/java-concurrency/java-concurrency-plus-cach=
+e-coherence-video-screenshot-small.png"></a><br><br>
+        <!-- <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=
+=3DufWVK7CHOAk&list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&index=3D18"><img s=
+rc=3D"/images/java-concurrency/compare-and-swap-video-screenshot-small.png"=
+></a><br><br> -->
+        <a target=3D"_blank" href=3D"https://www.youtube.com/watch?v=3DmTGd=
+tC9f4EU&amp;list=3DPLL8woMHwr36EDxjUoCzboZjedsnhLP1j4&amp;index=3D1"><img s=
+rc=3D"https://jenkov.com/images/java-concurrency/java-concurrency-video-scr=
+eenshot-small.jpg"></a><br><br>
+    </div>
+</div>
+
+<div id=3D"footer">
+    Copyright Jenkov Aps
+</div>
+
+</body></html>
+------MultipartBoundary--s45NvD4UrloCfoLVUP8FAiYaf0yxSiacZ6TwT9sm5j----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-4982f2dd-3222-4442-abb9-fe51eaf3c9e7@mhtml.blink
+
+@charset "utf-8";
+
+#body { margin: 0px; font-family: Arial; background-color: rgb(34, 34, 34);=
+ color: rgb(255, 255, 255); }
+
+body { margin: 0px; font-family: Arial; background-color: rgb(240, 240, 240=
+); color: rgb(255, 255, 255); }
+
+#header { height: 66px; background-color: rgb(0, 0, 0); position: fixed; to=
+p: 0px; left: 0px; width: 100%; box-shadow: rgb(153, 153, 153) 0px 8px 6px =
+-6px; }
+
+#menuButton { width: 20px; height: 18px; position: absolute; top: 24px; lef=
+t: 24px; }
+
+#menuButton div { position: relative; height: 2px; width: 20px; margin-bott=
+om: 4px; background-color: rgb(255, 255, 255); }
+
+#menuButton:hover { cursor: pointer; }
+
+#topBarLogo { position: relative; left: 0px; top: 5px; width: 370px; }
+
+#logoLink { position: relative; top: -8px; left: 236px; height: 40px; width=
+: 300px; }
+
+#logoLink:hover { cursor: pointer; }
+
+#menuItems { background-color: rgba(0, 0, 0, 0.8); display: none; position:=
+ fixed; top: 66px; left: 0px; width: 100%; }
+
+.menuItem { color: rgb(255, 255, 255); display: inline-block; padding: 24px=
+; }
+
+#menuItems a { color: rgb(255, 255, 255); text-decoration: none; }
+
+#footer { padding: 24px; margin: 16px 0px 0px; background-color: rgb(0, 0, =
+0); }
+------MultipartBoundary--s45NvD4UrloCfoLVUP8FAiYaf0yxSiacZ6TwT9sm5j----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-f1218509-4772-4fa9-bd12-c84f2ad1b611@mhtml.blink
+
+@charset "utf-8";
+
+#navWrapper { display: inline-block; height: calc(100% - 164px); background=
+-color: rgb(240, 240, 240); width: 550px; color: rgb(51, 51, 51); }
+
+#navigation { display: inline-block; }
+
+#navigation a { color: rgb(0, 0, 0); }
+
+#navigation > div { display: inline-block; border-right: 1px solid rgb(208,=
+ 208, 208); vertical-align: top; cursor: pointer; }
+
+#navigation > div > div { border-top: 1px solid rgb(208, 208, 208); }
+
+#navThemes { width: 150px; box-sizing: border-box; }
+
+#navThemes > div { padding: 6px 12px 6px 24px; border-bottom: 1px solid rgb=
+(208, 208, 208); }
+
+#navTopics { width: 150px; box-sizing: border-box; }
+
+#navArticles { width: 250px; box-sizing: border-box; }
+
+#navTopics > div, #navArticles > div { padding: 6px 12px; border-bottom: 1p=
+x solid rgb(208, 208, 208); }
+
+.selected { font-weight: bold; background-color: rgb(255, 255, 255); }
+
+.notSelected { }
+
+#navPath { padding: 8px 8px 8px 22px; color: rgb(102, 102, 102); font-size:=
+ 0.9em; background-color: rgb(255, 255, 255); border: 1px solid rgb(208, 20=
+8, 208); box-shadow: rgb(153, 153, 153) 0px 4px 3px -3px; margin-bottom: 8p=
+x; }
+
+#navPath > a { cursor: pointer; font-weight: bold; }
+------MultipartBoundary--s45NvD4UrloCfoLVUP8FAiYaf0yxSiacZ6TwT9sm5j----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-b346d116-679b-47b2-b003-1c9da7e2a7c3@mhtml.blink
+
+@charset "utf-8";
+
+#mainAreas { width: 100%; }
+
+.mainArea { display: inline-block; width: 25%; padding: 24px; box-sizing: b=
+order-box; border-width: 1px; border-style: solid; border-color: rgb(51, 51=
+, 51) rgb(0, 0, 0) rgb(0, 0, 0) rgb(51, 51, 51); text-align: center; color:=
+ rgb(255, 255, 255); font-size: 1.2em; }
+------MultipartBoundary--s45NvD4UrloCfoLVUP8FAiYaf0yxSiacZ6TwT9sm5j----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-17c90555-06c2-4c3f-b869-67757a7e63ad@mhtml.blink
+
+@charset "utf-8";
+
+#main { display: inline-block; text-align: left; vertical-align: top; paddi=
+ng: 20px 30px; margin: 0px 0px 0px 2px; }
+
+#main { width: calc((100% - 550px) - 100px); max-width: 1000px; background-=
+color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: 1px solid rgb(208, =
+208, 208); box-shadow: rgb(153, 153, 153) 0px 8px 6px -6px; }
+
+@media only screen and (min-width: 1px) and (max-width: 1200px) {
+  #navWrapper { display: none; }
+  #main { width: 100%; box-sizing: border-box; }
+}
+
+#trailToc { visibility: hidden; }
+
+#pageToc { border: 1px solid rgb(238, 238, 238); }
+
+#pageToc a { text-decoration: none; }
+
+#lastUpdate { border-right: 1px solid rgb(238, 238, 238); border-bottom: 1p=
+x solid rgb(238, 238, 238); border-left: 1px solid rgb(238, 238, 238); bord=
+er-image: initial; border-top: none; color: rgb(102, 102, 102); font-size: =
+0.8em; }
+
+a { text-decoration: none; }
+
+#pageToc a { color: rgb(0, 0, 102); }
+
+#mainBody a { font-weight: bold; color: rgb(0, 0, 102); }
+
+#mainBody img { max-width: 100%; }
+
+#next a { font-weight: bold; color: rgb(0, 0, 102); }
+
+#next { border-top: 1px solid rgb(238, 238, 238); border-bottom: 1px solid =
+rgb(238, 238, 238); padding: 8px 0px; font-size: 1.2em; }
+
+.codebox, .codeBox { border: 1px solid rgb(204, 204, 204); padding: 8px; ba=
+ckground-color: rgb(240, 255, 240); }
+------MultipartBoundary--s45NvD4UrloCfoLVUP8FAiYaf0yxSiacZ6TwT9sm5j----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-a850f672-9e2f-4934-9e6d-f439c2b242b0@mhtml.blink
+
+@charset "utf-8";
+
+#rightWrapper { display: inline-block; color: rgb(0, 0, 0); vertical-align:=
+ top; background-color: rgb(255, 255, 255); border: 1px solid rgb(208, 208,=
+ 208); box-shadow: rgb(153, 153, 153) 0px 8px 6px -6px; margin: 0px 0px 0px=
+ 8px; padding: 20px; }
+
+@media only screen and (min-width: 1px) and (max-width: 1200px) {
+  #rightWrapper { display: none; }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1900px) {
+  #rightWrapper { display: none; }
+}
+------MultipartBoundary--s45NvD4UrloCfoLVUP8FAiYaf0yxSiacZ6TwT9sm5j----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jenkov.com/images/java-javafx/javafx-flowpane-1.png
+
+iVBORw0KGgoAAAANSUhEUgAAAY4AAACKCAYAAAC94q3eAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA
+B3RJTUUH4AUWCwsjKsRxSQAAAAd0RVh0QXV0aG9yAKmuzEgAAAAMdEVYdERlc2NyaXB0aW9uABMJ
+ISMAAAAKdEVYdENvcHlyaWdodACsD8w6AAAADnRFWHRDcmVhdGlvbiB0aW1lADX3DwkAAAAJdEVY
+dFNvZnR3YXJlAF1w/zoAAAALdEVYdERpc2NsYWltZXIAt8C0jwAAAAh0RVh0V2FybmluZwDAG+aH
+AAAAB3RFWHRTb3VyY2UA9f+D6wAAAAh0RVh0Q29tbWVudAD2zJa/AAAABnRFWHRUaXRsZQCo7tIn
+AAAgAElEQVR4nO19e4AWVd3/58wzu8sCYagILruLi2heyHpVUDS5CZoJKAoIvL3e85L+vPemkVne
+wFow7Q01KcV6QdFKMdOCVxDiYomVWZql3BYDUUm57/M88/39MefMnDlzZp55lgUW9/vRh5051++c
+y/dzvuecOSOICDpuueUW+vmv5oHBYDAYjNMHD8APfvADobsJRRyNjY30o5mPwxWE62+4Ef85cXwL
+shAJ7pTgniVueUHaPLIUxZ5LpmV5ZMw8PVhG3+BC+PWvBjpC+H4i8NVvS2AXG1LG6Lu7ubY4fWG9
+3C1IS7/CIVx+xRX40YPTd7MUIR586Ee44vLL9kheD99wJb4y7YE9kldr44IzT8ejz/0Wj/z0cdw7
+bSoKJDDq9MFobGwUAOACPmk0fv9/cNfdkzFq9Bh8uM3D3zfstCQnMrQ0PQBFg4vkkKUSDpSC2LPs
+Qa3ZtSjyJ2vwTPHjijYlTbK46feag2eEsvp5YRoyVCRNIsTuAUp8HlNGm7+IaD+h/1GOEEKGEipe
+eC8gkvNIqfIs7dkW3RYvKRtheKamJ+z5lkoj8E/o0rb0o/7xxNPI27EIUtcF+HgnsGUnYVuzZ4mV
+JlhZXgCADhUOdhSAHUWBzdsL2fIrGyTzysHLF/Dvt9/GlrfeAADkRNhGc0qzEPlKGH4Z+eXkwUFQ
+PRlzNDWv//Nkyvo9AVBP71HYj4mAIgEd6w+B5xXx8Q4PA884F2efOxZzf/kUJn3jFgCgxsZG4QLA
+j2Y+jrvuuhvDR5yLpn+XKNAMwzqhAiY0XKG1ynhScReV5Z4kDltl7KnEknQ/JcSPkIYw3IxwwhJG
+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
+xrkeEuR2iF4AAAAASUVORK5CYII=
+
+------MultipartBoundary--s45NvD4UrloCfoLVUP8FAiYaf0yxSiacZ6TwT9sm5j------
