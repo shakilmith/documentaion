@@ -1,7 +1,7 @@
 # JPA many-to-many mapping
 JPA Many-To-Many mapping is a collection valued association. It comes into the catagory when colection of entities are associated with collection of other entities.
 
-Let's generate many-to-mapping between student and library table where more than one student will be issued or use more than one book or list of books.
+Let's generate many-to-many mapping between student and library table where more than one student will be issued or use more than one book or list of books.
 
 We follow the below stepes to achieve many-to-many feature.
 

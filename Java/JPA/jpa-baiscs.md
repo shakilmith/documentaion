@@ -1,4 +1,6 @@
+
 # How to save, update, delete, find an entity object in jpa.
+
 ## JPA save, find, update and delete entity.
 1. Save or inserting an entity.
 
@@ -154,7 +156,7 @@ mysql> select * from person;
 
 mysql>
 ```
-Here, person the table name. And p_id, first_name, last_name, age is the column name of person table. Also, p_id is the primary of this database table.
+Here, person is the table name. And p_id, first_name, last_name, age is the column name of person table. Also, p_id is the primary of this database table.
 
 
 -----

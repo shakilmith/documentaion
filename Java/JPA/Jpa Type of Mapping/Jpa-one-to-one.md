@@ -11,6 +11,7 @@ Note one of the enity must be the relationship owner. Here Library will be the r
 1. Create Student.java entity or model class in com.company.model package. Provide necessary properties and annotate it by @Entity annotaion.
 
 ```java
+
 package com.company.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -52,6 +53,7 @@ Note: We provide s_id, s_name property in the Student class. And annotate it by 
 2. Create Library.java class in the same directory (com.company.model) where Student class is located. In this class we we use @OneToOne mapping annotaion along with the reference entity.
 
 ```java
+
 package com.company.model;
 
 import jakarta.persistence.Entity;
@@ -108,6 +110,7 @@ Note: You also use, @JoinColumn(name="fk_student_id") annotaion to externally pr
 3. Map the database information in the persistence.xml file and also add the Student and Library entity class.
 
 ```xml
+
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -127,12 +130,14 @@ Note: You also use, @JoinColumn(name="fk_student_id") annotaion to externally pr
     </persistence-unit>
 
 </persistence>
+
 ```
 <code style="color: white; background-color: black">Note: The persistence.xml file must be located in the src/main/resources/META-INF/persistence.xml file.</code>
 
 4. Now create a persistence class called DemoPersistent in com.company.dbpersistent package.
 
 ```java
+
 package com.company.dbpersistent;
 
 import com.company.model.Library;
@@ -186,6 +191,7 @@ You see, we create two student objects s1 and s2 and create 2 Library objects b1
 5. Run the DemoPersistent class. If everything is going well you see in the mysql workbench or mysql command line tool the folloing schema:
 
 ```sql 
+
 mysql> select * from Student;
 +------+------+
 | s_id | name |
@@ -205,10 +211,15 @@ mysql> select * from library;
 2 rows in set (0.00 sec)
 
 mysql>
+
 ```
+
+
 After executaion of the program, it creates Studet and Library table in the mysql workbench.
 when you run: <code>mysql> select * from Student; </code> it produces the following output. student id(s_id) and Student name(s_name) column name.
+
 ```sql 
+
 mysql> select * from Student;
 +------+------+
 | s_id | name |
@@ -217,7 +228,10 @@ mysql> select * from Student;
 |  102 | Vlad |
 +------+------+
 2 rows in set (0.00 sec)
+
 ```
+
+
 Again if you run: <code>mysql> select * from Library; </code> it produces the following output. A book id(b_id), book name(b_name) and reference student id (student_s_id)
 Here, the first part <code style="background-color: black; color: white">student</code> is the reference property name used in the Library entity class and the seocnd part  <code style="background-color: black; color: white">s_id</code> is the primary key of Student entity class. 
 
