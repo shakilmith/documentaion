@@ -122,3 +122,11 @@ Process finished with exit code 1
 ```
 
 1. Exception in thread "main" jakarta.persistence.EntityExistsException: A different object with the same identifier value was already associated with the session : [com.company.model.Student#101]
+
+
+2. Error you will get when you have samte primary key of 2 entity objects.
+
+```java
+Exception in thread "main" jakarta.persistence.EntityExistsException: A different object with the same identifier value was already associated with the session : [com.company.model.BackendDeveloper#104]
+
+```
