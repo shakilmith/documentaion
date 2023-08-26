@@ -1,3 +1,4 @@
+
 ## JPQL dynamic query example:
 
 In this example we will use jpql dynamic query method to fetch data from relational database.
@@ -237,6 +238,65 @@ Jekov	    Jenkov	    38
 
 Note: It is also possible to write any type of SQL commnands in jpql. What are valid in SQL, also valid in JPQL. The only difference between sql and jpql is that, sql is being used in database and jpql is being used inside application to retrive database data statically or dynamically.
 
+
+## Update particular record in person table
+
+We use executeUpdate() method to update partice record based on id
+
+```java
+  Query query = entityManager.createQuery("Update Person p SET p.age=60 WHERE p.id = 105");
+  query.executeUpdate();
+
+```
+
+In your mysql workbecnh or Command Line tool, you see the fifth number person age has been updated.
+
+```sql
++-----+-----+------------+-----------+
+| id  | age | first_name | last_name |
++-----+-----+------------+-----------+
+| 101 |  25 | Shakil     | Ahmed     |
+| 102 |  30 | Vlad       | Smith     |
+| 103 |  38 | Jekov      | Jenkov    |
+| 104 |  52 | Abdul      | Wahed     |
+| 105 |  60 | Zakir      | Hossain   |
++-----+-----+------------+-----------+
+```
+
+## Update Bulk data in JPQL
+It is possible to update bulk or list of data/records in JPQL? Sure, what you can do, certainly you can do that in JPQL too. 
+
+We have total 5 person in our person table. Let's update age of first 3 person.
+
+```java
+ Query query = entityManager.createQuery("Update Person p SET p.age= 30 WHERE p.id < 104");
+ query.executeUpdate();
+```
+
+In your mysql workbench you see now first 3 person age turns to 30
+
+```java
++-----+-----+------------+-----------+
+| id  | age | first_name | last_name |
++-----+-----+------------+-----------+
+| 101 |  30 | Shakil     | Ahmed     |
+| 102 |  30 | Vlad       | Smith     |
+| 103 |  30 | Jekov      | Jenkov    |
+| 104 |  52 | Abdul      | Wahed     |
+| 105 |  60 | Zakir      | Hossain   |
++-----+-----+------------+-----------+
+```
+
+Attention: Bulk update and Bulk delation is not recommended when you are working with real or actual or production based data.
+
+
+## Delete or Remove a particular record or raw 
+
+Let's remove the last raw from our Person table taht id is 105
+
+```
+```
+
 ## JPQL Aggregate operations: 
 
 - Count, Max, Min, Sum, Avg etc. 
@@ -288,5 +348,50 @@ for(Person p: personList){
 
 - In JPQL Like operator is used with where clause and retrive data based on certain pattern.
 
+let's see an exampele: 
 
+```java
+    Query query1 = entityManager.createQuery("Select p from Person p WHERE p.first_name LIKE 'a%' ");
+
+        @SuppressWarnings("unchecked")
+        List<Person> personList1 = query1.getResultList();
+
+        System.out.println("Name start with a");
+        for(Person p: personList1){
+            System.out.println(p.getFirst_name());
+        }
+
+        Query query2 = entityManager.createQuery("Select p from Person p WHERE p.first_name LIKE '%l' ");
+
+        @SuppressWarnings("unchecked")
+        List<Person> personList2 = query2.getResultList();
+
+        System.out.println("Name end with l");
+        for(Person p: personList2){
+            System.out.println(p.getFirst_name());
+        }
+
+        Query query3 = entityManager.createQuery("Select p from Person p WHERE p.first_name LIKE '%a%' ");
+
+        @SuppressWarnings("unchecked")
+        List<Person> personList3 = query2.getResultList();
+
+        System.out.println("Name containing a in any position");
+        for(Person p: personList3){
+            System.out.println(p.getFirst_name());
+        }
+
+        Query query4 = entityManager.createQuery("Select p from Person p WHERE p.first_name NOT LIKE 'a%' ");
+
+        @SuppressWarnings("unchecked")
+        List<Person> personList4 = query4.getResultList();
+
+        System.out.println("Name not start with a");
+        for(Person p: personList4){
+            System.out.println(p.getFirst_name());
+        }
+
+```
+
+Note: If you are pro in dealing with SQL, it's not very difficult for you to use different sql statements. Either, it is recommended having at least proper understanding would be helpful when you use JPQL in your persistence. Remember, always be careful when you use delete(remove) and update commnad in JPQL.
 

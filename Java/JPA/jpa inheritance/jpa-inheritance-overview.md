@@ -246,7 +246,126 @@ mysql>
 
 ```
 
-You see, this executaion creates only one table called "developer" and it has all the properties of child entities too.
+You see, this executaion creates only one table called "developer" and it has all the properties of child entities. 
 
-Talk soon, 
+
+
+# JPA joined_table strategy: 
+
+    @Inheritance(strategy = InheritanceType.JOINED)
+
+Joind table strategy: In this inheritance strategy, tables are generated for all entities belonging to the relationship. 
+
+Now you can use @Table annotaion externally for child entities but you are not allowd to use @Id annotation in the child entity, as child entity doesn't have their own primary key in any way.
+
+So, let's make some changes in the parent entity class level. Instead of wrting @Inheritance(strategy = InheritanceType.SINGLE_TABLE) we now write @Inheritance(strategy = InheritanceType.JOINED) inheritance strategy.
+
+Let's run the Persisntent class and see the differences in your mysql database. 
+
+3 Tables will be generated for each entity. 
+The tables are: developer, frontend_developer, backend_developer
+
+If we run: select * from developer; We get the following output.
+
+```sql 
+mysql> select * from developer;
++-----+------------+---------------+
+| id  | experience | name          |
++-----+------------+---------------+
+| 101 |          2 | Zakir Hossain |
+| 102 |          4 | Vlad Smith    |
+| 104 |          5 | Abdul Wahed   |
+| 105 |          3 | Shakil Ahmed  |
++-----+------------+---------------+
+4 rows in set (0.00 sec)
+
+mysql>
+
+```
+
+If we run: select * from frontend_developer; 
+We get the following output.
+
+```sql
+
+mysql> select * from frontend_developer;
++--------+-----+
+| salary | id  |
++--------+-----+
+|    800 | 101 |
+|   1200 | 102 |
++--------+-----+
+2 rows in set (0.00 sec)
+
+mysql>
+```
+If we run: select * from backend_developer; 
+We get the following output.
+
+```sql
+
+mysql> select * from backenddeveloper;
++-------+--------+-----+
+| bonus | salary | id  |
++-------+--------+-----+
+|   500 |   2000 | 104 |
+|   200 |   1500 | 105 |
++-------+--------+-----+
+2 rows in set (0.00 sec)
+
+mysql>
+```
+
+
+Attention: You porbably have to delete the previous developer table from you database.
+And please, use @Tanle annotaion to externally name of your entities. Otherwise by default the table name will be the entity name. 
+
+
+
+# JPA table_per_class strategy:
+
+    @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+
+In this inheritance strategy, tables are generated for sub classess not for parent class. 
+
+Just open you parent class entity (in our case Developer.java) and use @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) annotaion in the class level. Though it will aslo create empty developer table. 
+
+
+Run the Persistence class called Persistent.java, and in your mysql workbench there will 2 tables be created with data. For frontend_developer and backend_developer.
+
+Open your mysql workbench and if you run: select * from frontend_developer; you see the follwoing schema: 
+
+```
+mysql> select * from frontend_developer;
++-----+------------+---------------+--------+
+| id  | experience | name          | salary |
++-----+------------+---------------+--------+
+| 101 |          2 | Zakir Hossain |    800 |
+| 102 |          4 | Vlad Smith    |   1200 |
++-----+------------+---------------+--------+
+2 rows in set (0.00 sec)
+
+mysql>
+```
+And if you run: select * from backend_developer; you see the follwoing schema:
+
+```
+mysql> select * from backend_developer;
++-----+------------+--------------+-------+--------+
+| id  | experience | name         | bonus | salary |
++-----+------------+--------------+-------+--------+
+| 104 |          5 | Abdul Wahed  |   500 |   2000 |
+| 105 |          3 | Shakil Ahmed |   200 |   1500 |
++-----+------------+--------------+-------+--------+
+2 rows in set (0.00 sec)
+
+mysql>
+```
+
+So, in this simple post we get little overview about JPA inheritance strategy and see, what execution output we get for each strategy. It is totally devepnd upon you which strategy you will use for your application. But, there are alos pros and cons using these strategies. Someone prefer single_table strategy and someone prefer joind table strategy. 
+
+In coming post we will talk about the pros and cons of these 3 strategies. 
+
+Talk soo,
 Shakil Ahmed.
+
