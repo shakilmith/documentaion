@@ -1,0 +1,2 @@
+## Work with Javafx Stage.
+
