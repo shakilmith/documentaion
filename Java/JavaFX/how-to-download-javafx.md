@@ -2,7 +2,7 @@
 
 ### Windows user:
 ## Linux user:
-## Mac user:
+## MacOS user:
 
 In order to download javafx SDK(Software Development Kit) in your operating system, please follow the below steps: 
 
@@ -68,5 +68,5 @@ Then,
 Click on Path -> New -> write: %JAVAFX_HOME%\bin -> Ok -> Ok -> Ok; 
 
 
-Now, in your system, the Javafx sdk lib folder has been added. Though we don't need this to add in our environment variables to run our javafx application. But, if you want to run your application from CommandLine or Shell, you must add javafx SDK lib directory in your system variables.
+Now, in your system, the Javafx SDK lib folder has been added. Though we don't need this to add in our environment variables to run our javafx application. But, if you want to run your application from CommandLine or Shell, you must add javafx SDK lib directory in your system variables.
 

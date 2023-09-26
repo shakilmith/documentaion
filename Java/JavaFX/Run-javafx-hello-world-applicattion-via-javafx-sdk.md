@@ -90,12 +90,15 @@ Note: In upcoming tutorial, we will describe about th code above.
 
     //If you set javafx SDK in your system environment variables and name the path JAVAFX_HOME, instead of write the above command you can write
 
-     javac --module-path %JAVAFX_HOME% --add-modules javafx.controls HelloFX.java
+    javac --module-path %JAVAFX_HOME% --add-modules javafx.controls HelloFX.java
+
     ```
     
     - Then, run your HelloFX.java file typing the following command.
+
     ```js
     java --module-path "C:\Program Files\JavaFX\javafx-sdk-19\lib" --add-modules javafx.controls HelloFX
+    
     ```
 
 
