@@ -1,6 +1,25 @@
-## Javafx Box.
+## Javafx Box
 
 Box in Javafx is a 3 dimentional shape with the specified size. The initial properties are depth, widht and height. But to drowing javafx Box we must import the class javafx.scene.shape.Box;
+
+## Essential properites to render Box on the scene.
+
+The following are properties are mainly responsible to render the cylinder on the scene.
+
+Height: Defines the height or the Y dimention of the Cylinder shape.
+Radius: Defines the radius in the Z co-ordinate or Z plane of the Cylindere shape.
+
+Optional Properties to be applied: 
+
+CullFace: The face culling property that defines which face to be cull.
+Material: A paint class that can be applied to fill the interior of the shape or the outline of the shape. 
+
+DrawMode: It is the drawModel property that is reponsible how to render it's geomety. The class must be rendered javafx.scene.shape.DrawMode before using the drawMode propery.
+
+Camera: There are two types of Camera could be applied in the 3d shapes. One is PerspectiveCamera (javafx.scene.PerspectiveCamera) and other one is ParallelCamera (javafx.scene.ParallelCamera). When no camera is defined, ParallelCamera is being used. But to see the 3 dimentions properly, we must set specific camera with the rotaion and translate properties. 
+
+
+
 
 ## Creating Javafx Box
 
@@ -80,7 +99,8 @@ public class HelloApplication extends Application {
 
 If you now the above example you see a blury box image(not depth visible) in the window.
 
-//image: box, no color
+<!-- box blurry image -->
+![box blurry image](img-1.jpg)
 
 ## Let's add color to box
 
@@ -93,7 +113,8 @@ box.setMaterial(new PhongMaterial(Color.BLACK));
 
 Run the app again, you now see a black box (rectangular) on the scene.
 
-//image: black box
+<!-- black box image -->
+![box blurry image](img-2.jpg)
 
 ## Let's add PhongMaterial to Box
 
@@ -106,13 +127,14 @@ redMaterial.setDiffuseColor(Color.RED);
 redMaterial.setSpecularColor(Color.BLUE);
 box.setMaterial(redMaterial);
 ```
-Here the DiffuseColor add a color on the Box node and SpecularColor add highlights.
+Here the DiffuseColor add a color on the Box node and SpecularColor add highlights. [starts from center of the box]
 
-//box: with specularColor
+<!-- box blurry image -->
+![box blurry image](img-3.jpg)
 
 ## Create 3 dimentional Box.
 
-For making our Box shpae 3 dimentional, we have to add specific Camera node to the box and also create an subscene. Let's propagate the following example.
+For making our Box shpae 3 dimentional, we have to add specific Camera (specially PerspectiveCamera) node to the box and also create a subscene. Let's propagate the following example.
 
 ```js
 package com.javaondemand;
@@ -186,21 +208,23 @@ public class HelloApplication extends Application {
 
 If you now run the above example you should see the following 3d image in the scene.
 
-//image: 3d box shape
+<!-- box blurry image -->
+![box blurry image](img-4.jpg)
 
-## Using DrawMode.fill
+## Using DrawMode.FILL
 
-Instead of using DrawMode.LINE if we use DrawMode.FILL we will get a filled Box shape.
+Instead of using DrawMode.LINE if we use DrawMode.FILL then we will get a filled Box 3d shape.
 
 ```js
 //DoawMode.FILL
 box.setDrawMode(DrawMode.LINE);
 ```
 
-//image: filled box 3D shape shape.
+<!-- 3d fillable box shape -->
+![box blurry image](img-5.jpg)
 
 
-## Few more Box 3d shapes
+## Few more Box 3d shapes example
 
 ```js
      //create camera and position it
@@ -212,7 +236,8 @@ box.setDrawMode(DrawMode.LINE);
         );
 ```
 
-//image: change the rotation
+<!-- box blurry image -->
+![box blurry image](img-6.jpg)
 
 ```js
      //create camera and position it
@@ -224,7 +249,8 @@ box.setDrawMode(DrawMode.LINE);
         );
 ```
 
-//image: 
+<!-- rotation changed -->
+![box blurry image](img-8.jpg)
 
 
 ```js
@@ -237,7 +263,8 @@ box.setDrawMode(DrawMode.LINE);
         );
 ```
 
-//image: 
+<!-- rotation chnged -->
+![box blurry image](img-9.jpg)
 
 ```js
      //create camera and position it
@@ -250,7 +277,8 @@ box.setDrawMode(DrawMode.LINE);
 
 ```
 
-//image: drawmode.line
+<!-- box blurry image -->
+![box blurry image](img-10.jpg)
 
 So, we can simply create different type Box 3d shape just by changing the specific roation properties value in Camera node. (Like here, in perspectiveCamera)
 
