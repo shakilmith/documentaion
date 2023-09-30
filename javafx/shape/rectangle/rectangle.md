@@ -1,19 +1,21 @@
 ## Javafx Rectangle
 
-Rectangle is a geometric shape in javafx. The package javafx.scene.shape.Shape is the responsible to draw a rectangel. So we have to import it or the Rectangle class from this package. The Rectangle class defines a rectangle with the specified size and location. By default, the Rectangle class  has shaprp corners. But we can also make the rectangle rounded by calling arcWidth and arcHeight. 
+Rectangle is a 2D geometric shape in javafx. The package javafx.scene.shape.Shape is responsible to draw a Rectangel shape. So we have to import the Rectangle class from this package. The Rectangle class defines a rectangle with the specified size (width and height) and location (X, Y). By default, the Rectangle class  has sharp corners and black color. But we can also make the rectangle rounded by calling arcWidth and arcHeight. 
 
 Here is a list of important properties those are responsible to draw a rectangle.
 
-X (setX) : Defines the X coordinate of the upper left corner of the rectangle.
-Y (setY) : Defines the Y coordinate of the upper left corner of the rectangle.
-Width (setWidht): Width of the rectangle
-Height (setHeight): Height of the rectangle
-ArcWidth and ArcHeight : Make the rectangle rounded corners.
+X (setX) : Defines the X coordinate of the upper left corner of the rectangle.<br/>
+Y (setY) : Defines the Y coordinate of the upper left corner of the rectangle.<br/>
+Width (setWidht): Width of the rectangle.<br/>
+Height (setHeight): Height of the rectangle.<br/>
+ArcWidth and ArcHeight : Make the rectangle rounded corners.<br/>
 
-Additional properties can also be applied to a rectangle. Like,
-fill, smooth, strokeWidth, strokeOffset, strokeLineJoin etc.
+Note: We can also call LayoutX and LayoutY method to set the location of Rectangle.
 
-## Creating a Rectagle: 
+Additional properties can also be applied in a rectangle. Like, fill, smooth, strokeWidth, strokeOffset, strokeLineJoin etc.
+
+## Creating a Rectagle
+
 We can create a Rectangle by creating a rectangle constructor, then draw it by calling respected setter methods.
 
 ```js
@@ -28,7 +30,7 @@ Here all of them are default constructor of Recatangle class.
 
 ## Add Rectangle to the Scene Graph
 
-For displaing the Recatagle shape, we have to add it to the container node like in Group container. Below is a complete example that shows a rectangle shape on the scene.
+For displaying the Recatagle shape, we have to add it to the container node like in Group container. Below is a complete example that shows a rectangle shape in the scene.
 
 ```js
 package com.javaondemand;
@@ -71,24 +73,25 @@ public class RectanlgleExample extends Application {
 }
 ```
 
-After runng the application, you see a black filled rectangle, that coordinating position is (x, y) = (90, 50) and widht and height is 120 and 80 respectively. Note that, by default, the rectanle color is black. You can call setFill(Paint paint) method to change the Rectangle color.
+After runng the application, you see a black filled rectangle, that coordinating position is (x, y) = (90, 50) and width and height is 120 and 80 respectively. Note that, by default, the rectanle color is black. You can call setFill(Paint paint) method to change the Rectangle color.
 
-//image: a black rectangle
 
+<img src="img-1.jpg" alt="default rectangle" max-width="100%" heigt="auto">
 
 ## Change the Rectanle Color
 
-Earlier said that, black is the default color of any rectangle of javafx Shape package. We can call setFill(Paint paint) method to change the default color.
+Earlier said that, black is the default color of any rectangle shape of javafx. We can call setFill(Paint paint) method to change the default color.
 
 ```js
 //now rectangle should be Green
 rectangle.setFill(Color.GREEN);
 ```
-//image: green rectangle
+
+<img src="img-5.jpg" alt="default rectangle" max-width="100%" heigt="auto">
 
 ## Change StrokeWidth and StrokeColor
 
-There are methods available in javafx, to work with rectanle stroke. Like, we can change the stroke default width by calling setStrokeWidth() method and cange stroke color by calling the setStroke(Paint paint) method. See the following example
+There are methods available in javafx, to work with Rectanle border. Like, we can change the stroke or border default width by calling setStrokeWidth() method and change stroke color by calling the setStroke(Paint paint) method. See the following example
 
 ```js
 //make the storke 5px width and color is red
@@ -97,25 +100,27 @@ rectangle.setStroke(Color.RED);
 ```
 Now the stroke color and width should be changed if you add the above code in your application.
 
-//image: red and 5px widht rectangle.
+<img src="img-2.jpg" alt="default rectangle" max-width="100%" heigt="auto">
+
 
 ## Rounded Rectangle
 
-Let's create a rounded corner rectangle by calling arcWidth() and arcHeight double type methods to our rectangle class.
+Let's create a rounded corner rectangle by calling arcWidth() and arcHeight() double type methods to our rectangle class.
 
 ```js
 //make the rectangle corner rounded width=20, height=15
 rectangle.setArcWidth(20);
 rectangle.setArcHeight(15);
 ```
-After adding the above two lins of code, kinly run the example application again you should now a rectangle that all the corners are rounded. (I changed the color of the rectanlge)
 
-//image: a rounded corner rectangle. 
+After adding the above two lins of code, kinly run the example application again you will now see a rectangle shape with rounded corners. (I changed the color of the rectanlge)
+
+<img src="img-3.jpg" alt="default rectangle" max-width="100%" heigt="auto">
 
 
-## Add text inside rectangle
+## Add text inside Rectangle
 
-We can also add text inside a rectangle. For this, we will create a Text node with default text and then changed the Text default position so that it resides inside the recatangle shape. See a full example that shows rectanle with texts.
+We can also add text inside a rectangle. For this, we will create a Text node with default text and then changed the Text default position so that it resides inside the recatangle shape. See a full example below that shows Rectanle shape with texts inside it.
 
 ```js
 package com.javaondemand;
@@ -177,11 +182,11 @@ public class RectanlgleExample extends Application {
 
 Run the above example application. You now see a rectangle with texts inside it.
 
-//image: rectangle with texts
+<img src="img-4.jpg" alt="default rectangle" max-width="100%" heigt="auto">
 
-## Make Square
+## Rectangle as a Square 
 
-A javafx Rectangle can be a square too if the width and height are same. See the below example where we give same width and height to rectangular object.
+A javafx Rectangle can be a square too if the width and height values are same. See the below example where we give the  same width and height to rectangular object.
 
 ```js
 package com.javaondemand;
@@ -202,19 +207,11 @@ public class HelloApplication extends Application {
         //create a rectangle with same width and height - square
         Rectangle rectangle = new Rectangle();
 
-        rectangle.setX(100);
+        rectangle.setX(120);
         rectangle.setY(50);
         rectangle.setWidth(120);
         rectangle.setHeight(120);
 
-        //color the rectangle(square)
-        rectangle.setFill(Color.ORANGERED);
-        rectangle.setStrokeWidth(2);
-        rectangle.setStroke(Color.BLACK);
-
-   
-        
-        
         //creating a root container
         Group root = new Group();
         //call getChildren().addAll() method
@@ -231,16 +228,37 @@ public class HelloApplication extends Application {
     }
 }
 ```
-If you see the below image you can see now that if we add same width and height to the rectangle instance, then it will be square.
 
-//image: square
+If you run the example againg, you see an image of Square (same with and height)
+
+<img src="img-6.jpg" alt="default rectangle" max-width="100%" heigt="auto">
+
+
 
 ## Make the rectangle Invisible
 
-By default Rectangle shape is visible to the scene. But if you don't want to display it to the scene graph, just call setVisible(bool) method and provide false boolean value. Then, your rectangle shape will not be visible.
+By default Rectangle shape is visible in the scene. But if you don't want to display it in the scene graph, just call setVisible(bool) method and provide false boolean value. Then, your rectangle shape will not be visible.
 
 ```js
 //the shape will not visible now.
 rectangle.setVisible(false);
 ```
+
+Now you will see a blank scene and the rectangle image is hidden.
+
+<img src="img-7.jpg" alt="default rectangle" max-width="100%" heigt="auto">
+
+## Add color and Effect to Rectangle Shape
+
+We can also add specific effects available in javafx to rectangle just calling setEfeect() method. Here, I am going to add DropShadow effect in our rectangle shape. Before adding dropShadow effect, we must import the class from this package javafx.scene.effect.DropShadow; 
+
+```js
+//add effects
+rectangle.setFill(Color.DARKBLUE);
+rectangle.setEffect(new DropShadow(10.0, Color.RED));
+```
+
+Run the example application again, and you see now a darkBlue rectangular shape with DropShadow effect.
+
+<img src="img-8.jpg" alt="default rectangle" max-width="100%" heigt="auto">
 
