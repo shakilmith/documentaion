@@ -1,43 +1,43 @@
 [
     {
         "id": "1",
-        "title": "Movie",
-        "thumbnail": "image",
+        "title": "On the Line (2022)",
+        "thumbnail": "https://i2.wp.com/www.stagatv.com/wp-content/uploads/2022/11/1667561004-5659-3KxRYXBsKROhhQUjycKPOxktCAy.jpg",
         "url": "#",
         "watch": "#",
-        "download": "#"
+        "download": "https://stagatvfiles.com/videos/file/6364be4e3fdc8/On-the-Line-2022-STAGATV-COM-mp4"
     },
     {
         "id": "2",
-        "title": "Movie",
-        "thumbnail": "image",
+        "title": "American Murderer (2022)",
+        "thumbnail": "https://i0.wp.com/www.stagatv.com/wp-content/uploads/2022/10/1667016078-7161-qcSunhxo4l0iJsEv00daS3PE4YL.jpg",
         "url": "#",
         "watch": "#",
-        "download": "#"
+        "download": "https://stagatvfiles.com/videos/file/635c9cf706e06/American-Murderer-2022-STAGATV-COM-mkv"
     },
     {
         "id": "3",
-        "title": "Movie",
-        "thumbnail": "image",
+        "title": "The Independent (2022)",
+        "thumbnail": "https://i0.wp.com/www.stagatv.com/wp-content/uploads/2022/11/1667453524-9291-jhlc1nsD8nnnGymEFaZ0twMH6M6.jpg",
         "url": "#",
         "watch": "#",
-        "download": "#"
+        "download": "https://stagatvfiles.com/videos/file/63634a600e216/The-Independent-2022-STAGATV-COM-mp4"
     },
     {
         "id": "4",
-        "title": "Movie",
-        "thumbnail": "image",
+        "title": "Delia's Gone (2022)",
+        "thumbnail": "https://i3.wp.com/www.stagatv.com/wp-content/uploads/2022/09/1662700955-2759-lpqANclv39FE0uQLGbVobNlPMXT.jpg",
         "url": "#",
         "watch": "#",
-        "download": "#"
+        "download": "https://stagatvfiles.com/videos/file/631acc28e59f2/Delia-s-Gone-2022-STAGATV-COM-mp4"
     },
     {
         "id": "5",
-        "title": "Movie",
-        "thumbnail": "image",
+        "title": "Fall (2022)",
+        "thumbnail": "https://i1.wp.com/www.stagatv.com/wp-content/uploads/2022/09/1662560276-8153-v28T5F1IygM8vXWZIycfNEm3xcL.jpg",
         "url": "#",
         "watch": "#",
-        "download": "#"
+        "download": "https://stagatvfiles.com/videos/file/630fe81a768f4/Fall-2022-STAGATV-COM-mp4"
     },
     {
         "id": "6",
@@ -239,238 +239,5 @@
         "url": "#",
         "watch": "#",
         "download": "#"
-    },
-    {
-        "id": "31",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "32",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "33",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "34",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "35",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "36",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "37",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "38",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "39",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "40",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "41",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "42",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "43",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "44",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "45",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "46",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-
-    {
-        "id": "47",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "48",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "49",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "50",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "51",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "52",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "53",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "55",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "56",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "57",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "58",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "59",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    },
-    {
-        "id": "60",
-        "title": "Movie",
-        "thumbnail": "image",
-        "url": "#",
-        "watch": "#",
-        "download": "#"
-    }
+    }  
 ]
