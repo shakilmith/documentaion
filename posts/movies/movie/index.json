@@ -1,0 +1,13 @@
+{
+    "id": "1",
+    "title": "title of the movie",
+    "url": "page url",
+    "watch": "watch link",
+    "download": "dowanload link",
+    "thumbnail": "image",
+    "story": "story",
+    "release": "date",
+    "duration": "length",
+    "quality": "quality",
+    "imdb": "ratings"
+}
