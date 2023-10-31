@@ -1,4 +1,4 @@
-## Sping Boot and H2 DataBase
+## Sping Boot and H2 Database
 
 H2 is an in-memory, embedded and open source database management system that stores application data in the system memory rather than physical storage. Popular in-memory, embedded databases are H2, Apache Derby, HSQLDB (HyperSQL Database). And Popular Physical databases are Mysql, Postgresql, Oracle etc. 
 
