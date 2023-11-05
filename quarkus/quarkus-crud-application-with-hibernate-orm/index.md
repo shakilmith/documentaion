@@ -13,7 +13,7 @@ If you have already quarkus application in your system, open it in any ide (like
     <artifactId>quarkus-hibernate-orm-panache</artifactId>
 </dependency>
 ```
-As well as, you have to provide your database driver to store data. As I use mysql so added mysql jdbc dependency.
+As well as, you have to add database dirver dependency. As I use mysql so added mysql jdbc dependency.
 
 ```js
 <dependency>
@@ -22,7 +22,7 @@ As well as, you have to provide your database driver to store data. As I use mys
 </dependency>
 ```
 
-But if you don't have quarkus applicaton presenet yet, Let's follow the below simple steps to create one. (step 1 to 5)
+But if you don't have quarkus applicaton present yet, Let's follow the below simple steps to create one. (step 1 to 5)
 
 Initial Requirements:
 
@@ -32,25 +32,30 @@ Initial Requirements:
     - Gradle version: 7.5+
     - And IDE that support Java and maven/gradle: Like Intellij Ide, Eclipse or VS code.
 
-Please follow the below steps to develop a simple Greeting rest service:
 
-Note: We use here https://code.quarkus.io  official site to bootstrap our quarkus application and use intellij ide to develop it. You can alos use VS Code or eclipse as well.
+Note: We use here https://code.quarkus.io  official site to bootstrap our quarkus application and use intellij ide to develop it. You can also use VS Code or eclipse as well.
 
 1. Open https://code.quarkus.io and to bootstarap your quarkus application. Provide the folloiwng metadata:
-Group: com.company (or the default one)
-Artifact: quarkus-example (or the default one)
-Quarkus Platform Version: latest one or the recommended one
+Group: com.company (or the default one)<br/>
+Artifact: quarkus-example (or the default one)<br/>
+Quarkus Platform Version: latest one or the recommended one<br/>
 Build tool: Maven or Gradle
 
-2. After adding the metadata, now it is time to add extensions/dependencies. As it is simple rest api that produces json Greeting response, then add RestEasy Reactive Jacksion extension. 
+2. After adding the metadata, now it is time to add extensions/dependencies. Ther extensions we are going add -
+
+    - RestEasy Reactive Jacksion
+    - Hibernate Orm Panache
+    - Quarkus JDBC Mysql (mysql driver)
 
 3. Click on Genrate button. It will produce a zip file and the file name should be your Artifact name.
 
-4. Unzip it and import it or open it in your favourite Ide like intellij ide. 
+4. Unzip it and import it or open it in your favourite ide like intellij ide. 
 
-Note: If you use intellij ide and want to run quarkus application from your ide, then you have to install Quarkus Tools for IntelliJ plugin from the marketplace.
+Note: If you use intellij ide and want to run quarkus application from your ide, then you have to install Quarkus Tools from the marketplace.
 
-Quarkus Tools for Intelli: File -> Settings -> Plugins -> Marketplace -> Quarkus Tools (search it) -> Install -> Restart Your Ide
+## How to install Quarkus Tools in intellij ide?
+
+Quarkus Tools for Intellij: File -> Settings -> Plugins -> Marketplace -> Quarkus Tools (search it) -> Install -> Restart Your Ide
 
 Quarkus Tools for Eclipse: File -> Settings -> Plugins -> Marketplace -> Quarkus Tools (search it) -> Install -> Restart Your Ide
 
@@ -86,9 +91,9 @@ quarkus.datasource.jdbc.url = jdbc:postgresql://localhost:5432/hibernate_db
 quarkus.hibernate-orm.database.generation=drop-and-create
 ```
 
-Note: There is not persistence.xml file. But we can add it externally.
+Note: There is no persistence.xml file. But we can add it externally.
 
-Repository: (See how repostory patter works.)
+### Repository: (See how repostory patter works.)
 
 7. Create Person.java entity class in com.company pacakge.
 
@@ -129,10 +134,11 @@ public class Person {
 }
 
 ```
+
 The field can be public or private. If you use PanacheEntity (reactive patter than repository) the field should be public and there will be no id or getter/setter methods. But, these are required when you follow the repository approach. Also note that, as id is auto generated, so when you use Postman or curl to send or update data, please don't use setId(), I don't know actually when I use it, my data has not been persisted at all, I got null values last.
 
 
-8. Now create PersonRepository.java class that implemensts PanacheRepository or PanacheRepositoryBase. The differences betweeb these are, PanacheRepository takes one argument and PanacheRepositoryBase takes two argument.
+8. Now create PersonRepository.java class that implemensts PanacheRepository or PanacheRepositoryBase. The differences between these are, PanacheRepository takes one argument and PanacheRepositoryBase takes two argument. (domain and type)
 
 
 ```js
@@ -148,7 +154,7 @@ public class PersonRepository implements PanacheRepositoryBase<Person, Integer> 
 
 ```
 
-9. Now create PersonResource.java class. Here we have only get and post request. Root class level path is required.
+9. Now create PersonResource.java class. Here we have only get and post request. Root class path is required.
 
 
 ```js
@@ -195,9 +201,9 @@ public class PersonResource {
 ![alt text](img-1.jpg)
 
 
-Seems, everything is going well. I feel more comfortable when I use Repository pattern in Spring boot. So, in upcoming tutorial, I always use Rective pattern. 
+Seems, everything is going well. I feel more comfortable when I use Repository pattern in Spring boot than quarkus. So, in upcoming tutorial, I always use Rective pattern in quarkus. 
 
-In reactive pattern, Your entity will be like this. And absolutely, there will be not getter/setter methods involved. Even you can't create id externally. All will be handled by PanacheEntity. Note: Your fields should be public than private.
+In reactive pattern, Your entity will be like this (below). And absolutely, there will be no getter/setter methods involved. Even you can't create id externally. All will be handled by PanacheEntity. Note: Your fields should be public than private.
 
 ```js
 package com.company;
@@ -213,7 +219,7 @@ public class Person extends PanacheEntity{
 
 ```
 
-Now, in the PersonResource.java class, you just use your entity itself to persist, update or get your database records. 
+Now, in the PersonResource.java class, you just use your entity itself (Person) to persist, update or get your database records. 
 
 Talk soon.
 Shakil Ahmd.
