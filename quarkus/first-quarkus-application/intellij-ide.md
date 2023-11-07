@@ -1,10 +1,10 @@
 ## What is Quarkus ?
 
-- Quarkus is another Java web Application framework like Spring or Spring Boot. Quarkus has been designed around container first philosophy. As much as possible quarkust applicaton tries to avoid reflection, reducing startup time and memory usaes. It is container first by it's nature.
+- Quarkus is an another Java web Application framework like Spring Boot Micronaut. Quarkus has been designed around container first philosophy. As much as possible quarkus applicaton tries to avoid reflection, reducing startup time and memory uses. It is container first by it's nature.
 
-## How to develop your first Quarkus Applications.
+## Develop Your First Quarkus Powered Application
 
-Developing quarkus Application is very straightforward. You can develop your first quarkus applicaton multiple ways. Like, using Quarkus CLI, using build tools like maven or gradle or in your favourite ides like intellij ide, VS code, Eclipse etc. 
+Developing quarkus Application is very straightforward. You can develop your first quarkus applicaton multiple ways. Like, using Quarkus CLI, using build tools like maven or gradle or from your favourite ides like intellij ide, VS code, Eclipse etc (By using Quarkus tools for ides). 
 
 Let's create your first Quarkus application using quarkus applicaton bootstrapping site.
 
@@ -14,36 +14,41 @@ Steps that you should follow:
 
 2. If you visit the code.quarkus.io site, you will come to this page. From this page, you can simply bootstrap or create simple quarkus application, add extensions etc. 
 
-//image: code.quarkus.io page
+<img src="/images/quarkus4.jpg" alt="Quarkus Starter Page" width="50%" height="auto" />
+
 
 3. Let's configure your first quarkus application groupid, artifactid and build tool. 
 
-Mine: 
-Group: com.company 
-Artifact: quarkus-example 
-Build tool: maven 
-and Quarkus platform version: 3.5 (choose latest recommended version always)
+You can keep the default one or changed it like this:
 
-You can always, keep the default shape, as your choice. But note, the name of Artifact will be the project name here. 
+    - Group: com.company 
+    - Artifact: quarkus-example 
+    - Build tool: maven and
+    - Quarkus platform version: 3.5 (choose latest recommended version always)
+
+Note: You can always, keep the default shape, as your choice. But note, the name of Artifact will be the project name here. 
 
 5. Now, it's time to add dependencies (extensions in quarkus). As we create simple Hello World endpoint and not any type of complex service, so we can add RestEasy Reactive web or RestEasy Reactive Jacksion extension in our classpath. After adding the dependecies/extension click on Generate Your Application button. It will promt a new dialog box, with more details about extension. Just click -> Download The Zip button. You will see in your computer download (default mine) folder a new quarkus-example.zip (or code-with-quarkus.zip if you didn't change anything) file has been downloaded. 
 
 6. Unzip the zip file and store it in any directory (remember the location).
 
-7. Open your favourite ide like intellij, eclipse or vs code and import the unzip qurkus-example applications. 
+7. Open your favourite ide like intellij, eclipse or vs code and import the unzip qurkus-example application. 
 
-Intellij ide: 
-Eclipse: 
+How to import or Open Quarkus Project:
 
-8. After importing the application, you see there is not Application file with main mehtod. So, running quarkus applicaton from ide needs little more steps. There are quarkus related tooling available of your Ide. In intellij ide, in stall quakus plugin: Settings -> Plugins -> Marketplace -> (search quarkus tools) and itstall it.
+<b>Intellij Ide:</b> Open your Inellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
 
-Note: I will show you how to run quarkus applicatin using maven and gradle commands.
+<b>Eclipse:</b> Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven projects > Next > Browse your sping boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
 
-9. When you import the quarkus applicaton first time, you see the following file structure. There will be not main Application file like Spring Boot. 
+8. After importing the application, you see there is not Application file with main mehtod. So, running quarkus applicaton from ide needs little more steps. There are quarkus related tooling available of your Ide. In intellij ide, install Quarkus Tools plugin: Settings -> Plugins -> Marketplace -> (search quarkus tools) and itstall it.
 
-![Alt text](image.png)
+Note: I will show you how to run quarkus applicatin using maven and gradle commands in upcoming tutorial.
 
-Note: When you use the default one and, if you use RestEasy Reactive extension, a demo java files has been generated by default. But note, that there is no Application file or main mehtod present.
+9. When you import the quarkus applicaton first time, you see the following file structure. There will be no main Application file like Spring Boot. 
+
+![Alt text](/images/quarkus1.jpg)
+
+Note: When you use the default one and, if you use RestEasy Reactive extension, a demo starter has been generated by default (As many extensions in quarkus provides default starter code). But note, that there is no Application file or main mehtod present.
 
 10. Now, in com.company package, create GreetingResource.java file. We will use jax-rs @GET mapping for creating our first "Hello, World" endpoint.
 
@@ -68,9 +73,9 @@ public class GreetingResource {
 
 ```
 
-This GreetingResource class only produces simple String based rest service when we invoke the url /greeting. Note, that like most of java applications, Quarkus also listens port 8080 in localhost.
+This GreetingResource class only produces simple String based rest service when we invoke the url /greetings. Note that, like most of the java applications, Quarkus also listens port 8080 in localhost.
 
-11. So, open your favourinte web browser and invoke the url: http://localhost:8080/greetings and you will see a simple response like: Hello, World!
+11. So, open your favourite web browser and invoke the url: http://localhost:8080/greetings and you will see a simple response like: Hello, World!
 
 You have successfully developed a rest service that produces a simple Hello world string message.
 
@@ -97,5 +102,8 @@ public class GreetingResource {
 
 ```
 
-Now, if you invoke the url : http://localhost:8080/greetings you should get the above test response like: Hello, null! But if you add ?name=Jenkov at the end of the url like invoke the url: http://localhost:8080/greetings?name=Jenkov the response should be: Hello, Jenkov!
+Now, if you invoke the url : http://localhost:8080/greetings you should get the above rest response like: Hello, null! But if you add ?name=Jenkov at the end of the url like invoke the url: http://localhost:8080/greetings?name=Jenkov the response should be: Hello, Jenkov!
 
+
+Talk Soon,
+Shakil Ahmed

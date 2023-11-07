@@ -65,7 +65,7 @@ Quarkus Tools for VS Code: Click on Extensions (Ctrl+Shift+X) -> Search for Quar
 
 <img src="img-1.jpg" alt="Quarkus file structure" width="50%" height="auto"/>
 
-6. Add mysql database configuration in 
+6. Add mysql database configuration in application.properties file located in resources folder.
 
 ```js
 # datasource configuration

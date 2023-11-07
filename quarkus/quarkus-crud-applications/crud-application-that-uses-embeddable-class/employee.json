@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "firstName": "Mark",
+    "lastName": "Smith",
+    "joiningDate": "2010-12-03",
+    "address": { "country": "UK", "state": "London" }
+  },
+  {
+    "id": 2,
+    "firstName": "Lino",
+    "lastName": "Bozonich",
+    "joiningDate": "2011-02-17",
+    "address": { "country": "UK", "state": "Westminister" }
+  },
+  {
+    "id": 3,
+    "firstName": "Tamina",
+    "lastName": "Nuncher",
+    "joiningDate": "2011-07-05",
+    "address": { "country": "UK", "state": "Brimingham" }
+  },
+  {
+    "id": 4,
+    "firstName": "John",
+    "lastName": "Doe",
+    "joiningDate": "2011-05-10",
+    "address": { "country": "UK", "state": "London" }
+  },
+  {
+    "id": 5,
+    "firstName": "David",
+    "lastName": "Morison",
+    "joiningDate": "2008-12-10",
+    "address": { "country": "USA", "state": "California" }
+  },
+  {
+    "id": 6,
+    "firstName": "Kevin",
+    "lastName": "Ryan",
+    "joiningDate": "2018-03-05",
+    "address": { "country": "USA", "state": "Texas" }
+  },
+  {
+    "id": 7,
+    "firstName": "Kate",
+    "lastName": "Hale",
+    "joiningDate": "2019-02-01",
+    "address": { "country": "USA", "state": "Florida" }
+  },
+  {
+    "id": 8,
+    "firstName": "Powel",
+    "lastName": "Smith",
+    "joiningDate": "2012-09-12",
+    "address": { "country": "USA", "state": "Florida" }
+  }
+]
