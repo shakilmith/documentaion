@@ -41,7 +41,7 @@ Quarkus Tools for VS Code: File -> Settings -> Plugins -> Marketplace -> Quarkus
 
 5. After importing or opening the quarkus example applicaton into your ide, the file structure should be like below: 
 
-<img src="/images/quarkus/quarkus1.jpg" alt="Quarkus file structure" width="50%" height="auto"/>
+<img src="/images/quarkus/img1.jpg" alt="Quarkus file structure" width="50%" height="auto"/>
 
 
 ### How to import External Maven/Gradle project into your ide: 
@@ -80,7 +80,7 @@ public class Employee extends PanacheEntity {
 
 ```
 
-As usual, we use reactive pattern here (alternative of repository pattern), thus we have extends PanacheEntity. There is no need to create getter/setter as well as no-arg constructor. Alos, the id creation process will be handled by PanacheEntity. But, if you want to manually create your id, not by the application please use PanacheEntityBase.
+As usual, we use reactive pattern here (alternative of repository pattern), thus we have extends PanacheEntity. There is no need to create getter/setter as well as no-arg constructor. Also, the id creation process will be handled by PanacheEntity. But, if you want to manually create your id, not by the application please use PanacheEntityBase.
 
 7. Create Address.java embeddable class in com.company.entity pacakge. It will be used in Employee table but not an entity itself.
 
@@ -195,7 +195,7 @@ public class EmployeeService {
 
 ```
 
-We used here jax-rs @GET (For getting list entity objec), @POST (Creating new resource), @PUT (Updating existing resource) @Delete (Delete exisiting reocrd) etc. 
+We used here jax-rs @GET (for getting list employee records), @POST (creating new resource), @PUT (updating an existing resource) @Delete (deleting exisiting employee reocrd) etc. 
 
 Note: Root level @Path(/) is required. For simplicity we have used @Produces(MediaType.APPLICATION_JSON), @Consumes(MediaType.APPLICATION_JSON) annotation at class level than mehtod level. For @POST @PUT AND @DELETE we have also used @Transectional annotation that will be responsible for changing the database. Use it carefully in production environment. 
 
@@ -229,7 +229,7 @@ quarkus.datasource.jdbc.url = jdbc:postgresql://localhost:5432/hibernate_testdb
 quarkus.hibernate-orm.database.generation=drop-and-create
 ```
 
-***Attention: You must database named qtestdb or hibenate_testdb but no need to create table externally.***
+***Attention: You must create database named qtestdb or hibenate_testdb but no need to create table externally.***
 
 10. Run the quarkus example application now. The application will run on port 8080 in localhost. It is a default port for quarkus application. 
 
@@ -250,7 +250,7 @@ After successfully run the applcation, please invoke the url: http://localhost:8
 ```
 ![Alt text](/images/quarkus/img8.jpg)
 
-Like the above I have added 7 more Employee details. We have send Employee records vi json format. 
+Like the above I have added 7 more Employee details. We have send Employee records via json format. (One at a time) 
 
 ```js
 {
@@ -304,7 +304,19 @@ Like the above I have added 7 more Employee details. We have send Employee recor
   }
 ```
 
-Note: We can only Post one employee at a time. (Whatever we have used in @POST in mapping)
+Note: We can only Post one employee at a time. (Whatever logic we have implemented in @POST mapping inside the application)
 
-12. After adding few Employee details, please now again open the url: http://localhost:8080/employees and you see list of employees. All are valid json format.
+12. After adding few Employee details, please now again open the url: [http://localhost:8080/employees](http://localhost:8080/employees) and you see list of employees. All are valid json format.
+
+![quarkus atl](/images/quarkus/img9.jpg)
+
+13. Get Individual Employee details.
+
+It is possible to get individual employee record using their id. Like, if we want to get the first Employee details, we just invoke the url in our browser: [http://localhost:8080/employees/1](http://localhost:8080/employees/1). Also we can add custom finder in our Entity class to retrieve employee details in certain form. 
+
+![quarkuss](/images/quarkus/img10.jpg)
+
+14. How to delete a particular employee details:
+
+Open your Postman, and use the delete HTTTP verbs like invoking any particular employee which we want to delete. Guess, we have 10 employees in our database employees table. And we want to delete or remove the 7 number employee. Then invoke the url [http://localhost:8080/employees/1](http://localhost:8080/employees/7) with the DELETE http verb. The employee records will be deleted.
 

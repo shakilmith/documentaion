@@ -1,1 +1,0 @@
-# How to achieve jpa entity relationships

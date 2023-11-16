@@ -12,9 +12,9 @@ Initial Requirements:
 
 Please follow the below steps to bootstrap your quarkus application.
 
-Note: We use here https://code.quarkus.io  official site to bootstrap our quarkus application and use intellij ide to develop it. You can also use VS Code or eclipse as well.
+Note: We use here [https://code.quarkus.io](https://code.quarkus.io) official site to bootstrap our quarkus application and use intellij ide to develop it. You can also use VS Code or eclipse as well.
 
-1. Open https://code.quarkus.io to bootstarap your quarkus application. Provide the following metadata:
+1. Open [https://code.quarkus.io](https://code.quarkus.io) to bootstarap your quarkus application. Provide the following metadata:
 
     - Group: com.company (or the default one)
     - Artifact: quarkus-example (or the default one)
@@ -50,7 +50,7 @@ Quarkus Tools for VS Code: File -> Settings -> Plugins -> Marketplace -> Quarkus
 
     - Intellij Ide: Open your Inellij Ide, then File -> Open -> Browse the existing Maven/Gradle project -> Click Ok. Likewise eclipse, wait few seconds to resolve Maven/Gradle dependencies. 
 
-6. Create an entity class called Student in com.company.entity package. The Student class contains name age and nationality as properties. We also annotated the Student class by @Entity annotaion as it is a persistent class. 
+6. Create an entity class called Student in com.company.entity package. The Student class contains name, age and nationality as properties. We also annotated the Student class by @Entity annotaion as it is a persistent class. 
 
 ```js
 package com.company.entity;
@@ -202,7 +202,7 @@ quarkus.hibernate-orm.database.generation=drop-and-create
 
 9. Run your example applicaton. Hope you are in intellij ide and has been installed Quarkus tools. (Though you have run application by CLI, maven or gradle commands)
 
-10. If you run your application successfully, it runs on port 8080 in localhost. Invoke the url http://localhost:8080/students in you favourite web browser and you see an empty array. 
+10. If you run your application successfully, it runs on port 8080 in localhost. Invoke the url [http://localhost:8080/students]([http://localhost:8080/students]) in you favourite web browser and you see an empty array. 
 
 11. Let's add few students using Postman (a popular rest client). Open Postman (If not installed, install it first or use curl). Click on plus icon and paste the url http://localhost:8080/students . Then, from the drop-down list select POST -> Body -> raw -> JSON and then add few students like belwo and click on Send button. ()
 
@@ -267,17 +267,17 @@ Like the above, add few more student details. (One Student at a time)
 
 Please don't mind. You can add same name agian and again. Don't worry.
 
-12. Now again invoke the url: http://localhost:8080/students and you see an array of objects like this: 
+12. Now again invoke the url: [http://localhost:8080/students](http://localhost:8080/students) and you see an array of objects like this: 
 
-![Alt text](/images/quarkus/img6.jpg)
+![quarkus](/images/quarkus/img6.jpg)
 
 13. But if you want to get Student records by id please do like this: http://localhost:8080/students/1 You will get the first Student details.
 
-![Alt text](/images/quarkus/img7.jpg)
+![quarkus](/images/quarkus/img7.jpg)
 
 14. Let's delete a student records with id 10.
 
-For this, open postmain again and paste the url http://localhost:8080/students/10 and select DELETE http versb. If you now again invoke the GET request you see there is no student records of id 10. (There should be an error message on your @DELETE request)
+For this, open postmain again and paste the url [http://localhost:8080/students/10](http://localhost:8080/students/10) and select DELETE http versb. If you now again invoke the GET request you see there is no student records of id 10. (There should be an error message on your @DELETE request)
 
 That's all today.
 

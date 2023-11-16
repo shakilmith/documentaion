@@ -27,3 +27,14 @@ Now in this page, Select
 Eclipse: Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven projects > Next > Browse your sping boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
 
 Intellij Ide: Open your Inellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
+
+
+
+## Use postman to send rest data:
+
+In this step we will use Postman, a popular rest client to work with rest APIs. If, in your system postman is already installed do the follwoing 
+    - Open it (if Postman is already installed)
+    - Invoke the url: http://localhost:8080/employee
+    - Select Body and row then JSON as content-type
+    - Insert the below demo data (one by one)
+    - At last, click on send button 
