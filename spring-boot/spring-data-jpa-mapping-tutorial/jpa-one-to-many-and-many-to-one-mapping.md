@@ -4,29 +4,41 @@ In this simple example tutorial, we will describe how to use JPA One-to-manny an
 
 Note: For database persistence, we will use Spring data jpa.
 
-When to use @OneToManu or @ManyToOne mappings? - When one entity is associated will multiple other entities or More than one entity/object is associated with a single entity/object. In databse technology we say, one tables record/column is linked with more than one tables or multiples tables are linked with one tables column/record
+When to use **@OneToMany** or **@ManyToOne** mappings? - When one entity is associated will multiple other entities or More than one entity/object is associated with a single entity/object. In database technology we say, a column of a table is linked with more than one tables or multiples tables are linked with one tables column/record.
 
-To understand the scenario clearly, we will go under a live project.
+Like, An owner has three cars but three cars has only one owner.
+
+Note: Entity association is only possible when the object is entity itself.
+
+
+To understand the scenario clearly, we will go under a simple project.
 
 If you don't have any Spring Boot application bootstrapped yet, let's create one.
 
-Let's follow the belew steps to bootstrap our simple Spring Boot application.
+Let's follow the belew steps to bootstrap a simple Spring Boot application.
 
-1. Open https://start.spring.io/ and provide necessary information to create spring boot project. The project will be a .zip file and we have to unzip it in a directory to work with it.
+1. Open [https://start.spring.io/](https://start.spring.io/) and provide necessary information to create spring boot project. The project will be a .zip file and we have to unzip it in a directory to work with it.
 
 Now in this page, Select 
-    - Maven as a build tool (you can select gradle too)
+    - Maven as a build tool (you can select gradle as well)
     - Java as a language
     - Spring Boot version 3.0.12 (or the latest version)
     - In the Project Metadata section, provide your application group, artifact, package name etc. Note: The group and package name will be same. Also the artifact and name of your project will be same as well (Not mendatory). 
-    - Then, select jar for packaging (for simplicity) and select the java language version. The java language version I use is 17. You can choose 8, 11 or the latest LTS version.
-    - The last step is adding dependencies. Add the following starter dependencies:
+    - Then, select jar for packaging (for simplicity) and select the java language version. The java language version I use is 17 (LTS). You can choose 8, 11 or the latest LTS version.
+    - The last step is to adding dependencies. Add the following starter dependencies:
         - Spring Web (MVC)
         - Spring Data JPA
-        - H2/MySQL database dependency (H2 for emebedded database); Select H2 for simplocity 
+        - H2/MySQL driver dependency (H2 for emebedded database); Select H2 for simplicity 
 
+//image: start.spring.io
+<img 
+src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-43.png" 
+alt="Spring Boot Project Structure"
+width="50%"
+height="auto"
+/>
 
-2. After generating the .zip file now unzip it to any director. 
+2. After generating the .zip file now unzip it to any directory. 
 
 3. Import the unzip spring-boot-example project into your favourite Ide.
 
@@ -34,12 +46,20 @@ Eclipse: Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven pro
 
 Intellij Ide: Open your Inellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
 
-4. The project Project Structure will be like this.
+4. The project file structure will be like this.
 //image: Spring Boot project structure
 
-5. Now, Create a model package in com.company folder. Inside the model package, create an entity class called Person and Relationship entity class called Car. Both are annotated by @Entity annotation. Here, the Person class is the relationship owener. Thus, we have used @JoinColumn annotatin in it. 
+<img 
+src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-1.png" 
+alt="Spring Boot Project Structure"
+width="50%"
+height="auto"
+/>
 
-    ***Also note that, the OneToMany or ManyToOne mappings, the ManyToOne side will always be the relationship owner. Thus, you never can use mappedBy attribute in the @ManyToOne side.***
+
+5. Now, Create a model package in com.company folder. Inside the model package, create an entity class called Person and Relationship entity class called Car. Both are annotated by @Entity annotation. Here, the Person class is the relationship owner. Thus, we have used @JoinColumn annotatin in it. 
+
+    ***Also note that, the OneToMany or ManyToOne mappings, the ManyToOne side will always be the relationship owner. Thus, you never can use mappedBy attribute in the @ManyToOne side. Please use both annotaions to make the approach handy. (Here I skip this)***
 
 
 ```js
@@ -102,11 +122,11 @@ public class Person {
 }
 ```
 
-About the code above: We have annotated the class above by @Entity annotation to make it persistent class. By default it is the table name in your database. The Person class contains id, name as attributes. It also contains, associated class with @OneToOne annotaton. There is also @JoinColumn annotaion is used to make the person class is the relationship owener. It means, foreign key will be found in the Peroson table not the Car table. Note, if you don't use the @JoinColumn(name = "car_id") then the foreign key table column name would be (person_car). 
+About the code above: We have annotated the class above by **@Entity** annotation to make it persistent class. By default it is the table name in your database. The Person class contains id, name as attributes. It also contains, associated class with **@ManyToOne** annotaton. There is also **@JoinColumn** annotaion is used to provide the foreign key column name. The foreign key will be found in the Person table not the Car table. Note, if you don't use the **@JoinColumn(name = "car_id")** then the foreign key column name would be (person_car). 
 
 Note:
 
-The Associative Car class: 
+The non-owner Car class: 
 
 ```js
 package com.company.model;
@@ -190,7 +210,7 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
 
 ```
 
-Note: Skip findByName(String name) method for the time being. It is a custom query method to find the entity records by name.
+Note: Skip **findByName(String name)** query method for the time being. It is a custom query method to find the entity records by name.
 
 6. Create a PersonController.java class in com.company.controller pacakage. 
 
@@ -250,24 +270,24 @@ public class EmployeeController {
 
 ```
 
-The most common rest annotaions (htttp verbs) have been used here like @GetMapping, @PostMapping, @DeleteMapping etc. We focus on @GetMapping and @PostMappig only.
+The most common rest annotaions (htttp verbs) have been used here like **@GetMapping**, **@PostMapping**, **@DeleteMapping** etc. We focus on **@GetMapping** and **@PostMappig** only.
 
-@GetMapping("/persons"): Get all the person records
+**@GetMapping("/persons"):** Get all the person records
 
-@GetMapping("/persons/{id}): Get person record by id
+**@GetMapping("/persons/{id}):** Get a person record by id
 
-@PostMapping("persons"): save or persist new person reocord in this endpoint
+**@PostMapping("persons"):** Save or persist a new person record in this endpoint
 
-@DeleteMapping("/persons/{id}): Delete perons reocrd by id
+**@DeleteMapping("/persons/{id}):** Delete a single person by id
 
 Additonally, we have annotated the PersonController class by @RestController annotation to make it behave like web application and get accessable of all the rest endpoints.
 
-7. Now, open the main class file and run the example application or type Shift+F10.
+7. Now, open the main class file and run the example application or type ***Shift+F10.***
 
 Note: The application listens port 8080 in localhost.
 
 
-8. Add database configuration in application.properties folderl. It is located in resources folder. 
+8. Add database configuration in **application.properties** file. It is located in resources folder. 
 
 ```js
 spring.datasource.url=jdbc:h2:mem:testdb
@@ -278,7 +298,7 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 #enabling the H2 console
 spring.h2.console.enabled=true
 ```
-***spring.h2.console.enabled=true*** enable h2 embedded database to access from your web browser.
+***spring.h2.console.enabled=true*** # enable h2 embedded database to access from your web browser.
 
 9. After run the application successfully, Open Postman or use Curl to post some fake data.
 
@@ -291,7 +311,7 @@ In this step we will use Postman, a popular rest client to work with rest APIs. 
     - Insert the below demo data (one by one)
     - At last, click on send button 
 
-Imagine, we have three person records in the persons table and all are owned Car A.
+Imagine, we have three person records in the persons table and all are owned Car named "A".
 
 ```js
 //First perosn
@@ -337,7 +357,7 @@ Imagine, we have three person records in the persons table and all are owned Car
 //but if you use id, then, you must use in in the paren entity+child entity too.
 ```
 
-10. Invoke the url: http//localhost:8080/persons in your favourite web browser. You will see all the persons records in json format.
+10. Invoke the url: [http//localhost:8080/persons](http//localhost:8080/persons) in your favourite web browser. You will see all the persons records in json format.
 
 Also, if you call the @GET request in Postman, the response will be pretty straightforward.
 
@@ -373,24 +393,35 @@ Also, if you call the @GET request in Postman, the response will be pretty strai
 ]
 ```
 
-12. Also check the same response in H2 console. Invoke the url: http://localhost:8080/h2-console clikc enter -> Connect. Now run: **SELECT * FROM PERSON;** in the command section.
+12. Also check the same response in your H2 console. Invoke the url: [http://localhost:8080/h2-console](http//localhost:8080/h2-console) click enter -> Connect. Now run: **SELECT * FROM PERSON;** in the command section.
 
 Now the person table would be like this:
 
-![Alt text](img-5.jpg)
+
+<img 
+src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-35.png" 
+alt="Spring Boot Project Structure"
+width="50%"
+height="auto"
+/>
 
 You see there is an extra table called car_id. It is the foreign key of this table that indicates which car belongs to which person. Here all the person acquires the same car. It is how @ManyToOne mapping works. Where multiple entities can be assocaited with only one entity. Like, same car may be owned by many persosns, etc.
 
 
 **But if you run this command: SELECT * FROM CAR;**
 
-![Alt text](img-4.jpg)
+<img 
+src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-34.png" 
+alt="Spring Boot Project Structure"
+width="50%"
+height="auto"
+/>
 
-You now see, the Car table only conatains car_id, name and brand columns. More ineresting thing there is only one car has been registered. No foreign key is here. Means, the foreign key is only available in the relationship owner entity/table. 
-In our case, the Person table. 
+You now see, the Car table only conatains car_id, name and brand columns. More ineresting thing there is only one car has been registered. Also notice that the foreign key is only available in the relationship owner entity/table though you can use the mapping annotaions bidirectionl.
+
+In our case, the Person table is the relationship owner. 
 
 Thanks for reading tutorial.
 
-Talk Soon,
-
+Talk Soon,<br/>
 Shakil Ahmed.

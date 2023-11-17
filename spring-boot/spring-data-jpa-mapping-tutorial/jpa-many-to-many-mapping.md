@@ -5,7 +5,7 @@ In this simple example tutorial, we will demonstrate how to use Many-To-Many map
 
 **Note: For database persistence, we will use Spring data jpa and H2 database.**
 
-When to use @ManyToMany mapping? - When more than one entity is associated with multiple other entities. In database terminology, we say more than one table is linked with more than one table or multiples tables are linked with multiple tables.
+When to use **@ManyToMany** mapping? - When more than one entity is associated with multiple other entities. In database terminology, we say more than one table is linked with more than one table or multiples tables are linked with multiple tables.
 
 Like, Several oweners have several cars and several cars have several oweners.
 
@@ -18,7 +18,7 @@ If you don't have any Spring Boot application bootstrapped yet, let's create one
 
 Let's follow the belew steps to bootstrap our simple Spring Boot application.
 
-1. Open https://start.spring.io/ and provide necessary information to create spring boot project. The project will be a .zip file and we have to unzip it in a directory to work with it.
+1. Open [https://start.spring.io](https://start.spring.io/) and provide necessary information to create spring boot project. The project will be a .zip file and we have to unzip it in a directory to work with it.
 
 Now in this page, Select 
     - Maven as a build tool (you can select gradle too)
@@ -27,23 +27,29 @@ Now in this page, Select
     - In the Project Metadata section, provide your application group, artifact, package name etc. Note: The group and package name will be same. Also the artifact and name of your project will be same as well (Not mendatory). 
     - Then, select jar for packaging (for simplicity) and select the java language version. The java language version I use is 17. You can choose 8, 11 or the latest LTS version.
     - The last step is adding dependencies. Add the following starter dependencies:
-        - Spring Web (MVC)
-        - Spring Data JPA
-        - H2/MySQL database dependency (H2 for emebedded database); Select H2 for simplocity 
+        - ***Spring Web (MVC)***
+        - ***Spring Data JPA***
+        - ***H2/MySQL database driver** (H2 for emebedded database); Select H2 for simplicity 
 
 
 2. After generating the .zip file now unzip it to any director. 
 
-3. Import the unzip spring-boot-example project into your favourite Ide.
+3. Import the unzip **spring-boot-example** project into your favourite Ide.
 
-Eclipse: Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
+**Eclipse:** Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
 
-Intellij Ide: Open your Inellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
+**Intellij Ide:** Open your Inellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
 
 4. The project Project Structure will be like this.
-//image: Spring Boot project structure
 
-5. Now, Create a model package in com.company folder. Inside the model package, create an entity class called Person and Relationship entity class called Car. Both are annotated by @Entity annotation. Here, the Person class is the relationship owner. Thus, we have used @JoinTable annotatin in it. 
+<img 
+src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-1.png" 
+alt="Spring Boot Project Structure"
+width="50%"
+height="auto"
+/>
+
+5. Now, Create a model package in **com.company** folder. Inside the model package, create an entity class called Person and Relationship entity class called Car. Both are annotated by **@Entity** annotation. Here, the Person class is the relationship owner. Thus, we have used **@JoinTable** annotatin in it. 
 
     ***Also note that, you can use @ManyToMany assocaition unidirection (one side) or bidirectional (both side). There will be required an extra table that will store the ids of the linked or associated entities. Thus we have used @JoinTable to genrate an extra table named person_car. Also note that, there is no need to use CascadeType.REMOVE operation, thus we have removed it. (Because it might remove/delete more associative entities than expected.)***
 
@@ -115,9 +121,9 @@ public class Person {
 
 ```
 
-About the code above: We have annotated the class above by @Entity annotation to make it persistent class. By default it is the table name in your database. The Person class contains id, name as attributes. It also contains, associated class with @ManyToMany annotaton. There is also @JoinTable annotaion to generate an extra table just store ids of the linked entities. Also @JoinTable annotaion indicates that Person is the relationship owner. It means, foreign key will be found in the Peroson table not the Car table. 
+About the code above: We have annotated the class above by **@Entity** annotation to make it persistent class. By default it is the table name in your database. The Person class contains id, name as attributes. It also contains, associated class with **@ManyToMany** annotaton. There is also **@JoinTable** annotaion to generate an extra table just store ids of the linked entities. Also **@JoinTable** annotaion indicates that Person is the relationship owner. It means, foreign key will be found in the Peroson table not the Car table. 
 
-Attention: Extra table is required to store the ids of the association. Here the name is the table name. The first @JoinColumn(name = "person_id") is the owener entity id and the second @JoinColumn(name = "person_id") is the child class id.
+Attention: Extra table is required to store the ids of the association. Here the name is the table name. The first **@JoinColumn(name = "person_id")** is the owener entity id and the second **@JoinColumn(name = "person_id")** is the child class id.
 
 
 The Associative Car.java class: 
@@ -183,7 +189,7 @@ public class Car{
 
 ```
 
-Note: Inside the Car class, we don't refer the Person class as it is unidirectional assocaition. If you want to make it bidirectional association, just create a person class onject like this including getter and setter methods:
+Note: Inside the Car class, we don't refer the Person class as it is unidirectional assocaition. If you want to make it bidirectional association, just add the folloing code in including get/set methods in the Car.java class.
 
 ```js
 @ManyToMany(mappedBy = "cars")s
@@ -198,13 +204,12 @@ public void setPersons(List<Person> persons) {
 }
 ```
 
-Note: Here the mappedBy attribute also indicate that Person is the relationship owner.
+Note: Here the mappedBy attribute also indicate that Person.java class is the relationship owner. Relationship owner refers that it contains the primary key of the associative/child class as foreign key.
 
 
+6. Now create **PersonRepository.java** interface class in **com.company.repository** pacakge. (You may have to create the repository package first of all). Here, we extends **JpaRepostory**. You may aslo extends **CrudRepostory** as well. Then, provided the domain an it's type.
 
-6. Now create PersonRepository.java interface class in com.company.repository pacakge. (You may have to create the repository package first of all). Here, we extends JpaRepostory. You may aslo extends CrudRepostory as well. Then, provided the domain an it's type.
-
-PersonRepostory.java class:
+**PersonRepostory.java** class:
 
 ```js
 package com.company.repository;
@@ -223,11 +228,11 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
 
 ```
 
-Note: Skip findByName(String name) method for the time being. It is a custom query method to find the entity records by name.
+Note: Skip **findByName(String name)** query method for the time being. It is a custom query method to find the entity records by name.
 
-6. Create a PersonController.java class in com.company.controller pacakage. 
+6. Create a **PersonController.java** class in **com.company.controller** pacakage. 
 
-PersonController.java class:
+**PersonController.java** class:
 
 ```js
 package com.company.controller;
@@ -283,24 +288,24 @@ public class EmployeeController {
 
 ```
 
-The most common rest annotaions (htttp verbs) have been used here like @GetMapping, @PostMapping, @DeleteMapping etc. We focus on @GetMapping and @PostMappig only.
+The most common rest annotaions (htttp verbs) have been used here like @GetMapping, **@PostMapping**, **@DeleteMapping** etc. We focus on **@GetMapping** and **@PostMappig** only.
 
-@GetMapping("/persons"): Get all the person records
+***@GetMapping("/persons"):*** Get all the person records
 
-@GetMapping("/persons/{id}): Get person record by id
+***@GetMapping("/persons/{id}):*** Get person record by id
 
-@PostMapping("persons"): save or persist new person reocord in this endpoint
+***@PostMapping("persons"):*** save or persist new person reocord in this endpoint
 
-@DeleteMapping("/persons/{id}): Delete perons reocrd by id
+***@DeleteMapping("/persons/{id}):*** Delete perons reocrd by id
 
-Additonally, we have annotated the PersonController class by @RestController annotation to make it behave like web application and get accessable of all the rest endpoints.
+Additonally, we have annotated the PersonController class by **@RestController** annotation to make it behave like web application and get accessable of all the rest endpoints.
 
 7. Now, open the main class file and run the example application or type Shift+F10.
 
 Note: The application listens port 8080 in localhost.
 
 
-8. Add database configuration in application.properties folderl. It is located in resources folder. 
+8. Add database configuration in ***application.properties*** file. It is located in resources folder. 
 
 ```js
 spring.datasource.url=jdbc:h2:mem:testdb
@@ -319,12 +324,12 @@ If Postman:
 
 In this step we will use Postman, a popular rest client to work with rest APIs. If, in your system postman is already installed do the follwoing 
     - Open it (if Postman is already installed)
-    - Invoke the url: http://localhost:8080/persons
+    - Invoke the url: ***[http://localhost:8080/persons](http://localhost:8080/persons)***
     - Select Body and row then JSON as content-type
     - Insert the below demo data (one by one)
     - At last, click on send button 
 
-Imagine, we have three person records in the persons table and all are owned Car A.
+Imagine, we have three person records in the persons table and all are owned **Car A, B and C**. Means list of cars.
 
 ```js
 //First perosn
@@ -352,8 +357,8 @@ Imagine, we have three person records in the persons table and all are owned Car
 
 //second person
 {
-       "id": 1,
-        "name": "Shakil Ahmed",
+       "id": 2,
+        "name": "Bob Smith",
         "cars":[
             {
             "car_id": 1,
@@ -375,8 +380,8 @@ Imagine, we have three person records in the persons table and all are owned Car
 
 //third person
 {
-       "id": 1,
-        "name": "Shakil Ahmed",
+       "id": 3,
+        "name": "Jekov Jenkov",
         "cars":[
             {
             "car_id": 1,
@@ -397,19 +402,25 @@ Imagine, we have three person records in the persons table and all are owned Car
 }
 
 //If you don't use id, then id will be generated automatically.
-//but if you use id, then, you must use in in the paren entity+child entity too.
+//but if you use id, then, you must use the id (primary key) in the paren entity+child entity too.
+//otherwise the the transection will not be held.
 ```
 
-10. Invoke the url: http//localhost:8080/persons in your favourite web browser. You will see all the persons records in json format.
+10. Invoke the url: [http//localhost:8080/persons](http//localhost:8080/persons) in your favourite web browser. You will see all the persons records in json format.
 
 ```js
 [{"id":1,"name":"Shakil Ahmed","cars":[{"car_id":1,"name":"A","brand":"X"},{"car_id":2,"name":"B","brand":"Y"},{"car_id":3,"name":"C","brand":"Z"}]},{"id":2,"name":"Bob Smith","cars":[{"car_id":1,"name":"A","brand":"X"},{"car_id":2,"name":"B","brand":"Y"},{"car_id":3,"name":"C","brand":"Z"}]},{"id":3,"name":"Jekov Jenkov","cars":[{"car_id":1,"name":"A","brand":"X"},{"car_id":2,"name":"B","brand":"Y"},{"car_id":3,"name":"C","brand":"Z"}]}]
 ```
 
-![Alt text](img-6.jpg)
+<img 
+src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-36.png" 
+alt="Spring Boot"
+width="75%"
+height="auto"
+/>
 
 
-Also, if you call the @GET request in Postman, the response will be pretty straightforward.
+Also, if you call the @GET request in Postman, the response will be pretty straightforward json format.
 
 ```js
 [
@@ -479,24 +490,49 @@ Also, if you call the @GET request in Postman, the response will be pretty strai
 ]
 ```
 
-12. Also check the same response in H2 console. Invoke the url: http://localhost:8080/h2-console clikc enter -> Connect. Now run: **SELECT * FROM PERSON;** in the command section.
+12. Let's again check the same response in H2 console. Invoke the url: [http://localhost:8080/h2-console](http://localhost:8080/h2-console) clikc enter -> Connect. Now run this command: **SELECT * FROM PERSON;** in the command section.
 
 Now the person table would be like this:
 
-![Alt text](img-5.jpg)
+<img 
+src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-39.png" 
+alt="Spring Boot"
+width="75%"
+height="auto"
+/>
 
-You see there is an extra table called car_id. It is the foreign key of this table that indicates which car belongs to which person. Here all the person acquires the same car. It is how @ManyToOne mapping works. Where multiple entities can be assocaited with only one entity. Like, same car may be owned by many persosns, etc.
-
+If you noticed already that, there is no extra column in the person table like foreign key column. If you look at the left side of the H2 console window you can an extra table called person_car that stores the id's of both tables. (Whic cars belongs to which person)
 
 **But if you run this command: SELECT * FROM CAR;**
 
-![Alt text](img-4.jpg)
+<img 
+src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-37.png" 
+alt="Spring Boot"
+width="75%"
+height="auto"
+/>
 
-You now see, the Car table only conatains car_id, name and brand columns. More ineresting thing there is only one car has been registered. No foreign key is here. Means, the foreign key is only available in the relationship owner entity/table. 
-In our case, the Person table. 
+You can see in the car table there are total three columns like car_id, name and brand. 
 
-Thanks for reading tutorial.
+As we know in **@ManyToMany** mappings, an extra table is required to store the reference ids like primary key and foreign of the objects or the linked entities. Thus, the extra table name is here **person_car.** (Look at the **@JoinTables** annotation in the Person class.)
 
-Talk Soon,
+Run this command:  **SELECT * FROM PERSON_CAR;**
 
+You get primary keys or ids of person and car table.
+
+There will be two columns: car_id and person_id.
+
+<img 
+src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-38.png" 
+alt="Spring Boot"
+width="75%"
+height="auto"
+/>
+
+
+
+
+Thanks for reading tutorial. Hope this article will be very helpful.
+
+Talk Soon,<br/>
 Shakil Ahmed.

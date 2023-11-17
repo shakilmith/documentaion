@@ -1,3 +1,7 @@
+//All the version will be overridden.
+## v1
+
+
 ## What You Need to Build a simple Spring Boot Project
 
 Initial Requirements:
@@ -38,3 +42,48 @@ In this step we will use Postman, a popular rest client to work with rest APIs. 
     - Select Body and row then JSON as content-type
     - Insert the below demo data (one by one)
     - At last, click on send button 
+
+
+
+# v2
+
+Let's follow the belew steps to bootstrap a simple Spring Boot application.
+
+1. Open [https://start.spring.io/](https://start.spring.io/) and provide necessary information to create spring boot project. The project will be a .zip file and we have to unzip it in a directory to work with it.
+
+Now in this page, Select 
+    - Maven as a build tool (you can select gradle as well)
+    - Java as a language
+    - Spring Boot version 3.0.12 (or the latest version)
+    - In the Project Metadata section, provide your application group, artifact, package name etc. Note: The group and package name will be same. Also the artifact and name of your project will be same as well (Not mendatory). 
+    - Then, select jar for packaging (for simplicity) and select the java language version. The java language version I use is 17 (LTS). You can choose 8, 11 or the latest LTS version.
+    - The last step is to adding dependencies. Add the following starter dependencies:
+        - Spring Web (MVC)
+        - Spring Data JPA
+        - H2/MySQL driver dependency (H2 for emebedded database); Select H2 for simplicity 
+
+//image: start.spring.io
+<img 
+src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-1.png" 
+alt="Spring Boot Project Structure"
+width="50%"
+height="auto"
+/>
+
+2. After generating the .zip file now unzip it to any directory. 
+
+3. Import the unzip spring-boot-example project into your favourite Ide.
+
+Eclipse: Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
+
+Intellij Ide: Open your Inellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
+
+4. The project file structure will be like this.
+//image: Spring Boot project structure
+
+<img 
+src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-1.png" 
+alt="Spring Boot Project Structure"
+width="50%"
+height="auto"
+/>
