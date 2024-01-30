@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to my thymeleaf horizon.</h1>
+</body>
+</html>
+
+Now if you run your spring boot application (If you don't make any changes, you application
+will listen the 8080 port.) and then open localhost:8080/greeting there will be an white lavel 
+error message shown. Why? Because, thymeleaf is serverside template engine. We have to resolve the view so that we can 
+access the thymeleaf .html files from localhost.
+
+Anyway, now create a controller class called GreetingController in our com.company package. And the annotate the class by @Controller annotate. This annotation will handle the view. No much modification will be required.
+
+The GreetingController.java will look like.
