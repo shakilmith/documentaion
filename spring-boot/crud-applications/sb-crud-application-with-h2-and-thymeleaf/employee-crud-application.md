@@ -9,6 +9,10 @@ First of all bootstrap a simple spring boot application with the following depen
     - Thymeleaf as a template engine and 
     - H2 in-memory database dependency
 
+Here is a tutorial to create a simple hello world spring boot application:  
+
+[How to Create Your First Hello World Spring Boot Application](https://javaondemand.com/spring-boot-hello-world-example-application/)
+
 After bootstrapping your spring boot application open it into your ide. Now, we are going to follow the below steps to create a simple crud application.
 
 
@@ -646,6 +650,14 @@ public class EmployeeController {
 If you don't mind, you can copy-paste complete code from here and run it in your development environment.
 
 D:\BLOGS\documentaion\spring-boot\crud-applications\sb-crud-application-with-h2-and-thymeleaf
+
+
+
+
+
+
+
+
 
 <img src="https://docs.javaondemand.com/spring-boot/thymeleaf-tutorial/thymeleaf/sb-thymeleaf-view/img-1.png" style={{width: "50%", height: "auto", display: "block", marginLeft: "auto", marginRight: "auto"}} alt="Thymeleaf view" />
 

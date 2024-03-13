@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+
+<!-- and it's easy to individually load additional languages -->
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+
+</head>
+<body>
+ 
+<div style="font-size: 14px; width: 50%;">
+<pre><code class="language-java">
+import java.util.ArrayList;
+import java.util.List;
+
+public class ForLoopExample {
+    public static void main(String[] args) {
+        
+        //List of books
+        List<String> books = new ArrayList<>();
+        books.add("Java");
+        books.add("Python");
+        books.add("C++");
+        books.add("Rust");
+        books.add("Go");
+        System.out.println("Printing List of books using For loop each loop");
+        for (String book : books) { //it is called for each loop
+            System.out.println(book);
+        }
+    }
+}
+</code></pre>
+</div>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

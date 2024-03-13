@@ -1,0 +1,27 @@
+# Angular NgStyle Directive
+
+In angular, NgStyle is an attribute directive that updates styles dynamically for the containing html element. It can set one or more style properties for a particular html element, specified as colon separated key-value pars.
+
+```
+[ngStyle] ="{'key.unit': value}"
+[ngStyle] ="{'color' : textColor}"
+[ngStyle] ="{'font-size.px': '24'}"
+```
+
+Here, key is the name of your style and the value is the css expression to be evaluated. You can add optional unit properties too. 
+
+The following are the simple comparison using, style and ng-style attribute.
+
+some-template.html file
+
+```
+<p style="color:white; font-size: 36px; background-color: green;">{{title}}</p>
+
+<p [ngStyle]="{'font-size.px': '36', 'background-color': 'red'}">{{title}}</p>
+
+//when the css expression value comes from component
+<p [ngStyle]="{'color': textColor, 'font-size.px': textSize}">{{title}}</p>
+//it is possible to add style variables in an object or in an array
+<p [ngStyle]="{'color': styles.color, 'font-size.px': styles.size, 'background-color': styles.bgColor}">{{title}}</p>
+```
+

@@ -1,4 +1,4 @@
-## Spring Boot Hello World example
+## Spring Boot Hello World Example Application
 
 In this tutorial, we will explain how to create a simple spring boot hello world application.
 
@@ -15,7 +15,7 @@ Let's follow the following steps:
 
 <b>Step 1:</b> Open Spring Initializer. Visit here: https://start.spring.io/ for creating spring boot application.
 
-![spring initializer](image1.png)
+![Spring Boot Initializer](image1.png)
 
 <b>Step 2:</b> It will be a Maven based project and we use Java as a language. Spring Boot version should be 3.1.2 or vice versa.
 
