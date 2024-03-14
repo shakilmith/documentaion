@@ -1,22 +1,23 @@
 ## Javafx PieChart
 
-When we want to represent daata as pie slices in a circle like shape we use PieChart in javafx. The chart content is populated by pie slices based on data set on the Piechart. There is a built in Data class PieChart.Data to to populate data into PieChart. 
+When we want to represent data as pie slices in a circle like shape we use PieChart in javafx. The chart content is populated by pie slices based on data set on the PieChart. There is a built in Data class <b>PieChart.Data</b> to to populate data into PieChart. 
 
 Here also note that, the pie slices order is clockwise. So we can simple override it. 
+
 
 ## Creating PieChart: 
 
 We have to instantiate PieChart class from javafx.scene.chart.PieChart package. Then create an empty constructor or constructor with value of the PieChart. 
 
 ```js
-//creating PieChart contstructor
+//creating PieChart constructor
 final PieChart chart = new PieChart();
  
 ```
 
 ## Add values to Pie Slices
 
-Here is a class in PieChart that is PieChart.Data and we can create list of PieChart.Data (lavels, values) pairs and add them to PieChart for pie slices to display data content.
+Here is a class in PieChart that is PieChart.Data and we can create list of PieChart.Data (labels, values) pairs and add them to PieChart for pie slices to display data content.
 
 Let's see a simple example that creates data values and then add them to PieChart. 
 
@@ -68,12 +69,12 @@ public class PieChartExample extends Application {
 ```
 If you now run the above example, you see a pie chart containing levels and legend visible. 
 
-![PieChart image](/Charts/piechart/image-1.jpg)
+![JavaFX PieChart](image1.png)
 
-Here, first of all, we create list of PieChart.Data("label", value) containing lavels and values. The first parameter of PieChart.Data is label and the second parameter is value. In the above PieChart image, you see, arrow sign idicating label of pie slices. Also notice that at the below of the PieChart image, list of labels info, it's called legend of PieChar. We can simply either call an appropriate method that display or not display PieChart labels or PieChart legends in the PieChart.
+Here, first of all, we create list of PieChart.Data("label", value) containing levels and values. The first parameter of PieChart.Data is label and the second parameter is value. In the above PieChart image, you see, arrow sign indicating label of pie slices. Also notice that at the below of the PieChart image, list of labels info, it's called legend of PieChar. We can simply either call an appropriate method that display or not display PieChart labels or PieChart legends in the PieChart.
 
 
-## Show Title of PieChart
+## Show the Title of PieChart
 
 There is a method called setTitle() in PieChart that we can add a title of our PieChart.
 
@@ -83,13 +84,13 @@ pieChart.setTitle("Imported Fruits");
 ```
 
 
-## PieChart Lebels and Legends visibility
+## PieChart Levels and Legends visibility
 
 By default, the PieChart labels and legends are visble or set to true. 
-We can call, setLabelsVisible(bool) and setLegendVisible(bool) setter method on PieChart to modify either PieChart labels and legends will be visibled or not.
+We can call, setLabelsVisible(bool) and setLegendVisible(bool) setter method on PieChart to modify either PieChart labels and legends will be visible or not.
 
 ```js
-//labels will not visble now
+//labels will not visible now
 pieChart.setLabelsVisible(false);
 //legends will not visible now
 pieChart.setLegendVisible(false);
@@ -98,21 +99,21 @@ pieChart.setLegendVisible(false);
 ```
 
 //image: shows pieChart without labels and legends
-![PieChart image](/Charts/piechart/image-2.jpg)
+![JavaFX PieChart](image2.png)
 
 ## Modify Labels length (the arrow sign) 
 
-We can also modify our PieChart lavels lenght. Just invoke setLabelLineLength(double) method. Look over the below example
+We can also modify our PieChart levels length. Just invoke setLabelLineLength(double) method. Look over the below example
 
 ```js
-//label line legth is set to 30 px
+//label line length is set to 30 px
 pieChart.setLabelLineLength(30);
 
 ```
 
 ## Legend Side 
 
-If you look over the above PieChart example, you noticed that the legends are displaied at at the below PieChart or pie slices. The is a method called setLegendSide(Side side) and we can use it to display our legends of PieChart left, right or top of the PieChart. 
+If you look over the above PieChart example, you noticed that the legends are displayed at at the below PieChart or pie slices. The is a method called setLegendSide(Side side) and we can use it to display our legends of PieChart left, right or top of the PieChart. 
 
 At the below example we first display our legends left side and then right side of the PieChart in the scene.
 
@@ -127,13 +128,13 @@ pieChart.setLegendSide(Side.RIGHT);
 
 ```
 
-Left legens: 
+Left legends: 
 
-![PieChart image](/Charts/piechart/image-4.jpg)
+![JavaFX PieChart](image4.png)
 
 Right legends:
 
-![PieChart image](/Charts/piechart/image-5.jpg)
+![PieChart image](image5.png)
 
 
 
@@ -143,21 +144,20 @@ PieChart by default set to ClockWise and can set to ClockWise false property to 
 
 ```js
 
-//Now our PieChart runs anticlockwise (clokwise is default behaviour)
+//Now our PieChart runs anticlockwise (clockwise is default behavior)
 pieChart.setClockwise(false);
 //the start angle is now 180 degree
 pieChart.setStartAngle(180);
 
 ```
 
-//image: anticlockwise piechart and 180 start angle
-![PieChart image](/Charts/piechart/image-6.jpg)
+![JavaFX PieChart](image6.png)
 
 
 
 ## Add Effects on PieChart
 
-We can add effects in our PieChart that looks our PieChart more attrartive. For achieving this behaviour we just call setEffect() method with the appropriate effect property.
+We can add effects in our PieChart that looks our PieChart more attractive. For achieving this behavior we just call setEffect() method with the appropriate effect property.
 
 
 ```js
@@ -167,5 +167,5 @@ pieChart.setEffect(new DropShadow(20, Color.ROSYBROWN));
 ```
 
 //image: piechart drop shadow effect
-![PieChart image](/Charts/piechart/image-7.jpg)
+![JavaFX PieChart](image7.png)
 

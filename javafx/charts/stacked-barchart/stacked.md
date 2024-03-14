@@ -1,12 +1,12 @@
 ## Javafx StackedBarChart
 
-It is possible to represent data in a barChart where the bars in a category are staked. For achieveing this feature in javafx barChart, we just have to instantiate the StackedBarChart class from javafx.scene.chart.StackedBarChart package.
+It is possible to represent data in a barChart where the bars in a category are staked. For achieving this feature in javafx barChart, we just have to instantiate the StackedBarChart class from javafx.scene.chart.StackedBarChart package.
 
-## Creating StakcedBarChart
+## Creating StackedBarChart
 
-We here first of all create CategoryAxis and NumberAxis for our StakedBart category and value. Basically, the CategoryAxis represnts the catagory (that places on horizontally) and NumberAxis represents the value of category (places on vartically). But, all the default behaviour we can simply override and the CategoryAxis (String type) can be NumberAxis(number type) too. 
+We here first of all create CategoryAxis and NumberAxis for our StakedBart category and value. Basically, the CategoryAxis represents the category (that places on horizontally) and NumberAxis represents the value of category (places on vertically). But, all the default behavior we can simply override and the CategoryAxis (String type) can be NumberAxis(number type) too. 
 
-Then, we create StakcedBarChart object and add xAxis and yAxis as arguments.
+Then, we create StackedBarChart object and add xAxis and yAxis as arguments.
 
 ```js
  //creating categoryAxis and numberAxis
@@ -92,9 +92,9 @@ public class StackedBarChartExample extends Application {
 
 If you now run the application, you see the below window
 
-![stacked bar chart](/Charts/stacked-barchart/image-1.png)
+![JavaFX StackedBarChart](image1.png)
 
-You can simply notice that, the StackedBarChart is little bit different that BarChart. It shows it's data in stacked of bar (some portion of a column). But remember data on the vertical axis are interpreted differently for a BarChart that for a StackedBarChart. You have to choose wisely whcih type of chart you should use when it is necessary for your application. 
+You can simply notice that, the StackedBarChart is little bit different that BarChart. It shows it's data in stacked of bar (some portion of a column, from the full column). But remember data on the vertical axis are interpreted differently for a BarChart that for a StackedBarChart. You have to choose wisely which type of chart you should use when it is necessary for your application. 
 
 ## Add spaces between catagories
 
@@ -110,7 +110,7 @@ Now the above example application should produce categoryGap between vertical co
 
 ## Add animation on data in javafx chart
 
-We can implement animation on javafx charts like in BarChart or PieChart to illustrate dynamic behaviour of many type activities like financial activities or live sports news etc. For now adding javafx TimeLine animation to our BarChart data, we create an animation timeline and create key frames to  randomely set the Y value for the data of the StackedBarChart(see the same example in javafx barChart tutorial). The timeline starts when the application does and continues indefinitely in the auto-reverse mode.
+We can implement animation on javafx charts like in BarChart or PieChart to illustrate dynamic behavior of many type activities like financial activities or live sports news etc. For now adding javafx TimeLine animation to our BarChart data, we create an animation timeline and create key frames to  randomly set the Y value for the data of the StackedBarChart(see the same example in javafx barChart tutorial). The timeline starts when the application does and continues indefinitely in the auto-reverse mode.
 
 ```js
        //adding timeline animation to our StackedBarChart example application
@@ -136,7 +136,7 @@ We can implement animation on javafx charts like in BarChart or PieChart to illu
 
 If you run the example application again, you can see both the xAxis and yAxis (categories and values) and the chart plot change smoothly and adjust the new values in ranges and new lengths of the bars. Means, the chart bars and values are changing smoothly accommodating with the new values. This is because of the animated properties of the Chart xAxis/yAxis classes. By default they set to true to animate any data changes.
 
-Also if you notice clearly, that our charts both axises are now animatting, but if you don't want any of the axis is not animated than (though the default behaviour is, both axis animation property is set to true). For this, you can call setAnimated(bool) method to override any default animation behaviour.
+Also if you notice clearly, that our charts both axises are now animating, but if you don't want any of the axis is not animated than (though the default behavior is, both axis animation property is set to true). For this, you can call setAnimated(bool) method to override any default animation behavior.
 
 Let's we don't want to animate our category axis(xAxis)
 
@@ -144,5 +144,5 @@ Let's we don't want to animate our category axis(xAxis)
 //category axis animation property is set to false
 xAxis.setAnimated(false);
 ```
-Run the example agains, and you can see the changes. Now, the category aixs is animating.
+Run the example again, and you can see the changes. Now, the category axis is animating.
 
