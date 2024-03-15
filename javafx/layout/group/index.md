@@ -1,10 +1,11 @@
-## Group container controller in javafx.
+## JavaFX Group
 
-Group in javafx is a container controller component that can hold multiple other nodes like Text, Label or even any Layout component too. But, the children nodes has been placed in (0,0) position in the scene.
+Group in javaFX is a container controller component that can hold multiple other nodes like Text, Label or even any Layout component too. But, the children nodes has been placed in (0, 0) position in the scene. 
 
 ## Creating Group:
 
-We have to import javafx.scene.Group Firstly to work with Group in javafx.
+In order to work with Group layout component we have to import javafx.scene.Group class firstly. Then we can create constructor of Group container and pass any child nodes.
+
 
 ```js
 package com.javaondemand.practice;
@@ -21,7 +22,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
 
 
-        Group root = new Group();
+        Group root = new Group(); //Group object
         Scene scene = new Scene(root,300,300);
         stage.setTitle("Sample JavaFX Application!");
         stage.setScene(scene);
@@ -35,11 +36,15 @@ public class HelloApplication extends Application {
 
 ```
 
-If you run the above application, you see a blank window. Because, it we didn't pass any child nodes to the Group constructor.
+![JavaFX Group](image1.png)
+
+
+If you run the above application, you see a blank window. Because, it we didn't pass any child nodes to the Group object.
+
 
 ## Adding child node to the Group constructor.
 
-Creating a Lable text message and then pass it to the Group as a node.
+Creating a Label with default texts and then pass it to the Group as a node.
 
 ```js
 package com.javaondemand.practice;
@@ -60,7 +65,8 @@ public class HelloApplication extends Application {
         Label label = new Label("Simple Label Text");
 
         //add the label to the group as a node
-        Group root = new Group(label); //the label text will be positioned (0,0)
+        Group root = new Group(label); //the label text will be positioned (0, 0)
+
         Scene scene = new Scene(root,300,300);
         stage.setTitle("Sample JavaFX Application!");
         stage.setScene(scene);
@@ -74,13 +80,13 @@ public class HelloApplication extends Application {
 
 ```
 
-If you run the application you see a text message that displays (0,0) positon in the window.
+If you run the application you see a text message that displays (0, 0) position in the window.
 
-//image : Group example
+![JavaFX Group](image2.png)
 
 ## Adding multiple nodes to the Group container controller
 
-Let's say, we have more that one Label text and we want to add them to the group.
+Let's say, we have more that one Label text and we want to add them to the group container component.
 
 ```js
 package com.javaondemand.practice;
@@ -117,9 +123,9 @@ public class HelloApplication extends Application {
 }
 ```
 
-//image : text to of other text
+![alt text](image3.png)
 
-Here, if you run the above example, you see both text has been positioned (0,0). It means, they displayed top of each other. But we can simply change this behavior, by implementing setLayoutX/Y() method to the children components. 
+Here, if you run the above example, you see both text has been positioned (0, 0). It means, they displayed top of each other. But we can simply change this behavior, by implementing setLayoutX/Y() method to the children components. 
 
 
 
@@ -135,11 +141,17 @@ Group root = new Group(label1, label2);
 
 ```
 
-After runnint the application, you see the text messages has been placed horizontally side by side. 
+Again run the application, you see the text messages has been placed horizontally side by side. 
 
-## Adding other Layout components to the Group Scene
+![alt text](image4.png)
 
-Is it possible to add other Layout container component to the Group scene? Yes. Let's see the follwing example where we have created 3 Button controller nodes and place them to a HBox() layout controller and VBox() layout controller. Then, pass those layout controller object to the Group constructor.
+LayoutX: Set position horizontally from the top of the left screen. <br/>
+LayoutY: Set position vertically from the top of the left screen.
+
+
+## Adding Other Layout components to the Group  Layout container
+
+Is it possible to add other Layout container component to the Group component? Yes, Let's see the following example where we have created 3 Button controller nodes and place them to a HBox layout controller and VBox() layout controller. Then, pass those layout controller object to the Group.
 
 ```js
 package com.javaondemand.practice;
@@ -179,7 +191,7 @@ public class HelloApplication extends Application {
         //add both HBox and VBox objects to the group
         Group root = new Group(vbox, hbox);
 
-        Scene scene = new Scene(root,300,300);
+        Scene scene = new Scene(root, 300,300);
         stage.setTitle("Sample JavaFX Application!");
         stage.setScene(scene);
         stage.show();
@@ -192,9 +204,10 @@ public class HelloApplication extends Application {
 
 ```
 
-// image: button in hbox, vbox and add them to a group
 
-Here, if you run the application, the 4th number button what we placed in VBOX(), isn't displayed. Because, the Group scene, consider both Layout component as a node and start with (0,0) position on the javafx stage or window. So, we can change the layout of the VBox() container and see what happens.
+![alt text](image5.png)
+
+Here, if you run the application, the 4th number button what we placed in VBOX(), isn't displayed. Because, the Group component considers both layout component as a child node and start with (0, 0) position on the javafx stage or window. So, we can change the layout of the VBox() container and see what happens.
 
 
 ```js
@@ -249,9 +262,10 @@ public class HelloApplication extends Application {
 }
 
 ```
-You see the following window if you run the above application.
 
-//image: get all the buttons
+Now all the VBox elements has been displayed properly.
 
-Here, the VBox() container co-ordinates (0,35) on the screen. And we can add positon to any node by calling it's Layout method. Like setLayoutX(), setLayoutY() etc.
+![alt text](image6.png)
+
+Here, the VBox() container co-ordinates (0, 35) on the screen. And we can add position to any node by calling it's setter methods, like setLayoutX(), setLayoutY() etc.
 

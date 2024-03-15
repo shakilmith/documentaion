@@ -1,10 +1,10 @@
-## HBox in javafx:
+## JavaFX HBox
 
-HBox in javafx position nodes horizontally, side by side start from top left upper-corner. Means the child node gets position (0,0).
+HBox is a layout component that positions it's child nodes horizontally, side by side,  start from top left upper-corner of the screen. Means the child node gets position (0, 0).
 
-## Creating HBox  layout component:
+## Creating HBox
 
-First of all we have to import javafx.scene.layout.HBox; layout class. Then, we can create HBox() layout object and pass other controller nodes to it. See the example below:
+First of all we have to import javafx.scene.layout.HBox; layout class. Then, we can create HBox() layout object and pass other controller (like button, text of even another HBox) nodes in it. See the example below:
 
 ```js
 package com.javaondemand.practice;
@@ -35,13 +35,13 @@ public class HelloApplication extends Application {
 }
 ```
 
-When you run the application, it shows you an empty screen as we don't add any controller node to the HBox to display.
+When you run the application, it shows you an empty screen as we don't add any controller node in the HBox to display.
 
-//image of empty window:
+![alt text](image1.png)
 
 ## Add child node to the HBox layout:
 
-Let's create a Button controller component and add it as a child to the HBox layout.
+Let's create a Button controller component and add it as a child node in the HBox layout.
 
 ```js
 package com.javaondemand.practice;
@@ -58,10 +58,10 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        //Button constructor with default text
+        //Button with default text
         Button button = new Button("Button");
 
-        //creating HBox constructor that doesn't take any node
+        //creating HBox constructor that takes a button node
         HBox hbox = new HBox();
         hbox.getChildren().add(button);
 
@@ -77,13 +77,15 @@ public class HelloApplication extends Application {
 }
 
 ```
-As we have added a Button node to the HBox layout, it now displays a button top of the screen. The button co-ordinates will be (0,0)
+As we have added a Button node to the HBox layout, it now displays a button top of the screen. The button co-ordinates will be (0, 0)
 
-//image: hbox button
+![alt text](image2.png)
+
+
 
 ## Adding multiple nodes to HBox Layout
 
-If we add more than one child controller node the HBox then, they will be stacked horizontally one after another. See the example below: 
+If we add more than one child controller node the HBox, then they will be stacked horizontally one after another, horizontally. See the example below: 
 
 ```js
 package com.javaondemand.practice;
@@ -100,12 +102,12 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        //Button constructor with default text
+        //Three Button nodes
         Button button1 = new Button("Button");
         Button button2 = new Button("Button 2");
         Button button3 = new Button("Button 3");
 
-        //creating HBox constructor that doesn't take any node
+        //HBox Layout controller that takes three child nodes
         HBox hbox = new HBox();
         hbox.getChildren().addAll(button1, button2, button3);
 
@@ -121,11 +123,16 @@ public class HelloApplication extends Application {
 }
 
 ```
-You now see, all three buttons have been displayed horizontally. But, we can also make space in HBox child nodes so that they look pretty.
 
-## Adding spaces in HBox child nodes
+![alt text](image3.png)
 
-HBox layout component provides setSpacing(double) method that generates additional spaces to the HBox child nodes. The following example shows how to set-space in HBox:
+
+You now see, all the three buttons have been displayed horizontally. But, we can also set space in HBox child nodes so that they look pretty.
+
+
+## Adding Spaces in HBox child nodes
+
+HBox layout component provides setSpacing(double_value) method that generates additional spaces to the HBox child nodes. The following example shows how to set space in HBox:
 
 ```js
 package com.javaondemand.practice;
@@ -142,17 +149,17 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        //Button constructor with default text
+        //Creating Buttons
         Button button1 = new Button("Button");
         Button button2 = new Button("Button 2");
         Button button3 = new Button("Button 3");
 
-        //creating HBox constructor that doesn't take any node
+        //Creating HBox
         HBox hbox = new HBox();
         hbox.getChildren().addAll(button1, button2, button3);
 
-        //adding space to the hbox children nodes
-        hbox.setSpacing(20);
+        //calling setSpacing() method
+        hbox.setSpacing(20); //set 20px space for each child nodes
 
         Scene scene = new Scene(hbox,300,300);
         stage.setTitle("Sample JavaFX Application!");
@@ -168,19 +175,21 @@ public class HelloApplication extends Application {
 ```
 You will now get the following window when you run the application: 
 
-//image: where in hbox button gets space
 
-## Child Node alingment in VBox container component
+![alt text](image4.png)
 
-we can use setAlignmnet(Pos.value) make the child in VBox aligned in different position in the screen.
 
-Like, for centering all the child nodes in HBox container, we can use Pos.BASELINE_CENTER. Likewise, for the alignment of the child nodes to the left or right we can use respectively Pos.BASELINE_LEFT and Pos.BASELINE_RIGHT. 
+## Child Nodes Alignment in VBox Container Component
+
+we can use setAlignment(Pos.value) make the child nodes in VBox aligned in different position on the screen.
+
+Like, for centering all the child nodes in HBox container, we can use <b>Pos.BASELINE_CENTER</b>. Likewise, for the aligning of the child nodes to the left or right we can use respectively <b>Pos.BASELINE_LEFT</b> and <b>Pos.BASELINE_RIGHT</b>. 
 
 Look over the chart below, How Pos alignment works. Note: the Pos alignment comes from javafx.geometry.Pos package;
 
 //table of alignment property: 
 
-See an example where all the nodes get centered: 
+See an example where all the child nodes in HBox get centered: 
 
 ```js
 package com.javaondemand.practice;
@@ -198,18 +207,18 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        //Button constructor with default text
+
         Button button1 = new Button("Button");
         Button button2 = new Button("Button 2");
         Button button3 = new Button("Button 3");
 
-        //creating HBox constructor that doesn't take any node
+    
         HBox hbox = new HBox();
         hbox.getChildren().addAll(button1, button2, button3);
 
-        //adding space to the hbox children nodes
+        
         hbox.setSpacing(20);
-        //adding centered alignment to the hbox child nodes
+        //align the nodes centered
         hbox.setAlignment(Pos.BASELINE_CENTER);
 
         Scene scene = new Scene(hbox,300,250);
@@ -226,7 +235,7 @@ public class HelloApplication extends Application {
 ```
 All the child nodes get centered, you can see in the window below: 
 
-//image: child nodes get cenetered align
+![alt text](image5.png)
 
 
 ```js
@@ -237,18 +246,13 @@ hbox.setAlignment(Pos.BOTTOM_Left);
 
 ```
 
-## Adding margin to the HBox child nodes (for specific node)
 
-We just have to implement the setMargin static method that adds margin to a specefic or particular node in the HBox container contains.
+## Adding margin to the HBox Child Nodes (for specific node)
+
+We just have to implement the setMargin static method that adds margin to a specific or particular node in the HBox container component.
 
 ```js
 //syntax
 HBox.setMargin(node, new Insets(0, 0, 0, 0,));
-//here new Insects(0,0,0,0) is the margin(top, left, bottom, right) of the child node property, you can also check out css documentaion to see how margin properties work.
-```
-
-See the example below how setMargin() static method works: 
-
-```js
-
+//here new Insects(0, 0, 0, 0) is the margin(top, left, bottom, right) of the child node property, you can also check out css documentation to see how margin properties work.
 ```

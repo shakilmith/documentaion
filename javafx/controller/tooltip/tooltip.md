@@ -1,40 +1,49 @@
 ## Javafx ToolTip
 
-Tooltips are Javafx UI controls that are used for showing extra information of particular nodes. If you add tooltips in any node in javafx, then tooltips are automaticatlly activated when you mouse over the node. Like, you add or install toolTip for a button node, so when you mouse hover the button node, then it will show extra infomation of that button.
+Tooltip is a javaFX UI control that is used for showing extra information of particular node (like of button, level). If you add tooltips in any node in javaFX, then tooltips are automatically activated when you mouse over the node. Guess, you have added or install toolTip for a button node, so when you mouse hover the button node, then it will show extra information of that button.
+
 
 ## Creating ToolTip.
 
-We can simply create toolTip by isntantiating Tooltip constructor with default text. But in order to show the functionality of javafx Tooltip, we have to create another node to install or add tooltip behavior of that node. 
+We can simply create toolTip by instantiating Tooltip constructor with default text. But in order to show the functionality of javafx Tooltip, we have to create another node to install or add tooltip behavior of that node. 
 
 Also note that, a typical single tooltip can be used on multiple target nodes.
 
 
-```js
+```
 //creating tooltip with default text
 Tooltip tooltip = new Tooltip("Tooltip Text");
 Tooltip.install(node, tooltip);
 ```
+
 Here, we have to install the above tooltip in a particular node or we can also call the built in setToolTip method of that node. So, we create a Button node and install tooltip in it.
 
-```js
+```
 //create a button node
 Button button = new Button("Button");
 
-//now install tooltip on button
+//now install tooltip on the button
 Tooltip tooltip = new Tooltip("I am a Button");
 Tooltip.install(button, tooltip);
 ```
+
 Also we can call setTooltip method on the button instance but then, we can't modify the tooltip text dynamically. It is okay for the time being.
 
-```js
+```
 //create a button node
 Button button = new Button("Button");
-button.setTooltip(new Tooltip("Tooltip text"));
+button.setTooltip(new Tooltip("Tooltip text")); //or
+
+//creating tooltip
+Tooltip tooltip = new ToolTip("I am a button");
+//creating button 
+Button button = new Button("Button");
+button.setToolTip(tooltip);
 ```
 
-Remember that, tooltips will show it's functionality when you mouse over the button text or any node it has been applied. Here is the full example.
+Remember that, tooltip will show it's functionality when you mouse over the button text or any node it has been applied. Here is the full example.
 
-```js
+```
 package com.javaondemand;
 
 import javafx.application.Application;
@@ -72,7 +81,8 @@ public class TooltipExample extends Application {
 
 If you run the above example application, you see a button on the scene graph. Now if you hover your mouse over the button text, you will see a popup text - "I am a Button" with dark background.
 
-![Alt text](img-1.jpg) 
+![JavaFX ToolTip](image1.png) 
+
 
 ## Install a single Tooltip on multiple nodes.
 
@@ -100,7 +110,7 @@ public class TooltipExample extends Application {
         //creating tooltip and install it to button node
         Tooltip tooltip = new Tooltip("Click me");
         //install the single on multiple button nodes.
-        Tooltip.install(button1, tooltip);
+        Tooltip.install(button1, tooltip); //or call the setToolTip() method
         Tooltip.install(button2, tooltip);
         Tooltip.install(button3, tooltip);
 
@@ -123,7 +133,7 @@ public class TooltipExample extends Application {
 
 All three buttons now have a single tooltip installed and if you look over the below image, I hover the first and second button and it shows the same tooltip text.
 
-![Alt text](img-2.jpg) ![Alt text](img-3.jpg)
+![Alt text](image2.png) ![Alt text](image3.png)
 
 
 ## Uninstall Tooltip
@@ -134,7 +144,7 @@ There is an uninstall method in Tooltip class and we call it with a particular n
 //install tooltip
 Tooltip.install(button3, tooltip);
 //uninstall tooltip
-Tooltip.uninstall(button3 tooltip);
+Tooltip.uninstall(button3, tooltip);
 ```
 If you now hover the mouse over the third button, no popup text will be shown.
 
@@ -145,8 +155,8 @@ There is a method call setStyle() for implementing inline css style to the javaf
 
 ```js
 tooltip.setStyle("-fx-font-family: Arial; -fx-font-size: 18");
-//alternatively you can write (the output should be the same)
-tooltip.setFont(Font.font("Arial",18));
+//alternatively you can use built in Font.font() class(the output should be the same)
+tooltip.setFont(Font.font("Arial",18)); 
 ```
-![Alt text](img-4.jpg)
+![Alt text](image4.png)
 

@@ -3,11 +3,11 @@
 Accordion in javafx is a controller container and it takes TitledPane layout as it's parameter. You must pass TitledPane to accordion to display. Here, accordion can be expanded or collapsed. When, the accordion expanded it shows the TitledPane value. But, only one TitledPane can be opened at a time.
 
 
-## Creating Acccordion
+## Creating Accordion in JavaFX
 
-We have to import the Accordion class from the javafx.scene.control.Accordion; pacakge. The, we can work with javafx accordion.
+We have to import the Accordion class from the javafx.scene.control.Accordion; package. The, we can work with javafx accordion.
 
-```js
+```
 //creating Accordion 
 Accordion accordion = new Accordion();
 
@@ -30,7 +30,8 @@ Accordion accordion = new Accordion();
 accordion.getPanes().add(pane1);
 accordion.getPanes().add(pane2);
 accordion.getPanes().add(pane3);
-//or wrtie the bellow
+
+//or write like the below
 accordion.getPanes().addAll(pane1, pane2, pane3);
 
 ```
@@ -42,7 +43,7 @@ Note: Here, we have added Label controller in titledPane node type. But, it can 
 
 ## Add accordion to the Scene graph
 
-In order to display accordion to the scene, we fistly add accordion to the scene. A sample example has been shown below
+In order to display accordion to the scene, we firstly add accordion to the scene. A sample example has been shown below
 
 ```js
 package com.javaondemand.practice;
@@ -91,15 +92,15 @@ public class HelloApplication extends Application {
 ```
 If you run the above example, you will the following result.
 
-//image: accordion
+![JavaFX Accordion](image1.png)
 
 It seems, the first accordion gets focused. Anyway, if you click one the accordion title it shows the value of titledPane.
 
-//image: accordion when you click on the title
+![JavaFX Accordion](image2.png)
 
-But, when you clik on the differnet title like title (Mustang) the first expanded accordion automatically collapsed. It measn, when you click any of the accordion title the body will be expanded but the expended one will be collupsed. 
+But, when you click on the different title then title of the first expanded accordion automatically collapsed. It means, when you click any of the accordion title the body will be expanded but the previously expended one will be collapsed. 
 
-//image: collapsed the first accordion when you click on the second second accordion
+![JavaFX Accordion](image3.png)
 
 
 ## using setExpended method in Accordion
@@ -115,5 +116,5 @@ accordion.setExpandedPane(pane2); //now the second accordion will be expanded
 
 ```
 
-//image: image of accordion where the first one will be expanded by default
+![JavaFX Accordion](image2.png)
 

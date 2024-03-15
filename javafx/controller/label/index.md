@@ -1,30 +1,27 @@
-## Label in javafx
+## JavaFX Label
 
-Label is controller component or node in javafx. We can use Label to display text or image in javafx scene. 
+Label is controller component or node in JavaFX. We can use Label to display text or image in the javaFX application.
 
-## Creating Label
+## Creating Label in JavaFX
 
-We have to import javafx.scene.control.Label in order to use label componet.
-
-then we can set text, image to it. 
-
+We have to import javafx.scene.control.Label in order to use label component, then we can set text, image to it. 
 
 
 ## Label constructor.
 
-```JS
- Label label = new Label();
+```
+Label label = new Label();
 ```
 
-## Set text to the label or constructor or implement setter method
+## Set text to the label or constructor or implementing setter method
 
-```js
+```
+//set label text at the time creating label constructor
 Label label = new Label("Simple Label Text");
 
-//Or implement the setText setter method to set the label text;
+//Or implement the setText() setter method to set the label text;
 Label another_label = new Label();
 another_label.setText("Javafx label");
-
 ```
 
 ## How to display an image in a label or use image with label text
@@ -48,7 +45,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FileInputStream inputStream = new FileInputStream("D:/resources/images/universe/sun-fireball-solar-flare-sunlight-87611.jpeg");
+        FileInputStream inputStream = new FileInputStream("D:\\resources\\icons\\home.png");
 
         ImageView imageView = new ImageView(new Image(inputStream));
         
@@ -68,15 +65,17 @@ public class HelloApplication extends Application {
 
 ```
 
-//image
+![JavaFX Label](image1.png)
 
 Here the Label constructor takes image as another parameter. 
 
 We can also setGraphic as well in label.
 
-## Set text in label in javafx.
 
-We can call the setText method to add label text.
+## Label Text
+
+We can add text at the time of creating label constructor or calling setText() method to add text in the label component.
+
 
 ```js
 package com.javaondemand.practice;
@@ -94,7 +93,8 @@ public class HelloApplication extends Application {
 
         //creating a Label
         Label label = new Label(); //Label constructor
-        label.setText("JavaFX label");
+        label.setText("JavaFX label"); //set the label text
+        label.setFont(Font.font("Arial", FontWeight.BOLD, 35));  //Customize the label text
 
         //add label to the stackPane container
         StackPane root = new StackPane(label);
@@ -111,9 +111,12 @@ public class HelloApplication extends Application {
 }
 ```
 
+![alt text](image2.png)
+
+
 ## Adding style to the label text
 
-We can add font_size, color, background_cole or other styles to javafx label text by implementing javafx setStyle method.
+We can add font-size, color, background-color or many css styles to our javafx label text by implementing javafx setStyle method.
 
 ```js
 package com.javaondemand.practice;
@@ -131,10 +134,10 @@ public class HelloApplication extends Application {
 
         //creating a Label
         Label label = new Label(); //Label constructor
-        label.setText("JavaFX label");
+        label.setText("JavaFX Label");
 
         //add css to label text
-        label.setStyle("-fx-font-size: 40; -fx-font-family: arial; -fx-text-fill: white; -fx-background-color: black ");
+        label.setStyle("-fx-font-size: 40; -fx-font-family: arial; -fx-text-fill: white; -fx-background-color: black; -fx-padding: 8");
 
         //add label to the stackPane container
         StackPane root = new StackPane(label);
@@ -152,11 +155,12 @@ public class HelloApplication extends Application {
 
 ```
 
-//image
+![alt text](image3.png)
 
-Here, in setStyle method, instead of writing -fx-color: white; css we use -fx-text-fill: white; both are same in javafx css. In label text, we use -fx-text-fill to color the label text. And in different nodes, like in Text node, we use -fx-color component.
+Here, in setStyle method, instead of writing -fx-color: white; css we use -fx-text-fill: white; both works same in javafx CSS. In label text, we use -fx-text-fill to color the label text. And in different nodes, like in Text node, we use -fx-color property.
 
-## Set the text color in javafx label
+
+## Using setTextFill() and setFont method
 
 First of all, creating a label constructor and and set text to it. Then, call the setFill method and use any appropriate color value.
 
@@ -179,10 +183,11 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
 
         //creating a Label
-        Label label = new Label("Label Text"); //Label constructor
+        Label label = new Label("JavaFX Label");
 
-        //set color
+        //set the color using setTextFill() method
         label.setTextFill(Color.DARKRED);
+        //apply font using setFont method
         label.setFont(Font.font("Arial", FontWeight.NORMAL, 40));
 
         //add label to the stackPane container
@@ -201,11 +206,14 @@ public class HelloApplication extends Application {
 
 ```
 
-## Adding effects to the label text
+![alt text](image4.png)
+
+
+## Adding effects to the JavaFX Label
 
 Is it possible to add effects to the label text.
 
-Yes, we just genrate effect and call the setEffect method in the label node.
+Yes, we just generate effect and call the setEffect() method in the corresponding node.
 
 ```js
 //creating a Label
@@ -215,7 +223,10 @@ label.setFont(Font.font("Arial", 40));
 label.setEffect(new DropShadow(20, Color.BLUE));
 
 ```
-Here, we implement setEffect method and use the dropShadow effect.
+
+![alt text](image5.png)
+
+Here, we implement setEffect method and using DropShadow constructor to create dropShadow effect in our label node.
 
 ----
 
@@ -223,4 +234,5 @@ Moreover, we can add plenty of functionality to any type of nodes in javafx.
 
 ## Here are the few setter methods that you can use to any individual node in javafx.
 
+//Will be added soon.
 

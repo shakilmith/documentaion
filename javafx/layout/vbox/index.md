@@ -1,12 +1,13 @@
-## VBox in javafx:
+# JavaFX VBox
 
-HBox in javafx position nodes vertically, stack top of each other, start from top left upper-corner. Means the child node gets position (0,0).
+VBox is a layout controller that can hold other javaFX nodes like button, text or even container component. VBox in javafx displays it's child nodes vertically, stack top of each other, start from top left upper corner. Means the child node gets position (0, 0).
 
-## Creating VBox  layout component:
+## Creating VBox
 
-First of all we have to import javafx.scene.layout.HBox; layout class. Then, we can create HBox() layout object and pass other controller nodes to it. See the example below:
+First of all we have to import javafx.scene.layout.VBox in our application to work with it. Then, we can create objects of it and add necessary child nodes to display.
 
-```js
+
+```
 package com.javaondemand.practice;
 
 import javafx.application.Application;
@@ -20,9 +21,10 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        //creating VBox constructor that doesn't take any child node
+        //VBox object
         VBox vbox = new VBox();
-
+        
+        //add VBox to the scene graph
         Scene scene = new Scene(vbox,300,300);
         stage.setTitle("Sample JavaFX Application!");
         stage.setScene(scene);
@@ -35,13 +37,15 @@ public class HelloApplication extends Application {
 }
 ```
 
-When you run the application, it shows you an empty screen as we don't add any controller node to the VBox to display.
+When you run the application, it shows you an empty screen as we don't add any controller node to the VBox component to display.
 
-//image of empty window:
 
-## Add child node to the VBox layout:
+![alt text](image1.png)
 
-Let's create a Button controller component and add it as a child to the VBox layout.
+
+## Add a Child node to the VBox
+
+Let's create a Button controller component and add it as a child node to the VBox layout.
 
 ```js
 package com.javaondemand.practice;
@@ -58,11 +62,13 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        //Button constructor with default text
+        //creating a button node
         Button button = new Button("Button");
 
-        //creating HBox constructor that doesn't take any node
+
+        //creating VBox
         VBox vbox = new VBox();
+        //calling getChildren().add() method to add the button node
         vbox.getChildren().add(button);
 
         Scene scene = new Scene(vbox,300,300);
@@ -79,13 +85,15 @@ public class HelloApplication extends Application {
 ```
 As we have added a Button node to the HBox layout, it now displays a button top of the screen. The button co-ordinates will be (0,0)
 
-//image: hbox button
+![alt text](image2.png)
 
-## Adding multiple nodes to VBox Layout
 
-If we add more than one child controller node the VBox then, they will be stacked vertically top of each other. See the example below: 
+## Adding Multiple Child Nodes to VBox Layout
 
-```js
+If we want to add more than one child node in the VBox, then they will be stacked vertically on top of each other. See the example below: 
+
+
+```
 package com.javaondemand.practice;
 
 import javafx.application.Application;
@@ -100,13 +108,15 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        //Button constructor with default text
+        //Creating three Button controller
         Button button1 = new Button("Button");
         Button button2 = new Button("Button 2");
         Button button3 = new Button("Button 3");
 
-        //creating HBox constructor that doesn't take any node
+
+        //Creating and object of VBox and
         VBox vbox = new VBox();
+        //invoke getChildren().addAll() for adding three child nodes int VBox
         vbox.getChildren().addAll(button1, button2, button3);
 
         Scene scene = new Scene(vbox,300,300);
@@ -121,11 +131,15 @@ public class HelloApplication extends Application {
 }
 
 ```
-You now see, all three buttons have been displayed horizontally. But, we can also make space in HBox child nodes so that they look pretty.
+
+![alt text](image3.png)
+
+
+You now see, all three buttons have been displayed vertically. But there is no spaces amongst the buttons.
 
 ## Adding spaces in VBox child nodes
 
-VBox layout component provides setSpacing(double) method that generates additional spaces to the VBox child nodes. The following example shows how to set-spaces in VBox:
+VBox layout component provides setSpacing(double) method that generates additional spaces to the VBox child nodes. The following example shows you how to set spaces in VBox child nodes.
 
 ```js
 package com.javaondemand.practice;
@@ -142,16 +156,16 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        //Button constructor with default text
+        
         Button button1 = new Button("Button");
         Button button2 = new Button("Button 2");
         Button button3 = new Button("Button 3");
 
-        //creating HBox constructor that doesn't take any node
+        
         VBox vbox = new VBox();
         vbox.getChildren().addAll(button1, button2, button3);
 
-        //adding space to the hbox children nodes
+        //calling setSpacing() method with double value
         vbox.setSpacing(20);
 
         Scene scene = new Scene(vbox,300,300);
@@ -166,21 +180,26 @@ public class HelloApplication extends Application {
 }
 
 ```
+
+
 You will now get the following window when you run the application: 
 
-//image: where in hbox button gets space
+![alt text](image4.png)
 
-## Child Node alingment in VBox container component
 
-we can use setAlignmnet(Pos.value) make the child in VBox aligned in different position in the screen.
+## Alignment of Child Nodes
 
-Like, for centering all the child nodes in VBox container, we can use Pos.BASELINE_CENTER. Likewise, for the alignment of the child nodes to the left or right we can use respectively Pos.BASELINE_LEFT and Pos.BASELINE_RIGHT. 
+we can use setAlignment(Pos.value) make the child nodes in VBox aligned in different position on the screen.
 
-Look over the chart below, How Pos alignment works. Note: the Pos alignment comes from javafx.geometry.Pos package;
+Like, for centering all the child nodes in VBox container, we can use <b>Pos.BASELINE_CENTER</b>. Likewise, for the alignment of the child nodes to the left or right we can use respectively <b>Pos.BASELINE_LEFT</b> and <b>Pos.BASELINE_RIGHT</b>.
+
+Look over the chart below, How Pos alignment works. 
+
+Note: the Pos alignment comes from javafx.geometry.Pos package;
 
 //table of alignment property: 
 
-See an example where all the nodes get centered: 
+See an example where all the child nodes get centered VBox  
 
 ```js
 package com.javaondemand.practice;
@@ -198,19 +217,26 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        //Button constructor with default text
+        
         Button button1 = new Button("Button");
         Button button2 = new Button("Button 2");
         Button button3 = new Button("Button 3");
 
-        //creating HBox constructor that doesn't take any node
-        VBox hbox = new VBox();
+        
+        VBox vbox = new VBox();
         vbox.getChildren().addAll(button1, button2, button3);
 
-        //adding space to the hbox children nodes
-        vbox.setSpacing(20);
-        //adding centered alignment to the hbox child nodes
-        vbox.setAlignment(Pos.BASELINE_CENTER);
+        
+        vbox.setAlignment(Pos.BASELINE_CENTER); //center top
+
+        /**
+         * For left align use: Pos.BASELINE_LEFT)
+         * For right align, use - Pos.BASELINE_RIGHT
+         * For bottom left align, use - Pos.BOTTOM_LEFT
+         * For bottom right align, use - Pos.BOTTOM_RIGHT 
+         * For bottom right align, use - Pos.BOTTOM_CENTER
+         * FOR centering the nodes (middle of the screen), use- Pos.CENTER
+        */
 
         Scene scene = new Scene(vbox,300,250);
         stage.setTitle("Sample JavaFX Application!");
@@ -224,9 +250,11 @@ public class HelloApplication extends Application {
 }
 
 ```
-All the child nodes get centered, you can see in the window below: 
 
-//image: child nodes get cenetered align
+
+All the child nodes are displayed at top centered, see below
+
+![alt text](image5.png)
 
 
 ```js
@@ -234,21 +262,18 @@ All the child nodes get centered, you can see in the window below:
 vbox.setAlignment(Pos.BOTTOM_CENTER);
 //left align bottom of the screen
 vbox.setAlignment(Pos.BOTTOM_Left);
-
+//right align bottom of the screen
+vbox.setAlignment(Pos.BOTTOM_Right);
+//center of the window
+vbox.setAlignment(Pos.CENTER);
 ```
 
-## Adding margin to the VBox child nodes (for specific node)
+## Adding Margin to the VBox Child Nodes (applied in specific node)
 
-We just have to implement the setMargin static method that adds margin to a specefic or particular node in the HBox container contains.
+We just have to implement the setMargin static method that adds margin to a specific or particular node in the VBox container.
 
 ```js
 //syntax
 VBox.setMargin(node, new Insets(0, 0, 0, 0,));
-//here new Insects(0,0,0,0) is the margin(top, left, bottom, right) of the child node property, you can also check out css documentaion to see how margin properties work.
-```
-
-See the example below how setMargin() static method works: 
-
-```js
-
+//here new Insects(0, 0, 0, 0) is the margin(top, right, bottom, left) of the child node property, you can also check out css documentation to see how margin properties work.
 ```

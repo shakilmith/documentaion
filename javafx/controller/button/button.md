@@ -1,9 +1,9 @@
-## Button in javafx
+# JavaFX Button
 
 A button can execute something when we click on it. Like, play a song, pause the video or open a new window etc. So the main purpose to use a button in javafx to handle an action. 
 
 
-## Creating Javafx button.
+## Creating JavaFX Button
 
 First of all, we have to import javafx.scene.control.Button to implement Button in javafx. Then, we can create Button constructor like the below.
 
@@ -22,7 +22,7 @@ We can call setText to set a text message or change the button default text in j
 
 ```js
 Button btn1 = new Button();
-btn1.setText("Button");
+btn1.setText("Button 1");
 
 //or change the default text
 Button btn2 = new Button("Default Button");
@@ -71,14 +71,14 @@ public class HelloApplication extends Application {
 ```
 If you run the application, you see the following window, a button in the middle of the screen.
 
-//image of a button
+![JavaFX Button](image1.png)
 
 
 If you notice that, this button doesn't do anything. But, we want the button should do something when we click on it.
 
 ## Button that handle events.
 
-Likewise, when we clikc on a button, we want that it should execute something. Like open a new window, play the music, pause the video or save information to the database. 
+Likewise, when we click on a button, we want that it should execute something. Like open a new window, play the music, pause the video or save information to the database. 
 
 Button provides setOnAction method and we need to add an event listener to the button object. See the example below.
 
@@ -99,9 +99,9 @@ public void handle(ActionEvent actionEvent) {
 
 ```
 
-We can get almost result like the above by java lambda expression.
+The preceding code can be written using lambda expression
 
-```js
+```
  button.setOnAction(actionEvent -> {
             //to-do-something
 });
@@ -138,7 +138,7 @@ public class HelloApplication extends Application {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                System.out.println("You clicked the button!");
+                System.out.println("Button has been clicked");
             }
         });
 
@@ -156,9 +156,9 @@ public class HelloApplication extends Application {
 
 ```
 If you now, run the application and it shows you a button on the screen. If you click on it, in the console you see: You clicked the button! 
-If you click on the mulitple times, it shows mulitple times the same result.
+If you click on the multiple times, it shows multiple times the same result.
 
-//image: button produces console messsage
+![JavaFX Button](image2.png)
 
 
 ## Button can change the text:
@@ -181,19 +181,19 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        Label label = new Label("I love Javafx!");
+        Label label = new Label("Are you fan of JavaFX?");
 
-        Button button = new Button("Change the text");
+        Button button = new Button("Change the Text");
         //action event
         button.setOnAction(actionEvent -> {
             //change the label default text
-            label.setText("Javafx is fun enough!");
+            label.setText("Yes, I am the fan of JavaFX.");
         });
 
 
         //creating VBox container that display nodes vertically.
         VBox root = new VBox(label, button);
-       root.setAlignment(Pos.BASELINE_CENTER);
+        root.setAlignment(Pos.BASELINE_CENTER);
         Scene scene = new Scene(root,300,300);
         stage.setTitle("Sample JavaFX Application!");
         stage.setScene(scene);
@@ -209,12 +209,21 @@ public class HelloApplication extends Application {
 
 If you now click on the button after running the application, you see the text has been changed. 
 
-//image: button that change a label text
+Before clicking the button
 
-//image after click on the button
+![alt text](image3.png)
+
+After the clicking the button
+
+![alt text](image4.png)
 
 Not just like changing text, a button can do a lot of possible things as well. 
-1. Change text 2. Change default style. 3. Change the default alignment 4. Change Backgroud 5. Change effects or set graphics etc. 
+
+
+2. Change the default style or appearance. 
+3. Change the default alignment 
+4. Change Background 
+5. Change effects or set graphics etc. 
 
 ## Setting Button Size
 
@@ -222,28 +231,28 @@ In javafx, button class contains several methods to work with buttons. Even, it 
 
 ```js
 //setMinWidth, MaxWidth and PrefWidth
-btn.setMinWidth(duble_value);
-btn.setMaxWidth(doble_value);
+btn.setMinWidth(double_value);
+btn.setMaxWidth(double_value);
 btn.setPrefWidth(double_value);
 
 //setMinHeight, setMaxHeight and PreHeight
-btn.setMinHeight(duble_value);
-btn.setMaxHeight(doble_value);
+btn.setMinHeight(double_value);
+btn.setMaxHeight(double_value);
 btn.setPrefHeight(double_value);
 
 //setMaxSize, setMinSize and PrefSize
-btn.setMinSize(duble_value, double_value);
-btn.setMaxSize(doble_value, double value);
+btn.setMinSize(double_value, double_value);
+btn.setMaxSize(double_value, double value);
 btn.setPrefSize(double_value, double value);
 ```
 
 ## Add CSS to a Button
 
-We can add external or internal css style to a button and make our button more stylish and look great. 
+We can add external or internal css style to a button and make our button looks good.
 
-Let's add button size, color, backgorund color or font style (size, color, font-family etc.)
+Let's add button size, color, background color or font style (size, color, font-family etc.)
 
-In the below example I demonstrate only how to apply how to apply inline css to a button node.
+In the example below I demonstrate how we can add inline or external css to our button component.
 
 ```js
 package com.javaondemand.practice;
@@ -278,34 +287,13 @@ public class HelloApplication extends Application {
 
 ```
 
-Here, after running the application you see a white button with bakcground color:
+Here, after running the application you see a white button with black background color:
 
-//image: a button that uses css inline style
+![alt text](image5.png)
 
-Note: In javafx, when we wrtie css command we have to use extra -fx command. If you already work with css, you know, we use just only font-family: < value >, but, in javafx we have to write -fx-font-family: < value >; Hope it make sense.
-Another thing to note, sometimes, -fx-color: (value); works and sometimes -fx-text-fill: works; If -fx-color doesn't work just use -fx-text-fill:(value);
+Note: In javafx, when we write css command we have to use extra -fx command. If you already work with css, you know, we use just only font-family: < value >, but, in javafx we have to write -fx-font-family: < value >;
 
-//More information will be provided here: work with javafx css
+Another thing to note, sometimes, -fx-color: (value); works and sometimes -fx-text-fill: works; If -fx-color doesn't work just use -fx-text-fill: (value);
 
-## Buttons with diffrent css styles (More examples)
-
-```js
-
-```
-
-## Style a button by CSS StyleSheets
-
-## Set Image to a Button
-
-## Set Effect to a Button
-
-## How to Create a Disable Button
-
-## Buton in FXML
-
-## How to Implement Transition or Transformation in a Javafx Button
-
-## Set Mnemonic on Javafx Button
-
-## How to display buttons horizontally or Vertically 
+More Information can be found here: <a href="https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html" target="_blank">JavaFX CSS Reference Guide</a>
 
