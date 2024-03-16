@@ -3,7 +3,7 @@
 Accordion in javafx is a controller container and it takes TitledPane layout as it's parameter. You must pass TitledPane to accordion to display. Here, accordion can be expanded or collapsed. When, the accordion expanded it shows the TitledPane value. But, only one TitledPane can be opened at a time.
 
 
-## Creating Acccordion
+## Creating Accordion
 
 We have to import the Accordion class from the javafx.scene.control.Accordion; pacakge. The, we can work with javafx accordion.
 

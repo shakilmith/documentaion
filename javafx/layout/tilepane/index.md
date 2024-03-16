@@ -1,6 +1,6 @@
 ## JavaFX TilePane
 
-TilePane in javafx is a layout controller and we have to import this class javafx.scene.layout.TilePane to work with TilePane. TilePane lays out it's child nodes in a grid of uniformly sized "tiles". Means, the nodes are presented in a grid of equally sized cells. Though you can maintain which column or row, the will be placed in GridPane, you can't change the default behaviour in TilePane. 
+TilePane in javafx is a layout controller and we have to import this class <b>javafx.scene.layout.TilePane</b> to work with TilePane. TilePane lays out it's child nodes in a grid of uniformly sized called "tiles". Means, the nodes are presented in a grid of equally sized cells. Though we can maintain which column or row the tiles will be placed in a TilePane, but we can't change the default behavior of TilePane. 
 
 ## Creating TilePane
 
@@ -8,7 +8,6 @@ First of all import the following class to work with tilePane in javafx
 
 ```js
 import javafx.scene.layout.TilePane;
-
 ```
 
 ## Creating TilePane constructor and add button nodes to it
@@ -24,7 +23,7 @@ Button btn6 = new Button("Button number 6");
 
 
 
-//creating tilePane constructor and add buttons nodes to it
+//creating instance of TilePane and add button nodes in it
 TilePane tilePane = new TilePane();
 tilePane.getChildren().addAll(btn1, btn2, btn3, btn4, btn5, btn6);
 
@@ -79,7 +78,7 @@ public class LayoutExample extends Application {
 
 If you run the above example, you see the following window
 
-//image: of tilePane
+![JavaFX TilePane](image4.png)
 
 ## Set Hgap and Vgap to make spaces amongst nodes
 
@@ -93,7 +92,8 @@ tilePane.setVgap(10);
 ```
 If you now, again run the above application, you can now see how the child nodes get horizontal and vertical spaces.
 
-//image: horizontal and vertical spacing of tilePane nodes
+![JavaFX TilePane](image4.png)
+
 
 ## What if you changed the scene width?
 
@@ -148,20 +148,24 @@ public class LayoutExample extends Application {
 
 Here, we lessened the scene width 300 to 250 and you can see the effect of it: 
 
-//image: tilePane gets equally sized cells
+
+![JavaFX TilePane](image6.png)
 
 
 ## Add alignment of the tilePanes
 
-You can also use setAlignment(Post.pos_value) to the tilePane to make left, right, top or buttom aligned on the scene. Just add the new line of code in you example application-
+You can also use setAlignment(Post.pos_value) to the tilePane to make left, right, top or button aligned on the scene. Just add the new line of code in you example application-
 
 ```js
 
 //right align the tiles (button nodes) on the scene
 tilePane.setAlignment(Pos.BASELINE_RIGHT);
-
 ```
+
 Now, all the tiles or button nodes will be placed in right side of the window.
 
-//image: right aligned tiles of TilePane
+![JavaFX TilePane](image7.png)
+
+<b>Note:</b> You can check out the differences by shrinking or enlarging the window width.
+
 
