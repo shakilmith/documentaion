@@ -7,7 +7,7 @@ A button can execute something when we click on it. Like, play a song, pause the
 
 First of all, we have to import javafx.scene.control.Button to implement Button in javafx. Then, we can create Button constructor like the below.
 
-```js
+```
 //creating button constructor
 Button button = new Button();
 
@@ -20,7 +20,7 @@ Button button = new Button("Button");
 
 We can call setText to set a text message or change the button default text in javafx.
 
-```js
+```
 Button btn1 = new Button();
 btn1.setText("Button 1");
 
@@ -35,7 +35,7 @@ btn2.setText("Button 2");
 
 It is not enough just to creating the button node. In order to display it in the scene graph we have to place it in any container node. See the example below-
 
-```js
+```
 package com.javaondemand.practice;
 
 import javafx.application.Application;
@@ -112,7 +112,7 @@ In the event handler section or block, we can set anything to execute or perform
 
 If you want to just print a console message, see the example below that returns a simple console message when we click on a button.
 
-```js
+```
 package com.javaondemand.practice;
 
 import javafx.application.Application;
@@ -165,7 +165,7 @@ If you click on the multiple times, it shows multiple times the same result.
 
 Let's we want to change a text of any label or text node. See the example below:
 
-```js
+```
 package com.javaondemand.practice;
 
 import javafx.application.Application;
@@ -220,16 +220,19 @@ After the clicking the button
 Not just like changing text, a button can do a lot of possible things as well. 
 
 
-2. Change the default style or appearance. 
+2. Change the default style or appearance.
+
 3. Change the default alignment 
+
 4. Change Background 
+
 5. Change effects or set graphics etc. 
 
 ## Setting Button Size
 
 In javafx, button class contains several methods to work with buttons. Even, it contains methods to change the button size. See the example below
 
-```js
+```
 //setMinWidth, MaxWidth and PrefWidth
 btn.setMinWidth(double_value);
 btn.setMaxWidth(double_value);
@@ -254,7 +257,7 @@ Let's add button size, color, background color or font style (size, color, font-
 
 In the example below I demonstrate how we can add inline or external css to our button component.
 
-```js
+```
 package com.javaondemand.practice;
 
 import javafx.application.Application;
