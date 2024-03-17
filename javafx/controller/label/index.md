@@ -8,7 +8,7 @@ We have to import javafx.scene.control.Label in order to use label component, th
 
 
 ## Label constructor.
-
+ 
 ```
 Label label = new Label();
 ```
@@ -232,7 +232,5 @@ Here, we implement setEffect method and using DropShadow constructor to create d
 
 Moreover, we can add plenty of functionality to any type of nodes in javafx. 
 
-## Here are the few setter methods that you can use to any individual node in javafx.
 
-//Will be added soon.
 
