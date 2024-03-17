@@ -1,22 +1,24 @@
 ## Javafx GridPane
 
-In javafx GridPane is a layout controller and displayes it's child nodes like a grid (column and rows). When you add node to a gridPane you should tell in what cell (row and column) the node will be inserter and set how many rows and columns the node will be spaned.
+In javafx GridPane is a layout controller and displays it's child nodes like a grid (column and rows). When you add node to a gridPane you should tell it in what cell (row and column) the node will be inserted and set how many rows and columns the node will be spanned.
+
 
 ## Creating GridPane
 
-We can create a gridPane constructor like the following
+We can create a gridPane by instantiating GridPane constructor.
 
 ```js
 GridPane gridPane = new GridPane();
-
 ```
-Now we can add child nodes to the gridPane object so easily.
+
+Now we can add child nodes to the gridPane object.
+
 
 ## Example of GridPane that takes Button nodes
 
-Let's create some Button controller and add them to gridPane as child nodes.
+Let's create some Button controller and add them in the gridPane as child nodes.
 
-```js
+```
 package com.javaondemand.practice;
 
 import javafx.application.Application;
@@ -60,13 +62,16 @@ public static void main(String[] args) {
 
 ```
 
-Here in gridPane object, the first parameter of the add method is the node type (button), second and third is the column and row index respectively. Then, the fourth and fifth parameter value display the colspan and rowspane (column span and row span). 
+Here in gridPane object, the first parameter of the add method is the node type (button), second and third is the column and row index respectively. Then, the fourth and fifth parameter value display the colspan and rowspan (column span and row span). The following image shows it better way.
 
-Now if you run the above application, you see that all the button is displayed in first row and first column.
+![alt text](image4.png)
 
-//image: or gridPane
+Now if you run the above application, you see that all the button is displayed in first row and in next columns for each button note.
 
-Let's make some changes of the above application. We want that every two buttons will be displayed in column but in first row.
+![alt text](image1.png)
+
+
+Let's make some changes in the above application. We want that every two buttons will be displayed in column but in first row.
 
 ```js
 package com.javaondemand.practice;
@@ -118,22 +123,46 @@ public class HelloApplication extends Application {
 
 ```
 
-If you run the application, you see, the first two buttons (button 1 and button 2) will be displayed in the first column, then the second two buttons are in the second column (button 2 and button 3), and then the last two buttons are in the thrid column (button 4 and button 5). Note that, first column and row index starts from 0. 
+If you run the application, you see, the first two buttons (button 1 and button 2) will be displayed in the first column, then the second two buttons are in the second column (button 2 and button 3), and then the last two buttons are in the third column (button 4 and button 5). Note that, first column and row index/co-ordinates starts from (0, 0). 
+
+![alt text](image2.png)
+
 
 ## Adding Gaps to the button rows and columns
 
-The setHgap method generates gaps over columns and setVgap method generats gaps over rows.
+The setHgap method generates gaps over columns and setVgap method generates gaps over rows.
 
 ```js
 //gap on columns and rows
 gridPane.setHgap(10);
 gridPane.setVgap(10);
-
 ```
 
-Now, if you the application again, you see:
+Now, 10px gaps are added among child nodes (between rows and columns)
 
-//image: gaps on rows and columns
+![alt text](image3.png)
 
 
+# Align GridPane nodes
 
+It is possible to align all the child nodes of a gridPane using the setAlignment() method,
+
+```
+//right align the gridPane
+gridPane.setAlignment(Pos.BASELINE_RIGHT);
+//center align
+gridPane.setAlignment(Pos.CENTER);
+//bottom left
+gridPane.setAlignment(Pos.BOTTOM_LEFT); 
+```
+
+Note: The following Pos.value (derived from javafx.geometry.Pos) can be used as an alignment:
+
+Left Align: Pos.BASELINE_LEFT (default feature)<br/>
+Right Align: Pos.BASELINE_RIGHT<br/>
+Center Align: Pos.BASELINE_CENTER (top of the screen)<br/>
+Center Align: Pos.CENTER (middle of the screen)<br/>
+Bottom Left Align: Pos.BOTTOM_LEFT<br/>
+Bottom Right Align: Pos.BOTTOM_RIGHT<br/>
+Bottom Center Align: Pos.BOTTOM_CENTER<br/>
+Middle Left, Right or CENTER: Pos.CENTER_LEFT, CENTER_RIGHT, CENTER respectively<br/>

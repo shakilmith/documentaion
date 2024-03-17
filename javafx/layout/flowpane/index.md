@@ -1,17 +1,19 @@
 ## Javafx FlowPane
 
-In javafx FlowPane is a layout controller. In order to use flowPane in javafx we have to import javafx.scene.layout.FlowPane class. 
+FlowPane is a layout controller in javaFX. In order to use flowPane we have to import <b>javafx.scene.layout.FlowPane</b> class. 
 
-At the javafx scene, the flowPane lays out it's children or child nodes horizontally (in rows) or vertically (in columns). And the child nodes are wrapped at the folowPane's boundary.
+In the javafx scene, the flowPane lays out it's children or child nodes horizontally (in rows) or vertically (in columns). And the child nodes are wrapped at the flowPane's boundary.
 
-A horizontal flowPane (default behaviour) display it's nodes in horizontally (in rows) and if the child nodes requre more widths then the nodes will stack from below of the other nodes.
-And, a vertical flowPane display it's nodes in vertically (in columns) and wrapping the child nodes at the flowPane height. 
+<br/>
+
+A horizontal flowPane (default behavior) displays it's child nodes horizontally (in rows) and if the child nodes require more widths then the nodes will stack from below of the other nodes. Similarly a vertical flowPane displays it's nodes vertically (in columns) and wrapping the child nodes at the flowPane height. 
+
 
 ## Creating Horizontal FlowPane (by default)
 
-Just imagine we have few child nodes and we want to add them to flowPane to display. 
+Just imagine we have few child nodes and we want to add them in flowPane to display. 
 
-```js
+```
 package com.javaondemand.practice;
 
 import javafx.application.Application;
@@ -50,15 +52,29 @@ public class HelloApplication extends Application {
 
 ```
 
-//flowpane output: image
+![alt text](image1.png)
 
-You can see here, the 'Button 5' has been placed next line because the space is less than the buttons required. Means, flowPane wraps it's child nodes within it's width.
+Let's set the scene width to 250 or shrink the width of the scene using your mouse
 
-## Creating Vertical flowPane
+```
+Scene scene = new Scene(flowPane,300,250);
+```
 
-We can use setOrientation(Orientation.VERTICAL) method to lays the flowPane child nodes vertically (in columns). See the below example that display the child nodes vertically.
+![alt text](image2.png)
 
-```js
+You see, the last node gets placed in the next row because it requires more width to display. Likewise, if you shrink your width of the scene gradually, the child nodes will be displayed like the following few images.
+
+![alt text](image3.png)
+
+![alt text](image4.png)
+
+
+
+## Vertical FlowPane (Child Nodes will be displayed Vertically.)
+
+We can use setOrientation(Orientation.VERTICAL) method to lay the flowPane child nodes vertically (in columns). See the below example that displays the child nodes vertically.
+
+```
 package com.javaondemand.practice;
 
 import javafx.application.Application;
@@ -99,21 +115,21 @@ public class HelloApplication extends Application {
 
 ```
 
-//image 
+![alt text](image5.png)
 
-The above image shows that all the nodes are displayed vertically. But waht if we lessen the height of scene? Then, the last node will be stack or vertically from the above. 
+The above image shows that all the nodes are displayed vertically. But what if we lessen or shrink the height of scene? Then, the last node will be stacked or lays vertically from the above. 
 
 See the image below where we lessen our scene height. (Or just less the scene height of your application.)
 
-//image: shows the vrticall node one after another.
+![alt text](image6.png)
 
-Hope it make sense. 
 
-## Set HGap an VGap in flowPane.
+## Apply Horizontal and Vertical Gaps among nodes in FlowPane
 
-Hgap represents the gap on rows and Vgap represents the gap on columns of the flowPane nodes.
+HGap represents the gap of rows and VGap represents the gap of columns of the flowPane child nodes.
 
-```js
+
+```
 package com.javaondemand.practice;
 
 import javafx.application.Application;
@@ -156,38 +172,13 @@ public class HelloApplication extends Application {
 
 ```
 
-//image: 
-
-In the above inmage, you can see the gaps of among nodes (horizonatally, but column wise) if you lesssen the width of the scene than, you can alos notice the vGap over child nodes. 
-
-Let's add two more button nodes, and see the effect. 
-
-```js
-  //Button constructor with default text
-        Button button1 = new Button("Button 1");
-        Button button2 = new Button("Button 2");
-        Button button3 = new Button("Button 3");
-        Button button4 = new Button("Button 4");
-        Button button5 = new Button("Button 5");
-        Button button6 = new Button("Button 6");
+![alt text](image7.png)
+ 
 
 
-        //flowPane - nodes will be stacked horizontally
-        FlowPane flowPane = new FlowPane();
-        flowPane.getChildren().addAll(button1, button2, button3, button4, button5, button6);
-        //add horizontal (rows) and vertical (columns) gaps.
-        flowPane.setHgap(10);
-        flowPane.setVgap(10);
+Let's add HGap and VGap in a vertical flowPane. 
 
 ```
-
-//image: flowPane that uses vGap and hGap as well.
-
-Now, it is clear that how setHgap() and setVgap() methods work in a nutshell. 
-
-Let's add setHgap() and setVgap in a vertical flowPane. 
-
-```js
 package com.javaondemand.practice;
 
 import javafx.application.Application;
@@ -223,7 +214,7 @@ public class HelloApplication extends Application {
         flowPane.setVgap(10);
 
 
-        Scene scene = new Scene(flowPane, 300,150);
+        Scene scene = new Scene(flowPane, 300, 150);
         stage.setTitle("Sample JavaFX Application!");
         stage.setScene(scene);
         stage.show();
@@ -236,7 +227,5 @@ public class HelloApplication extends Application {
 
 ```
 
-//image: vertical flowPane where we uses hGap and vGap method
-
-Now, it is clear how flowPane setHgap() and setVgap() methods work respectabely in horizontal and vertical flowPane.
+![alt text](image8.png)
 
