@@ -1,15 +1,16 @@
 ## Javafx TableView
 
-TableView is a controller in javafx that helps to visualize unlimited number of rows broken into columns. It is similar to ListView class but it features to add columns. 
+TableView is a controller component in javafx that helps to visualize unlimited number of rows broken out into columns. It is similar to ListView class but it features to add columns. 
 
-## Creating ListView 
+
+## Creating TableView
 
 In order to create TableView we have to go through few underlying steps. Here first of all we need a data model to use in the tableView.
-Then, we have to create List of data and convert that list javafx collection types like observableList<Object>. At last, in order to show column and rows with data, we have to implement TableColumn controller from javafx. Note that, first name and last name will be the column name. I describe here steps by steps.
+Then, we have to create List of data and convert that list javafx collection types like observableList<Object/>. At last, in order to show column and rows with data, we have to implement TableColumn controller from javafx. Note that, first name and last name will be the column name. I describe here steps by steps.
 
 Here is the person.java class
 
-```js
+```
 package com.javaondemand;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -53,7 +54,7 @@ public class Person {
 
 ```
 
-The properties of person class is firstName and lastName.
+The properties of the person class are firstName and lastName.
 
 Next, open your exampleApplication and create list of person data model. And add the list of person data to javafx ObservableList.
 
@@ -68,9 +69,9 @@ Next, open your exampleApplication and create list of person data model. And add
 ObservableList<Person> list =FXCollections.observableArrayList(members);
 ```
 
-Now create, ListView onject and call the setItems method with obeservableList instance.
+Now create instance of TableView class and call the setItems method and pass the list as an argument.
 
-```js
+```
 //create tableView instance
 TableView<Person> tableView = new TableView<>();
 tableView.setItems(list);
@@ -79,12 +80,12 @@ tableView.setItems(list);
 Now create HBox layout controller, and add the listView in it. 
 
 ```js
-HBox root = new HBox(tableView);
+HBox root = new HBox();
 //by calling getChildren method
-root.getChildren().addAll(listView);
+root.getChildren().addAll(tableView);
 ```
 
-At last, we add the root instance of HBox to the Scene in order to show the listView data in javafx window.
+At last, we add the root, instance of HBox in the Scene in order to display TableView data in the javaFX window.
 
 ```js
 Scene scene = new Scene(root,250, 250);
@@ -95,7 +96,7 @@ stage.show();
 
 Look over the full ExampleApplication.java file.
 
-```js
+```
 package com.javaondemand;
 
 import javafx.application.Application;
@@ -159,13 +160,14 @@ public class HelloApplication extends Application {
 
 Note: We did't yet add TableColumn controller in our exampleApplication.
 
-Run the application, you should see a widnow that shows No columns in table.
+Run the application, you should see a window that shows No columns in table.
 
-![Alt text](img-1.jpg)
+![Alt text](image1.png)
 
-In order to display the table data, rows and columns we have to implement TableColumn class with PropertyValueFactory. Please add few more codes in your example application.
+In order to display the table data as well as rows and columns we have to implement TableColumn class with PropertyValueFactory. Please add few more codes in your example application.
 
 ```js
+//adding columns in your tableView
 TableColumn<Person, String> firstNameCol = new TableColumn<>("First Name");
 
 firstNameCol.setCellValueFactory(new PropertyValueFactory<>(members.get(0).firstNameProperty().getName()));
@@ -178,7 +180,7 @@ lastNameCol.setCellValueFactory(new PropertyValueFactory<>(members.get(1).lastNa
 tableView.getColumns().addAll(firstNameCol, lastNameCol);
 ```
 
-If you now run the exampleApplicaton, you will see two columns - First Name and Last Name with appropriate data.
+If you now run the exampleApplication, you will see two columns - First Name and Last Name with appropriate data.
 
-![Alt text](img-2.jpg)
+![Alt text](image2.png)
 

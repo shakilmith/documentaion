@@ -11,45 +11,43 @@ Basic requirements in order to create a spring boot application:
 
 <b>Note:</b> In this project, I will use intellij idea.
 
-Let's follow the following steps: 
+Let's follow the following steps:
 
 <b>Step 1:</b> Open Spring Initializer. Visit here: https://start.spring.io/ for creating spring boot application.
 
-![Spring Boot Initializer](image1.png)
+![Spring Boot Initializer](https://docs.javaondemand.com/spring-boot/spring-boot-hello-world/image1.png)
 
 <b>Step 2:</b> It will be a Maven based project and we use Java as a language. Spring Boot version should be 3.1.2 or vice versa.
 
-<strong>Step 3:</strong> In the Project Metadata section provide GroupId and ArtifactId name. </br>
-<b>GroupId: com.example</b> </br>
+<strong>Step 3:</strong> In the Project Metadata section provide GroupId and ArtifactId name. <br/>
+<b>GroupId: com.example</b> <br/>
 <b>ArtifactId: spring-boot-example</b> (at the end Application will be added)
 
 <b>Note</b>: Here, Group name will be the package name and Artifact name will be the name of your project. Here we select java version 17 and jar tool for packaging our application.
 
+<b>Step 4:</b> Now we add maven dependency. As it is a simple Hello World application, thus we add Spring Web dependency.
 
-<b>Step 4:</b> Now we add maven dependency. As it is a simple Hello World application, thus we add Spring Web dependency. 
+<b>Step 5:</b> Click on Generate button. It will package your application into a zip file. Then, Extract the spring-boot-example.zip file to any directory. Later we will import it in our IDE.
 
-Step 5: Click on Generate button. It will package your application into a zip file. Then, Extract the spring-boot-example.zip file to any directory. Later we will import it in our IDE.
-
-<b>Step 6:</b> Open your favourite Ide. In my case Intellij Ide. Import the spring-boot-example application into your ide. 
+<b>Step 6:</b> Open your favourite Ide. In my case Intellij Ide. Import the spring-boot-example application into your ide.
 
 <b>Intellij:</b> File -> Open -> Select the project folder -> Ok (finish) It will now open your project in the current window or new window. Remember your project directory location you have just downloaded or extracted.
 
-<b>Eclipse:</b> File -> Import -> Existing Maven Project -> Next -> Browse (you have just downloaded and extracted) -> Select the project folder (spring-boot-example) -> Finish 
+<b>Eclipse:</b> File -> Import -> Existing Maven Project -> Next -> Browse (you have just downloaded and extracted) -> Select the project folder (spring-boot-example) -> Finish
 
-<b>Note:</b> When you Generate the spring-boot-example project, it is a .zip file. The file name should be spring-boot-example.zip file. You must unzip or extract it to somewhere in order to import it into your ide. 
+<b>Note:</b> When you Generate the spring-boot-example project, it is a .zip file. The file name should be spring-boot-example.zip file. You must unzip or extract it to somewhere in order to import it into your ide.
 
 <b>Note:</b> It is also possible to bootstrap your spring boot application from your ide. You may use STS (Spring tool suite ide) or download necessary plugins or extensions for this.
 
 <b>Step 7:</b> After successfully importing the spring boot project, please wait few seconds to resolve the maven dependencies.
 
+<b>Step 8:</b> Create a controller package in the <b>src/main/java/com/example</b> folder.
 
-<p>Step 8:</> Create a controller package in the <b>src/main/java/com/example</b> folder. 
-
-Then, inside it create a java class called HelloController.java 
+Then, inside it create a java class called HelloController.java
 
 Step 9: Open <b>HelloController.java</b> class and create a method name <b>printHello(){}</b> and it will return a String message, when you run your application.
 
-See here: 
+See here:
 
 ```js
 
@@ -73,7 +71,6 @@ You see, we annotate the class by <b>@RestController</b> annotation and in the m
 
 But note, the @GetMapping or @RequestMapping annotation will tell us where we find our endpoint in the browser (URL OR URI)
 
-
 Step 9: Run the <b>SpringBootExampleApplication.java</b> file. If the application runs successfully, in the console you see the following message.
 
 ```console
@@ -88,8 +85,7 @@ You see, our application runs on port 8080. Yes, it is a default port runs sprin
 
 Step 10: Open your favourite browser and type: http://localhost:8080/hello-world and see Hello World! String message.
 
-![alt text](image2.png)
-
+![alt text](https://docs.javaondemand.com/spring-boot/spring-boot-hello-world/image1.png)
 
 Note: Make sure you terminate or shut down your application and restart again. Otherwise the application will produce error message that port 8080 is used already or vise versa.
 
