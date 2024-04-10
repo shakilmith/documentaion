@@ -1,26 +1,27 @@
 # Spring Boot Dynamic Html Pages
 
-In this post, we are going to explore how to build dynamic html pages using spring boot.
+In this post, we are going to explore how to generate programmatically dynamic html pages using spring boot.
 
 Basic requirements;
 
 JavaSE 17+
 Maven as a build too
-An ide
+An ide - Eclipse, Intellij or VS code
+
 
 1. Bootstrap Our Spring Boot Application
 
-There are many ways we can bootstrap our spring boot application. One possible way is to using spring initializer web page. So, visit [Spring Initializer](https://start.spring.io/) here and bootstrap your spring powered application.
+There are many ways we can bootstrap our spring boot application. One possible way is to using spring initializer web page. So, visit [https://start.spring.io/](https://start.spring.io/) here and bootstrap your spring powered application.
 
 ![spring boot](image1.png)
 
 In the add dependencies section, add the following dependencies for the time being.
 
-Spring Web, thymeleaf (template engine), spring data jpa, h2 database and spring boot devtool (for hot reloading)
+Spring Web, thymeleaf (template engine), spring data jpa, h2 database and spring boot devtools (for hot reloading)
 
 ![spring boot](image2.png)
 
-At last click on generate button.
+At last, click on generate button.
 
 Here, GroupID: com.company (you can use your own domain name)
 ArtifactID: spring-boot-example (application will be added at the end of this)
@@ -33,20 +34,26 @@ Note: We use maven as a build tool, java 17 and jar for packaging.
 
 ![spring boot project structure](image3.png)
 
-Note: The pom.xml file is used to manage all the project dependencies. It is always possible to add new dependencies or remove the existing one.
+Note: The pom.xml file is used to manage all the project dependencies. It is always possible to add new dependencies or remove the existing one from your application classpath.
 
-3. Run Your Application
+3. Run The Application
 
-Click one SpringBootExampleApplication.java file and you see the there is a main method. Now, redirect your project in cmd or powershell and type following maven command to run your application. You may use the vs code terminal. ```(CTRL + Shift + `)```
+Click on ***SpringBootExampleApplication.java*** file and you see there is a main method. Now, open your project in cmd or powershell and type following maven command to run your application. You may use the vs code terminal. ```(CTRL + Shift + `)``` to implement spring boot maven commands.
+
+in **powershell:**
 
 ```
 $ mvn spring-boot:run
 ```
+
 Wait few seconds, and you see your project is running on port 8080 in localhost.
+
+**Note:** You need internet connection to resolve maven dependencies of your project.
+
 
 4. Now, create an entity model (a java class) in the model package. Let's name it Person.java class
 
-Person.java
+**Person.java**
 
 ```
 package com.company.model;
@@ -102,13 +109,13 @@ public class Person {
 }
 ```
 
-Here, to make our entity class as persistent object, we annotated it by @Entity annotation. Now, the Person class will treat like a database table and all the properties in it will be the column name of this table.
+Here, to make our entity class as persistent object, we annotated it by ***@Entity*** annotation. Now, the Person class will treat like a database table and all the properties in it will be the column name of this table.
 
-Note: It is required that, every entity class must have an primary key and it must be annotated by @Id annotation. 
+**Note:** It is required that, every entity class must have a primary key and it must be annotated by ***@Id*** annotation. 
 
 5. Create PersonRepository.java interface in the repository package.
 
-PersonRepository.java
+**PersonRepository.java**
 
 ```
 package com.company.repository;
@@ -123,13 +130,14 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
 ```
 
-In spring, CrudRepository interface provides a basic skeleton to build a simple CRUD applications easily, thus we extends CrudRepository interface.
+CrudRepository interface provides a basic skeleton to build a simple CRUD applications easily, thus we extends CrudRepository interface.
+
 
 6. Create a Controller class to handle incoming requests.
 
-Let's name it PersonController.java class
+Let's name it **PersonController.java** class
 
-PersonController.java
+**PersonController.java**
 
 ```
 @Controller
@@ -147,11 +155,11 @@ public class PersonController {
 
 ```
 
-Here, we annotate the PersonController.java class by @Controller annotation and it means, we are going to handle the incoming requests through view technologies. 
+Here, we annotate the PersonController.java class by ***@Controller*** annotation and it means, we are going to handle the incoming requests through view technologies. 
 
-Let's create a greeting.html file in the the templates directory.
+Let's create a ***greeting.html*** file in the the templates directory.
 
-greeting.html
+**greeting.html**
 
 ```
 <!DOCTYPE html>
@@ -169,15 +177,15 @@ greeting.html
 </html>
 ```
 
-If you now run your application in case you terminated, and invoke the url, [url](http://localhost:8080/greeting) then, you will see the greeting message that comes from PersonController.java class. For convenience we will use components for .java files and templates for all html views.
+If you now run your application and invoke the url, [http://localhost:8080/greeting](http://localhost:8080/greeting) then, you will see the greeting message that comes from ***PersonController.java*** class. For convenience we will use the name components for .java files and templates for all html files.
 
-7. Add database configuration
+7. Add Database Configuration
 
 As our gaol is not to show only simple components data than retrieve data from database and make a dynamic view for each entity objects.
 
-So, open application.properties file and add the following h2 in-memory database configurations.
+So, open ***application.properties*** file and add the following h2 in-memory database configurations.
 
-application.properties
+**application.properties**
 
 ```
 ## For H2 database configuration
@@ -194,31 +202,34 @@ spring.jpa.defer-datasource-initialization=true
 
 The database configuration would be different if you use mysql or postgresql.
 
+
 8. Populate Person table.
 
 It is always good practice to add some predefined sample data when working with relational database for testing purposes.
 
 In spring boot powered applications, we can populate our database tables by inserting data in data.sql file. The file should be resides in resources folder.
 
-So, create data.sql file in the resources folder insert data for persons tables.
-data.sql
+So, create data.sql file in the resources folder inserting data in person table.
+
+**data.sql**
 
 ```
 INSERT INTO person (id, name, role) VALUES (1, 'Mark Smith', 'Java Developer');
 INSERT INTO person (id, name, role) VALUES (2, 'Zimi Kinth', 'Python Developer');
 ```
 
-Here we populate all the properties of the person table. Remember that, properties of the Person.java entity class are the tables columns name by equivalent.
+Here we populate all the properties of the person table. Remember that, properties of the ***Person.java*** entity class are the column name of the person table.
 
-You can see that, we have added two person details and if you now run the application and visit [text](http://localhost:8080/h2-console) you will see, two records have been added to the person table.
+You can see that, we have added two person details and if you now run the application and visit [http://localhost:8080/h2-console](http://localhost:8080/h2-console) you will see, two records have been added to the person table.
 
 ![alt text](image4.png)
 
-9. Display the person tables data in the template file.
 
-Let's create a list.html file in the templates folder and write the following thymeleaf template syntax for rendering the list of values.
+9. Display the person table data in the template file.
 
-list.html
+Let's create a ***list.html*** file in the templates folder and write the following thymeleaf template syntax for rendering the list of values.
+
+**list.html**
 
 ```
 <!DOCTYPE html>
@@ -240,10 +251,11 @@ list.html
 </html>
 ```
 
+
 Now, create another getMapping for handling the above view.
 
 
-PersonController.java
+**PersonController.java**
 
 ```
   @GetMapping("/list")
@@ -255,7 +267,7 @@ PersonController.java
 
 But it just shows the empty page as we didn't add any models data yet.
 
-PersonController.java
+**PersonController.java**
 
 ```
 
@@ -269,20 +281,22 @@ PersonController.java
 
 ```
 
-Note: Don't forget to @Autowired or @Inject the PersonRepository interface. Here, the built in findAll() method will retrieve all the person data from the h2 in-memory database.
+Note: Don't forget to ***@Autowired*** or ***@Inject*** the PersonRepository interface. Here, the built in ***findAll()*** method will retrieve all the person data from the h2 in-memory database.
 
-Run the application again (if it was terminated) and invoke the url: [text](http://localhost:8080/list) you will see list of persons there.
+Run the application again (if it was terminated) and invoke the url: [http://localhost:8080/list](http://localhost:8080/list) you will see list of persons there.
 
 ![alt text](image5.png)
 
-10. Create View for Each Person Model
+
+10. Create A View for Each Person Model
+
 
 Let's dynamically generate views or html pages for each person model. In static websites, we basically create individual pages for each view but in a dynamic environment, pages have been automatically generated for data. Such as, for displaying 100 person details separately, we have to create 100 pages for each, but in a dynamic website, we just create one page and add the logic to generate pages for the model data.
 
 
-However, now create another template file and name it details.html file.
+However, now create another template file and name it ***details.html*** file.
 
-details.html
+**details.html**
 
 ```
 <!DOCTYPE html>
@@ -301,11 +315,11 @@ details.html
 </html>
 ```
 
-For now, resolving the above details.html view, we have to create another method in our PersonController.java file that returns details.html file.
+For now, resolving the above details.html view, we have to create another method in our ***PersonController.java*** file that returns ***details.html*** file.
 
-Note: There is a curdRepository method called findById(), that display the data based on primary key. Let's implement it.
+**Note:** There is a curdRepository method called ***findById()***, that display the data based on primary key. Let's implement it.
 
-PersonController.java 
+**PersonController.java** 
 
 ```
 //view for each person details
@@ -326,15 +340,15 @@ PersonController.java
 
 Here, the @PathVariable annotation used in the method, is a web binding annotation of Spring Boot, that binds data with the URI of the view.
 
-Let's re-run your application and if you invoke the URI [text](http://localhost:8080/details/1) and [text](http://localhost:8080/details/1) respectively, you will get the following two separate views for each person model.
+Let's re-run your application and if you invoke the URI [(http://localhost:8080/details/1](http://localhost:8080/details/1) and [http://localhost:8080/details/1](http://localhost:8080/details/1) respectively, you will get the following two separate views for each person model.
 
 ![alt text](image6.png) ![alt text](image7.png)
 
 11. Make the name of the person clickable in list.html file
 
-Little modification is required creating links for each person model in the list.html file. So that, we can access the person details for clicking their respective links.
+Little modification is required creating links for each person model in the ***list.html*** file. So that, we can access the person details for clicking their respective links.
 
-list.html file (modification one)
+**list.html** file (modification one)
 
 ```
 <!DOCTYPE html>
@@ -357,7 +371,7 @@ list.html file (modification one)
 </html>
 ```
 
-If you now invoke the uri [text](http://localhost:8080/list) you will see two links for each person. And if you click on the first link, a details page will be appeared for the first person whose id is 1. 
+If you now invoke the uri [http://localhost:8080/list](http://localhost:8080/list) you will see two links for each person. And if you click on the first link, a details page will be appeared for the first person whose id is 1. 
 
 ![alt text](image6.png) 
 
@@ -367,9 +381,9 @@ Likewise, by clicking on the second link, the second person details will be appe
 
 ## 12. How About to Add new Records for the Person Model
 
-Let's add two more properties (including their respective getter/setter methods) in our Person.java model class.
+Let's add two more properties (including their respective getter/setter methods) in our **Person.java** model class.
 
-Person.java
+**Person.java**
 
 ```
 package com.company.model;
@@ -468,9 +482,9 @@ public class Person {
 
 ```
 
-Now, modify the data.sql, PersonController.java and details.html file respectively.
+Now, modify the ***data.sql***, ***PersonController.java*** and ***details.html*** file respectively.
 
-data.sql (added three more person details including their newly added columns)
+**data.sql** (added three more person details including their newly added columns)
 
 ```
 INSERT INTO person (id, name, role, organization, joining_date, address) VALUES (1, 'Mark Smith', 'Java Developer', 'Avito', '2009-10-23', 'Nora 25, Kuopio, Northern Savonia,');
@@ -480,9 +494,9 @@ INSERT INTO person (id, name, role, organization, joining_date, address) VALUES 
 INSERT INTO person (id, name, role, organization, joining_date, address) VALUES (5, 'Rimi Smith', 'Rust Developer', 'KupiVIP', '20012-12-29', 'Norra 66, Satakuntaa');
 ```
 
-Note: Each word written in camelCase format like joiningDate would turn into joining_date in database column, thus we have used joining_date in the data.sql file.
+**Note:** Each word written in camelCase format like joiningDate would turn into joining_date in database column, thus we have used joining_date in the ***data.sql*** file.
 
-PersonController.java class:
+**PersonController.java** class:
 
 ```
 //view for each person
@@ -511,7 +525,7 @@ PersonController.java class:
     }
 ```
 
-details.html file:
+**details.html** file:
 
 ```
 <!DOCTYPE html>
@@ -534,11 +548,11 @@ details.html file:
 </html>
 ```
 
-If now invoke the URI [http://localhost:8080/list](http://localhost:8080/list) in your favourite browser (make sure your application is running on port 8080) you will see, there are five persons instead of two.
+If you now invoke the URI [http://localhost:8080/list](http://localhost:8080/list) in your favourite browser (make sure your application is running on port 8080) you will see, there are five persons instead of two.
 
 ![alt text](image8.png)
 
-Now, if you click on each person link, you will see there details respectively.
+Now, if you click on each person link, you will will be redirected their details page details respectively.
 
 Like, I click the first link and it displays the page of Mark Smith
 
@@ -546,11 +560,11 @@ Like, I click the first link and it displays the page of Mark Smith
 
 But, what if you click on the second link?
 
-Then, a page will be generated for Zimi Kinth
+Then, a page will be generated for Zimi Kinth too.
 
 ![alt text](image10.png)
 
 Similarly, all the links will behave like this.
 
 Final thought:
-Anyway, hope you can simply how concise the dynamic pages will look like. Somehow, we have thousands of person details in our database and we want to create pages for each person. Then, it is probably good practice to create dynamic views like this.
+Anyway, hope you can simply realize how concise and alluring the dynamic pages will look like. Somehow, we have thousands of person details in our database and we want to create pages for each person. Then, it is probably good practice to create dynamic views like this.
