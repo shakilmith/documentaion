@@ -1,10 +1,10 @@
 # Conditionally Render Content in Freemarker
 
-Sometimes, in application we want to render some content based on certain condition. Like, you can only withdraw you earnings if it is more than $100 or equal. Or, the user can only vote if he/she is 18 or older than 18 etc or only logged in user can see the current balance.
+Sometimes, in application we want to render some content based on certain condition. Like, you can only withdraw your earnings when the amount is more than $100 or equal. Or, the user can only vote if he/she is 18 or older than 18 etc. or only logged-in user can see the current balance.
 
 In these type of cases, we use ```if``` directive in freemarker. With the ```if``` directive we can conditionally render some content in the template or skip a section of the template. 
 
-Syntax:
+**Syntax:**
 
 ```
 <#if name == "Mark Smith">
@@ -12,13 +12,13 @@ Syntax:
 </#if>
 ```
 
-Note: The directive expressions need to use start and end tag with ```#``` sign. Yes, the closing tag is mandatory.
+**Note:** The directive expression needs to use start and end tag with ```#``` sign. Yes, the closing tag is mandatory. Such as, if you want to use ```if``` directive then the directive syntax would be: ```<#if condition> code block </#if>```
 
-## Using If directive.
+## Using If Directive.
 
-Let's propagate a simple example. Create a UserController.java class in the java/com.company package.
+Let's propagate a simple example. Create a ***UserController.java*** controller class in your spring boot project.
 
-UserController.java
+**UserController.java**
 
 ```
 package com.company;
@@ -41,9 +41,9 @@ public class UserController {
 }
 ```
 
-Now create user.ftlh file in the template folder and use the ```if``` directive to render the user info based on condition.
+Now create **user.ftlh** file in the template folder and use the ```if``` directive to render the user info based on condition.
 
-user.ftlh
+**user.ftlh**
 
 ```
 <!DOCTYPE html>
@@ -63,21 +63,22 @@ user.ftlh
 </html>
 ```
 
-Note: here user inside the if directive will replace with ```${user}```, so don't need to use that manually.
+Note: Here user inside the if directive will replace with ```${user}```, so don't need to use that manually.
 
-Run the application. If you invoke the uri - [http://localhost:8080/user](http://localhost:8080/user) then, you will see the content - Our Beloved Developer.
+Run the application. If you invoke the uri - [http://localhost:8080/user](http://localhost:8080/user) then, you will see the text - Our Beloved Developer.
 
 ![alt text](image1.png)
 
-But if the condition is not met, then nothing will be printed on the screen. In that case, try to use extra ```else``` or block to render if the condition is not met.
+But if the condition is not met, then nothing will be printed on the screen. In that case, try to use extra ```else``` block to render some text if the condition is not met.
+
 
 ## Using Domain Model
 
 We will try to go through a real life example and look over how we can benefit using the ```if``` directive.
 
-First of all, create a domain model and name it - Product.java
+First of all, create a domain model and name it - ***Product.java***
 
-Product.java
+**Product.java**
 
 ```
 package com.company;
@@ -130,9 +131,9 @@ public class Product {
 
 ## Create a Controller Class
 
-In this step, create a ProductController.java class and create a product list.
+In this step, create a ***ProductController.java*** class and create a list of product.
 
-ProductController.java
+**ProductController.java**
 
 ```
 package com.company;
@@ -165,9 +166,9 @@ public class ProductController {
 
 ## Create a Template File
 
-In order to resolve the mapping path, let's create a template file and it's name must be product.ftlh.
+In order to resolve the mapping path, let's create a template file in the templates folder and it's name must be product.ftlh.
 
-product.ftlh
+**product.ftlh**
 
 ```
 <!DOCTYPE html>
@@ -204,7 +205,7 @@ If you now invoke the uri in your web browser again - [http://localhost:8080/pro
 
 ![alt text](image2.png)
 
-## Render Product Info based on Product Name
+## Render Product Info Based on Product Name
 
 For achieving this, modify the product.ftlh file.
 
@@ -240,13 +241,30 @@ product.ftlh
 
 ![alt text](image3.png)
 
-It seems, still the template render the ```<li></li>``` tag for other three products that doesn't meet satisfy the condition. Then, what should we do in order to skip them?
+It seems, still the template render the ```<li></li>``` tag for other three products that doesn't satisfy the condition. Then, what should we do in order to skip them?
 
 We can use freemarker ```items``` directive for this. Let's modify the the above template file little bit.
 
 product.ftlh
 
 ```
+<div>
+
+    <#list products>
+        <ul>
+        <#items as product>
+        <li>
+            <#if product.name == "Dell Computer">
+            <p>Name: ${product.name}</p>
+            <p>Price: ${product.price}$</p>
+            <#else>
+            <p>Product is not available.</p>
+            </#if>
+        </li>
+        </#items>
+        </ul>
+        </#list>
+    </div>
 ```
 
 If you restart your application and visit the url - [http://localhost:8080/product-info](http://localhost:8080/product-info) you should the the response like the below:

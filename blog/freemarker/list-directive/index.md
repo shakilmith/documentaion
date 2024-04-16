@@ -1,8 +1,8 @@
 # Freemarker List Directive
 
-When we want to render collection of elements in the freemarker template like arrays, list, set or map (hashes) we can use list directive, including items directive.
+When we want to render collection of elements in freemarker template like arrays, list, set or map (hashes) we can use list directive, including items directive.
 
-Syntax:
+**Syntax:**
 
 ```
 <ul>
@@ -19,13 +19,14 @@ Syntax:
 </#list>
 ```
 
-Note: You can also user extra ```else``` directive when you want render something when you have 0 product or the list is empty.
+**Note:** You can also use extra ```else``` directive to render some content in case the list is empty or contains 0 element.
 
-## Look over a live example
 
-Create a simple Fruit.java pojo class in your spring boot project. For the time being it contains two properties including getter/setter methods.
+## Example of Using List Directive in Freemarker Template
 
-Fruit.java
+Create a simple ***Fruit.java*** pojo class in your spring boot project. For the time being it contains two properties including getter/setter methods.
+
+**Fruit.java**
 
 ```
 package com.company;
@@ -56,11 +57,11 @@ public class Fruit {
 }
 ```
 
-## Create a Controller Class to Handle the Mapping URI
+## Create a Controller Class to Handle the View
 
-In this step, create a simple simple FruitController.java class and mark it by @Controller annotation.
+In this step, create a simple ***FruitController.java*** class and mark it by ***@Controller*** annotation.
 
-FruitController.java
+**FruitController.java**
 
 ```
 package com.company;
@@ -96,9 +97,9 @@ public class FruitController {
 
 ## Create a Freemarker Template File
 
-In order to resolve mapping, we have to create a template file and it's name must be fruitList.ftlh, located in the templates folder.
+In order to resolve mapping, we have to create a template file and it's name must be ***fruitList.ftlh***, located in the templates folder.
 
-fruitList.ftlh
+**fruitList.ftlh**
 
 ```
 <!DOCTYPE html>
@@ -120,21 +121,21 @@ fruitList.ftlh
 </html>
 ```
 
-Run the example application. It listens on port 8080 in localhost. So, if you invoke the uri - [http://localhost:8080/fruits](http://localhost:8080/fruits) in your favourite web browser you will get list of fruits info.
+Run the example application. It listens on port 8080 in localhost. So, if you invoke the uri - [http://localhost:8080/fruits](http://localhost:8080/fruits) in your favourite web browser you will see list of fruits.
 
 ![Freemarker View](image1.png)
 
-## Using Items directive
+## Using Items Directive with List Directive
 
-When you have empty list, then ```list``` directive will render nothing but it still renders the corresponding tag - ```<ul>...</ul>``` tag, but if you don't want to render the tag when you have 0 element, just use the ```items``` directive.
+When you have empty list, then ```list``` directive will render nothing but it still renders the corresponding tag - ```<ul>...</ul>``` tag, but if you don't want to render the tag when you have 0 element, just use the ```items``` directive. (closing tag is necessary)
 
-Such as, just empty your fruits list from the FruitController.java and then, visit here [http://localhost:8080/fruits](http://localhost:8080/fruits) and open the developer console (right click > inspect)
+Such as, just empty your fruits list from the ***FruitController.java*** and then, visit here [http://localhost:8080/fruits](http://localhost:8080/fruits) and open the developer console (right click > inspect)
 
 ![alt text](image2.png)
 
 You can see, though we have empty list, but it still render the ```ul``` tag. Yes, it doesn't grasp any space at least.
 
-So, modify your fruitList.ftlh template file to use the ```items``` directive.
+So, modify your ***fruitList.ftlh*** template file by using the ```items``` directive.
 
 ```
 <!DOCTYPE html>
@@ -162,22 +163,22 @@ So, modify your fruitList.ftlh template file to use the ```items``` directive.
 </html>
 ```
 
-You get the same result like the above
+You get the same result like the above: 
 
 ![Freemarker View](image1.png)
 
 
-Now, if you empty the fruits list again from the FruitController.java class, nothing will be rendered by the fruitList template file, even there will be no ```<ul>...</ul>``` tag rendered.
+Now, if you empty the fruits list again from the ***FruitController.java*** class, nothing will be rendered by the fruitList template file, even there will be no ```<ul>...</ul>``` tag rendered.
 
 ![alt text](image3.png)
 
-Hope, use either ```list``` directive or including ```items```, matter upon you but the template author wants you use ```items``` directive as well in case you have empty collection.
+So, use either ```list``` directive or including ```items``` directive but the template author wants you to use ```items``` directive as well in case you have empty collection. (Yes there are alternative options available to handle this scenario)
 
 ## Using Else Directive with List Directive 
 
-In case, you want to render some content when you have empty list, you can use ```else``` directive (no closing tag required) along with built in ```list``` directive in the freemarker template file.
+In case, you want to render some content when you have your list is empty, you can use extra  ```else``` directive (no closing tag required) along with built in ```list``` directive in the freemarker template file.
 
-fruitList.ftlh (when your fruits list is empty)
+**fruitList.ftlh** (when your fruits list is empty)
 
 ```
 <div>
@@ -197,5 +198,5 @@ fruitList.ftlh (when your fruits list is empty)
 
 ![alt text](image4.png)
 
-You can see here, the ```else``` block only rendered as our list is empty. So, using ```else``` directive could be useful when you want to show some data instead of nothing.
+You can see here, the ```else``` block only rendered when our list is empty. So, using ```else``` directive could be useful when you want display some text or data instead of showing nothing.
 

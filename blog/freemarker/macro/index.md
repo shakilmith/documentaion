@@ -1,9 +1,9 @@
 # Creating Macro in Freemarker
 
-Macro directive is used to create reusable content in a template file and can be used as a user defined directive. The macro variable usually created at the beginning of the template file and can be placed or import anywhere of the template file. Note that, macro directive may contain possible number of parameters. 
+Macro directive is used to create reusable content in a template file and can be used as a user defined directive. The macro variable usually created at the beginning of the template file and can be placed or import anywhere of the template file. Note that, macro directive may contain possible number of parameters and the parameters value must be provided at the time of using the macro.
 
 
-## Syntax of Creating macro in a template file
+## Syntax of Creating Macro Directive
 
 ```
 //Creating macro directive (the content is reusable)
@@ -15,15 +15,15 @@ Hello, Mark Smith!
 <@data /> //end tag isn't necessary
 ```
 
-Note: A macro may have nested macros too.
+**Note:** A macro may have nested macros too.
 
 Let's go with a live example. For this we will use Spring Boot as backend, make sure you have already bootstrapped spring boot application.
 
-## Creating Macro and Use It
+## Creating a Simple Greeting Macro (without parameters)
 
-Guess, you have a template file called greeting.ftlh file.
+Guess, you have a template file called ***greeting.ftlh*** file in the templates folder.
 
-greeting.ftlh
+**greeting.ftlh**
 
 ```
 <!DOCTYPE html>
@@ -49,9 +49,9 @@ greeting.ftlh
 ![alt text](image1.png)
 
 
-But, it is possible to reuse or place the macro variable multiple times in the same template. Such as 
+But, it is possible to reuse or place the macro variable multiple times in the same template file, Such as 
 
-greeting.ftlh
+**greeting.ftlh**
 
 ```
 <#--Creating macro variable, here "greeting" is the name of the macro-->
@@ -59,35 +59,35 @@ greeting.ftlh
 <h1>Hello, Mark Smith!</h1>
 </#macro>
 
-<#--Using the variable through user defined directive-->
+<#--Using the variable through user defined directive, multiple times-->
 <@greeting /> 
 <@greeting />
 <p>Third time we are using the "greeting" macro</p>
 <@greeting /> <#--Remember to close the tag -->
 ```
 
-![alt text](image1.png)
+![alt text](image2.png)
 
-## Macro Parameters
+## Creating a Macro with Parameters
 
-At the time of declaring macro variable, we can also pass optional parameters (simple variable, list, or hashes) but the value must be passed when we use the macro variable in a template. (in case we don't set any default value for them)
+At the time of declaring macro variable, we can also pass optional parameters (simple variable, list, or hashes) but the value must be passed or provided when we use the macro variable in a template. (in case we don't set any default value for them)
 
-greeting.ftlh
+**greeting.ftlh**
 
 ```
 <#--Creating macro variable, here "greeting" is the name of the macro-->
-    <#macro greeting name> <#--name param value will be passed at the time of using the macro-->
-    <h1>Hello, ${name}!</h1> 
-    </#macro> 
+<#macro greeting name> <#--name param value will be passed at the time of using the macro-->
+<h1>Hello, ${name}!</h1> 
+</#macro> 
 
 
-    <#--Using the variable through user defined directive-->
-    <@greeting name="Mark Smith" /> 
-    <@greeting name="Jekov Jenkov" />
-    <@greeting name="Bob Marly" /> <#--Remember to close the tag -->
+<#--Using the variable through user defined directive-->
+<@greeting name="Mark Smith" /> 
+<@greeting name="Jekov Jenkov" />
+<@greeting name="Bob Marly" /> <#--Remember to close the tag -->
 ```
 
-![alt text](image.png)
+![alt text](image3.png)
 
 Note: The macro may contain multiple optional params (with default value set too)
 
