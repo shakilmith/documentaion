@@ -1,9 +1,9 @@
 
 Sometitmes it is required  to map a list of values to an entity but those values aren't entity.
 
-Note:  Remember we use one-to-many mapping hierarchy while making a relationship between entities, okay.
+Note:  Remember we use one-to-many/many-to-many mapping hierarchy while making collection valued association between entities.
 
-Like a person has many dogs, email addresss, social media accounts, an Employee has list of roles, an Author published list of books and an Owner has list of cars etc. Here, We are going to demonstrate this scenario for the person entity. 
+Like a person has many dogs, email addresses, social media accounts, an Employee has list of roles, an Author published list of books and an Owner has list of cars etc. Here, We are going to demonstrate this scenario for the person entity. 
 
 Imagine we have person entity class and the has list of cars. 
 

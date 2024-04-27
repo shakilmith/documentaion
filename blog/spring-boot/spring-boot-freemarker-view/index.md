@@ -2,7 +2,7 @@
 
 Apache Freemarker is a java template engine that helps to generate dynamic html web pages, emails, configuration files or source code etc. The Spring Framework has built-in integration for using Spring MVC with FreeMarker templates. If you use Spring boot to bootstrap your spring powered application, then you can easily add freemarker starters in your classpath.
 
-If you already have spring powered application, open your pom.xml file and add the following freemarker dependency in your classpath.
+If you already have spring powered application, open your ***pom.xml*** file and add the following freemarker dependency in your classpath.
 
 ```
 <dependency>
@@ -11,14 +11,14 @@ If you already have spring powered application, open your pom.xml file and add t
 </dependency>
 ```
 
-then open you application.properties file a and the following two configuration
+then open you ***application.properties*** file a and the following two configuration
 
 ```
 spring.freemarker.suffix= .ftlh
 spring.freemarker.template-loader-path= classpath:/templates/
 ```
 
-then template suffix is ftlh since spring boot 2.2 but any suffix can be valid. Like html flavour, I use to use .html as suffix extension. Then spring boot looks for the ftlh files in templates folder in your project.
+Here freemarker template suffix is ftlh since spring boot 2.2 but any suffix can be valid. Like html flavour, I use to use .html as suffix extension. Then spring boot looks for the ftlh (or the suffix extension you use) files in the templates folder in your project.
 
 ## Render a Greeting Message
 
@@ -73,7 +73,7 @@ Run the app and you will see the simple greeting message.
 
 ![Spring Boot Freemarker View](image1.png)
 
-Here, ${name} get it's value from the GreetingController.java class.
+Here, ${name} get it's value from the ***GreetingController.java*** class.
 
 ## Read the Request Parameter
 
@@ -102,7 +102,7 @@ public class GreetingController {
 
 ```
 
-Please, start your development server again and invoke the uri [http://localhost:8080/greeting](http://localhost:8080/greeting) and you will see the Hello, World message because we set ***defaultValue = "World"*** in the ***@RequestParam()*** but if invoke uri like this [http://localhost:8080/greeting?name=Freemarker](http://localhost:8080/greeting?name=Freemarker) then the response would be Hello, Freemarker 
+Please, start your development server again and invoke the uri [http://localhost:8080/greeting](http://localhost:8080/greeting) and you will see the Hello, World message because we set ***defaultValue = "World"*** in the ***@RequestParam()*** but if invoke uri like this [http://localhost:8080/greeting?name=Freemarker](http://localhost:8080/greeting?name=Freemarker) then the response would be Hello, Freemarker. 
 
 ![alt text](image2.png)
 

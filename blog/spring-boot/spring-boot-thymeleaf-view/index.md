@@ -2,7 +2,9 @@
 
 Thymeleaf is a modern server-side Java template engine that emphasizes natural HTML templates that can be previewed in a browser by double-clicking, which is very helpful for independent work on UI templates (for example, by a designer) without the need for a running server. 
 
-The Thymeleaf integration with Spring MVC is managed by the Thymeleaf project. The configuration involves a few bean declarations, such as ***ServletContextTemplateResolver***, ***SpringTemplateEngine***, and ***ThymeleafViewResolver***
+The Thymeleaf integration with Spring MVC is managed by the Thymeleaf project. The configuration involves a few bean declarations, such as
+
+ ***ServletContextTemplateResolver***, ***SpringTemplateEngine***, and ***ThymeleafViewResolver***
 
 # Add Thymeleaf Dependency in Your Project
 
@@ -19,7 +21,7 @@ Open your ***pom.xml*** file add the spring-boot-starter-thymeleaf dependency in
 
 Spring MVC looks for the templates file in the templates folder. 
 
-Note: Make sure, you already add the spring web maven dependency in your classpath too. If not yet, then add the spring boot starter web dependency in your classpath too.
+**Note:** Make sure, you already add the spring web maven dependency in your classpath too. If not yet, then add the spring boot starter web dependency in your classpath too.
 
 ```
 <dependency>
@@ -28,7 +30,7 @@ Note: Make sure, you already add the spring web maven dependency in your classpa
 </dependency>
 ```
 
-Now, create a controller class and name it HelloController.java or anything whatever your prefer.
+Now, create a controller class and name it ***HelloController.java*** or anything whatever your prefer.
 
 ***HelloController.java***
 
@@ -53,9 +55,9 @@ public class HelloController {
 }
 ```
 
-Now, create hello.html file in your templates folder.
+Now, create ***hello.html*** file in your templates folder.
 
-***hello.html***
+**hello.html**
 
 ```
 <!DOCTYPE html>
@@ -73,7 +75,7 @@ Now, create hello.html file in your templates folder.
 </html>
 ```
 
-Note: Thymeleaf variable expression starts with ${...} expression.
+**Note:** Thymeleaf variable expression starts with ${...} expression.
 
 If you now, run your application and invoke the URI [http://localhost:8080/hello](http://localhost:8080/hello) in your favourite web browser, you should see the Hello, World response.
 
@@ -81,7 +83,7 @@ If you now, run your application and invoke the URI [http://localhost:8080/hello
 
 ## Read the Request Parameter
 
-Let's make our response little bit more dynamic by using the @RequestParam() annotation.
+Let's make our response little bit more dynamic by using the ***@RequestParam()*** annotation.
 
 Modify ***HelloController.java*** class little bit so that it can be able to read the search parameter value.
 

@@ -1,5 +1,5 @@
 
-For creating our first JPA application we use maven as a build tool instead of downloading api packages manually. Additionally we use Intellj idea to create our maven based project.
+For creating our first JPA application we use maven as a build tool instead of downloading api packages manually. Additionally we use IntellIj idea to create our maven based project.
 
 Basic requirements:
 1. Java development kit - jdk-8+
@@ -73,7 +73,7 @@ image
 7. Now, create a model or an entity class called Person (Person.java) in com.company package.
 
 Model/Entity: A class in java is considered as a simple pojo class. But, when the class is associated or connect with database or treated as persistent class then it is called an Entity. 
-Note: You must annotate your pojo class by @Entity annotaion or provide metadata in orm.xml file when your class is a persistent class and it must have primary key (id) annotated by @Id annotaion. 
+Note: You must annotate your pojo class by @Entity annotaion or provide metadata in orm.xml file when your class is a persistent class and it must have primary key (id) annotated by @Id annotation. 
 A persistent class is nothing but the name of a database table.
 
 <Code code={`
@@ -146,7 +146,7 @@ public class Person {
 Here, Person is the entity class annotated by @Entity annotaion and externally if you want to provide your table name, you can also use @Table(name ="table_name") annotaion otherwise the class name will be the table name of your database. 
 Few more detailsw.
 
-8. Noew create the main class, I mean persistent class called PersonPersistent in com.company package to store our Person entity with data in database
+8. Now create the main class, I mean persistent class called PersonPersistent in com.company package to store our Person entity with data in database
 
 <Code code={`
 package com.company;
@@ -181,7 +181,7 @@ public class DemoPersistent {
 
 Here you can see, inside em.getTransaction().begin() method we have created 3 Person objects with data. And then, we call entity-manager persist method to store them into our database. 
 
-Wait, before running or executing the PersonPersistent class, we have to create another file called persistence.xml file. In this file we will provide our database information and confifure the Person entity class.
+Wait, before running or executing the PersonPersistent class, we have to create another file called persistence.xml file. In this file we will provide our database information and configure the Person entity class.
 
 9. So, create persistence.xml file to map or provide the database information and configure the entity classes. The persistence.xml file must be located in src/main/resources/META-INF folder.
 
@@ -210,13 +210,14 @@ Wait, before running or executing the PersonPersistent class, we have to create 
 
 Here you can see, we configure the entity class name Person with it's specific location.
 
-Here, persistence-unit is the root component and the persistence-unit name must be same EntityManagerFactory name what you have used in PersonPersistent class (Look over in step 8). Then, inside **properties** component we provide our database information. JDBC dirver name, database url, user-name and password. Alos we use hibernate specific mappings like hibernate.hbm2ddl.auto . 
-Note: hibernate.hbm2ddl.auto contains 4 possible values. 
-   - create: create the schema (means create tables with data) and erase the previous data if it finds.
-   - create-drop: create the schema and drop when the application is stopped.
-   - update: update the schema or table, but if you have asoociation/linking with other tables like 2 table shares data with each other, you probally get error as your application then says, duplicate entry key '1/2/3..' for key 'related table details'...
-   - validate: validate the schema, no changes will be generated in database.
+Here, persistence-unit is the root component and the persistence-unit name must be same EntityManagerFactory name what you have used in PersonPersistent class (Look over in step 8). Then, inside **properties** component we provide our database information. JDBC driver name, database url, user-name and password. Also we use hibernate specific mappings like hibernate.hbm2ddl.auto.
 
+Note: hibernate.hbm2ddl.auto contains 4 possible values. 
+   - create: create the schema (means create tables with data) and erase the previous data if it finds any.
+   - create-drop: create the schema and drop when the application is stopped.
+   - update: update the schema or table, but if you have association/linking with other tables (by using OneToOne or OneToMany etc.) like 2 table shares data with each other, you probably get error as your application then says, duplicate entry key '1/2/3..' for key 'related table details'...
+   - validate: validate the schema, no changes will be generated in database.
+   
 Okay then. Now it is our final step.
 
 10. Open or go to your PersonPersistent.class and run the application. 

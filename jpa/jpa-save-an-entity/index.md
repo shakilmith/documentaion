@@ -1,13 +1,13 @@
 
 # JPA - Insert or Save an Entity
 
-Attention: Before walk further, make sure you have maven project and in your pom.xml file you have already installed the jpa and it's implementaion dependencies. 
+Attention: Before walk further, make sure you have maven project and in your pom.xml file you have already installed the jpa and hibernate for jpa implementation.
 
 Let's follow the below few steps to insert an entity in our relational database.
 
 1. Create an entity class called Person.java in your com.company package. 
 The person entity class contains the following properties: id, first_name, last_name and age. 
-First of all, you must annotate your Person.java class by @Entity annotaion and make the id as primary key of your database. So, anotate the id by @Id annotation.
+First of all, you must annotate your Person.java class by @Entity annotation and make the id as primary key of your database. So, annotate the id by @Id annotation.
 
 <Code code={`
 package com.company.model;
