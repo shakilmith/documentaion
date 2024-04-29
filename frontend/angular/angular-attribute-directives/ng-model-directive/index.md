@@ -1,8 +1,8 @@
 # Angular NgModel Attribute Directive
 
-NgModel attribute directive is used in html from element for handling two way data binding. We can use this attribute directive in our template file or html form element to display data as well as update that data or property when user makes any changes in the component file.
+NgModel attribute directive is used in html form element for handling two way data binding. We can use this attribute directive in our template file or html form element to display data as well as update that data or property when user makes any changes in the component file (.ts file in general).
 
-Let's see a simple example.
+The following example demonstrates this scenario.
 
 Note: First of all you need an angular application bootstrapped in your system.
 
@@ -75,14 +75,14 @@ $ ng serve --open
 In your web browser, the first screen shows (below) an empty input element. If you now type something it will be append below. Likewise, when you click on the Clear button, the input data will be erased.
 
 
-![alt text](image-1.png)
+![alt text](image1.png)
 
-![alt text](image-2.png)
+![alt text](image2.png)
 
 
 # Two way data binding using Input and Output decorator.
 
-In app.component.ts file, write the following in the class section.
+In app.component.ts file, write the following inside the class.
 
 ```
 export class AppComponent {
@@ -105,7 +105,7 @@ export class AppComponent {
 }
 ```
 
-Note: Don't forget to import the Input, Output and EventEmitter from "@angular/core" library. But, if you use VS code, and when you declare @Input, @Output or @EventEmitter, automatically will be imported at the top of the component file.
+Note: Don't forget to import the Input, Output and EventEmitter from "@angular/core" library. But, if you use VS code, and when you declare @Input, @Output or @EventEmitter, automatically they will be imported at the top of the component file.
 
 Now open app.component.html template file:
 
@@ -119,10 +119,10 @@ app.component.html file
 </div>
 ```
 
-Now, after starting you development server, if you click on increment button, the count variable will increment by one and the decrement button will decrease the value by one too.
+Now, after starting you development server, if you click on increment button, the count variable will be incremented by one and the decrement button will decrease the value by one too.
 
-![alt text](image-3.png)
+![alt text](image3.png)
 
-![alt text](image-5.png)
+![alt text](image5.png)
 
-![alt text](image-4.png)
+![alt text](image4.png)
