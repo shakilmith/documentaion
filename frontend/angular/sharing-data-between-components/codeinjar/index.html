@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--Include.js file-->
+<script src="https://docs.javaondemand.com/codeinjar/assets/js/include.js"></script>
+  <!--HighlightJS-->
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+  
+  <!-- and it's easy to individually load additional languages -->
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+  
+
+  <title>Demo Post for codeinjar</title>
+
+  <style>
+      *{
+        box-sizing: border-box;
+      }
+      html, body{
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      .post-container{
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      
+      pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 8px;
+        overflow: auto;
+        border-left: 5px solid red;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .left-border{
+        border-left: 3px solid red;
+      }  
+    
+      .highlight-text{
+        background-color: papayawhip;
+        color: black;
+        display: inline;
+        }
+        
+      .highlight-section{
+        box-sizing: border-box;
+        background-color: papayawhip;
+        border-left: 5px solid red;
+        color: black;
+        padding: 3px 8px 3px 8px;
+      }
+  
+    .large-bold-text{
+      font-size: 36px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .medium-bold-text{
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .small-bold-text{
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  
+    /** Image style in tutorial pages
+  * In desktop version, image will be centered
+  * Mobile or tablet version, it will be full width
+  */
+  
+  /* for mobile */
+  .post-image-style{
+    width: 100%; 
+    height: auto;
+    display: block;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  /* for desktop */
+  @media screen and (min-width: 580px){
+    .post-image-style{
+        width: 50%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+  </style>
+  
+</head>
+<body>
+
+<!-- Top nav -->
+<div include-html="https://docs.javaondemand.com/codeinjar/assets/html/header.html"></div>
+  
+
+
+
+
+
+  
+<!--Body-->  
+<div class="post-container">
+
+<h1>Sharing Data Between Angular Components</h1>
+
+<p>
+Using <b>@Input</b> and <b>@Output</b> decorator we can share data between components in angular.
+</p>
+
+<p>
+<b>@Input decorator:</b> The flow of sharing data is parent to child
+<br/>
+<b>@Output decorator:</b> The flow of sharing data is child to parent - but release an <b>EventEmitter.</b>
+</p>
+
+<p class="large-bold-text">Sharing Data Parent Component to Child Component using @Input decorator</p>
+
+<p>
+1. Open your angular application directory or folder in your system terminal (Command Prompt) and create two angular components using the following command.
+</p>
+
+<p>
+<pre><code>$ ng generate component parent --inline-template --skip-tests
+$ generate component child --inline-template --skip-tests</code></pre>
+</p>
+
+<p>
+2. Now, open your angular application in VS code or in your favorite ide.
+</p>
+
+<p>
+![Alt text](image1.png)
+</p>
+
+<p>
+You can see, there are two component files has been generated in parent and child folder. Our goal is to sharing data from parent to child using @Input decorator.
+</p>
+
+<p>
+3. Now, open child.component.ts file and inside the component class declare a variable but don't initialize it as the value will come from the parent component.
+</p>
+
+<p>
+<b>child.component.ts</b>
+<pre><code>
+import { Component, Input } from &#39;@angular/core&#39;;
+
+@Component({
+  selector: &#39;child-component&#39;,
+  standalone: true,
+  imports: [],
+  template: `
+    &lt;div&gt;
+      &lt;h1&gt;Hello {{childMessage}} &lt;/h1&gt;
+    &lt;/div&gt;
+  `,
+  styleUrl: &#39;./child.component.css&#39;
+})
+export class ChildComponent {
+
+  @Input() childMessage = &#39; &#39;; //or @Input() childMessage! :
+   
+}
+</code></pre>
+</p>
+
+<p>
+Here, first of all, we have import the Input decorator from <b>@angular/core</b> library package and you can see it at the top of the file. The, inside the typescript class, we have declared an empty string variable with <b>@Input()</b> decorator but didn't initialize it as the value will come from the parent component.
+</p>
+
+<p>
+<b>Note:</b> <b>@Input()</b> decorator means here, the data or value will come from the parent component.
+</p>
+
+<p>
+4. Now open the <b>parent.component.ts</b> file and declare a variable with data.
+</p>
+
+<p>
+<b>parent.component.ts</b>
+</p>
+
+<p>
+<pre><code>
+import { Component } from &#39;@angular/core&#39;;
+import { ChildComponent } from &#39;../child/child.component&#39;;
+
+@Component({
+  selector: &#39;parent-component&#39;,
+  standalone: true,
+  imports: [ChildComponent],
+  template: `
+    &lt;child-component [childMessage]=&quot;parentMessage&quot;&gt;&lt;/child-component&gt;
+  `,
+  styleUrl: &#39;./parent.component.css&#39;
+})
+export class ParentComponent {
+
+  parentMessage : string = &quot;Child Component&quot;; 
+}
+</code></pre>
+</p>
+
+<p>
+Here, we import the <b>ChildComponent</b> typescript class at the top of the file first of all and add/insert it in the imports array of the <b>@Component</b> decorator making it as a known component for this <b>parent.component.ts</b> file. And then, use the <b>child.component.ts</b> file's selector here to display the child component template messages.
+</p>
+
+<p>
+We have used the property binding syntax for sharing data from parent to child.
+
+```
+<child-component [childMessage]="parentMessage"></child-component>
+```
+</p>
+
+<p>
+In left <pre><code>[childMessage]</code></pre> is the child component empty property
+<pre><code>parentMessage</code></pre> is the parent component property with value. Later it's value will be added in the childMessage property.
+</p>
+
+
+<p>
+5. In this final step, we have added the parent component selector in the <b>app.component.html</b> template file (which is the root component in our application.)
+</p>
+
+<p>
+<b>parent.component.ts</b> file selector: <b>parent-component</b>
+</p>
+
+
+<p>
+Open, <b>app.component.html</b> file and write the following:
+
+```
+<div>
+<parent-component></parent-component>
+</div>
+//probably you get an error as the parent.component.ts file class isn't added in the app.component.ts file
+```
+</p>
+
+<p>
+<b>app.component.ts</b> file will look like now:
+
+<pre><code>
+import { Component } from &#39;@angular/core&#39;;
+import { RouterOutlet } from &#39;@angular/router&#39;;
+import { ParentComponent } from &#39;./parent/parent.component&#39;; // import the ParentComponent
+
+@Component({
+  selector: &#39;app-root&#39;,
+  standalone: true,
+  imports: [RouterOutlet, ParentComponent], //then, add it in the imports array
+  templateUrl: &#39;./app.component.html&#39;,
+  styleUrl: &#39;./app.component.css&#39;
+})
+
+export class AppComponent {
+
+  title: string = &quot;Hello Angular&quot;;
+}
+</code></pre>
+</p>
+
+<p>
+6. Open your terminal and redirect the my-app directory and run the ng serve command.
+</p>
+
+<p>
+```
+$ ng serve --open
+```
+</p>
+
+<p>
+If you now open localhost:4200 in your web browser you see:
+</p>
+
+<p>
+![Alt text](image2.png)
+</p>
+
+<p>
+<b>Note:</b> The most important thing is to note here, when you use one component in another component then, you must register that component typescript class in the imports array otherwise it is not possible to interact with that component logic. 
+</p>
+
+<p>
+Like: if you have two components called A and B. And you want to use component A in component B. For achieving this, you have to first of all, the import the component A in the component B (yes, in imports [] array)
+</p>
+
+
+<p class="large-bold-text">Sharing Data from Child to Parent Component Using @Output Decorator.</p>
+
+<p>
+We will here use <b>@Output</b> decorator to share data from Parent to Child component. But, remember that, @Output decorator releases an <b>EventEmitter.</b>
+</p>
+
+<p>
+Note: There is no no need to change anything in your component files.
+</p>
+
+<p>
+1. Open <b>child.component.ts</b> file and include another property with <b>@Output</b> decorator.
+</p>
+
+<p>
+**child.component.ts** file:
+</p>
+
+<p>
+
+<pre><code>
+import { Component, EventEmitter, Input, Output } from &#39;@angular/core&#39;;
+
+@Component({
+  selector: &#39;child-component&#39;,
+  standalone: true,
+  imports: [],
+  template: `
+    &lt;div&gt;
+      &lt;button type=&quot;button&quot; (click)=&quot;sendData()&quot;&gt;Button&lt;/button&gt; &lt;!--When you click the button, it sends data to the parent component--&gt;
+    &lt;/div&gt;
+  `,
+  styleUrl: &#39;./child.component.css&#39;
+})
+export class ChildComponent {
+
+  @Input() childMessage : string = &#39;&#39;;
+
+  //output decorator
+  @Output() childData = new EventEmitter&lt;string&gt;();
+
+  //emit a string message
+  sendData(){
+    this.childData.emit(&quot;You have clicked the button&quot;);
+    console.log(&quot;You have clicked the button&quot;);
+  }
+}
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> You have to import the EventEmitter from <b>@angular/core</b> library.
+</p>
+
+<p>
+Here, we have created a method that emits the childData property.
+</p>
+
+<p>
+2. Now, open <b>parent.component.ts</b> file. 
+</p>
+
+<p>
+<b>parent.component.ts</b> file:
+</p>
+
+
+<p>
+
+<pre><code>
+import { Component } from &#39;@angular/core&#39;;
+import { ChildComponent } from &#39;../child/child.component&#39;;
+
+@Component({
+  selector: &#39;parent-component&#39;,
+  standalone: true,
+  imports: [ChildComponent],
+  template: `
+  &lt;div&gt;
+    &lt;child-component (childData)=&quot;getData($event)&quot;&gt;&lt;/child-component&gt;
+    &lt;br/&gt;
+    &lt;h1&gt;Have You clicked the button?&lt;/h1&gt;
+    &lt;h1&gt;{{message}}&lt;/h1&gt;
+&lt;/div&gt;
+  `,
+
+  styleUrl: &#39;./parent.component.css&#39;
+})
+export class ParentComponent {
+
+  message! : string;
+
+  //method that accepts an event 
+  getData(data : string){
+    this.message = data;
+  }
+}
+</code></pre>
+</p>
+
+
+<p>
+Here, when you clicked the button, the empty string message property will get value from the child component.
+</p>
+
+<p>
+3. Please, run your development server from the terminal:
+</p>
+
+<p>
+If you now invoke the url: [http://localhost:4200/](http://localhost:4200/) you get a window like this before clicking the button:
+</p>
+
+<p>
+![Alt text](image3.png)
+</p>
+
+<p>
+But when you click the button the window should be like this:
+</p>
+
+<p>
+![Alt text](image4.png)
+</p>
+
+<p>
+Hope, you can now understand how we can share data between component using <b>@Input</b> and <b>@Output</b> decorator.
+</p>
+
+
+
+</div>
+
+
+
+<!--Footer container-->
+
+<div include-html="https://docs.javaondemand.com/codeinjar/assets/html/footer.html">
+</div>
+
+<script>
+includeHTML();
+</script>
+<!-- js script for opening and closing the nav-->
+
+<script>
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!--invoke highlightJs-->
+<script>hljs.highlightAll();</script> 
+
+
+</body>
+</html>

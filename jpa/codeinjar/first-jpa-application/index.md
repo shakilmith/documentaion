@@ -1,6 +1,6 @@
 # Create Your First JPA Application
 
-JPA means java persistence query language. It helps to create database driven applications easily and more comfortable way. It reduces most common boilerplate codes when we build java application that needs to store data or access data from sql databases like mysql or postgresql.
+In this post we are going to explore how to create a simple jpa application using maven.
 
 ## Requirements:
 
@@ -14,13 +14,13 @@ Basic requirements:
 First of all, using the following command to build a maven hello world project
 
 ```
-$ mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+$ mvn archetype:generate -DgroupId=com.company -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 
 ```
 
 Tutorial: [Create Your First Maven Application](https://javaforbackend.com/first-maven-application)
 
-Now, open your project in your favourite ide, in my case I will use intellij ide.
+Now, open your project in your favourite ide, in my case I will use Intellij Ide.
 
 How to import projects in your favourite ides:
 

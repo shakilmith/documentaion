@@ -75,4 +75,6 @@ Now if you open localhost:3000 you see a simple Hello World message.
 
 ![alt text](image3.png)
 
-That's awesome. You have successfully create your first react application and then able to render simple Hello World Message. But there are lot of stuffs we are going to learn in this upcoming tutorials.
+That's awesome. You have successfully create your first react application and then able to render simple Hello World Message. But there are lot we are going to describe in upcoming post.
+
+kind regards.

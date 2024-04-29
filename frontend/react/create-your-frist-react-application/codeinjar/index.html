@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--Include.js file-->
+<script src="https://docs.javaondemand.com/codeinjar/assets/js/include.js"></script>
+
+
+
+  <title>Demo Post</title>
+
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    html, body{
+      margin: 0px;
+      padding: 0px;
+    }
+    
+    .post-container{
+      margin-left: 16px;
+      margin-right: 16px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    
+     /*Use &lt; tag &gt; while parsing html*/
+    pre code {
+      background-color: #eee;
+      border: 1px solid #999;
+      display: block;
+      padding: 8px;
+      overflow: auto;
+      border-left: 5px solid red;
+  }
+    .left-border{
+      border-left: 3px solid red;
+    }  
+  
+    .highlight-text{
+      background-color: papayawhip;
+      color: black;
+      display: inline;
+      }
+      
+    .highlight-section{
+      box-sizing: border-box;
+      background-color: papayawhip;
+      border-left: 5px solid red;
+      color: black;
+      padding: 3px 8px 3px 8px;
+    }
+
+    .section-heading {
+        font-size: 24px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bold;
+    }
+  </style>
+  
+</head>
+<body>
+
+<!-- Top nav -->
+<div include-html="https://docs.javaondemand.com/codeinjar/assets/html/header.html"></div>
+  
+
+
+
+
+
+  
+<!--Body of the post-->  
+<div class="post-container">
+
+ <h1>React Hello World Application.</h1>
+
+<div>
+<p class="section-heading">Create Your First React Application</p>
+
+Here we will use create-react-app, a react toolchain to build react application.
+
+<p><b>Note:</b> At the end of this tutorial post, we also see, how to build a react application without using any toolchain.</p>
+
+<p class="section-heading">Basic Requirements:</p>
+
+Nodejs: Latest version or at least 14+
+NPM: v6 (but nodejs latest version includes npm package manager).
+An IDE: Use your favorite ide like VS code.
+
+Let's follow the below steps to create our first ReactJS powered application.
+
+<p class="section-heading">Using Create React App</p>
+
+You need somewhere for your project to reside. Create a directory somewhere (either c or d drive) and start a shell in that directory. On your command line (cmd or powershell), execute the following one of the commands to bootstrap your first react application using create-react-app.
+
+<p><b>Using NPM:</b></p>
+<pre><code class="language-js">
+npm init create-react-app hello-react # here hello-react is the name of your react application
+</code></pre>
+<p><b>Using NPX:</b></p>
+
+<pre><code class="language-java">npx init create-react-app hello-react</code></pre>
+
+<p><b>Using yarn:</b></p>
+<pre><code class="language-js">
+yarn create react-app my-app
+</code></pre>
+
+<p>Note:</p> npm 5.2+ includes npx, and npm init < initializer > is available from npm 6+
+
+<img src = "react-shell.svg" alt="My Happy SVG"/>
+
+<div>
+<p class="section-heading">Start Your Development Server</p>
+
+After bootstrapping your react application, you can use following command to start your development server.
+
+<pre><code class="language-java">$ cd hello-react 
+$ hello-react> npm start</code></pre>
+Your newly created react app listens port 3000 at localhost. So, open  http://localhost:3000 in your favorite web browser and you see the following interface.
+
+![alt text](image1.png)
+</div>
+
+<div>
+<p class="section-title">Project Structure</p>
+Open your newly created hello-react application into your favorite ide and you will see the following project structure.
+
+![alt text](image2.png)
+</div>
+
+<div>
+<p class="section-title">Let's modify App.js file
+</p>
+
+Here App.js is our root component file and we will now modify it to render a simple Hello World message, instead of displaying the default window.
+
+So, first of all delete all the content from <b>App.js</b> file and write the following.
+
+<div>
+<pre><code>
+function App() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gtHello World &lth1&gt;
+        &lt;<p>This is a simple text</p>&gt;
+      &lt;</div>&gt;
+    );
+  }
+
+export default App;
+  </code>
+</pre>
+</div>
+
+Now if you open <b>localhost:3000</b> you see a simple Hello World message.
+
+![alt text](image3.png)
+
+</div>
+<div>
+That's awesome. You have successfully create your first react application and then able to render simple Hello World Message. But there are lot we are going to describe in upcoming post.
+
+kind regards.
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--Footer container-->
+<div include-html="https://docs.javaondemand.com/codeinjar/assets/html/footer.html">
+</div>
+
+<script>
+includeHTML();
+</script>
+<!-- js script for opening and closing the nav-->
+
+<script>
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+
+</body>
+</html>

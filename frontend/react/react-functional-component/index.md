@@ -1,8 +1,8 @@
 # React Functional Components
 
-Components are building block reusable codes of react application. They helps to render html content to the dom.
+Components are building block reusable codes in react application. They helps to render html content to the DOM (document object model).
 
-We can create two way components in react. Functional approach and ES6 class based approach. Compare the following scenario.
+In react We can create components in two way. Functional approach and ES6 class based approach. Compare the following scenario.
 
 
 ```
@@ -21,7 +21,7 @@ class ClassComponent extends React.Component{
 
 Both components do the same thing. But it is recommended to use functional component in your newly created react applications. Yes, the functional approach looks very pretty.
 
-## Root level component
+## Root Level Component
 
 Building react application means, we create a lot of components to achieve a certain goal. But, every react component (.js or .ts extension) file, must contain a root level or parent component and may contain more than one child components. And that component must be exported. Look at the below example.
 

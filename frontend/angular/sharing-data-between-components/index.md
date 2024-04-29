@@ -1,15 +1,15 @@
 # Sharing Data between angular components
 
-Using @Input and @Output decorator we can share data between components in angular.
+Using <b>@Input</b> and <b>@Output</b> decorator we can share data between components in angular.
 
-@Input decorator: The flow of sharing data is parent to child
+<b>@Input decorator:</b> The flow of sharing data is parent to child
 
-@Output decorator: The flow of sharing data is child to parent - but release an EventEmitter.
+<b>@Output decorator:</b> The flow of sharing data is child to parent - but release an <b>EventEmitter.</b>
 
 
 ## Sharing Data Parent Component to Child Component using @Input decorator
 
-1. Open your angular application directory or folder in your system terminal (Command Prompt) and create two angular component using the following command.
+1. Open your angular application directory or folder in your system terminal (Command Prompt) and create two angular components using the following command.
 
 ```js
 $ ng generate component parent --inline-template --skip-tests
@@ -18,7 +18,7 @@ $ generate component child --inline-template --skip-tests
 
 2. Now, open your angular application in VS code or in your favorite ide.
 
-![Alt text](image-1.png)
+![Alt text](image1.png)
 
 You can see, there are two component files has been generated in parent and child folder. Our goal is to sharing data from parent to child using @Input decorator.
 
@@ -47,13 +47,13 @@ export class ChildComponent {
 }
 ```
 
-Here, first of all, we have import the Input decorator from @angular/core library package and you can see it at the top of the file. The, inside the typescript class, we have declared an empty string variable with @Input() decorator but didn't initialize it as the value will come from the parent component.
+Here, first of all, we have import the Input decorator from <b>@angular/core</b> library package and you can see it at the top of the file. The, inside the typescript class, we have declared an empty string variable with <b>@Input()</b> decorator but didn't initialize it as the value will come from the parent component.
 
-Note: @Input() decorator means here, the data or value will come from the parent component.
+<b>Note:</b> <b>@Input()</b> decorator means here, the data or value will come from the parent component.
 
-4. Now open the parent.component.ts file and declare a variable with data.
+4. Now open the <b>parent.component.ts</b> file and declare a variable with data.
 
-parent.component.ts 
+<b>parent.component.ts</b>
 
 ```
 import { Component } from '@angular/core';
@@ -73,22 +73,24 @@ export class ParentComponent {
   parentMessage : string = "Child Component"; 
 }
 ```
-Here, we import the ChildComponent typescript class at the top of the file first of all and add it in the imports array of @Component decorator making it as a known component for this parent.component.ts file. And then, use the child.component.ts file's selector here to display the child component template messages.
+
+Here, we import the <b>ChildComponent</b> typescript class at the top of the file first of all and add/insert it in the imports array of the <b>@Component</b> decorator making it as a known component for this <b>parent.component.ts</b> file. And then, use the <b>child.component.ts</b> file's selector here to display the child component template messages.
+
 
 We have used the property binding syntax for sharing data from parent to child.
 
 ```
-<child-component [childMessage]="parentMessage"]></child-component>
+<child-component [childMessage]="parentMessage"></child-component>
 ```
 
 In left **```[childMessage]```:** is the child component empty property
 **```parentMessage```:** is the parent component property with value. Later it's value will be added in the childMessage property.
 
-5. In this final step, we have added the parent component selector in the app.component.html template file (which is the root component in our application.)
+5. In this final step, we have added the parent component selector in the <b>app.component.html</b> template file (which is the root component in our application.)
 
 **parent.component.ts** file selector: **parent-component**
 
-Open, app.component.html file and write the following:
+Open, <b>app.component.html</b> file and write the following:
 
 ```
 <div>
@@ -127,7 +129,7 @@ $ ng serve --open
 
 If you now open localhost:4200 in your web browser you see:
 
-![Alt text](image-2.png)
+![Alt text](image2.png)
 
 
 Note: The most important thing is to note here, when you use one component in another component then, you must register that component typescript class in the imports array otherwise it is not possible to interact with that component logic. 
@@ -137,11 +139,11 @@ Like: if you have two components called A and B. And you want to use component A
 
 ## Sharing Data from Child to Parent Component using @Output Decorator.
 
-We will here use @Output decorator to share data from Parent to Child using @Output decorator. But, remember that, @Output decorator releases an EventEmitter.
+We will here use <b>@Output</b> decorator to share data from Parent to Child component. But, remember that, @Output decorator releases an <b>EventEmitter.</b>
 
 Note: There is no no need to change anything in your component files.
 
-1. Open child.component.ts file and include another property with @Output decorator.
+1. Open <b>child.component.ts</b> file and include another property with <b>@Output</b> decorator.
 
 **child.component.ts** file:
 
@@ -174,11 +176,11 @@ export class ChildComponent {
 }
 ```
 
-Note: You have to import he EventEmitter from @angular/core library.
+<b>Note:</b> You have to import the EventEmitter from <b>@angular/core</b> library.
 
 Here, we have created a method that emits the childData property.
 
-2. Now, open parent.component.ts file. 
+2. Now, open <b>parent.component.ts</b> file. 
 
 **parent.component.ts** file:
 
@@ -217,13 +219,13 @@ Here, when you clicked the button, the empty string message property will get va
 
 3. Please, run your development server from the terminal:
 
-If you now invoke the url: http://localhost:4200/ you get a window like this before clicking the button:
+If you now invoke the url: [http://localhost:4200/](http://localhost:4200/) you get a window like this before clicking the button:
 
-![Alt text](image-3.png)
+![Alt text](image3.png)
 
 But when you click the button the window should be like this:
 
-![Alt text](image-4.png)
+![Alt text](image4.png)
 
 
-Hope, you can now understand how we can share data between component using @Input and @Output decorator.
+Hope, you can now understand how we can share data between component using <b>@Input</b> and <b>@Output</b> decorator.
