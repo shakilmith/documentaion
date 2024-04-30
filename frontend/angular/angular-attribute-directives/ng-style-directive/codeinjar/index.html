@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--Include.js file-->
+<script src="https://docs.javaondemand.com/codeinjar/assets/js/include.js"></script>
+  <!--HighlightJS-->
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+  
+  <!-- and it's easy to individually load additional languages -->
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+  
+
+  <title>Angular NgStyle and NgClass Directive</title>
+
+  <style>
+      *{
+        box-sizing: border-box;
+      }
+      html, body{
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      .post-container{
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      
+      pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 8px;
+        overflow: auto;
+        border-left: 5px solid red;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .left-border{
+        border-left: 3px solid red;
+      }  
+    
+      .highlight-text{
+        background-color: papayawhip;
+        color: black;
+        display: inline;
+        }
+        
+      .highlight-section{
+        box-sizing: border-box;
+        background-color: papayawhip;
+        border-left: 5px solid red;
+        color: black;
+        padding: 3px 8px 3px 8px;
+      }
+  
+    .large-bold-text{
+      font-size: 36px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .medium-bold-text{
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .small-bold-text{
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  
+    /** Image style in tutorial pages
+  * In desktop version, image will be centered
+  * Mobile or tablet version, it will be full width
+  */
+  
+  /* for mobile */
+  .post-image-style{
+    width: 100%; 
+    height: auto;
+    display: block;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  /* for desktop */
+  @media screen and (min-width: 580px){
+    .post-image-style{
+        width: 50%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+  </style>
+  
+</head>
+<body>
+
+<!-- Top nav -->
+<div include-html="https://docs.javaondemand.com/codeinjar/assets/html/header.html"></div>
+  
+
+
+
+
+
+  
+<!--Body-->  
+<div class="post-container">
+
+<h1>Angular NgStyle and NgClass Directive</h1>
+
+<p>
+In angular, NgStyle is an attribute directive that updates styles dynamically for the containing html element. It can set one or more style properties for a particular html element, specified as colon separated by key-value pairs.
+</p>
+
+<p>
+```
+[ngStyle] ="{'key.unit': value}"
+[ngStyle] ="{'color' : textColor}"
+[ngStyle] ="{'font-size.px': '24'}"
+```
+</p>
+
+<p>
+Here, key is the name of your style and the value is the css expression to be evaluated. You can add optional unit properties (like .px, .em etc.) too. 
+</p>
+
+<p>
+The following are the simple comparison using, style and ng-style attribute.
+</p>
+
+<p>
+Note: You may first bootstrap a simple Angular Application. Check Out: [Create Your First Angular Application](https://javaondemand.com/create-your-first-angular-application/)
+some-template.html file
+</p>
+
+
+<p>
+```
+<p style="color:white; font-size: 36px; background-color: green;">{{title}}</p>
+
+<p [ngStyle]="{'font-size.px': '36', 'background-color': 'red'}">{{title}}</p>
+
+//when the css expression value comes from component
+<p [ngStyle]="{'color': textColor, 'font-size.px': textSize}">{{title}}</p>
+
+//it is possible to add style variables in an object or in an array
+<p [ngStyle]="{'color': styles.color, 'font-size.px': styles.size, 'background-color': styles.bgColor}">{{title}}</p>
+```
+</p>
+
+<p>
+<img src="" alt="Angular ngStyle Directive" class="post-image-style" />
+![alt text](image1.png)
+</p>
+
+<p>
+In this case, the component file would be:
+</p>
+
+<p>
+app.component.ts file
+<br/>
+```
+export class AppComponent {
+
+  title: string = "Using Angular NgStyle Directive";
+
+  textColor: string = 'blue';
+
+  textSize: number = 36;
+
+  styles : any = {
+    color: "orange",
+    size: 36,
+    bgColor: "black",
+  }
+}
+```
+</p>
+
+
+<p class="large-bold-text">Using NgClass Directive</p>
+
+<p>
+Likewise NgStyle directive, we can also use NgClass directive to style our template elements or contents dynamically. It can help us to add and remove css classes on an HTML element dynamically. NgClass also takes property from component but you first create css classes and then add them as variables.
+</p>
+
+<p>
+Let's explore a simple example.
+</p>
+
+<p class="large-bold-text">
+Syntax in template file: (some.component.html file or in inline template)
+</p>
+
+<p>
+```
+<p ngClass="class1 class2 class3">{{title}}</p> //same as: <p class="class1 class2 class2">{{title}}</p>
+<p [ngClass]=" 'class1 class2 class3' ">{{title}}</p> //expression in string (one or more space required)
+<p [ngClass]="['class1', 'class2', 'class3']">{{title}}</p> //expression in array 
+//the above array expression can also be written
+<p [ngClass]="['class1 class2 class3']">{{title}}</p> //concise syntax
+
+<p [ngClass]="{'class1': true, 'class2': false, 'class3': true}">{{title}}</p> //conditionally render css classes. If true then the style will be bound otherwise it will be removed from the current element.
+```
+</p>
+
+
+<p>
+Look over the following example:
+</p>
+
+<p>
+```
+//some.component.ts (component file)
+
+export class AppComponent {
+
+  title: string = "Using Angular NgClass Directive";
+}
+
+//some.component.css (css stylesheet file)
+.headingColor{
+    color: blue;
+}
+
+.headingBgColor{
+    background-color: black;
+}
+
+.fontStyle{
+    font-size: 36px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.fontSize{
+    font-size: 36px;
+}
+
+//some.component.html (template file)
+<p ngClass="headingColor fontSize">{{title}}</p>
+
+  <p [ngClass]=" 'headingColor fontSize headingBgColor' ">{{title}}</p>
+  
+  <p [ngClass]="['fontStyle headingColor']">{{title}}</p>
+
+  <p [ngClass]="{'fontStyle': true, 'headingColor': false}">{{title}}</p>
+```
+</p>
+
+
+<p>
+If you start your development server using ng serve --open command, you will see the following screen at localhost:4200
+</p>
+
+<p>
+<img src="" alt="Angular ngStyle Directive" class="post-image-style" />
+![alt text](image-4.png)
+</p>
+
+<p>
+The following image tells you more, how to apply css classes dynamically using ngClass directive.
+</p>
+
+<p>
+<img src="" alt="Angular ngStyle Directive" class="post-image-style" />
+![alt text](image-2.png)
+</p>
+
+<p class="large-bold-text">
+NgClass Property comes from component.
+</p>
+
+<p>
+It is also possible get the ngClass property from angular component. Unlike ngStyle directive, you first create the css classes and add then set the class as component properties value. Like
+</p>
+
+<p>
+```
+//some.component.css (we have created 4 css classes)
+.headingColor{
+    color: blue;
+}
+
+.headingBgColor{
+    background-color: black;
+}
+
+.fontStyle{
+    font-size: 36px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.fontSize{
+    font-size: 36px;
+}
+
+//some.component.ts (we have created variables, array and objects and set the css class as value)
+
+export class AppComponent {
+
+  title: string = "Using Angular NgClass Directive";
+
+  //in string variable
+  color: string = 'headingColor'; //it can takes more than one property too
+
+  //in array
+  headingArrayStyle: string[] = ['headingColor', 'headingBgColor', 'fontStyle'];
+
+  //in object
+  headingObjectStyle = {
+    headingColor: true,
+    headingBgColor: false,
+    fontStyle: false,
+    fontSize: true
+  }
+
+}
+
+//some.component.html file
+<p [ngClass]="color">{{title}}</p>
+<p [ngClass]="headingArrayStyle">{{title}}</p>
+<p [ngClass]="headingObjectStyle">{{title}}</p>
+```
+</p>
+
+<p>
+If you start your development server using ng serve --open command, you will see the following screen at localhost:4200
+</p>
+<p>
+If you check out the above code in your development environment you will the browser page will be:
+</p>
+
+
+<p>
+<img src="" alt="Angular ngStyle Directive" class="post-image-style" />
+![alt text](image-3.png)
+</p>
+
+
+
+</div>
+
+
+
+<!--Footer container-->
+
+<div include-html="https://docs.javaondemand.com/codeinjar/assets/html/footer.html">
+</div>
+
+<script>
+includeHTML();
+</script>
+<!-- js script for opening and closing the nav-->
+
+<script>
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!--invoke highlightJs-->
+<script>hljs.highlightAll();</script> 
+
+
+</body>
+</html>
