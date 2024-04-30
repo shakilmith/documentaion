@@ -1,6 +1,6 @@
 # Using Angular NgFor Directive
 
-NgFor is a structural directive that is used for rendering collection of elements in the template. We are going to explore here how to use ngFor directive in angular application.
+NgFor is a structural directive that is used for rendering collection of elements in the template. We are going to explore here how to use ngFor directive in angular application in order to render collection of elements.
 
 **Syntax:** (inside the template file)
 
@@ -20,7 +20,7 @@ Check out: [Create Your First Angular Application](#)
  
 2. Open app.components.ts file 
 
-In this component file, inside the class we will create an array variable.
+In this component file, inside the class we will create an array that contains list of fruits.
 
 **app.component.ts** file
 ```
@@ -30,7 +30,7 @@ export class AppComponent {
 }
 ```
 
-Now we will use the ngFor directive to render this list of fruits.
+Now we will use the ngFor directive to render this fruits array to the view.
 
 3. Open your template html file. 
 
@@ -57,10 +57,10 @@ $ ng serve --open //it will open your app in localhost:4200
 
 Invoke the url: [http://localhost:4200/](http://localhost:4200/) you will see, fruits array has been rendered.
 
-![Alt text](image-1.png)
+![Alt text](image1.png)
 
 
-## How to render object using ngFor directive
+## How to Render Object Using ngFor Directive
 
 Basically, objects are written with key-value paris. Let's look over the following example.
 
@@ -121,4 +121,4 @@ Now in the app.component.html file, write following:
 
 If you now open [http://localhost:4200](http://localhost:4200/) you will see, there are array of objects has been rendered like the fruits array.
 
-![Alt text](image-2.png)
+![Alt text](image1.png)

@@ -2,14 +2,16 @@
 
 When we want to render something based on certain condition we can use angular ngIf directive.
 
+The following example shows that how to use ngIf directive in angular application.
+
 1. If you have already an angular application open it in your ide and open the app.component.ts file
 
-If you don't have angular application yet, let's see how to bootstrap your first angular application. 
+If you don't have angular application in your system yet, let's see how to bootstrap your first angular application. 
 
 [Create Your First Angular Application](https://javaondemand.com/create-your-first-angular-application)
 
 
-2. In this file, create a boolean property isMature and set the value to true;
+2. Now open app.component.ts file and create a boolean property isMature and set the value to true;
 
 app.component.ts
 
@@ -17,7 +19,7 @@ app.component.ts
 export class AppComponent {
 
   isMature = true;
-}
+}as
 ```
 
 3. Now open the the template file and write the following:
@@ -35,11 +37,11 @@ As we set the isMature property value to true, thus the content will render but,
 
 When isMature property is true: 
 
-![Alt text](image-1.png)
+![Alt text](image1.png)
 
 When isMature property is false: 
 
-![Alt text](image-2.png)
+![Alt text](image2.png)
 
 You can see, when we set the property value is true, then the ngIf block is rendered but next when we set it to false, the content has not been rendered.
 
@@ -63,7 +65,7 @@ Note: The ```<ng-template>``` is an Angular element for rendering HTML. It is ne
 
 As isMature property is false, thus, the elseBlock I mean, the content inside the ng-template will render.
 
-![Alt text](image-3.png)
+![Alt text](image3.png)
 
 You can also add an then block too. If the condition is true, then the thenBlock will render otherwise the elseBlock will render. The code syntax will be:
 
@@ -91,7 +93,7 @@ In component file, we can only write conditional statements through constructor,
 
 Such as: 
 
-app.component.html file: 
+**app.component.ts** file: 
 
 ```
 export class AppComponent {
@@ -113,7 +115,7 @@ export class AppComponent {
 }
 ```
 
-app.component.html file:
+**app.component.html** file:
 
 ```
 <div>
@@ -124,4 +126,4 @@ app.component.html file:
 
 If everything is going well, in localhost, you will see the following window:
 
-![Alt text](image-4.png)
+![Alt text](image4.png)
