@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--meta tags for SEO-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Angular Tutorial; Learn How to Create Angular Interface">
+<meta name="keywords" content="Angular, Typescript, Angular Interface">
+<meta name="author" content="shakilmith">
+<meta http-equiv="refresh" content="30">
+
+<!--meta tags for open graph protocol (og:title, og:image)-->
+<meta property="og:title" content="Creating Angular Interface" />
+
+
+<!--Include.js file-->
+<script src="https://docs.javaondemand.com/codeinjar/assets/js/include.js"></script>
+  <!--HighlightJS-->
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+  
+  <!-- and it's easy to individually load additional languages -->
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+  
+
+  <title>Angular Interface</title>
+
+  <style>
+      *{
+        box-sizing: border-box;
+      }
+      html, body{
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      .post-container{
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      
+      pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 8px;
+        overflow: auto;
+        border-left: 5px solid red;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .left-border{
+        border-left: 3px solid red;
+      }  
+    
+      .highlight-text{
+        background-color: papayawhip;
+        color: black;
+        display: inline;
+        }
+        
+      .highlight-section{
+        box-sizing: border-box;
+        background-color: papayawhip;
+        border-left: 5px solid red;
+        color: black;
+        padding: 3px 8px 3px 8px;
+      }
+  
+    .large-bold-text{
+      font-size: 36px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .medium-bold-text{
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .small-bold-text{
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  
+    /** Image style in tutorial pages
+  * In desktop version, image will be centered
+  * Mobile or tablet version, it will be full width
+  */
+  
+  /* for mobile */
+  .post-image-style{
+    width: 100%; 
+    height: auto;
+    display: block;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  /* for desktop */
+  @media screen and (min-width: 580px){
+    .post-image-style{
+        width: 50%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+  </style>
+  
+</head>
+<body>
+
+<!-- Top nav -->
+<div include-html="https://docs.javaondemand.com/codeinjar/assets/html/header.html"></div>
+  
+
+
+
+
+
+  
+<!--Post starts-->  
+<div class="post-container">
+<h1>Angular Interface</h1>
+
+<p>
+Interface can be used as a data type or data model and it is helpful for creating custom and reusable data type with properties for angular components.
+</p>
+
+<p class="large-bold-text">
+Creating Interface in Angular
+</p>
+
+<p>
+The following ng command will generate interface for you in a respective folder (if not specified, then new interface will be added in the app folder)
+</p>
+
+<p>
+<pre><code>$ ng generate interface movie
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> Here, movie is the name of your interface
+</p>
+
+<p>
+If you have angular application in your system, navigate the angular app in the terminal, in my case the angular app is: **my-app**. And then, run the above command to generate an interface for you. It will be a .ts file (like movie.ts) only following the name of your interface.
+</p>
+
+<p>
+<pre><code>$ ng generate interface movie 
+</code></pre>
+
+</p>
+
+
+<p>
+If you open your application into your ide, you will see, in the app folder there is an interface named movie.ts file.
+</p>
+
+<p>
+Open movie.ts file and you will see an exported interface movie has already been generated for you.
+</p>
+
+<p>
+<b>movie.ts</b>
+</p>
+
+<p>
+<pre><code>
+export interface Movie {
+
+}
+</code></pre>
+
+</p>
+
+<p class="large-bold-text">
+Creating Interface Manually
+</p>
+
+<p>
+But, if you want to create interface manually, just create a .ts file (like movie.ts or product.ts) and then add export your interface like below
+</p>
+
+
+<p>
+<pre><code>
+export interface <interface-name> {
+}
+
+//if your interface name is Movie then
+export interface Movie{
+    //custom properties
+} 
+</code></pre>
+</p>
+
+
+<b>Note:</b> It is not required the interface name to be the same as the file name, it can be different. But for convenience, it is recommended to use the the interface name similar to the file name.
+
+<p>
+<b>product-info.ts</b> (interface file)
+</p>
+
+<p>
+<pre><code>
+export interface Product{
+  //custom properties
+} 
+</code></pre>
+</p>
+
+<p>
+Now, it is possible to add properties with appropriate data types. Like, our Movie interface may contain movie id, title, thumbnail image, description, casts, genres, link to download or watch, ratings etc.
+</p>
+
+<p>
+<b>movie.ts</b> (interface)
+</p>
+
+<p>
+<pre><code>
+export interface Movie {
+  id: number,
+  title: string,
+  thumbnail: string,
+  description: string,
+  casts: string [],
+  genres: string [],
+  rating: number,
+  download: string
+} 
+</code></pre>
+</p>
+
+<p>
+<b>Let's Create a Custom Data Model for our Movie Page Through Interface</b>
+</p>
+
+<p>
+First of all, creating an interface using angular ng command. Let's say out interface name is movie.
+</p>
+
+<p>
+<pre><code>
+$ ng generate interface movie
+</code></pre>
+</p>
+
+<p>
+Now, open movie.ts file and add few custom properties with type definition. But, if you don's specify any type, then it will be any type.
+</p>
+
+<p>
+<b>movie.ts</b> (located in src/app folder)
+</p>
+
+<p>
+<pre><code>
+export interface Movie {
+  id: number,
+  title: string,
+  thumbnail: string,
+  description: string,
+  casts: string [],
+  genres: string [],
+  rating: number,
+  download: string
+}
+</code></pre>
+</p>
+
+<p>
+Now open <b>app.component.ts</b> file (all <b>component.ts</b> file is used to provide metadata for the application or template files) and create a movie variable based on Movie interface type of data model.
+</p>
+
+<p>
+<b>app.component.ts</b> (You have to first of all, import the Movie interface on top of the file)
+</p>
+
+<p>
+<pre><code>
+ export class AppComponent {
+
+  title: string = "A Simple Movie Page";
+
+  //now creating a movie variable based on movie interface type
+
+  movie : Movie = {
+    id: 1,
+    title: "Unstoppable",
+    thumbnail: "img_url",
+    description: "movie description",
+    casts: ['Kim Sung-oh', 'Ma Dong-seok', 'Song Ji-hyo'],
+    genres: ['Action', 'Thriller'],
+    rating: 6.6,
+    download: "#"
+  }
+} 
+</code></pre>
+</p>
+
+<p>
+Now, open <b>app.component.html</b> file and write the logic (using interpolation) to render the movie object data.
+</p>
+
+<p>
+<b>app.component.html</b> (template file)
+</p>
+
+<p>
+<pre><code>
+&lt;div&gt;
+  &lt;h1&gt;{{movie.title}}&lt;/h1&gt;
+  &lt;img src={{movie.thumbnail}} /&gt;
+  &lt;div&gt;
+    &lt;p&gt;Description: {{movie.description}}&lt;/p&gt;
+    &lt;p&gt;Casts: {{movie.casts}}&lt;/p&gt;
+    &lt;p&gt;Genres: {{movie.genres}}&lt;/p&gt;
+    &lt;p&gt;Rating: {{movie.rating}}&lt;/p&gt;
+    &lt;p&gt;Link: &lt;a href={{movie.download}}&gt;Download&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+</p>
+
+<p>
+If your server is running (if not, then run ng serve command in the terminal) you can see the movie page.
+</p>
+
+
+<p>
+<pre><code>
+$ ng serve --open //open at localhost:4200
+</code></pre>
+</p>
+
+<p>
+<img src="https://docs.javaondemand.com/frontend/angular/angular-interface/image1.png" alt="Angular Interface" class="post-image-style" />
+![alt text](image1.png)
+</p>
+
+<p class="large-bold-text">
+Render List of Movies
+</p>
+
+<p>
+Basically a typical movie page contains list of movies or collection of movies than only one movie. So, in this case, we will create a movie list variable (I mean, an array of objects of Movie type). So, implement it. Note, then in order to render list of movies, you have to use angular *ngFor directive to iterate moves.
+</p>
+
+<p>
+In this case, our updated app.component.ts file would be: 
+</p>
+
+<p>
+<b>app.component.ts</b>
+</p>
+
+<p>
+<pre><code>
+movies : Movie [] = [
+    {
+      id: 1,
+      title: "Unstoppable",
+      thumbnail: this.imageURL,
+      description: "movie description",
+      casts: ['Kim Sung-oh', 'Ma Dong-seok', 'Song Ji-hyo'],
+      genres: ['Action', ' Thriller'],
+      rating: 6.6,
+      download: "#link"
+    },
+    {
+      id: 2,
+      title: "Unstoppable",
+      thumbnail: this.imageURL,
+      description: "movie description",
+      casts: ['Kim Sung-oh', 'Ma Dong-seok', 'Song Ji-hyo'],
+      genres: ['Action', ' Thriller'],
+      rating: 6.6,
+      download: "#link"
+    },
+    {
+      id: 3,
+      title: "Unstoppable",
+      thumbnail: this.imageURL,
+      description: "movie description",
+      casts: ['Kim Sung-oh', 'Ma Dong-seok', 'Song Ji-hyo'],
+      genres: ['Action', ' Thriller'],
+      rating: 6.6,
+      download: "#link"
+    },
+    {
+      id: 4,
+      title: "Unstoppable",
+      thumbnail: this.imageURL,
+      description: "movie description",
+      casts: ['Kim Sung-oh', 'Ma Dong-seok', 'Song Ji-hyo'],
+      genres: ['Action', ' Thriller'],
+      rating: 6.6,
+      download: "#link"
+    },
+    {
+      id: 5,
+      title: "Unstoppable",
+      thumbnail: this.imageURL,
+      description: "movie description",
+      casts: ['Kim Sung-oh', 'Ma Dong-seok', 'Song Ji-hyo'],
+      genres: ['Action', ' Thriller'],
+      rating: 6.6,
+      download: "#link"
+    }
+  ]
+</code></pre>
+</p>
+
+<p>
+And then, our updated app.<b>component.html</b> file will be:
+</p>
+
+<p>
+<b>app.component.html</b>
+</p>
+
+<p>
+<pre><code>
+  &lt;div style=&quot;display: flex; flex-direction: row&quot;&gt;
+&lt;div *ngFor=&quot;let movie of movies&quot;&gt;
+  &lt;h1&gt;{{movie.title}}&lt;/h1&gt;
+  &lt;img src={{movie.thumbnail}} /&gt;
+  &lt;div&gt;
+    &lt;p&gt;Description: {{movie.description}}&lt;/p&gt;
+    &lt;p&gt;Casts: {{movie.casts}}&lt;/p&gt;
+    &lt;p&gt;Genres: {{movie.genres}}&lt;/p&gt;
+    &lt;p&gt;Rating: {{movie.rating}}&lt;/p&gt;
+    &lt;p&gt;Link: &lt;a href={{movie.download}}&gt;Download&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+</p>
+
+<p>
+Then, the updated browser page will be
+</p>
+
+<p>
+<img src="https://docs.javaondemand.com/frontend/angular/angular-interface/image2.png" alt="Angular Interface" class="post-image-style" />
+</p>
+
+<p>
+Hope, this post will be very helpful to understand how to create interface in order to generate a prototype or custom data model for your components.
+</p>
+
+
+
+<!--Post ends-->
+</div>
+
+
+
+<!--Footer container-->
+
+<div include-html="https://docs.javaondemand.com/codeinjar/assets/html/footer.html">
+
+</div>
+
+<script>
+includeHTML();
+</script>
+<!-- js script for opening and closing the nav-->
+
+<script>
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!--invoke highlightJs-->
+<script>hljs.highlightAll();</script> 
+
+
+</body>
+</html>
