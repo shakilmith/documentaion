@@ -1,10 +1,12 @@
 # React List
 
-When we have large set of data to render we can use array of javascript to store those data in a variable then use javascript map method to iterate them. In this example we will see how to render list of data in react using javascript map method.
+When we have large set of data to render we can use array of javascript to store those data in a variable then use javascript map (sometimes foreach loop) method to iterate over them. In this example we will see how to render collection of data using javascript map method in a simple react application.
 
-Attention: Make sure, you have already react application bootstrapped to check this demo.
+**Attention:** Make sure, you have already react application bootstrapped to check this demo.
 
-app.js
+Tutorial: //create your first react application.
+
+**app.js**
 
 ```
 import * as React from "react"
@@ -36,17 +38,17 @@ Here we first created an array and then use the javaScript map function to itera
 
 ![alt text](image1.png)
 
-Fine, it means our numbers array/list has been successfully rendered in the browser. But here is a problem in our code. In this page, if you open the developer console (right click > inspect) you will see a warning message that every list element should have a unique key prop.
+Fine, it means our numbers array/list has been successfully rendered. But here is a problem in our code. In this page, if you open the developer console (right click > inspect) you will see a warning message that **every list element should have a unique key prop**.
 
 ![alt text](image2.png)
 
-Why key prop is necessary when we want to render list of element?
 
-=> To make the code updates or changed predictable, stop unnecessary re-renders of list elements, optimize the list rendering by using the existing dom elements we can use key prop while rendering list or array in react. In order to perform efficient updates react must need a key prop to identity elements from one render to another. If you don't use key prop, react can't identify whether the list items are updated, changed or removed. 
+***Why key prop is necessary when we want to render list of element?***
+
+=> To make the code updates or changed predictable, stop unnecessary re-renders of list elements, optimize the list rendering by using the existing DOM elements we can use key prop while rendering list or array in react. In order to perform efficient updates react must need a key prop to identiFY elements from one render to another. If you don't use key prop, react can't identify whether the list items are updated, changed or removed. 
 
 
-
-So, our updated app.js file will be:
+So, our updated **app.js** file will be:
 
 ```
 <ul>
@@ -57,11 +59,13 @@ So, our updated app.js file will be:
     }
 </ul>
 ```
-Just we use the key prop in our list.
+
+Just we use the key prop in our list here.
+
 
 ## Iterate Object in React Using Map method
 
-In javaScript objects are written in key, value paris. 
+In javaScript objects are written with key, value paris (but without double quotation "")
 
 ```
 const person = {
@@ -70,7 +74,7 @@ const person = {
 }
 ```
 
-Here, person is the name of object and we set name and role key in person object.
+Here, person is the name of the object and we set name and role key in the person object.
 
 It is possible to create arrays of objects, like
 
@@ -91,10 +95,10 @@ const person = [
 ]
 ```
 
-Here person is array of objects and that hold three objects. In react, we can use array map function to iterate or display array of objects in the browser. Let's look at the below example
+Here person is hte array of objects and that hold three objects. In react, we can use array map function to iterate or display array of objects in the browser. Let's look at the below example
 
 
-app.js
+**app.js**
 
 ```
 const App=()=>{
@@ -168,4 +172,6 @@ const NumberList=(props)=>{
   )
 }
 ```
+
+Hope this short tutorial of rendering list using map function would be very useful. Hence, soon new tutorial will be published about react. Thanks.
 
