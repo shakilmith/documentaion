@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--meta tags for SEO-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Html Tutorial">
+<meta name="keywords" content="Html, Css, Angular">
+<meta name="author" content="shakilmith">
+<meta http-equiv="refresh" content="30">
+
+<!--meta tags for open graph protocol (og:title, og:image)-->
+<meta property="og:title" content="Html Tutorial" />
+
+
+<!--Include.js file-->
+<script src="https://file-hosting.dashnexpages.net/marketingstrategy/assets/js/include.js"></script>
+  <!--HighlightJS-->
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+  
+  <!-- and it's easy to individually load additional languages -->
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+  
+
+  <title>Demo Post for codeinjar</title>
+
+  <style>
+      *{
+        box-sizing: border-box;
+      }
+      html, body{
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      .post-container{
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      
+      pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 8px;
+        overflow: auto;
+        border-left: 5px solid red;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .left-border{
+        border-left: 3px solid red;
+      }  
+    
+      .highlight-text{
+        background-color: papayawhip;
+        color: black;
+        display: inline;
+        }
+        
+      .highlight-section{
+        box-sizing: border-box;
+        background-color: papayawhip;
+        border-left: 5px solid red;
+        color: black;
+        padding: 3px 8px 3px 8px;
+      }
+  
+    .large-bold-text{
+      font-size: 36px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .medium-bold-text{
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .small-bold-text{
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  
+    /** Image style in tutorial pages
+  * In desktop version, image will be centered
+  * Mobile or tablet version, it will be full width
+  */
+  
+    /* for mobile */
+    .post-image-style{
+      width: 100%; 
+      height: auto;
+      display: block;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+    
+    /* for desktop */
+    @media screen and (min-width: 580px){
+      .post-image-style{
+          max-width: 50%;
+          height: auto;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 50px;
+          margin-bottom: 50px;
+          border-radius: 10px;
+      }
+    }
+
+  </style>
+  
+</head>
+<body>
+
+<!-- Top nav -->
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/header.html"></div>
+  
+
+
+
+
+
+  
+<!--Post starts-->  
+<div class="post-container">
+
+<h1>
+Create Your First JPA Application
+</h1>
+
+<p>
+In this post we are going to explore how to create a simple jpa application using maven.
+</p>
+
+<p>
+<b>Requirements:</b>
+</p>
+<p>
+Basic requirements:<br/>
+1. Java development kit - jdk-8+ (Would be better if you use java 17)<br/>
+2. Maven/Gradle as a build tool. Make sure you have the latest maven version install or at least version 3.6.3+ <br/>
+3. An IDE like intellij Ide. <br/>
+</p>
+
+<p class="large-bold-text">
+Build a Simple Maven Project
+</p>
+
+<p>
+First of all, using the following command to build a maven hello world project
+</p>
+
+<p>
+```
+$ mvn archetype:generate -DgroupId=com.company -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```\
+</p>
+
+<p>
+Tutorial: <a href="https://codeinjar.com/first-maven-application" target="_blank">Maven Hello World Application</a>
+</p>
+
+<p>
+Now, open your project in your favourite ide, in my case I will use Intellij Ide.
+</p>
+
+<p>
+How to import projects in your favourite ides:
+</p>
+
+<p class="highlight-section">
+Intellij IDE: Right click > File > Open > Find Your Project Folder (my-app) > Click Ok.
+</p>
+
+<p>
+<b>Eclipse IDE:</b> File > Import > Maven > Existing Maven Projects > Find Your Project Folder (my-app) > Click Finish.
+</p>
+
+<p>
+<b>Netbeans IDE:</b> File > Open Project > Find Out Your Maven Project > Click Open Project
+</p>
+
+<p>
+<b>VS code IDE:</b> File > Open Folder > Select The Maven Project (my-app) > Click on Select Folder
+</p>
+
+<p>
+Any ide, you will use hope the above instructions would be very helpful to import your maven project.
+</p>
+
+<p>
+<pre><code>my-app
+  |-- pom.xml
+  `-- src
+      |-- main
+      |   `-- java
+      |       `-- com
+      |           `-- company
+      |                   `-- App.java
+      `-- test
+          `-- java
+              `-- com
+                  `-- company
+                      `-- app
+                          `-- AppTest.java</code></pre>
+</p>
+
+<p>
+After opening your simple maven project, you will get the the above project structure. If you open App.java you will see a simple Hello, World string message that will print if you run App.java file.
+</p>
+
+<p>
+<pre><code>package com.company;
+
+  /**
+   * Hello world!
+   *
+   */
+  public class App{
+      public static void main( String[] args ) {
+  
+          System.out.println("Hello World!");
+      }
+  }</code></pre>
+</p>
+
+<p>
+As our goal is to create JPA application we have to go little bit further. Open your project pom.xml file and add the following jpa, hibernate(for the jpa implementation) mysql database dependency in the dependency section.
+</p>
+
+<p>
+pom.xml file
+</p>
+
+<p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;jakarta.persistence&lt;/groupId&gt;
+  &lt;artifactId&gt;jakarta.persistence-api&lt;/artifactId&gt;
+  &lt;version&gt;3.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+  &lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;
+  &lt;version&gt;6.1.6.Final&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;com.mysql&lt;/groupId&gt;
+  &lt;artifactId&gt;mysql-connector-j&lt;/artifactId&gt;
+  &lt;version&gt;8.2.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</p>
+
+<p>
+Now reload your pom.xml file to resolve the newly added dependencies. In your pom.xml file: Right Click > Maven > Reload project.
+</p>
+
+<p>
+<b>Configure persistence.xml file</b>
+</p>
+
+<p>
+Now create resources folder in src/main folder of you project. In the resources folder create <b>META-INF/persistence.xml</b> file. In your <b>persistence.xml</b> file write the following 
+</p>
+
+
+<p>
+<b>persistence.xml</b>
+</p>
+
+
+<p>
+<pre><code language="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;persistence xmlns=&quot;http://xmlns.jcp.org/xml/ns/persistence&quot;
+             xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+             xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd&quot;
+             version=&quot;2.2&quot;&gt;
+
+    &lt;persistence-unit name =&quot;default&quot;&gt; &lt;!--default is your persistence unit name--&gt;
+
+        &lt;properties&gt;
+            &lt;property name=&quot;jakarta.persistence.jdbc.driver&quot; value=&quot;com.mysql.cj.jdbc.Driver&quot;/&gt;
+            &lt;property name=&quot;jakarta.persistence.jdbc.url&quot; value=&quot;jdbc:mysql://localhost:3306/testdb&quot;/&gt;
+            &lt;property name=&quot;jakarta.persistence.jdbc.user&quot; value=&quot;root&quot;/&gt;
+            &lt;property name=&quot;jakarta.persistence.jdbc.password&quot; value=&quot;root&quot;/&gt;
+            &lt;property name=&quot;hibernate.hbm2ddl.auto&quot; value=&quot;create&quot;/&gt;
+            &lt;property name=&quot;hibernate.show_sql&quot; value=&quot;true&quot;/&gt;
+            &lt;property name=&quot;hibernate.format_sql&quot; value=&quot;true&quot;/&gt;
+        &lt;/properties&gt;
+    &lt;/persistence-unit&gt;
+&lt;/persistence&gt;</code></pre>
+</p>
+
+
+<p>
+Here, persistence-unit is the root component and the persistence-unit name must be same as EntityManagerFactory name what you have used in your persistence class. Then, inside <b>properties</b> component we provide our database information. JDBC driver name, database url, user-name and password. Also we use hibernate specific mappings like hibernate.hbm2ddl.auto.
+</p>
+
+
+<p>
+<b>Note:</b> <i><b>Hibernate.hbm2ddl.auto</b></i> contains 4 possible values.
+<br/>
+   - <b>create:</b> create the schema (means create tables with data) and erase the previous data if it finds any.<br/>
+   - <b>create-drop:</b> create the schema and drop when the application is stopped.<br/>
+   - <b>update:</b> update the schema or table, but if you have association/linking with other tables (by using OneToOne or OneToMany etc.) like 2 table shares data with each other, you probably get error as your application then says, duplicate entry key '1/2/3..' for key 'related table details'...<br/>
+   - <b>validate:</b> validate the schema, no changes will be generated in database.<br/>
+</p>
+
+<p class="large-bold-text">
+Create an Entity Model
+</p>
+
+
+<p>
+Now we will create a simple entity model (database table in other words) including getter/setter methods. Let's name our Entity Model Person.java and must we have to annotate it by using the @Entity annotation.
+</p>
+
+<p>
+<b>Person.java</b>
+</p>
+
+<p>
+<pre><code>package com.company.model;
+
+import jakarta.persistence.*;
+
+@Entity(name = "Person")
+@Table(name = "person")
+public class Person {
+    @Id
+    private int id;
+    private String name;
+    private String address;
+    private LocalDate;
+
+    public Person() {
+    }
+
+    public Person(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}</code></pre>
+</p>
+
+<p>
+Here inside the model package we have create a **Person.java** entity class. An entity class is just like a database table and all the properties in it would be the column names in this table. One thing to note that, every entity must need a primary key and it must be annotated by @Id annotation. Optionally we can use @Table (to externally name our database table) @Column (to externally name the database columns) annotations.
+</p>
+
+<p>
+<b>Note:</b> The <b>@Column</b> annotation has few attributes to use. Such as,
+</p>
+
+<p>
+<b>name:</b> Defines the name of the column. If not specified then the property name will be the column name. <br/>
+
+<b>length:</b> Mentions the length of the column. Such as, "varchar" is used to specify the length of the string based column and it's default value is 255. <br/>
+
+<b>nullable:</b> Whether the columns value can be null (empty) or not. The default option is true (means null value supported) <br/>
+
+<b>unique:</b> indicates whether the column values must be unique or not. By default it's value is false. <br/>
+
+<b>columnDefinition:</b> Allows to specify the sql fragment that defines the column such as, data type and constraints. <br/>
+
+<b>precision and scale:</b> used for columns that store numeric values. <b>Precision</b> defines total number used before decimal point and <b>scale</b> defines the number used after decimal point (123.56)<br/>
+</p>
+
+<p>
+For the time being, all of my tutorials, I basically use name, nullable, unique and length attributes. But you can use these attributes based on your requirement.
+</p>
+
+<p>
+<b>Note:</b> We will use persistent/persistence object for mentioning entities all of my tutorials.
+</p>
+
+<p class="large-bold-text">
+Create A Persistence Class
+</p>
+
+<p>
+In this final step, we will create a java persistence class in order to register EntityManagerFactory and call the entity-manager to save our Person records. Create a package called dao and in it create PersonPersistent.java class
+</p>
+
+
+<p>
+<b>PersonPersistent.java</b>
+</p>
+
+<p>
+<pre><code>package com.company.dao;
+
+import com.company.model.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+public class DemoPersistent {
+    public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManager em =emf.createEntityManager();
+        em.getTransaction().begin();
+
+        /*
+         * Start from here
+         */
+
+        Person p1 = new Person(1, "Mark Smith");
+        Person p2 = new Person(2, "Jakov Jenkov");
+        Person p3 = new Person(3, "Selena Gomez");
+
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
+    }
+}</code></pre>
+</p>
+
+<p>
+Here I persist or save three person objects into the mysql database. If you run the PersonPersistent.java class, three person details will be saved in your mysql database.
+</p>
+
+<p>
+Open your mysql commandLine tools and run the following command to extract the person table data.
+</p>
+
+<p>
+<pre><code>$ SELECT * FROM PERSON;</code></pre>
+</p>
+
+<p>
+![jpa](image1.png)
+</p>
+
+<p class="large-bold-text">
+Add New Attributes in Your Person Entity
+</p>
+
+<p>
+Let's say we want to add attributes (database column) in our Person entity. They are address and birth_date
+</p>
+
+<p>
+<b>Person.java</b> (updated person entity)
+</p>
+
+<p>
+<pre><code>package com.company.model;
+
+import jakarta.persistence.*;
+
+@Entity(name = "Person")
+@Table(name = "person")
+public class Person {
+    @Id
+    private int id;
+    private String name;
+    private String address;
+    private LocalDate;
+
+    //constructors, getter and setter methods
+}</code></pre>
+</p>
+
+<p>
+<b>PersonPersistence.java</b> (call the setter method to save the address and birthDate)
+</p>
+
+<p>
+<pre><code>p1.setAddress("52 Green Lane, London");
+p1.saveBirthDate('1095-9-12')
+
+p2.setAddress("39 Chested Road, London");
+p2.saveBirthDate('1088-1-26')
+
+p3.setAddress("88 sT. John'S Road, London)
+p3.saveBirthDate('2000-12-9')</code></pre>
+</p>
+
+<p>
+Just again run the persistence class, and your database table will be updated as well.
+</p>
+
+<p>
+
+![jpa](image2.png)
+</p>
+
+
+
+
+
+<!--Post ends-->
+</div>
+
+
+
+<!--Footer container-->
+
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/footer.html">
+
+</div>
+
+<script>
+includeHTML();
+</script>
+<!-- js script for opening and closing the nav-->
+
+<script>
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!--invoke highlightJs-->
+<script>hljs.highlightAll();</script> 
+
+
+</body>
+</html>
