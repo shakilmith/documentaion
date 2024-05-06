@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--meta tags for SEO-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Html Tutorial">
+<meta name="keywords" content="Html, Css, Angular">
+<meta name="author" content="shakilmith">
+<meta http-equiv="refresh" content="30">
+
+<!--meta tags for open graph protocol (og:title, og:image)-->
+<meta property="og:title" content="Html Tutorial" />
+
+
+<!--Include.js file-->
+<script src="https://file-hosting.dashnexpages.net/marketingstrategy/assets/js/include.js"></script>
+  <!--HighlightJS-->
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+  
+  <!-- and it's easy to individually load additional languages -->
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+  
+
+  <title>Demo Post for codeinjar</title>
+
+  <style>
+      *{
+        box-sizing: border-box;
+      }
+      html, body{
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      .post-container{
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      
+      pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 8px;
+        overflow: auto;
+        border-left: 5px solid red;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .left-border{
+        border-left: 3px solid red;
+      }  
+    
+      .highlight-text{
+        background-color: papayawhip;
+        color: black;
+        display: inline;
+        font-family: monospace;
+        font-weight: bold;
+        }
+        
+      .highlight-section{
+        box-sizing: border-box;
+        background-color: papayawhip;
+        border-left: 5px solid red;
+        color: black;
+        padding: 3px 8px 3px 8px;
+      }
+  
+    .large-bold-text{
+      font-size: 32px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .medium-bold-text{
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .small-bold-text{
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  
+    /** Image style in tutorial pages
+  * In desktop version, image will be centered
+  * Mobile or tablet version, it will be full width
+  */
+  
+    /* for mobile */
+    .post-image-style{
+      width: 100%; 
+      height: auto;
+      display: block;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+    
+    /* for desktop */
+    @media screen and (min-width: 580px){
+      .post-image-style{
+          max-width: 50%;
+          height: auto;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 50px;
+          margin-bottom: 50px;
+          border-radius: 10px;
+      }
+    }
+
+  </style>
+  
+</head>
+<body>
+
+<!-- Top nav -->
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/header.html"></div>
+  
+
+
+
+
+
+  
+<!--Post starts-->  
+<div class="post-container">
+
+<h1>
+Using Embedded Object in your JPA Entity
+</h1>
+
+<p>
+Embedded objects are used to organize jpa entities when it is required to represent different reusable data in the same table. Like a student table has that has columns like student name, age, email_address, department etc. and address details (city, postal_code, street_number, house_number etc.). In this case, it will be a good approach to use embedded object in this entity table. 
+</p>
+
+<p>
+<b>Note:</b> Embedded object isn't entity itself. It just helps to organize the entity table.
+</p>
+
+<p class="large-bold-text">
+Using Embedded Object
+</p>
+
+<p>
+For demonstrating this approach, we will create two class. An entity class and we name it Person.java and an embeddable class (it is not entity itself).
+</p>
+
+<p>
+<b>Person.java</b>
+</p>
+
+<p>
+<pre><code>package com.company.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+
+@Entity(name = &quot;Person&quot;)
+@Table(name = &quot;person&quot;)
+public class Person {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String name;
+    private int age;
+    @Embedded
+    private Address address;
+
+    public Person() {
+    }
+
+    public Person(String name, int age, Address address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+}</code></pre>
+</p>
+
+<p>
+And then the <b>Address</b> emendable class will like
+</p>
+
+<p>
+<b>Address.java</b>
+</p>
+
+
+<p>
+<pre><code>package com.company.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+
+@Entity(name = &quot;Person&quot;)
+@Table(name = &quot;person&quot;)
+public class Person {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String name;
+    private int age;
+    @Embedded
+    private Address address;
+
+    public Person() {
+    }
+
+    public Person(String name, int age, Address address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+}</code></pre>
+</p>
+
+<p>
+<b>Note:</b> The Address class should be annotated by <b>@Embeddable</b> annotation. It means this class will be used as an embedded object inside the Person entity class. Another thing to note that, all the properties of address class will be the property of Person class, but they resides in the embeddable class.
+</p>
+
+<p>
+Then, create a <b>PersonPersistent.java</b> class to handle the database operation.
+</p>
+
+<p>
+<pre><code>package com.company.dao;
+
+import com.company.model.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+
+public class DemoPersistent {
+    public static void main(String[] args) {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(&quot;default&quot;);
+        EntityManager em =emf.createEntityManager();
+        em.getTransaction().begin();
+
+        /*
+         * Start from here
+         */
+
+        //create few address object
+        Address a1 = new Address(&quot;West Benside&quot;, &quot;34bAB&quot;, &quot;45AF&quot;, &quot;kA11 7LW&quot;);
+        Address a2 = new Address(&quot;Dunnington&quot;, &quot;39BC&quot;, &quot;30LK&quot;, &quot;YO252DA&quot;);
+        Address a3 = new Address(&quot;Barton&quot;, &quot;40CA&quot;, &quot;45BK&quot;, &quot;SG2 IE8&quot;);
+
+        Person p1 = new Person(&quot;Mark Smith&quot;, 30, a1);
+        Person p2 = new Person(&quot;Jakov Jenkov&quot;, 45, a2);
+        Person p3 = new Person(&quot;Selena Gomez&quot;, 25, a3);
+
+        //invoking persist method to save the person objects in the database
+        em.persist(p1);
+        em.persist(p2);
+        em.persist(p3);
+
+
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
+    }
+}</code></pre>
+</p>
+
+<p>
+We first of all, create three addresses and then three person object and then persist or save them into the database by calling the <i>entity-manager</i> <b>persist()</b> method.
+</p>
+
+<p>
+Just run the <b>PersonPersistent.java</b> and if you look over your log messages you can see that in the person table there are 6 entries added.
+</p>
+
+
+<p>
+<pre><code>create table person (
+    id integer not null,
+    city varchar(255),
+    house_number varchar(255),
+    street_number varchar(255),
+    zip_code varchar(255),
+    age integer not null,
+    name varchar(255),
+    primary key (id)
+) engine=InnoDB</code></pre>
+</p>
+
+
+<p>
+Now, open your mysql commandLine terminal and run the following commands.
+</p>
+
+<p>
+<pre><code>mysql> use testdb;
+Database changed
+mysql> SELECT * FROM person;</code></pre>
+</p>
+
+<p>
+You will get the following output.
+</p>
+
+<p>
+<img src="https://docs.javaondemand.com/jpa/jpa-embedded-objects/image1.png" alt="JPA" class="post-image-style" />
+</p>
+
+<p>
+Hope, now you can guess the benefits of using embedded objects in your jpa entity. It is also possible to reuse the <span class="highlight-text">Address embeddable</span> class in other entities when it is required.
+</p>
+
+
+
+
+<!--Post ends-->
+</div>
+
+
+
+<!--Footer container-->
+
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/footer.html">
+
+</div>
+
+<script>
+includeHTML();
+</script>
+<!-- js script for opening and closing the nav-->
+
+<script>
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!--invoke highlightJs-->
+<script>hljs.highlightAll();</script> 
+
+
+</body>
+</html>
