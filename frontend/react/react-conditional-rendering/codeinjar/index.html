@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!--meta tags for SEO-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="React Tutorial; Learn How to Conditionally Render elements in react">
+<meta name="keywords" content="React, JavaScript, Single Page Application">
+<meta name="author" content="shakilmith">
+<meta http-equiv="refresh" content="30">
+
+<!--meta tags for open graph protocol (og:title, og:image)-->
+<meta property="og:title" content="React Conditional" />
+
 
 <!--Include.js file-->
 <script src="https://file-hosting.dashnexpages.net/marketingstrategy/assets/js/include.js"></script>
@@ -15,7 +24,7 @@
   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
   
 
-  <title>Demo Post for codeinjar</title>
+  <title>Conditionally Rendering Components in React</title>
 
   <style>
       *{
@@ -96,6 +105,8 @@
     display: block;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+    margin-top: 24px;
+    margin-bottom: 24px;
   }
   
   /* for desktop */
@@ -106,6 +117,9 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-radius: 10px;
     }
   }
   </style>
@@ -153,34 +167,32 @@ Let's implement the above scenario in our sample react application.
 </p>
 
 <p>
-```
-import * as React from "react"
+<pre><code>import * as React from &quot;react&quot;
 
-const App=()=>{
+const App=()=&gt;{
   
   return(
-    <div>
+    &lt;div&gt;
       {/* Register CheckAge component here*/}
-      <CheckAge />
-    </div>
+      &lt;CheckAge /&gt;
+    &lt;/div&gt;
   )
 }
 
-const CheckAge=()=>{
+const CheckAge=()=&gt;{
   //define a const variable
   const age = 16;
   
   //implement if condition
-  if(age <= 18){
-    return <h1>You are not eligible to vote.</h1>
+  if(age &lt;= 18){
+    return &lt;h1&gt;You are not eligible to vote.&lt;/h1&gt;
   }
   else{
-    return <h1>You are eligible to vote.</h1>
+    return &lt;h1&gt;You are eligible to vote.&lt;/h1&gt;
   }
 }
 
-export default App;
-```
+export default App;</code></pre>
 </p>
 
 
@@ -201,20 +213,18 @@ But what if you set the age initial variable to 18 or more? Then the else block 
 </p>
 
 <p>
-```
-const CheckAge=()=>{
+<pre><code>const CheckAge=()=&gt;{
   //define a const variable
   const age = 20;
   
   //implement if condition
-  if(age <= 18){
-    return <h1>You are not eligible to vote.</h1>
+  if(age &lt;= 18){
+    return &lt;h1&gt;You are not eligible to vote.&lt;/h1&gt;
   }
   else{
-    return <h1>You are eligible to vote.</h1>
+    return &lt;h1&gt;You are eligible to vote.&lt;/h1&gt;
   }
-}
-```
+}</code></pre>
 </p>
 
 <p>
@@ -235,24 +245,22 @@ When you have multiple conditions to check you can use else if statement. Such a
 </p>
 
 <p>
-```
-const CheckAge=()=>{
+<pre><code>const CheckAge=()=&gt;{
   //define a const variable
   const age = 30;
-  if(age < 10){
-    return <h1>You are a kid.</h1>
+  if(age &lt; 10){
+    return &lt;h1&gt;You are a kid.&lt;/h1&gt;
   }
-  else if(age >= 10 && age < 20){
-    return <h1>You are a teenager.</h1>
+  else if(age &gt;= 10 &amp;&amp; age &lt; 20){
+    return &lt;h1&gt;You are a teenager.&lt;/h1&gt;
   }
-  else if (age >= 20 && age < 40){
-    return <h1>You are a mature.</h1>
+  else if (age &gt;= 20 &amp;&amp; age &lt; 40){
+    return &lt;h1&gt;You are a mature.&lt;/h1&gt;
   }
   else{
-    return <h1>You are going to be old.</h1>
+    return &lt;h1&gt;You are going to be old.&lt;/h1&gt;
   }
-}
-```
+}</code></pre>
 </p>
 
 <p>
@@ -272,8 +280,7 @@ Let's say, instead of having few conditions to check, we want to render our comp
 </p>
 
 <p>
-```
-switch(expression){
+<pre><code>switch(expression){
     case 1:
      //code to render 
      break;
@@ -284,8 +291,7 @@ switch(expression){
     ....
     default:
       //code to render
-}
-```
+}</code></pre>
 </p>
 
 <p>
@@ -301,50 +307,48 @@ Let's render the weekday based on the week number (starts from 0 to 6)
 </p>
 
 <p>
-```
-const App=()=>{
+<pre><code>const App=()=&gt;{
   
   return(
-    <div>
+    &lt;div&gt;
 
-      <WeekDay />
+      &lt;WeekDay /&gt;
       
-    </div>
+    &lt;/div&gt;
   )
 }
 
-const WeekDay=()=>{
+const WeekDay=()=&gt;{
   const day = 4;
   let result;
 
   switch(day){
     case 0:
-      result = "It is Sunday";
+      result = &quot;It is Sunday&quot;;
       break;
     case 1:
-      result = "It is Monday";
+      result = &quot;It is Monday&quot;;
       break;
     case 2:
-      result = "It is Tuesday";
+      result = &quot;It is Tuesday&quot;;
       break;
     case 3:
-      result = "It is Wednesday";
+      result = &quot;It is Wednesday&quot;;
       break;
     case 4:
-      result = "It is Thursday";
+      result = &quot;It is Thursday&quot;;
       break;
     case 5:
-      result = "It is Friday";
+      result = &quot;It is Friday&quot;;
       break;
     case 6:
-      result = "It is Saturday";
+      result = &quot;It is Saturday&quot;;
       break;
     default:
-      result = "It is definitely red Friday."
+      result = &quot;It is definitely red Friday.&quot;
   }
-  return <h1>{result}</h1> /* you can also use return statement each time instead of result.*/
-}
-```
+  return &lt;h1&gt;{result}&lt;/h1&gt; /* you can also use return statement each time instead of result.*/
+}</code></pre>
 </p>
 
 <p>
@@ -360,7 +364,7 @@ Using Ternary operator.
 </p>
 
 <p>
-We can simple replace our (if / else) block using the shorthand ternary operator.
+We can simply replace our (if / else) block using the shorthand ternary operator.
 </p>
 
 <p>
@@ -368,10 +372,8 @@ We can simple replace our (if / else) block using the shorthand ternary operator
 </p>
 
 <p>
-```
-condition ? <true expression>: <false expression> //in other words
-condition ? <code block to render when condition is true>: <code block to render when condition is true>
-```
+<pre><code>condition ? <true expression>: <false expression> //in other words
+condition ? <code block to render when condition is true>: <code block to render when condition is true></code></pre>
 </code>
 
 <p>
@@ -379,13 +381,11 @@ Check out the following example:
 </p>
 
 <p>
-```
-const CheckAge=()=>{
+<pre><code>const CheckAge=()=&gt;{
   const age = 22;
   
-  return<h1>{age < 18? "You are not eligible to vote": "You are eligible to vote"}</h1>
-}
-```
+  return&lt;h1&gt;{age &lt; 18? &quot;You are not eligible to vote&quot;: &quot;You are eligible to vote&quot;}&lt;/h1&gt;
+}</code></pre>
 </p>
 
 <p>
@@ -413,34 +413,32 @@ In react, we can combine logical && (and) and logical || (or) with if, else if c
 </p>
 
 <p>
-```
-const App=()=>{
+<pre><code>const App=()=&gt;{
   
-  const planets = ["Earth", "Jupiter", "Saturn", "Mars", "Venus", "Neptune", "Uranus", "Mercury"];
+  const planets = [&quot;Earth&quot;, &quot;Jupiter&quot;, &quot;Saturn&quot;, &quot;Mars&quot;, &quot;Venus&quot;, &quot;Neptune&quot;, &quot;Uranus&quot;, &quot;Mercury&quot;];
 
   return(
-    <div>
-      <h1>How many planets are there in our solar system?</h1>
+    &lt;div&gt;
+      &lt;h1&gt;How many planets are there in our solar system?&lt;/h1&gt;
       
       {
-        planets.length > 0 && 
-        <div>
-        <h2>There are {planets.length} planets in our solar system.</h2>
-        <ul>
+        planets.length &gt; 0 &amp;&amp; 
+        &lt;div&gt;
+        &lt;h2&gt;There are {planets.length} planets in our solar system.&lt;/h2&gt;
+        &lt;ul&gt;
         {
-          planets.map((data)=>(
-            <li>{data}</li>
+          planets.map((data)=&gt;(
+            &lt;li&gt;{data}&lt;/li&gt;
           ))
         }
-        </ul>
-        </div>
+        &lt;/ul&gt;
+        &lt;/div&gt;
       }
-    </div>
+    &lt;/div&gt;
   )
 }
 
-export default App;
-```
+export default App;</code></pre>
 </p>
 
 <p>

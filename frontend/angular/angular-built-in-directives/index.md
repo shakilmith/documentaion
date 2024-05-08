@@ -4,7 +4,7 @@ The common built in directives in angular are:
 
 1. Components: These are the building block directives of angular application.
 
-2. Attribute directives: This type of directives are responsible for changing the behavior or  appearance of an element, component or interact with another directives. 
+2. Attribute directives: This type of directives are responsible for changing the behavior or appearance of an element, component or interact with another directives. 
 
     - NgClass: 
 

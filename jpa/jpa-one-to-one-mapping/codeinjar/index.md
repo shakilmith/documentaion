@@ -234,20 +234,22 @@ Now, bank also contains the person entity. But there will be no change in the da
 
 ## Annotations overview used in this tutorial:
 
-@Entity: Make a simple pojo class to persistence class.
+@Entity: Make a simple pojo class to a persistence class. In jpa when a java class is annotated by @Entity annotation then it represents a table in relational database.
 
-@Table: Externally we can use it to name the table different from the entity name. If you don't use it then the entity name (means the class name) will be the table name in your relational database.
+@Table: Externally we can use it to name the table different from the entity name. If you don't use it then the entity name (means the class name) will be the table name in your relational database. Additionally, it allows customization of table name, schema and indexes.
 
-@Id: It is required term, is used to create the primary key of the database table.
+@Id: It is a required annotation for every entity class. It marks an attribute as the primary key of the entity (in other words database table).
 
-@GeneratedValue: It contains few strategies to generate the id or primary key of your database table. Like, we use GenerationType.Auto to generate the id automatically from 1 to n.
+@GeneratedValue: It contains few strategies to generate the id or primary key of your database table. Like, we use GenerationType.Auto to generate the id automatically from 1 to n. Other common strategies are: Identity, Sequence and Table.
 
-@Column: 
+@Column: Maps a field to a database column name. If you don't use it then, the attribute name of the entity will be column name of your database table. Additionally, it provides options to customize the column name, length, nullable, unique etc.
 
-@OneToOne (one-to-one):
+@OneToOne: Create a simple association between entities. Where an instance of one entity is associated or connected with a single instance of another entity (either unidirectional or bidirectional way).
 
-@JoinColumn:
+@JoinColumn: Denotes the mapping for the foreign key column in a relationship. It is used to name the foreign key column name and it's properties. Note that, it is always used inside the root entity or owning side of the relationship as always foreign key column resides in the parent table.
 
-mappedBy attribute: 
+mappedBy attribute: It also specifies the validity of the root or parent entity of the relationship. It is used as a parameter of the non-owning side of the relationship. Note that, the value of the mappedBy attribute must be same as the associative attribute name.
+
+
 
 

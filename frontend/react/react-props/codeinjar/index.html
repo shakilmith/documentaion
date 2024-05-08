@@ -4,13 +4,13 @@
 <!--meta tags for SEO-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Html Tutorial">
-<meta name="keywords" content="Html, Css, Angular">
+<meta name="description" content="React Tutorial; Learn React Props">
+<meta name="keywords" content="React, Frontend, JavaScript, React Props">
 <meta name="author" content="shakilmith">
 <meta http-equiv="refresh" content="30">
 
 <!--meta tags for open graph protocol (og:title, og:image)-->
-<meta property="og:title" content="Html Tutorial" />
+<meta property="og:title" content="React props tutorial" />
 
 
 <!--Include.js file-->
@@ -24,7 +24,7 @@
   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
   
 
-  <title>Demo Post for codeinjar</title>
+  <title>Learn About React Props</title>
 
   <style>
       *{
@@ -97,26 +97,30 @@
   * Mobile or tablet version, it will be full width
   */
   
-    /* for mobile */
-  .post-image-style{
-    width: 100%;
-    display: block;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    margin-top: 24px;
-    margin-bottom: 24px;
-  }
-  
-  /* for desktop */
-  @media screen and (min-width: 580px){
-    .post-image-style{
-        width: 50%;
+      /* for mobile */
+      .post-image-style{
+        max-width: 100%; 
+        height: auto;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-  }
-  
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-top: 24px;
+        margin-bottom: 24px;
+      }
+      
+      /* for desktop */
+      @media screen and (min-width: 580px){
+        .post-image-style{
+            max-width: 50%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+        }
+      }
   </style>
   
 </head>
@@ -343,7 +347,7 @@ What of the we have many persons than one?
 </p>
 
 <p>
-<img src="https://docs.javaondemand.com/frontend/react/react-props/image5.png" alt="React props" class="post-image-style" />
+<img src="https://docs.javaondemand.com/frontend/react/react-props/image5.png" alt="React props" class="post-image-style" style="height: 450px;" />
 </p>
 
 <p>
