@@ -1,17 +1,17 @@
 # Map a List of Values to an Entity
 
 
-Sometitmes it is required  to map a list of values to an entity but those values aren't entity themselves.
+Sometimes it is required  to map a list of values to an entity but those values aren't entity themselves.
 
 Note:  Remember we use one-to-many/many-to-many mapping hierarchy while making collection valued association between entities.
 
-Like a person has many dogs, email addresses, social media accounts, an Employee has list of roles, an Author published list of books and an Owner has list of cars etc. Here, We are going to demonstrate this scenario for the person entity. 
+Like a person or a user may have many dogs, email addresses, social media accounts, an Employee may have list of roles or more than one projects to handle, an Author published list of books and an Owner has list of cars etc. Here, We are going to demonstrate this scenario for the person entity who owns list of cars.
 
 # Create a Person Entity
 
-Guess we have an entity class called Person.java and it is required to map a list of values in it. Guess every person has more than one cars. In this case, we will use we @ElementCollection annotation in order to map a list of values to the person entity. 
+Guess we have an entity class called Person.java and it is required to map a list of values in it. Guess every person has more than one cars. In this case, we will use we **@ElementCollection** annotation in order to map a list of values to the person entity. 
 
-Person.java
+**Person.java**
 
 ```
 package com.company.model;
@@ -33,42 +33,14 @@ public class Person {
     public Person() {
     }
 
-    public Person(String name, List<String> cars) {
-        this.name = name;
-        this.cars = cars;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<String> getCars() {
-        return cars;
-    }
-
-    public void setCars(List<String> cars) {
-        this.cars = cars;
-    }
-}
+    // constructors, getter and setter methods
 ```
 
 
-Now create a persistence class and let's name it PersonPersistent.java inside dao package. If you don't have dao package or folder just create a dao package in com.company package.
+Now create a persistence class and let's name it **PersonPersistent.java** inside dao package. If you don't have dao package or folder just create a dao package in **com.company** package, though it is not required for this simple application.
 
 
-PersonPersistent.java
+**PersonPersistent.java**
 
 ```
 package com.company.dao;
@@ -108,21 +80,24 @@ public class PersonPersistent {
 
 Note: Please don't forget to close the transaction.
 
-Now run the PersonPersistent.java class and it will create two tables in your mysql database with the relevant data. One is person table and another is person_cars (entity_property) table. The person_cars table contains person_id (reference column) and cars column. 
+Now run the **PersonPersistent.java** class and it will create two tables in your mysql database with the relevant data. One is **person** table and another is **person_cars** (entity_property) table. The person_cars table contains person_id (reference column) and cars column. 
 
-Note: We can alter the cars table name something different by using the @CollectionTable annotation. Like if you write -
+Note: We can alter the **cars** table name something different by using the @CollectionTable annotation. Like if you write -
 
 ```
 @ElementCollection()
-@CollectionTable(name = "person_has_cars)
+@CollectionTable(name = "person_has_cars)  //now the cars table name will be person_has_cars instead of person_cars
 public List<String> cars;
 ```
-then the reference table name will be person_has_cars than person_cars. But it is always good practice to give your property a good name, I mean using @CollectionTable annotation.
+
+Now,  the reference table name will be person_has_cars than person_cars. But it is always good practice to give your property a good name, I mean using @CollectionTable annotation.
 
 
-If your application runs successfully, open your mysql commandLine client and run the following command to extract the person and person_cars records.
+If your application runs successfully, open your mySQL CommandLine client and run the following command to extract the person and person_cars records.
 
 ```
+$ SELECT * FROM person; 
+$ SELECT * FROM person_cars;
 ```
 
 ![alt text](image1.png)
@@ -143,7 +118,7 @@ package com.javaondemand.model;
 
 import jakarta.persistence.Embeddable;
 
-@Embeddable //as this class is not entity
+@Embeddable //as this class is not entity thus it will be used as embedded object in the person entity class.
 public class CarBrands {
     @Column(name = "brand_name")
     private String name;
@@ -167,20 +142,20 @@ public class CarBrands {
 ```
 
 
-Now just update your Person.java entity class.
+Now just update your **Person.java** entity class.
 
 ```
-@ElementCollection(targetClass = CarBrands.class)
-//we use targetClass parameter for referring the CarBrand class
-@Embedded
+@ElementCollection(targetClass = CarBrands.class) //it is required to use targetClass attribute
+//we use targetClass attribute for referring the CarBrand class
+@Embedded //as it is an embedded object
 private List<CarBrands> brands;
 
-//getter and setter methods
+// constructors, getter and setter methods
 ```
 
 
 
-Also update the PersonPersistent.java class.
+Also update the **PersonPersistent.java** class to map the carBrands object.
 
 ```
 List<CarBrand> brandsList1 = List.of(new CarBrands("Ford"), new CarBrands("Fiat"), new CarBrands("Ferrari"));
@@ -195,10 +170,10 @@ Person p2 = new Person("Mark Smith", brandList2);
 Person p3 = new Person("Mark Smith", brandList3);
 ```
 
-You see now, a new table has been generated in your mysql workbench. And it is person_brands. You can also use @CollectionTable annotation to provide external name of this table. Hence the output should be your mysql database
+You see now, a new table has been generated in your mySQL workbench. And it is person_brands. You can also use @CollectionTable annotation to provide external name of this table. Hence the output should be your mysQL database
 
 ```
-mysql> select * from person_brands;
+mysql> SELECT * FROM person_brands;
 +-----------+--------------+
 | Person_id | brand_name   |
 +-----------+--------------+
@@ -217,7 +192,7 @@ mysql> select * from person_brands;
 //But if you use @CollectionTable(name="car_brands")
 //then you have to use following command but will get the same result
 
-mysql> select * from car_brands;
+mysql> SELECT * FROM car_brands;
 +-----------+--------------+
 | Person_id | brand_name   |
 +-----------+--------------+
@@ -239,14 +214,14 @@ mysql>
 
 ## Map Enum Type Using @ElementCollection annotation
 
-When we need to represent fixed set of constants or known number of values that are not going to be changed, we use enum in java. Here in jpa we use @Enumerated annotation to store enum types in database. But now, I am going to show you how to use @Enumerated with @ElementCollection.
+When we need to represent fixed set of constants or known number of values that are not going to be changed usually, we use enum in java. Here in jpa we use @Enumerated annotation to store enum types in database. But now, I am going to show you how to use @Enumerated with @ElementCollection.
 
-Note: There are two types of database representation for enum types. For string representation we use @EnumType.String and for numerical representation we use @EnumType.Ordinal.
+**Note:** There are two types of database representation for enum types. For string representation we use **@EnumType.String** and for numerical representation we use **@EnumType.Ordinal**.
 
 
 However, let's say we have an entity called Movie and enumType called genre. Now we are going to map collection of genres to each movie object.
 
-Move.java
+**Move.java**
 
 ```
 package com.company.model;
@@ -266,38 +241,12 @@ public class Movie {
     @Enumerated(EnumType.STRING)
     private List<Genre> genres;
 
-    public Movie() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Genre> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(List<Genre> genres) {
-        this.genres = genres;
-    }
-}
+    //constructors, getter and setter methods
 ```
 
-Here you can see, we use @ElementCollection in oder to map list of enums and @EnumType.String for string representation in the database.
+Here you can see, we use **@ElementCollection** in oder to map list of enums as well as used **@EnumType.String** for string representation in the database.
 
-Genre.java (EnumType)
+**Genre.java** (EnumType)
 
 ```
 package com.company.model;
@@ -314,9 +263,10 @@ public enum Genre {
 
 Now in the persistence class, let's see how to map list of genres to the movie object.
 
-MoviePersistent.java
+**MoviePersistent.java**
 
 ```
+//created few movies
 Movie m1 = new Movie("World War Z", List.of(Genre.ACTION, Genre.DRAMA, Genre.HORROR));
 Movie m2 = new Movie("28 Week Later", List.of(Genre.ACTION, Genre.HORROR, Genre.THRILLER));
 Movie m3 = new Movie("Renfield", List.of(Genre.HORROR, Genre.COMEDY));
@@ -331,14 +281,14 @@ em.persist(m4);
 em.persist(m5);
 ```
 
-If you now run the MoviePersistent.java class the following database table has been generated in you mysql database.
+If you now run the **MoviePersistent.java** class the following database table has been generated in you mySQL database.
 
 ```
-   create table movies (
-       id integer not null,
-        name varchar(255),
-        primary key (id)
-    ) engine=InnoDB
+create table movies (
+    id integer not null,
+    name varchar(255),
+    primary key (id)
+) engine=InnoDB
 Hibernate:
 
 create table Movie_genres (
@@ -347,12 +297,13 @@ create table Movie_genres (
 ) engine=InnoDB
 ```
 
-It means, there are two tables have been added in our mysql database. One is movies, and another one is movies_genres. One thing to note that we can simply alter the movie_genres table name by using the @CollectionTable annotation.
+It means, there are two tables have been added in our mySQL database. One is movies, and another one is **movies_genres**. One thing to note that we can simply alter the **movie_genres** table name by using the @CollectionTable annotation.
 
 
-Note: As Movie is the new entity you have created, you have to first register it in the persistence.xml file
+**Note:** As Movie is the new entity you have created, you have to first register it in the **persistence.xml** file. (What you did for the person entity class so far.)
 
-persistence.xml file will look like below.
+**persistence.xml** file will look like below.
+
 ```
 <persistence-unit name ="default">
 
@@ -370,7 +321,7 @@ persistence.xml file will look like below.
 </persistence-unit>
 ```
 
-Okay, if you now open your mysql commandLine tool and run the following commands, the movies table and the movies_genres table will be shown
+Okay, if you now open your mySQL CommandLine tool and run the following commands, the movies table and the movies_genres table will be shown
 
 ```
 mysql> use testdb;
@@ -410,6 +361,5 @@ mysql> SELECT * FROM movie_genres;
 
 ![alt text](image2.png)
 
-Here inside the movie_genres table the movie id is the primary key of the movies table and it mentions which genre is related to which movies.
+Here inside the movie_genres table the movie id is the primary key of the movies table and it mentions which genre is related to which movie.
 
-Tutorial: How to store enum types in your relational database with jpa

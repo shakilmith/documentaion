@@ -4,10 +4,11 @@ In this post we are going to explore how to create a simple jpa application usin
 
 ## Requirements:
 
-Basic requirements:
-1. Java development kit - jdk-8+ (Would be better if you use java 17)
-2. Maven/Gradle as a build tool. Make sure you have the latest maven version install or at least version 3.6.3+
-3. An IDE like intellij Ide.
+Basic requirements:<br/>
+1. Java development kit - jdk-8+ (Would be better if you use java 17)<br/>
+2. Maven/Gradle as a build tool. Make sure you have the latest maven version install or at least version 3.6.3+ <br/>
+3. An IDE like intellij Ide. <br/>
+
 
 ## Build A Maven Hello World Project
 
@@ -15,7 +16,6 @@ First of all, using the following command to build a maven hello world project
 
 ```
 $ mvn archetype:generate -DgroupId=com.company -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
-
 ```
 
 Tutorial: [Create Your First Maven Application](https://javaforbackend.com/first-maven-application)
@@ -52,7 +52,7 @@ my-app
                         `-- AppTest.java
 ```
 
-After opening your simple maven project, you will get the the above project structure. If you open App.java you will a simple Hello, World string message that will print if you the App.java file.
+After opening your simple maven project, you will get the the above project structure. If you open App.java you will see a simple Hello, World string message that will print if you run App.java file.
 
 ```
 package com.company;
@@ -93,13 +93,13 @@ pom.xml file
 </dependency>
 ```
 
-Now reload your pom.xml file to resolve the newly added dependencies. In your pom.xml file: Right Click > Maven > Reload project 
+Now reload your pom.xml file to resolve the newly added dependencies. In your pom.xml file: Right Click > Maven > Reload project.
 
 ## Configure persistence.xml file
 
 Now create resources folder in src/main folder of you project. In the resources folder create META-INF/persistence.xml file. In your persistence.xml file write the following 
 
-persistence.xml 
+**persistence.xml**
 
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -123,19 +123,20 @@ persistence.xml
 </persistence>
 ```
 
-Here, persistence-unit is the root component and the persistence-unit name must be same as EntityManagerFactory name what you have used in your persistence class Then, inside **properties** component we provide our database information. JDBC driver name, database url, user-name and password. Also we use hibernate specific mappings like hibernate.hbm2ddl.auto.
+Here, persistence-unit is the root component and the persistence-unit name must be same as EntityManagerFactory name what you have used in your persistence class. Then, inside **properties** component we provide our database information. JDBC driver name, database url, user-name and password. Also we use hibernate specific mappings like hibernate.hbm2ddl.auto.
 
-Note: hibernate.hbm2ddl.auto contains 4 possible values. 
+**Note:** hibernate.hbm2ddl.auto contains 4 possible values. 
    - create: create the schema (means create tables with data) and erase the previous data if it finds any.
    - create-drop: create the schema and drop when the application is stopped.
    - update: update the schema or table, but if you have association/linking with other tables (by using OneToOne or OneToMany etc.) like 2 table shares data with each other, you probably get error as your application then says, duplicate entry key '1/2/3..' for key 'related table details'...
    - validate: validate the schema, no changes will be generated in database.
 
+
 ## Create an Entity Model
 
-Now we will create a simple entity model (data table in other words) including getter/setter methods. Let's name our Entity Model Person.java and must we have to annotate it by using the @Entity annotation.
+Now we will create a simple entity model (database table in other words) including getter/setter methods. Let's name our Entity Model Person.java and must we have to annotate it by using the @Entity annotation.
 
-Person.java 
+**Person.java**
 
 ```
 package com.company.model;
@@ -148,7 +149,8 @@ public class Person {
     @Id
     private int id;
     private String name;
-    private int age;
+    private String address;
+    private LocalDate;
 
     public Person() {
     }
@@ -176,10 +178,29 @@ public class Person {
 }
 ```
 
-Here inside the model package we have create a Person.java entity class. An entity class is just like a database table and all the properties in it would be the column names in this table. One thing to note that, every entity must need a primary key and it must be annotated by @Id annotation. Optionally we can use @Table (to externally name our database table) @Column (to externally name the database columns) annotations.
+Here inside the model package we have create a **Person.java** entity class. An entity class is just like a database table and all the properties in it would be the column names in this table. One thing to note that, every entity must need a primary key and it must be annotated by @Id annotation. Optionally we can use @Table (to externally name our database table) @Column (to externally name the database columns) annotations.
 
 
-Note: We will use persistent/persistence object for mentioning entities all of my tutorials.
+Note: The @Column annotation has few attributes to use. Such as,
+
+name: Defines the name of the column. If not specified then the property name will be the column name. <br/>
+
+length: Mentions the length of the column. Such as, "varchar" is used to specify the length of the string based column and it's default value is 255. <br/>
+
+nullable: Whether the columns value can be null (empty) or not. The default option is true (means null value supported) <br/>
+
+unique: indicates whether the column values must be unique or not. By default it's value is false. <br/>
+
+columnDefinition: Allows to specify the sql fragment that defines the column such as, data type and constraints. <br/>
+
+precision and scale: used for numeric columns. Precision defines total number used before decimal point and scale defines the number used after decimal point (12.005)
+
+
+For the time being, all of my tutorials, I basically use name, nullable, unique and length attributes. But you can use these attributes based on your requirement. <br/>
+
+
+**Note:** We will use persistent/persistence object for mentioning entities all of my tutorials.
+
 
 ## Create A Persistence Class
 
@@ -216,5 +237,58 @@ public class DemoPersistent {
 }
 ```
 
-Here 
+Here I persist or save three person objects into the mysql database. If you run the PersonPersistent.java class, three person details will be saved in your mysql database.
 
+Open your mysql commandLine tools and run the following command to extract the person table data.
+
+```
+$ SELECT * FROM PERSON;
+```
+
+![jpa](image1.png)
+
+## Add New Attributes in Your Person Entity
+
+Let's say we want to add attributes (database column) in our Person entity. They are address and birth_date
+
+Person.java (updated person entity)
+
+```
+package com.company.model;
+
+import jakarta.persistence.*;
+
+@Entity(name = "Person")
+@Table(name = "person")
+public class Person {
+    @Id
+    private int id;
+    private String name;
+    private String address;
+    private LocalDate;
+
+    public Person() {
+    }
+}
+
+    //getter/setter methods
+
+```
+
+PersonPersistence.java (call the setter method to save the address and birthDate)
+
+```
+p1.setAddress("52 Green Lane, London");
+p1.saveBirthDate('1095-9-12')
+
+p2.setAddress("39 Chested Road, London");
+p2.saveBirthDate('1088-1-26')
+
+p3.setAddress("88 sT. John'S Road, London)
+p3.saveBirthDate('2000-12-9')
+```
+
+Just, again the persistence class, and your database table will be updated as well.
+
+
+![jpa](image2.png)

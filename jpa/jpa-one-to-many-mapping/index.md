@@ -1,14 +1,16 @@
 
 # JPA - one-to-many mapping
 
-JPA one-to-many mapping is a collection valued association. Where one entity is associated collection of other entites (one column of a table will be connected collection of columns of another table.)
+JPA one-to-many mapping is a collection valued association. Where one entity is associated collection of other entities (one column of a table will be connected collection of columns of another table.)
 
-Let's say, we have a Student and a Library (Where many books can be found) entity class. So, create one-to-many mapping between tham so that one student can be issued collection of books (Unidirectional way). 
+Let's say, we have a Student and a Library (Where many books can be found) entity class. So, create one-to-many mapping between them so that one student can be issued collection of books (Unidirectional way). 
+
 Note: same books can not be issued by many students. (I don't know why while writing this article.)
 
 Follow the below steps to create one-to-many mapping between Student and Library entity class. 
-1. Create Student entity or model class in com.company.model package. Provide necessary properties (like id, name, age etc.) and annotatev this class by @Entity annotaion as it is a persistence class.
-Remember, the id property should be annotaded by @Id annotaion as it is the primary key of the database table.
+
+1. Create Student entity or model class in com.company.model package. Provide necessary properties (like id, name, age etc.) and annotate this class by @Entity annotation as it is a persistence class.
+Remember, the id property should be annotated by @Id annotation as it is the primary key of the database table.
 
 
 <Code code={`
@@ -70,10 +72,10 @@ public class Student {
 }
 `}/>
 
-Here you can see, we add additional reference Library property List< Library > books; We annotate it by @OneToMany annotaion. It means, one student can be issued list of books. 
-Also, you can use the @JoinColumn(name="FK_name_id) annotaion externally provide the foreign key column name in the Student table.
+Here you can see, we add additional reference Library property List< Library > books; We annotate it by @OneToMany annotation. It means, one student can be issued list of books. 
+Also, you can use the @JoinColumn(name="FK_name_id) annotation externally provide the foreign key column name in the Student table.
 
-2. Create Library entity class in the same directory (com.company.model) where Student class is located. Annotate this class by @Entity annotaion and it contains id, name property as well as getter & setter methods.
+2. Create Library entity class in the same directory (com.company.model) where Student class is located. Annotate this class by @Entity annotation and it contains id, name property as well as getter & setter methods.
 
 <Code code={`
 package com.company.model;
@@ -117,7 +119,7 @@ public class Library {
 `}/>
 
 
-Note: As, Student entity class is the relationship owner that's why we use the oneToMany annotation in the Student entity class with the Library type. But, if you want to make this relatiionship Bidirectional way (both can change or see each properties) then, you must provide the Student type of reference in the Library class too. (we talk about it soon.)
+Note: As, Student entity class is the relationship owner that's why we use the oneToMany annotation in the Student entity class with the Library type. But, if you want to make this relationship Bidirectional way (both can change or see each properties) then, you must provide the Student type of reference in the Library class too. (we talk about it soon.)
 
 3. Map the database information in the persistence.xml file and also add the Student and Library entity class.
 
@@ -193,13 +195,13 @@ public class DemoPersistent {
 `}/>
 
 
-You see, there are three Library objects b1, b2, b3 and add them to book_list. The, we create a student object with necessary data. Then, we persist (save) the Student object to database by EntityManager persist method.
+You see, there are three Library objects b1, b2, b3 and add them to book_list. Then, we create a student object with necessary data. Then, we persist (save) the Student object to database by EntityManager persist method.
 
-5. Run the DemoPersistent class. If everything is going well you see in the mysql workbench or mysql command line tool the folloing schema:
-Note: 3 tables will be created by running DemoPersisten class.
+5. Run the DemoPersistent class. If everything is going well you see in the mysql workbench or mysql command line tool the following schema:
+Note: 3 tables will be created by running DemoPersistent class.
 
-student table - it cointains s_id, s_name column
-library tablle - it contains b_id, b_name column and 
+student table - it contains s_id, s_name column
+library table - it contains b_id, b_name column and 
 student_library table - it contains the s_id and b_id column.
 
 <Code code={`
@@ -244,9 +246,8 @@ Talk soon.
 
 
 
-Note:
-When you use one-to-one/many-to-one Bidirectional way then, many-to-one side will always be the relationship owner side and it has @JoinColumn annotation specified. And the one-to-many annotation must have mappedBy="" parameter specified.
-Also note, when you make the relationship (one-to-many/many-to-one) bidirectioal way then, in the database schema there will 2 tables be created instead of 3 tables.
+Note: When you use one-to-one/many-to-one Bidirectional way then, many-to-one side will always be the relationship owner side and it has @JoinColumn annotation specified. And the one-to-many annotation must have mappedBy="" parameter specified.
+Also note, when you make the relationship (one-to-many/many-to-one) bidirectional way then, in the database schema there will be 2 tables created instead of 3 tables.
 
 ```sql
 
@@ -255,7 +256,7 @@ mysql> select * from student;
 | s_id | s_name         |
 +------+----------------+
 |  101 | Shakil Ahmed   |
-|  102 | Zakir  Hossain |      |
+|  102 | Zakir  Hossain |     
 +------+----------------+
 2 rows in set (0.00 sec)
 
