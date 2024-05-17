@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--meta tags for SEO-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JPQL Static Query; How to retrieve, update or delete data using jpql static query">
+<meta name="keywords" content="JPQL, Java, Backend, MySQL">
+<meta name="author" content="shakilmith">
+
+<!--meta tags for open graph protocol (og:title, og:image)-->
+<meta property="og:title" content="JPQL Static Query Example Application." />
+
+
+
+<!--Include.js file-->
+<script src="https://file-hosting.dashnexpages.net/marketingstrategy/assets/js/include.js"></script>
+  
+
+
+<!--HighlightJS--> 
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+  
+<!-- and it's easy to individually load additional languages -->
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+  
+
+  <title>JPQL Static Query | codeinjar.com</title>
+
+  <style>
+      *{
+        box-sizing: border-box;
+      }
+      html, body{
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      .post-container{
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      
+      pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 8px;
+        overflow: auto;
+        border-left: 5px solid red;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-top: 32px;
+        margin-bottom: 23px;
+    }
+    .left-border{
+        border-left: 3px solid red;
+      }  
+    
+      .highlight-text{
+        background-color: papayawhip;
+        color: black;
+        display: inline;
+        }
+        
+      .highlight-section{
+        box-sizing: border-box;
+        background-color: papayawhip;
+        border-left: 5px solid red;
+        color: black;
+        padding: 3px 8px 3px 8px;
+      }
+  
+    .large-bold-text{
+      font-size: 36px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .medium-bold-text{
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .small-bold-text{
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  
+    /** Image style in tutorial pages
+  * In desktop version, image will be centered
+  * Mobile or tablet version, it will be full width
+  */
+  
+    /* for mobile */
+    .post-image-style{
+      width: 100%; 
+      height: auto;
+      display: block;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);;
+    }
+    
+    /* for desktop */
+    @media screen and (min-width: 580px){
+      .post-image-style{
+          max-width: 50%;
+          height: auto;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 50px;
+          margin-bottom: 50px;
+          border-radius: 10px;
+      }
+    }
+
+  </style>
+  
+</head>
+<body>
+
+<!-- Top nav -->
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/header.html"></div>
+  
+
+
+
+
+
+  
+<!--Post starts-->  
+<div class="post-container">
+
+<h1>JPQL Static Query Tutorial</h1>
+
+
+<p>
+In this example application, we are going to explore JPQL static query and how we can retrieve, update or delete data from our relational database using JPQL static query method.
+</p>
+
+<p>
+Before going to dive into the real example, we have to know little bit about jpql. JPQL means java persistence query language. JPQL provides two methods to retrieve, update, delete or filter data from our application instead of database tables.
+</p>
+
+
+
+<div>
+JPQL provides 2 methods that can be used to access database records.
+<ul style="list-style-type: none;">
+<li>
+   1. <b>createQuery()</b> <br/>
+     It is called dynamic query, used on the business logic.
+
+     How to define createQuery method in the business logic?
+     Query query = entityManager.createQuery("Select p.first_name from Person p);
+
+
+</li> <br/>
+<li>
+  2. <b>@NamedQuery()</b> <br/>
+     It is called static query and it is defined inside the entity itself. 
+
+     How to define <b>@NamedQuery()</b> method inside the entity?
+     @NamedQuery(name="find name", query="Select p.first_name from Person p")
+     Then inside the business logic we have to mention the name to retrieve the records of exact table from database.
+     Query query = em.createQuery("find name")
+</li>
+</ul>
+</div>
+
+<p>
+<b>Note:</b> Here, entityManager is the instance of entity-manager interface.
+</p>
+
+
+
+<div>
+    The key features of JPQL: 
+    <ul style="list-style-type: none">
+    <li>
+      - JPQL is portable and platform independent and can be used in different datastores.
+    </li>
+    <li>
+      - It can operates bulk update, delete operations without touching datastore.
+    </li>
+    <li>
+      - JPQL can also perform join and aggregate operations like sql.
+    </li>
+    <li>
+      - JPQL queries can be declared statically in metadata (inside the entity itself) or can be declared dynamically in code or business logic. (Below we will describe about it)
+    </li>
+    <li>
+      - JPQL is used to define searches against persistent entities and store those entities in database independently.
+    </li>
+    </ul>
+    </div>
+
+
+
+<div>
+The following are the possible JPQL statements that can be used on the queries:
+<ul style="list-style-type: none;">
+<li>
+  - <b>SELECT:</b> (Select p from Person p)
+</li>
+<li>
+  - <b>SELECT:</b> (Select p from Peron p where p.id < 109) //using optional where clause
+</li>
+<li>
+  - <b>Update:</b> (Update Person p SET p.salary = 2500 where p.id > 135) 
+</li>
+<li>
+  - <b>DELETE:</b> (Delete p from Person p where p.id = 109) or (Delete from Person where p.id = 109)
+</li>
+</ul>
+
+<b>Note:</b> Here, Person is the entity name, p is the instance of the Peron class.
+</div>
+
+
+
+<div>
+In JPQL Select, Update, Delete statements may contains the following clauses (parameters):
+
+<ul style="list-style-type: none;">
+<li>
+  - Select clause (It determines the type of the objects or values to be selected)
+</li>
+<li>
+  - From clause (It mentions the entity name or designate the domain type which expressions specified)
+</li>
+<li>
+  - Entity reference ()
+</li>
+<li>
+  - An optional Where clause (like SQL where statement, and it applies conditions which can be used to restrict the results that are returned by the query)
+</li>
+<li>
+  - An optional Order By clause (Order by not OrderBy)
+</li>
+<li>
+  - An optional Group By clause
+</li>
+<li>
+  - An optional Having clause
+</li>
+<li>
+  - Identifiers like Distinct, Like, Join, As, True or False.
+</li>
+</ul>
+</div>
+
+
+<p>
+But in this post, we will see how to retrieve data from our relational database table using JPQL static query means using <b>createNamedQuery()</b> method.
+</p>
+
+
+<p class="medium-bold-text">
+Simple Example Application
+</p>
+
+<p>
+Now we are going to retrieve data using JPQL static query, means **createNamedQuery()** method from our relational database instead of using dynamic query.
+</p>
+
+
+<p>
+<b>Using @NamedQuery</b>
+</p>
+
+<p>
+Just open your entity class (in our case the <b>Person.java</b> class) and write the following <b>@NamedQuery</b> annotation right above the entity name or just write it after the <b>@Entity</b> annotation (I mean at the package definition)
+</p>
+
+<p>
+<b>Person.java</b>
+</p>
+
+<p>
+<pre><code>/**
+* @NamedQuery(name = &quot;find name&quot;, query = &quot;Select p from Person p&quot;)
+* then, the name attribute value will be used in the createNamedQuery() method
+*/
+
+
+package com.company.model;
+
+import jakarta.persistence.*;
+
+@Entity(name = &quot;Person&quot;)
+@Table(name = &quot;person&quot;)
+@NamedQuery(name = &quot;find firstName&quot;, query = &quot;Select p.first_name from Person p&quot;)
+public class Person {
+    @Id
+    private int id;
+
+    @Column(name = &quot;first_name&quot;)
+    private String firstName;
+
+    @Column(name = &quot;last_name&quot;)
+    private String lastName;
+
+    @Column(name = &quot;age&quot;)
+    private int age;
+
+    @Column(name = &quot;gender&quot;)
+    private String gender;
+
+    @Column(name = &quot;role&quot;)
+    private String role;
+
+    @Column(name = &quot;city&quot;)
+    private String city;
+
+    @Column(name = &quot;country&quot;)
+    private String country;
+
+    //constructors, getter and setter methods
+}</code></pre>
+</p>
+
+
+<p>
+<b>Note:</b> Here, the name property value will be used inside our **FindPerson.java** class to extract or retrieve data from the person table.
+</p>
+
+<p>
+In this step, now open <b>FindPerson.java</b> class and write the namedQuery() query definition to work with tables data.
+</p>
+
+<p>
+<b>FindPerson.java</b>
+</p>
+
+<p>
+<pre><code>package com.company.dao;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
+
+import java.util.List;
+
+public class FindPerson {
+    public static void main(String[] args) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(&quot;default&quot;);
+        EntityManager entityManager =entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin(); //it will start the transaction
+
+        //create jpa dynamic query using entity-manager createQuery() method
+        //the JPQL commands must be specific to the entity (like property name)
+        Query query = entityManager.createNamedQuery(&quot;find firstName); // find firstName is the @NamedQuery() attribute value, and it must be matched.
+
+
+        @SuppressWarnings(&quot;unchecked&quot;)
+        List&lt;String&gt; personList = query.getResultList(); //invoke the getResultList() method to retrieve list of values
+
+        //iterate and then print the firstName values
+        System.out.println(&quot;First Name of all Persons&quot;);
+        for(String p: personList){
+            System.out.println(p);
+        }
+
+
+        entityManager.getTransaction().commit(); //it will commit the transaction
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+}</code></pre>
+</p>
+
+
+<p>
+You can see, we use the "find firstName" @NamedQuery attribute value here as a reference. 
+</p>
+
+
+<p>
+Now if you run the <b>FindPerson.java</b> class you will get the same output like the previous one.
+</p>
+
+
+<p>
+<pre><code>First Name of all Persons
+Barney
+Henry
+Trevor
+Alex
+Finn
+Sophia
+Chad
+Aaron
+Adam
+Alena</code></pre>
+</p>
+
+
+<p>
+<b>Note:</b> If you do any mistake or the createNamedQuery("") value if not match with value of the name parameter of @CreateNamedQuery annotation then you will get error in the console.
+Such as, 
+</p>
+
+
+<p>
+<pre><code>No query is registered under the name</code></pre>
+</p>
+
+<p>
+Here you can see, how we have retrieve data using JPQL Static Query method and we used how we can use SQL like commands inside our application other than the database table.
+</p>
+
+
+
+
+
+
+
+<!--Post ends-->
+</div>
+
+
+
+<!--Footer container-->
+
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/footer.html">
+
+</div>
+
+<script>
+includeHTML();
+</script>
+<!-- js script for opening and closing the nav-->
+
+<script>
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!--invoke highlightJs-->
+<script>hljs.highlightAll();</script> 
+
+
+</body>
+</html>

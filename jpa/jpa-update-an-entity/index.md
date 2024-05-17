@@ -1,28 +1,32 @@
 
-# JPA - updating an entity.
+# JPA - Update an Entity Records
 
-Let's say we want to updata the person table data in mysql workbench.
-
-<Code code={`
-+------+------+------------+-----------+
-| p_id | age  | first_name | last_name |
-+------+------+------------+-----------+
-|  101 |   24 | Shakil     | Ahmed     |
-|  102 |   50 | Zakir      | Hossain   |
-|  103 |   35 | Abdul      | Wahed     |
-|  104 |   45 | Ismail     | Haq       |
-|  105 |   40 | Vlad       | Smith     |
-+------+------+------------+-----------+
-`}/>
+Let's say we want to update the person table data in mysql workbench.
 
 
-For updating or changing data (person tables raw), we have to create an entity class called Person.java that must contains id, first_name, last_name and age as properties. Note, column name must be the same of the database table but property name can be different. Also note, when we call data we basically use property name than column name.
-(if you have already Person.java entity class, you can skip the creation of Person.java class)
+```
++-----+------+------------+-----------+------------------+
+| id  | age  | first_name | last_name | role             |
++-----+------+------------+-----------+------------------+
+| 101 |   25 | Shakil     | Ahmed     | Java Developer   |
+| 102 |   40 | Jekov      | Jenkov    | Python Developer |
+| 103 |   30 | Mark       | Smith     | Rust Developer   |
++-----+------+------------+-----------+------------------+
+```
 
-1. Create an entity class called Person.java in com.company package and we annotate it by @Entity annotaion as usual.
+
+For updating or changing data (The records of Person table), we have to create an entity class called **Person.java** that must contains id (primary key), firstName, lastName and age as properties including constructors, getter and setter methods. 
+
+**Note**: Column name must be the same of the database table but property name can be different. Also note, when we call data we basically use property name than column name.
+
+(if you have already created **Person.java** entity class, you can skip the creation of **Person.java** class)
+
+
+1. Create an entity class called **Person.java** in **com.company.model** package and annotate it by **@Entity** annotation as usual.
+
 It contains id, first_name, last_name and age properties. The property name eventually will be tha column name of your person table.
 
-<Code code={`
+```
 package com.company;
 
 import jakarta.persistence.Column;
@@ -86,7 +90,7 @@ public class Person {
         this.age = age;
     }
 }
-`}/>
+```
 
 2. Provide your database information and map the Person entity class in the persistence.xml file which is located in src/main/resources/META-INF folder. If you don't already have those folder structure in your project, kindly create those and then create persistence.xml file.
 

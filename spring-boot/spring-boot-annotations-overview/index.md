@@ -5,7 +5,7 @@
 - Repository
 - Service
 
-## Spring Web MVC annotaiton (web.bind.annotaton)
+## Spring Web MVC annotation (web.bind.annotation)
 
 - GetMapping
 - PostMapping
@@ -18,17 +18,17 @@
 - ResponseBody
 - RestController
 - ResponseStatus
-- CrossOriging 
+- CrossOrigin 
 - CookieValue
 - ExceptionHandler 
 
-## Spring Boot Annotaton
+## Spring Boot Annotation
 
 - EnableAutoConfiguration
 - ComponentScan
 - SpringBootApplication
 
-## Spring Framework Factory type annotaion
+## Spring Framework Factory type annotation
 
 - Autowired (Inject in Jakarta type)
 - Required 

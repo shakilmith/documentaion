@@ -10,7 +10,7 @@
 8. **DROP TABLE:** Deletes an existing table.
 9. **ALTER TABLE:** Modifies an existing table.
 10. **CREATE INDEX:** Creates index or search keys.
-11. **DROP INDEX:** Delete index or serarch keys.
+11. **DROP INDEX:** Delete index or search keys.
 
 
 

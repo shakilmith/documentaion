@@ -1,8 +1,8 @@
-## Devoloping a Simple Crud Application using Sping Boot
+## Developing a Simple Crud Application using Spring Boot
 
-Crud stands for Create, Read, Upade and Delete operations. These are the very essential component for software development. Where you allow your user to create, read, update or delete any resource. 
+Crud stands for Create, Read, Update and Delete operations. These are the very essential component for software development. Where you allow your user to create, read, update or delete any resource. 
 
-For creating simple Crud Applicaton using Spring Boot, we use Spring MVC framework (model, view, controller approach) and for database access we use Spirng data jpa. Spring data jpa provides built in methods like CrudRepository that can handle Crud Operation very smoothly.
+For creating simple Crud Application using Spring Boot, we use Spring MVC framework (model, view, controller approach) and for database access we use Spring data jpa. Spring data jpa provides built in methods like CrudRepository that can handle Crud Operation very smoothly.
 
 Let's first of all create an example application using Spring Boot.
 
@@ -15,7 +15,7 @@ Initial Requirements:
     - And IDE that support Java and maven/gradle: Like Intellij Ide, Eclipse or VS code.
 
 
-Bootstrap your applicaton: Or simply clone the complete Spring data jpa crud application from github: //link
+Bootstrap your application: Or simply clone the complete Spring data jpa crud application from github: //link
 
 1. Open https://start.spring.io/ and provide necessary information to create spring boot project. The project will be a .zip file and we have to unzip it in a directory to work with it.
 
@@ -31,15 +31,15 @@ Now in this page, Select
 
 3. Import the unzip spring-boot-example project into your favourite Ide.
 
-Eclipse: Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven projects > Next > Browse your sping boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
+Eclipse: Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
 
-Intellij Ide: Open your Inellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
+Intellij Ide: Open your Intellij Ide, then File > Open > Browse the existing spring boot project > Click Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
 
 4. After opening your example application, You will see a folder structure like this
 
 ![Alt text](../accessing-data-with-jpa/img-1.jpg)
 
-5. Create an entity class called Customer.java in com.company.model package. It is a persistent class and it contains id, fistName, lastName properties. We here annotathe the the Customer class by @Entity annotaion as it is a persistent class and the properties in it will be persisted to the database. 
+5. Create an entity class called Customer.java in com.company.model package. It is a persistent class and it contains id, fistName, lastName properties. We here annotate the the Customer class by @Entity annotation as it is a persistent class and the properties in it will be persisted to the database. 
 
 Customer.java class: 
 
@@ -97,9 +97,9 @@ public class Customer {
 
 ```
 
-Exp: Here, we annotate the Customer class by @Entity annotation as it is a persistent class. We can externally use @Table annotation to give the table a specific name. Otherwise the class name will be the table name. The customer class requires an id. So, we create an customer id and annotate it by @Id annotation. We also make the id generation process automatically by using  @GeneratedValue(strategy = GenerationType.AUTO) annotation. The other properties are customer firstName and lastName. Remembere, all the properties are valid column name of your database table. You can use @Column() annotation on property label to give the columns a specific name and provides other matadata too.
+Exp: Here, we annotate the Customer class by @Entity annotation as it is a persistent class. We can externally use @Table annotation to give the table a specific name. Otherwise the class name will be the table name. The customer class requires an id. So, we create an customer id and annotate it by @Id annotation. We also make the id generation process automatically by using  @GeneratedValue(strategy = GenerationType.AUTO) annotation. The other properties are customer firstName and lastName. Remember, all the properties are valid column name of your database table. You can use @Column() annotation on property label to give the columns a specific name and provides other metadata too.
 
-6. Now in this stepe, create CustomerRepository.java interface in com.company.repository package. Spring data jpa provies CrudRepository interface that handles basic CRUD (cread, read, update, delete) operations smoothly. So, we here extends the Spring data jpa CrudRepository interface with the domain and type.
+6. Now in this step, create CustomerRepository.java interface in com.company.repository package. Spring data jpa provides CrudRepository interface that handles basic CRUD (create, read, update, delete) operations smoothly. So, we here extends the Spring data jpa CrudRepository interface with the domain and type.
 
 ```js
 package com.company.repository;
@@ -217,9 +217,9 @@ public class CustomerController {
 
 9. Now open your main class SpringBootExampleApplication.java file and run the application. If everything is going well, your application now runs on port 8080. 
 
-10. Open your favourite web browser and invoke the url: http://localhost:8080/customers and you will see: [] array symbal. It means, we don't have any actual yet data to retirve.
+10. Open your favourite web browser and invoke the url: http://localhost:8080/customers and you will see: [] array symbol. It means, we don't have any actual yet data to retrieve.
 
-11. In this step we will use Postman, a popular rest client to work with rest apis. If, in your system postman is already installed do the follwoing 
+11. In this step we will use Postman, a popular rest client to work with rest apis. If, in your system postman is already installed do the following
     - Open it (if Postman is already installed)
     - Invoke the url: http://localhost:8080/customer
     - Select Body and row then JSON as content-type

@@ -1,21 +1,23 @@
 
 # JPA Single table strategy:
-<Code code={`
+
+```
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-`}/>
+```
 
 
 In single_table strategy, 1 table is generated with all the attributes of parent and child entities.
 
-Here, We have 3 entities named Developer, FrontendDeveler, BackendDeveloper. And, Develper is the parent entity in this inheritance relationship and FrontendDeveler, BackendDeveloper are the sub entities. 
 
-Note: Only paranet entity should have id (primary key) proerty. The child entity should not have their own id's. That's why below of this example project, you never see id propery in FrontendDeveloper and BackendDeveloper entity.
+Here, We have 3 entities named Developer, FrontendDeveloper, BackendDeveloper. And, Developer is the parent entity in this inheritance relationship and FrontendDeveloper, BackendDeveloper are the child entities. 
+
+Note: Only parent entity should have id (primary key) property. The child entity should not have their own id's. That's why below of this example project, you never see id property in FrontendDeveloper and BackendDeveloper entity.
 
 Let's follow the below steps to make Single Table relationship among entities.
 
-1. Create Develper parent entity in com.company package. It has id, name, and experience properties. Also, we annotate the Developer entity class by @Entity annotaion. And as it is the parent or root enitty class of this relationship, that's why we annotate it by @Inheritance annotaion. 
+1. Create Developer parent entity in com.company package. It has id, name, and experience properties. Also, we annotate the Developer entity class by @Entity annotation. And as it is the parent or root entity class of this relationship, that's why we annotate it by @Inheritance annotation. 
 
-<Code code={`
+```
 package com.company;
 
 import jakarta.persistence.Entity;
@@ -65,14 +67,15 @@ public class Developer {
         this.experience = experience;
     }
 }
-`}/>
+```
 
 
-Here you see, we use @Inheritance(strategy = InheritanceType.SINGLE_TABLE) in the class level as we want to generate single_table reletaionship among entities. Alos note, There will be created only table wtih all the properties. 
+Here you see, we use @Inheritance(strategy = InheritanceType.SINGLE_TABLE) in the class level as we want to generate single_table relationship among entities. Also note, There will be created only table with all the properties. 
+
 
 2. Create FrontendDeveloper entity class that will extends Developer properties. It has it's own property salary and it will be inherited the properties of parent class Developer as well.
 
-<Code code={`
+```
 package com.company;
 
 import jakarta.persistence.Entity;
@@ -102,14 +105,15 @@ public class FrontendDeveloper extends Developer {
         this.salary = salary;
     }
 }
-`}/>
+```
 
 
-Here you can see, this enity doesn't have it's own primary key, that means it's a child entity. 
+Here you can see, this entity doesn't have it's own primary key, that means it's a child entity. 
 
-3. Create another entity class called BackendDeveloper in com.company package. It also contains salary, bonus as propeties and it will extend the Developer enity as well. And it doesn't have primary key or id like FrontendDeveloper.
+3. Create another entity class called BackendDeveloper in com.company package. It also contains salary, bonus as properties and it will extend the Developer entity as well. And it doesn't have primary key or id like FrontendDeveloper.
 
-<Code code={`
+
+```
 package com.company;
 
 import jakarta.persistence.Entity;
@@ -153,14 +157,18 @@ public class BackendDeveloper extends Developer {
         this.bonus = bonus;
     }
 }
-`}/>
+```
 
 
-Note: In single table strategy, it is not possible to write table name by using @Table anootaion in child/sub classess. Even sub classess don't have thier own id's. 
+**Note:** In single table strategy, it is not possible to write table name by using @Table annotation in child/sub classes. Even sub classes don't have their own id or primary key.
 
-4. Now create persistence.xml file under src/main/resources/META-INF folder. And map the entity classess and database information details there.
 
-<Code code={`
+
+4. Now create persistence.xml file under src/main/resources/META-INF folder. And map the entity classes and database information details there.
+
+
+
+```
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -182,13 +190,13 @@ Note: In single table strategy, it is not possible to write table name by using 
         </properties>
     </persistence-unit>
 </persistence>
-`}/>
+```
 
 Here, persistence-unit name is "default" that we will refer in the persistent class.
 
 5. Now create Persistent.java class in com.company package. In this class we will create entity objects and persist or save them to our mysql relational database. 
 
-<Code code={`
+```
 package com.company;
 
 import com.company.*;
@@ -220,14 +228,17 @@ public class Persistent {
         emf.close();
     }
 }
-`}/>
+```
 
 
 Here you can see, we create 4 entity objects based on FrontendDeveloper and BackendDeveloper entity class. (No developer entity class.) And save them by calling entity-manager persist method. 
 
+
+
 6. After running this application (Persistent class), in your mysql database 1 table will be generated called "employee". Open your mysql workbench and you see the following records. 
 
-<Code code={`
+
+```
 mysql> select * from developer;
 +-------------------+-----+------------+---------------+-------+--------+
 | DTYPE             | id  | experience | name          | bonus | salary |
@@ -240,32 +251,33 @@ mysql> select * from developer;
 4 rows in set (0.00 sec)
 
 mysql>
-`}/>
+```
 
 
-You see, this executaion creates only one table called "developer" and it has all the properties of child entities. 
+You see, this execution creates only one table called "developer" and it has all the properties of child entities. 
 
 
 
-# JPA joined_table strategy: 
 
-<Code code={`
+## JPA joined_table strategy: 
+
+```
 @Inheritance(strategy = InheritanceType.JOINED)
-`}/>
+```
 
-Joind table strategy: In this inheritance strategy, tables are generated for all entities belonging to the relationship. 
-Now you can use @Table annotaion externally for child entities but you are not allowd to use @Id annotation in the child entity, as child entity doesn't have their own primary key in any way.
+Joined table strategy: In this inheritance strategy, tables are generated for all entities belonging to the relationship. 
+Now you can use @Table annotation externally for child entities but you are not allowed to use @Id annotation in the child entity, as child entity doesn't have their own primary key in any way.
 
-So, let's make some changes in the parent entity class level. Instead of wrting @Inheritance(strategy = InheritanceType.SINGLE_TABLE) we now write @Inheritance(strategy = InheritanceType.JOINED) inheritance strategy.
+So, let's make some changes in the parent entity class level (package level). Instead of writing @Inheritance(strategy = InheritanceType.SINGLE_TABLE) we now write @Inheritance(strategy = InheritanceType.JOINED) inheritance strategy.
 
-Let's run the Persisntent class and see the differences in your mysql database. 
+Let's run the Persistent class and see the differences in your mysql database. 
 
 3 Tables will be generated for each entity. 
 The tables are: developer, frontend_developer, backend_developer
 
 If we run: select * from developer; We get the following output.
 
-<Code code={`
+```
 mysql> select * from developer;
 +-----+------------+---------------+
 | id  | experience | name          |
@@ -278,13 +290,13 @@ mysql> select * from developer;
 4 rows in set (0.00 sec)
 
 mysql>
-`}/>
+```
 
 
 If we run: select * from frontend_developer; 
 We get the following output.
 
-<Code code={`
+```
 mysql> select * from frontend_developer;
 +--------+-----+
 | salary | id  |
@@ -295,13 +307,13 @@ mysql> select * from frontend_developer;
 2 rows in set (0.00 sec)
 
 mysql>
-`}/>
+```
 
 If we run: select * from backend_developer; 
 We get the following output.
 
-<Code code={`
-mysql> select * from backenddeveloper;
+```
+mysql> select * from backend_developer; 
 +-------+--------+-----+
 | bonus | salary | id  |
 +-------+--------+-----+
@@ -311,31 +323,31 @@ mysql> select * from backenddeveloper;
 2 rows in set (0.00 sec)
 
 mysql>
-`}/>
+```
 
 
 
-Attention: You porbably have to delete the previous developer table from you database.
-And please, use @Tanle annotaion to externally name of your entities. Otherwise by default the table name will be the entity name. 
+Attention: You probably have to delete the previous developer table from you database.
+And please, use @Table annotation to externally name of your entities. Otherwise by default the table name will be the entity name. 
 
 
 
-# JPA table_per_class strategy:
+## JPA table_per_class strategy:
 
-<Code code={`
+```
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-`}/>
+```
 
-In this inheritance strategy, tables are generated for sub classess not for parent class. 
+In this inheritance strategy, tables are generated for sub classes (child classes) not for parent class. 
 
-Just open you parent class entity (in our case Developer.java) and use @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) annotaion in the class level. Though it will aslo create empty developer table. 
+Just open you parent class entity (in our case Developer.java) and use @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) annotation in the class level. Though it will also create empty developer table. 
 
 
 Run the Persistence class called Persistent.java, and in your mysql workbench there will 2 tables be created with data. For frontend_developer and backend_developer.
 
-Open your mysql workbench and if you run: select * from frontend_developer; you see the follwoing schema: 
+Open your mysql workbench and if you run: select * from frontend_developer; you see the following schema: 
 
-<Code code={`
+```
 mysql> select * from frontend_developer;
 +-----+------------+---------------+--------+
 | id  | experience | name          | salary |
@@ -346,11 +358,13 @@ mysql> select * from frontend_developer;
 2 rows in set (0.00 sec)
 
 mysql>
-`}/>
+```
+
+
 
 And if you run: select * from backend_developer; you see the follwoing schema:
 
-<Code code={`
+```
 mysql> select * from backend_developer;
 +-----+------------+--------------+-------+--------+
 | id  | experience | name         | bonus | salary |
@@ -361,17 +375,11 @@ mysql> select * from backend_developer;
 2 rows in set (0.00 sec)
 
 mysql>
-`}/>
+```
 
 
-So, in this simple post we get little overview about JPA inheritance strategy and see, what execution output we get for each strategy. It is totally devepnd upon you which strategy you will use for your application. But, there are alos pros and cons using these strategies. Someone prefer single_table strategy and someone prefer joind table strategy. 
+So, in this simple post we get structural overview about JPA inheritance strategies and also explore how tables are generated for each strategy. It totally depends upon you which strategy you will use for your application. But, there are also pros and cons using these strategies. Someone prefers single_table strategy and someone prefers joined table strategy. 
 
-In coming post we will talk about the pros and cons of these 3 strategies. 
 
-Talk soo,
-Shakil Ahmed.
+## Pros and Cons of Each Strategy:
 
------
-
-<h2>Read More</h2>
-{jpa1}

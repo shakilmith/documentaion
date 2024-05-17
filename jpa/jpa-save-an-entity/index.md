@@ -102,10 +102,11 @@ public class Person {
 
 
 Here we provide our database information (in my case mysql database system info) and hibernate specific mapping information.
+
 Note: In jakarta.persistence.jdbc.url property, we use jdbc:mysql://localhost:3306/testdb as value. Here, testdb is our database name in mysql workbench. At least, you have to create a database in your RDBMS system like mysql and provide the database name here.
 But, you don't have to create table name externally. JPA will handle this and your entity class name actually will be the table name.
 
-3. Create a persistence class called PersonPersistent  to save your person objects data into database.
+3. Create a persistence class called PersonPersistent.java to save your person objects data into database.
 
 <Code code={`
 import com.company.Person;
@@ -150,12 +151,13 @@ public class DemoPersistent {
 }
 `}/>
 
-Here you can see, we use  EntityManagerFactory and EntityManager interfaces and call entity-manager getTransaction() method to start the transaction. 
+Here you can see, we use  EntityManagerFactory and EntityManager interfaces and call entity-manager getTransaction() method to start the transaction.
+
 Basically, in JPA entity-manager is used to create, read, write, update and delete an entity. And EntityManagerFactory method provides EntityManager to work with java object.
 
-Here, we create 5 Person objects and call entity-manager persist method to save them to database.
+Here, we create 5 Person objects and call entity-manager persist method to save them into database.
 
-4. Run the PersonPersistent class and if everything is okay, in your mysql workbench you see person table with the stored data. 
+4. Run the PersonPersistent.java class and if everything is okay, in your mysql workbench you see person table with the stored data. 
 
 <Code code={`
 mysql> use testdb;

@@ -1,12 +1,12 @@
-## Sping Boot and H2 Database
+## Spring Boot and H2 Database
 
-H2 is an in-memory, embedded and open source database management system that stores application data in the system memory rather than physical storage. Popular in-memory, embedded databases are H2, Apache Derby, HSQLDB (HyperSQL Database). And Popular Physical databases are Mysql, Postgresql, Oracle etc. 
+H2 is an in-memory, embedded and open source database management system that stores application data in the system memory rather than physical storage. Popular in-memory, embedded databases are H2, Apache Derby. And Popular Physical databases are Mysql, Postgresql, Oracle etc. 
 
-Here, Sping Boot provides extra support for h2 embedded database for storing, retrieving sample data. Note that h2 database data will be stored in your system memeory rather than in your server or actual storage. We use embedded database when we don't plan to persiste the data or make our application production ready and remember the data has been lost when you restart your application.
+Here, Spring Boot provides extra support for h2 embedded database for storing, retrieving sample data. Note that h2 database data will be stored in your system memory rather than in your server or actual storage. We use embedded database when we don't plan to persist the data or make our application production ready and remember the data has been lost when you restart your application.
 
 ## How to add h2 embedded database in your Spring boot application
 
-If you have already spring boot aplication you can add the h2 dependency in your pom.xml file or gradle.build file.
+If you have already spring boot application you can add the h2 dependency in your pom.xml file or gradle.build file.
 
 For Maven User:
 
@@ -41,9 +41,9 @@ spring.h2.console.enabled=true
 
 ```
 
-Here you actually provide database related info or configuration like database url, password, username, plaform info etc. Make sure you add the "spring.h2.console.enabled=true" so that you can access the database from your localhost.
+Here you actually provide database related info or configuration like database url, password, username, platform info etc. Make sure you add the "spring.h2.console.enabled=true" so that you can access the database from your localhost.
 
-## If you don't have Spirng Boot appliacation yet let's create one
+## If you don't have Spring Boot application yet let's create one
 
 ## What You Need to Build a simple Spring Boot Project
 
@@ -55,7 +55,7 @@ Initial Requirements:
     - And IDE that support Java and maven/gradle: Like Intellij Ide, Eclipse or VS code.
 
 
-Let's follow the belew steps to bootstrap our simple Spring Boot application.
+Let's follow the below steps to bootstrap our simple Spring Boot application.
 
 1. Open https://start.spring.io/ and provide necessary information to create spring boot project. The project will be a .zip file and we have to unzip it in a directory to work with it.
 
@@ -63,9 +63,9 @@ Now in this page, Select
     - Maven as a build tool (you can select gradle too)
     - Java as a language
     - Spring Boot version 3.0.12 (or the latest version)
-    - In the Project Metadata section, provide your application group, artifact, package name etc. Note: The group and package name will be same. Also the artifact and name of your project will be same as well (Not mendatory). 
+    - In the Project Metadata section, provide your application group, artifact, package name etc. Note: The group and package name will be same. Also the artifact and name of your project will be same as well (Not mandatory). 
     - Then, select jar for packaging (for simplicity) and select the java language version. The java language version I use is 17. You can choose 8, 11 or the latest LTS version.
-    - The last step is to adding dependencies. As we create database related application and use h2 in-memory database thus add the following dependecies in your classpath
+    - The last step is to adding dependencies. As we create database related application and use h2 in-memory database thus add the following dependencies in your classpath
         - Spring Web
         - H2 
         - Spring Data JPA
@@ -75,15 +75,15 @@ Now in this page, Select
 
 3. Import the unzip spring-boot-example project into your favourite Ide.
 
-Eclipse: Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven projects > Next > Browse your sping boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
+Eclipse: Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
 
-Intellij Ide: Open your Inellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
+Intellij Ide: Open your Intellij Ide, then File > Open > Browse the existing spring boot project > Click Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
 
-4. You appliation structure should be like this
+4. You application structure should be like this
 
 ![Alt text](img-1.jpg)
 
-5. Add the following h2 database related metadata in your appliacation.properties file located in resources folder. 
+5. Add the following h2 database related metadata in your application.properties file located in resources folder. 
 
 ```js
 spring.datasource.url=jdbc:h2:mem:testdb
@@ -96,11 +96,11 @@ spring.h2.console.enabled=true
 
 ```
 
-<b>spring.h2.console.enabled=true</b> this propery will enable the h2 database in localhsot. 
+<b>spring.h2.console.enabled=true</b> this property will enable the h2 database in localhost. 
 
 5. Now run your application and open your favourite web browser and invoke the url: 
 
-http://localhost:8080/h2-console You will now immediately see the follwing window 
+http://localhost:8080/h2-console You will now immediately see the following window 
 
 ![alt text](./img-2.jpg)
 
@@ -181,10 +181,10 @@ public class Person {
 
 ```
 
-Note: Primary key and no-argument construtor are required by default.
+Note: Primary key and no-argument constructor are required by default.
 
 
-6. Create PersonRepository.java interface class in com.company.reposiitory package. And it extends CrudRepositroy interface.
+6. Create PersonRepository.java interface class in com.company.repository package. And it extends CrudRepository interface.
 
 ```js
 package com.company.repository;
@@ -202,7 +202,7 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
 Here the Person is the domain name and Integer is the type of domain.
 
-7. Create PersonPersistent.java class in com.company.persistence pacakge.
+7. Create PersonPersistent.java class in com.company.persistence package.
 
 ```js
 package com.company.persistence;
@@ -248,17 +248,17 @@ public class PersonPersistent implements CommandLineRunner {
 
 ```
 
-Note: You have to annotate the PersonPersistent class by @Component annotation and we here implement the CommnadLine interface in order to save our Person table records when the application starts.
+Note: You have to annotate the PersonPersistent class by @Component annotation and we here implement the CommandLine interface in order to save our Person table records when the application starts.
 
-8. Run the applicaton. 
+8. Run the application. 
 
 9. If you don't change server url, then your application should run on port 8080 in localhost. So, invoke the url: http://localhost:8080/h2-console/ and click connect.
 
 10. Run this command in the command dialog box (right side): SELECT * FROM PERSON; 
 
-You can now see the folloing response: 
+You can now see the following response: 
 
 ![Alt text](img-4.jpg)
 
-That's all. You have successfully added h2 database in your applicaton classpath and also populate few demo Person table data in h2 in-memory database.
+That's all. You have successfully added h2 database in your application classpath and also populate few demo Person table data in h2 in-memory database.
 

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--meta tags for SEO-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="title" content="JPA Inheritance Overview">
+<meta name="description" content="Learn JPA inheritance strategies; single_table strategy, joined_table strategy, table_per_class strategy">
+<meta name="keywords" content="Java, JPA, MySQL, JPA inheritance, backend">
+<meta name="author" content="shakilmith">
+
+
+<!--meta tags for open graph protocol (og:title, og:image)-->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="JPA Inheritance Strategies Overview; Learn how to work with parent and child entities in jpa" />
+<!--Image description-->
+<!--
+<meta property="og:image" content="https://example.com/rock.jpg" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="300" />
+<meta property="og:image:height" content="300" />
+-->
+
+
+
+
+
+<!--Include.js file-->
+<script src="https://file-hosting.dashnexpages.net/marketingstrategy/assets/js/include.js"></script>
+
+
+
+<!--HighlightJS-->
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+  
+<!-- and it's easy to individually load additional languages -->
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+  
+
+
+
+  <title>JPA Inheritance Overview</title>
+
+  <style>
+      *{
+        box-sizing: border-box;
+      }
+      html, body{
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      .post-container{
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      
+      pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 8px;
+        overflow: auto;
+        border-left: 5px solid red;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-top: 32px;
+        margin-bottom: 23px;
+    }
+    .left-border{
+        border-left: 3px solid red;
+      }  
+    
+      .highlight-text{
+        background-color: papayawhip;
+        color: black;
+        display: inline;
+        }
+        
+      .highlight-section{
+        box-sizing: border-box;
+        background-color: papayawhip;
+        border-left: 5px solid red;
+        color: black;
+        padding: 3px 8px 3px 8px;
+      }
+  
+    .large-bold-text{
+      font-size: 36px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .medium-bold-text{
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .small-bold-text{
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  
+    /** Image style in tutorial pages
+  * In desktop version, image will be centered
+  * Mobile or tablet version, it will be full width
+  */
+  
+    /* for mobile */
+    .post-image-style{
+      width: 100%; 
+      height: auto;
+      display: block;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);;
+    }
+    
+    /* for desktop */
+    @media screen and (min-width: 580px){
+      .post-image-style{
+          max-width: 50%;
+          height: auto;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 50px;
+          margin-bottom: 50px;
+          border-radius: 10px;
+      }
+    }
+
+  </style>
+  
+</head>
+<body>
+
+<!-- Top nav -->
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/header.html"></div>
+  
+
+
+
+
+
+  
+<!--Post starts-->  
+<div class="post-container">
+
+<h1>JPA Inheritance Overview</h1>
+
+
+<p>
+In jpa, when there are relationships between entities and parent or root entity share it's attributes amongst it's child entities then we use JPA inheritance strategies.
+</p>
+
+<p>
+JPA provides three strategies to share parent entity attributes to it's child entities. Such as,
+</p>
+
+<p>
+<b>Single Table Strategy</b>: Only one table is generated in this strategy. And, all the attributes will reside in this table. It is required to annotate the parent or root entity by <b>@Inheritance(strategy = InheritanceType.SINGLE_TABLE)</b> annotation.
+</p>
+
+<p>
+<b>Joined Table Strategy</b>: Separate tables will be generated for each entity. And the attributes will reside in respective table. Such as, parent table attributes will reside in the parent table vice versa. Also note that, it is required to annotate the parent or root entity by <b>@Inheritance(strategy = InheritanceType.JOINED)</b> annotation.
+</p>
+
+<p>
+<b>Table Per Class Strategy</b> In this strategy, tables are generated only for the child entities not the root or parent entity. Also note that, it is required to annotate the parent or root entity by <b>@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)</b> annotation.
+</p>
+
+<p>
+<b>Note</b> One thing always remember that, you can only have one primary key that is reside in the parent entity. That means, you can't annotate your child entities by @Id annotation. Also note that, there is no need to annotate your child entities by @Table annotation to externally provide the table name when you use <b>Single_table</b> inheritance strategy, as one table will be generated in this strategy. Another thing I should mention here, the inheritance strategy annotation (like: <b>@Inheritance(strategy = InheritanceType.SINGLE_TABLE)</b> ) should be reside in the parent entity only.
+</p>
+
+
+<p>
+<b>Additional note</b> <b>@DiscriminatorColumn</b> (used in parent entity) and <b>@DiscriminatorValue</b> (used in children side) can be used to define the column name and it's value that will be persisted in the linked column in the database. If you don't use these annotations then, an extra column will be generated and that name is DTYPE. At the end of this tutorial, I explain this. 
+</p>
+
+
+<p>
+Let's look over a simple example application, that describes more about each jpa inheritance strategy.
+</p>
+
+<p class="medium-bold-text">
+JPA Inheritance Strategies
+</p>
+
+
+<p>
+Let's say we have three entities those make parent, child relationships. Guess that, we have three entities - Developer (root or parent entity), FrontendDeveloper, BackendDeveloper. Here Developer is the parent entity (contains id property or primary key) and FrontendDeveloper and BackendDeveloper are the child entities.
+</p>
+
+<p>
+Note: Child entities can't have id property or can't be defined by @Id annotation. 
+</p>
+
+
+<p>
+<b>Developer.java</b> (parent entity; thus @Id annotation is used)
+</p>
+<p>
+<pre><code>package com.company.model;
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity(name = &quot;Developer&quot;)
+@Table(name = &quot;developer&quot;)
+public class Developer {
+    @Id
+    private int id;
+    private String name;
+    private String role;
+
+    public Developer() {
+    }
+
+    public Developer(int id, String name, String role) {
+        this.id = id;
+        this.name = name;
+        this.role = role;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+}</code></pre>
+</p>
+
+<p>
+<b>FrontendDeveloper.java</b> (child entity; thus no @Id annotation is used)
+</p>
+
+
+<p>
+<pre><code>package com.company.model;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class FrontendDeveloper extends Developer{
+    private int salary;
+
+    public FrontendDeveloper() {
+    }
+
+    //constructors, getter and setter methods
+}</code></pre>
+</p>
+
+<p>
+<b>BackendDeveloper</b> (child entity; thus no @Id annotation is used)
+</p>
+
+<p>
+<pre><code>package com.company.model;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class BackendDeveloper extends Developer {
+
+    private int experience;
+    private int salary;
+    private int bonus;
+
+    public BackendDeveloper() {
+    }
+
+    //constructors, getter and setter methods
+}</code></pre>
+</p>
+
+<p>
+Here, in the <b>Developer.java</b> entity class we have defined few properties those are shared (used) across FrontendDeveloper and BackendDeveloper entities. <b>Note that</b>, here <b>Developer</b> is the parent entity thus, we have used the <b>@Id</b> annotation in this entity class. And there is need to use <b>@Id</b> annotation in the child entities (though it is not possible).
+</p>
+
+
+<p class="medium-bold-text">
+Now Map the Entity classes and Database Configuration
+</p>
+<p>
+So, open <b>persistence.xml</b> file and map the entity classes and database configurations. As we have used mySQL as a database, so we have used mysql specific database configurations. Also note that, there is mysql driver in your class-path (<b>pom.xml</b> file).
+</p>
+
+<p>
+<b>persistence.xml</b> (located in resources/META-INF folder)
+</p>
+
+<p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;persistence xmlns=&quot;http://xmlns.jcp.org/xml/ns/persistence&quot;
+             xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+             xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd&quot;
+             version=&quot;2.2&quot;&gt;
+
+    &lt;persistence-unit name =&quot;default&quot;&gt;
+
+        &lt;!--Register the Developer, FrontendDeveloper, BackendDeveloper entities--&gt;
+        &lt;class&gt;com.company.model.Developer&lt;/class&gt;
+        &lt;class&gt;com.company.model.FrontendDeveloper&lt;/class&gt;
+        &lt;class&gt;com.company.model.BackendDeveloper&lt;/class&gt;
+
+
+
+        &lt;properties&gt;
+            &lt;property name=&quot;jakarta.persistence.jdbc.driver&quot; value=&quot;com.mysql.cj.jdbc.Driver&quot;/&gt;
+            &lt;property name=&quot;jakarta.persistence.jdbc.url&quot; value=&quot;jdbc:mysql://localhost:3306/testdb&quot;/&gt;
+            &lt;property name=&quot;jakarta.persistence.jdbc.user&quot; value=&quot;root&quot;/&gt;
+            &lt;property name=&quot;jakarta.persistence.jdbc.password&quot; value=&quot;root&quot;/&gt;
+            &lt;property name=&quot;hibernate.hbm2ddl.auto&quot; value=&quot;update&quot;/&gt;
+            &lt;property name=&quot;hibernate.show_sql&quot; value=&quot;true&quot;/&gt;
+            &lt;property name=&quot;hibernate.format_sql&quot; value=&quot;true&quot;/&gt;
+        &lt;/properties&gt;
+    &lt;/persistence-unit&gt;
+&lt;/persistence&gt;</code></pre>
+</p>
+
+
+<p class="medium-bold-text">
+Create a Persistence Class
+</p>
+
+<p>
+Let's create a simple persistence class to handle database operations, such as saving entities or retrieving entities (records of any table) from database.
+</p>
+
+
+<p>
+<b>DeveloperPersistent.java</b>
+</p>
+
+
+<p>
+<pre><code>package com.company.dao;
+
+import com.company.model.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+
+public class DeveloperPersistent {
+    public static void main(String[] args) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(&quot;default&quot;);
+        EntityManager entityManager =entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin(); //it will start the transaction
+
+        //create few objects of child entities
+        FrontendDeveloper f1 = new FrontendDeveloper(101, &quot;Shakil Ahmed&quot;, &quot;JavaScript Developer&quot;, 700);
+        FrontendDeveloper f2 = new FrontendDeveloper(102, &quot;Mark Smith&quot;, &quot;UI/UX designer&quot;, 900);
+
+        BackendDeveloper b1 = new BackendDeveloper(103, &quot;Selena Gomez&quot;, &quot;Java Developer&quot;, 3, 1200, 100);
+        BackendDeveloper b2 = new BackendDeveloper(104, &quot;Don Roger&quot;, &quot;Rust Developer&quot;, 5, 1500, 300);
+
+        //using entity-manager persist method to save the entity objects
+        entityManager.persist(f1);
+        entityManager.persist(f2);
+        entityManager.persist(b1);
+        entityManager.persist(b2);
+
+
+        entityManager.getTransaction().commit(); //it will commit the transaction
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+}</code></pre>
+</p>
+
+
+<p>
+Okay, before running this file, we have to customize or determine few things - as Developer entity shares it's attributes amongst the child entities, thus we have to determine which JPA specific inheritance strategy we will use here. Let's say, we will go through all the inheritance strategies that JPA provides - such as, <b>Single_table</b> strategy, <b>joined_table</b> strategy and <b>table_per_class</b> strategy.
+</p>
+
+<p class="medium-bold-text">
+Single Table Inheritance Strategy
+</p>
+
+<p>
+We previously talk that, in a single table inheritance, single or one table is generated for all the entities. Means, all the attributes either parent class or child class will reside in a single table in the relational database.
+</p>
+
+<p>
+So, open <b>Developer.java</b> entity class (in our case, it is the parent entity) and write this inheritance strategy after the <b>@Entity</b> annotation.
+</p>
+
+
+<p>
+<b>Developer.java</b>
+</p>
+
+
+<p>
+<pre><code>@Entity(name = &quot;Developer&quot;)
+@Table(name = &quot;developer&quot;)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
+public class Developer {
+    //rest of the codes will remain same
+}</code></pre>
+</p>
+
+<p>
+And now run the <b>DeveloperPersistent.java</b> class (you probably have to open this file) and you see in the console that, a single table has been generated and it's name is developer.
+</p>
+
+
+<p>
+<pre><code>create table developer (
+    DTYPE varchar(31) not null,
+    id integer not null,
+    name varchar(255),
+    role varchar(255),
+    bonus integer,
+    experience integer,
+    salary integer,
+    primary key (id)
+) engine=InnoDB</code></pre>
+</p>
+
+<p>
+Let's open you mysql CommandLine tool and check that, data really has been persisted or not.
+</p>
+
+<p>
+<pre><code>mysql&gt; use testdb;
+Database changed
+mysql&gt; SELECT * FROM developer;
++-------------------+-----+--------------+----------------------+-------+------------+--------+
+| DTYPE             | id  | name         | role                 | bonus | experience | salary |
++-------------------+-----+--------------+----------------------+-------+------------+--------+
+| FrontendDeveloper | 101 | Shakil Ahmed | JavaScript Developer |  NULL |       NULL |    700 |
+| FrontendDeveloper | 102 | Mark Smith   | UI/UX designer       |  NULL |       NULL |    900 |
+| BackendDeveloper  | 103 | Selena Gomez | Java Developer       |   100 |          3 |   1200 |
+| BackendDeveloper  | 104 | Don Roger    | Rust Developer       |   300 |          5 |   1500 |
++-------------------+-----+--------------+----------------------+-------+------------+--------+
+4 rows in set (0.00 sec)</code></pre>
+</p>
+
+<p>
+Okay, we have successfully persisted data to our relational database. And you can see, all the attributes value (child entities) reside in a single table. But what if you use different strategy than single_table strategy?
+</p>
+
+
+<p class="medium-bold-text">
+JPA Joined Table Strategy
+</p>
+
+<p>
+Earlier in this tutorial, we have described that when we use <b>joined_table</b> strategy, individual tables will be created for each entity with respective data. As we have three entities, one is parent entity and the rest two are child entities. Thus, if we use <b>joined_table</b> strategy three tables will be generated.
+</p>
+
+
+<p>
+So, open your root entity class, in our case <b>Developer.java</b> and remove the the <b>single_table</b> strategy and write the <b>joined_table</b> strategy.
+</p>
+
+<p>
+<b>Developer.java</b>
+</p>
+
+<p>
+<pre><code>@Entity(name = &quot;Developer&quot;)
+@Table(name = &quot;developer&quot;)
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Developer {
+    //rest of the codes will remain same
+}</code></pre>
+</p>
+
+<p>
+If you now run the <b>DeveloperPersistent.java</b> persistence class again, you will see three tables are generated in our database. Look at the console please;
+</p>
+
+<p>
+<pre><code>create table developer (
+    id integer not null,
+    name varchar(255),
+    role varchar(255),
+     primary key (id)
+) engine=InnoDB
+
+create table frontend_developer (
+    bonus integer not null,
+    experience integer not null,
+    salary integer not null,
+    id integer not null,
+    primary key (id)
+) engine=InnoDB
+
+
+create table frontend_developer (
+    salary integer not null,
+    id integer not null,
+    primary key (id)
+) engine=InnoDB</code></pre>
+</p>
+
+<p>
+<b>Note:</b> Now we can use <b>@Table</b> annotation to externally name our child entities table name, but in a <b>single_table</b> strategy it is not possible as only one table is created for that strategy. So, for maintainable purposes, we have used @Table annotation in the child entities and name the tables.
+</p>
+
+<p>
+<b>Note:</b> If you don't set the table name externally then, the entity name will be the table name when you use jpa.
+</p>
+
+
+<p>
+<pre><code>//for FrontendDeveloper.java
+@Table(name = "frontend_developer")
+
+//for BackendDeveloper.java
+@Table(name = "backend_developer")</code></pre>
+</p>
+
+<p>
+So, here three tables are created in our relational database. Such as, developer, frontend_developer and backend_developer. Now, open your mysql commandLine tool and see really our data has been persisted or not.
+</p>
+
+
+<p>
+<pre><code>mysql> use testdb;
+Database changed
+mysql> SELECT * FROM developer;
++-----+--------------+----------------------+
+| id  | name         | role                 |
++-----+--------------+----------------------+
+| 101 | Shakil Ahmed | JavaScript Developer |
+| 102 | Mark Smith   | UI/UX designer       |
+| 103 | Selena Gomez | Java Developer       |
+| 104 | Don Roger    | Rust Developer       |
++-----+--------------+----------------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM frontend_developer;
++--------+-----+
+| salary | id  |
++--------+-----+
+|    700 | 101 |
+|    900 | 102 |
++--------+-----+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM backend_developer;
++-------+------------+--------+-----+
+| bonus | experience | salary | id  |
++-------+------------+--------+-----+
+|   100 |          3 |   1200 | 103 |
+|   300 |          5 |   1500 | 104 |
++-------+------------+--------+-----+
+2 rows in set (0.00 sec)</code></pre>
+</p>
+
+<p>
+Okay, we have successfully persisted our data in our relational database. But, you might be wondered that though we didn't use @Id annotation and don't have id property in our child entities yet, the child entity tables, contain the id (primary key) column. Then how? Basically, this is not a primary key, it is a foreign key of the child entity tables, that also refers that which data is related to which developer. But remember that, you can't use @Id annotation or you can't have primary key for your child entities. There is only one primary key or @Id annotation can be used, that will reside in the parent entity side - in our case, the Developer entity.
+</p>
+
+
+<p class="medium-bold-text">
+JPA Table Per Class Strategy
+</p>
+
+<p>
+In this approach, tables are generated for each child entity, not the parent entity. So, open your <b>Developer.java</b> parent entity class, and use the <b>table_per_class</b> inheritance strategy than the rest two.
+</p>
+
+<p>
+<pre><code>@Entity(name = &quot;Developer&quot;)
+@Table(name = &quot;developer&quot;)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Developer{
+    
+    //rest of the code blocks
+}</code></pre>
+</p>
+
+<p>
+If  you now run the <p>DeveloperPersistent.java</p> persistence class class, in the console you will see there are two tables have been generated in your mysql database.
+</p>
+
+<p>
+<b>Note:</b> If you get any error message in you console, you probably have to remove all the tables generated previously, and then restart your application.
+</p>
+
+
+<p>
+<pre><code>create table backend_developer (
+    id integer not null,
+    name varchar(255),
+    role varchar(255),
+    bonus integer not null,
+    experience integer not null,
+    salary integer not null,
+    primary key (id)
+) engine=InnoDB
+
+create table frontend_developer (
+    id integer not null,
+    name varchar(255),
+    role varchar(255),
+    salary integer not null,
+    primary key (id)
+) engine=InnoDB</code></pre>
+</p>
+
+<p>
+<b>Note:</b> Though, there is a possibility to have a developer table in your database, but that will be an empty table.
+</p>
+
+<p>
+So, tables data will be be persisted in the child or concrete tables.
+</p>
+
+<p>
+<pre><code>mysql&gt; use testdb;
+Database changed
+mysql&gt; SELECT * FROM frontend_developer;
++-----+--------------+----------------------+--------+
+| id  | name         | role                 | salary |
++-----+--------------+----------------------+--------+
+| 101 | Shakil Ahmed | JavaScript Developer |    700 |
+| 102 | Mark Smith   | UI/UX designer       |    900 |
++-----+--------------+----------------------+--------+
+2 rows in set (0.00 sec)
+
+mysql&gt; SELECT * FROM backend_developer;
++-----+--------------+----------------+-------+------------+--------+
+| id  | name         | role           | bonus | experience | salary |
++-----+--------------+----------------+-------+------------+--------+
+| 103 | Selena Gomez | Java Developer |   100 |          3 |   1200 |
+| 104 | Don Roger    | Rust Developer |   300 |          5 |   1500 |
++-----+--------------+----------------+-------+------------+--------+
+2 rows in set (0.00 sec)</code></pre>
+</p>
+
+
+<p class="medium-bold-text">
+Using DiscriminatorColumn and DiscriminatorValue Annotation
+</p>
+
+<p>
+In a <b>single_table</b> and <b>joined_table</b> strategy, we can use <b>@DiscriminatorColumn</b> and <b>@DiscriminatorValue</b> annotations, to define the column and value in a respective order.
+</p>
+
+<p>
+<b>@DiscriminatorColumn</b> It is defined the name of the column that will link a database table row to a class. Remember the DTYPE, we saw in a single table strategy. If we use it, then DTYPE will be replaced by a useful name.
+</p>
+
+<p>
+<b>@DiscriminatorValue</b> It is used to set the value to be persisted in the column defined in the annotation <b>@DiscriminatorColumn</b>.
+</p>
+
+<p>
+Let's see the use of  <b>@DiscriminatorColumn</b> and <b>@DiscriminatorValue</b> annotation in our first example, means in a <b>single_table</b> strategy.
+</p>
+
+
+<p>
+<b>Developer.java</b>
+</p>
+
+<p>
+<pre><code>@Entity(name = &quot;Developer&quot;)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = &quot;developer&quot;)
+public class Developer {
+    //rest of the code block
+}</code></pre>
+</p>
+
+<p>
+<b>FrontendDeveloper.java</b>
+</p>
+
+<p>
+<pre><code>@Entity(name = &quot;FrontendDeveloper&quot;)
+@DiscriminatorValue(&quot;frontend_developer&quot;)
+public class FrontendDeveloper extends Developer{
+    //rest of the code block
+}</code></pre>
+</p>
+
+<p>
+<b>BackendDeveloper.java</b>
+</p>
+
+<p>
+<pre><code>@Entity(name = &quot;BackendDeveloper&quot;)
+@DiscriminatorValue(&quot;backend_developer&quot;)
+public class BackendDeveloper extends Developer {
+    //rest of the code block
+}</code></pre>
+</p>
+
+<p>
+As, in a <b>single_table</b> strategy, one table is created and that will only be root table, so if you now open mysql commandLine tool and write the following select command you can see how the <b>@DiscriminatorColumn</b> and <b>@DiscriminatorValue</b> have been persisted or used.
+</p>
+
+<p>
+<pre><code>mysql&gt; SELECT * FROM developer;
++-----+--------------+----------------------+--------------------+-------+------------+--------+
+| id  | name         | role                 | developer          | bonus | experience | salary |
++-----+--------------+----------------------+--------------------+-------+------------+--------+
+| 101 | Shakil Ahmed | JavaScript Developer | frontend_developer |  NULL |       NULL |    700 |
+| 102 | Mark Smith   | UI/UX designer       | frontend_developer |  NULL |       NULL |    900 |
+| 103 | Selena Gomez | Java Developer       | backend_developer  |   100 |          3 |   1200 |
+| 104 | Don Roger    | Rust Developer       | backend_developer  |   300 |          5 |   1500 |
++-----+--------------+----------------------+--------------------+-------+------------+--------+</code></pre>
+</p>
+
+<p>
+Here if you look at the developer column and it's value, you can guess, how the <b>@DiscriminatorColumn</b> and <b>@DiscriminatorValue</b> annotation has been used.
+</p>
+
+<p>
+<b>Note:</b> You can only use, <b>@DiscriminatorColumn</b> and <b>@DiscriminatorValue</b> annotation in the <b>single_table</b> and <b>joined_table</b> inheritance strategy. There is no need to use these in the <b>table_per_class</b> strategy.
+</p>
+
+<p>
+Another thing to recall here, in a <b>@DiscriminatorColumn</b> definition, we can also set the type of the value of <b>@DiscriminatorValue</b> (either int or string). By default values are string or text based but if you want to numeric, then you have to use an extra attribute called, <b>discriminatorType = DiscriminatorType.INTEGER</b> in the @DiscriminatorColumn annotation. Such as,
+</p>
+
+<p>
+<pre><code>@DiscriminatorColumn(name = &quot;developer&quot;, discriminatorType = DiscriminatorType.INTEGER) 
+
+//now the @DiscriminatorValue annotation should change
+@DiscriminatorValue(1) //instead of string value, we have to use now numeric value.</code></pre>
+</p>
+
+Thanks for reading this article.
+
+
+
+
+<!--Post ends-->
+</div>
+
+
+
+
+
+<!--Footer container-->
+
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/footer.html">
+
+</div>
+
+
+
+<script>
+includeHTML();
+</script>
+<!-- js script for opening and closing the nav-->
+
+<script>
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!--invoke highlightJs-->
+<script>hljs.highlightAll();</script> 
+
+
+</body>
+</html>

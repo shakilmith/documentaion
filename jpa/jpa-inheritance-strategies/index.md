@@ -253,12 +253,13 @@ You see, this executaion creates only one table called "developer" and it has al
 @Inheritance(strategy = InheritanceType.JOINED)
 `}/>
 
-Joind table strategy: In this inheritance strategy, tables are generated for all entities belonging to the relationship. 
-Now you can use @Table annotaion externally for child entities but you are not allowd to use @Id annotation in the child entity, as child entity doesn't have their own primary key in any way.
+Joined table strategy: In this inheritance strategy, tables are generated for all entities belonging to the relationship. 
 
-So, let's make some changes in the parent entity class level. Instead of wrting @Inheritance(strategy = InheritanceType.SINGLE_TABLE) we now write @Inheritance(strategy = InheritanceType.JOINED) inheritance strategy.
+Now you can use @Table annotation externally for child entities but you are not allowed to use @Id annotation in the child entity, as child entity doesn't have their own primary key in any way.
 
-Let's run the Persisntent class and see the differences in your mysql database. 
+So, let's make some changes in the parent entity class level. Instead of writing @Inheritance(strategy = InheritanceType.SINGLE_TABLE) we now write @Inheritance(strategy = InheritanceType.JOINED) inheritance strategy.
+
+Let's run the Persistent class and see the differences in your mysql database. 
 
 3 Tables will be generated for each entity. 
 The tables are: developer, frontend_developer, backend_developer
@@ -322,9 +323,9 @@ And please, use @Tanle annotaion to externally name of your entities. Otherwise 
 
 # JPA table_per_class strategy:
 
-<Code code={`
+```
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-`}/>
+```
 
 In this inheritance strategy, tables are generated for sub classess not for parent class. 
 

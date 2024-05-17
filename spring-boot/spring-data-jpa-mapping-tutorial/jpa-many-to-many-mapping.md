@@ -7,16 +7,16 @@ In this simple example tutorial, we will demonstrate how to use Many-To-Many map
 
 When to use **@ManyToMany** mapping? - When more than one entity is associated with multiple other entities. In database terminology, we say more than one table is linked with more than one table or multiples tables are linked with multiple tables.
 
-Like, Several oweners have several cars and several cars have several oweners.
+Like, Several owners have several cars and several cars have several owners.
 
-Also we can say, 2 books has been written by 5 authors or 5 autohors have been written 2 books. 
+Also we can say, 2 books has been written by 5 authors or 5 authors have been written 2 books. 
 
 
 To understand the scenario clearly, we will go under a live project.
 
 If you don't have any Spring Boot application bootstrapped yet, let's create one.
 
-Let's follow the belew steps to bootstrap our simple Spring Boot application.
+Let's follow the below steps to bootstrap our simple Spring Boot application.
 
 1. Open [https://start.spring.io](https://start.spring.io/) and provide necessary information to create spring boot project. The project will be a .zip file and we have to unzip it in a directory to work with it.
 
@@ -24,7 +24,7 @@ Now in this page, Select
     - Maven as a build tool (you can select gradle too)
     - Java as a language
     - Spring Boot version 3.0.12 (or the latest version)
-    - In the Project Metadata section, provide your application group, artifact, package name etc. Note: The group and package name will be same. Also the artifact and name of your project will be same as well (Not mendatory). 
+    - In the Project Metadata section, provide your application group, artifact, package name etc. Note: The group and package name will be same. Also the artifact and name of your project will be same as well (Not mandatory). 
     - Then, select jar for packaging (for simplicity) and select the java language version. The java language version I use is 17. You can choose 8, 11 or the latest LTS version.
     - The last step is adding dependencies. Add the following starter dependencies:
         - ***Spring Web (MVC)***
@@ -38,7 +38,7 @@ Now in this page, Select
 
 **Eclipse:** Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
 
-**Intellij Ide:** Open your Inellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
+**Intellij Ide:** Open your Intellij Ide, then File > Open > Browse the existing spring boot project > Click Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
 
 4. The project Project Structure will be like this.
 
@@ -49,9 +49,9 @@ width="50%"
 height="auto"
 />
 
-5. Now, Create a model package in **com.company** folder. Inside the model package, create an entity class called Person and Relationship entity class called Car. Both are annotated by **@Entity** annotation. Here, the Person class is the relationship owner. Thus, we have used **@JoinTable** annotatin in it. 
+5. Now, Create a model package in **com.company** folder. Inside the model package, create an entity class called Person and Relationship entity class called Car. Both are annotated by **@Entity** annotation. Here, the Person class is the relationship owner. Thus, we have used **@JoinTable** annotation in it. 
 
-    ***Also note that, you can use @ManyToMany assocaition unidirection (one side) or bidirectional (both side). There will be required an extra table that will store the ids of the linked or associated entities. Thus we have used @JoinTable to genrate an extra table named person_car. Also note that, there is no need to use CascadeType.REMOVE operation, thus we have removed it. (Because it might remove/delete more associative entities than expected.)***
+    ***Also note that, you can use @ManyToMany association unidirectional (one side) or bidirectional (both side). There will be required an extra table that will store the ids of the linked or associated entities. Thus we have used @JoinTable to generate an extra table named person_car. Also note that, there is no need to use CascadeType.REMOVE operation, thus we have removed it. (Because it might remove/delete more associative entities than expected.)***
 
 
 ```js
@@ -121,9 +121,9 @@ public class Person {
 
 ```
 
-About the code above: We have annotated the class above by **@Entity** annotation to make it persistent class. By default it is the table name in your database. The Person class contains id, name as attributes. It also contains, associated class with **@ManyToMany** annotaton. There is also **@JoinTable** annotaion to generate an extra table just store ids of the linked entities. Also **@JoinTable** annotaion indicates that Person is the relationship owner. It means, foreign key will be found in the Peroson table not the Car table. 
+About the code above: We have annotated the class above by **@Entity** annotation to make it persistent class. By default it is the table name in your database. The Person class contains id, name as attributes. It also contains, associated class with **@ManyToMany** annotation. There is also **@JoinTable** annotation to generate an extra table just store ids of the linked entities. Also **@JoinTable** annotation indicates that Person is the relationship owner. It means, foreign key will be found in the Person table not the Car table. 
 
-Attention: Extra table is required to store the ids of the association. Here the name is the table name. The first **@JoinColumn(name = "person_id")** is the owener entity id and the second **@JoinColumn(name = "person_id")** is the child class id.
+Attention: Extra table is required to store the ids of the association. Here the name is the table name. The first **@JoinColumn(name = "person_id")** is the owner entity id and the second **@JoinColumn(name = "person_id")** is the child class id.
 
 
 The Associative Car.java class: 
@@ -189,7 +189,7 @@ public class Car{
 
 ```
 
-Note: Inside the Car class, we don't refer the Person class as it is unidirectional assocaition. If you want to make it bidirectional association, just add the folloing code in including get/set methods in the Car.java class.
+Note: Inside the Car class, we don't refer the Person class as it is unidirectional association. If you want to make it bidirectional association, just add the following code in including get/set methods in the Car.java class.
 
 ```js
 @ManyToMany(mappedBy = "cars")s
@@ -207,9 +207,9 @@ public void setPersons(List<Person> persons) {
 Note: Here the mappedBy attribute also indicate that Person.java class is the relationship owner. Relationship owner refers that it contains the primary key of the associative/child class as foreign key.
 
 
-6. Now create **PersonRepository.java** interface class in **com.company.repository** pacakge. (You may have to create the repository package first of all). Here, we extends **JpaRepostory**. You may aslo extends **CrudRepostory** as well. Then, provided the domain an it's type.
+6. Now create **PersonRepository.java** interface class in **com.company.repository** package. (You may have to create the repository package first of all). Here, we extends **JpaRepository**. You may also extends **CrudRepository** as well. Then, provided the domain an it's type.
 
-**PersonRepostory.java** class:
+**PersonRepository.java** class:
 
 ```js
 package com.company.repository;
@@ -288,17 +288,17 @@ public class EmployeeController {
 
 ```
 
-The most common rest annotaions (htttp verbs) have been used here like @GetMapping, **@PostMapping**, **@DeleteMapping** etc. We focus on **@GetMapping** and **@PostMappig** only.
+The most common rest annotation (http verbs) have been used here like @GetMapping, **@PostMapping**, **@DeleteMapping** etc. We focus on **@GetMapping** and **@PostMappig** only.
 
 ***@GetMapping("/persons"):*** Get all the person records
 
 ***@GetMapping("/persons/{id}):*** Get person record by id
 
-***@PostMapping("persons"):*** save or persist new person reocord in this endpoint
+***@PostMapping("persons"):*** save or persist new person record in this endpoint
 
-***@DeleteMapping("/persons/{id}):*** Delete perons reocrd by id
+***@DeleteMapping("/persons/{id}):*** Delete persons record by id
 
-Additonally, we have annotated the PersonController class by **@RestController** annotation to make it behave like web application and get accessable of all the rest endpoints.
+Additonally, we have annotated the PersonController class by **@RestController** annotation to make it behave like web application and get accessible of all the rest endpoints.
 
 7. Now, open the main class file and run the example application or type Shift+F10.
 
@@ -322,7 +322,7 @@ spring.h2.console.enabled=true
 
 If Postman: 
 
-In this step we will use Postman, a popular rest client to work with rest APIs. If, in your system postman is already installed do the follwoing 
+In this step we will use Postman, a popular rest client to work with rest APIs. If, in your system postman is already installed do the following 
     - Open it (if Postman is already installed)
     - Invoke the url: ***[http://localhost:8080/persons](http://localhost:8080/persons)***
     - Select Body and row then JSON as content-type
@@ -402,8 +402,8 @@ Imagine, we have three person records in the persons table and all are owned **C
 }
 
 //If you don't use id, then id will be generated automatically.
-//but if you use id, then, you must use the id (primary key) in the paren entity+child entity too.
-//otherwise the the transection will not be held.
+//but if you use id, then, you must use the id (primary key) in the parent entity+child entity too.
+//otherwise the the transaction will not be held.
 ```
 
 10. Invoke the url: [http//localhost:8080/persons](http//localhost:8080/persons) in your favourite web browser. You will see all the persons records in json format.
