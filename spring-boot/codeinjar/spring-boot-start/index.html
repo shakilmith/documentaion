@@ -227,8 +227,7 @@ First of all we will use <a href="http://start.spring.io/" target="_blank">http:
 </p>
 
 <p>
-<img src="" alt="spring boot" class="post-image-style" />
-![alt text](image1.png)
+<img src="https://docs.javaondemand.com/spring-boot/codeinjar/spring-boot-start/image1.png" alt="spring boot" class="post-image-style" />
 </p>
 
 <p>
@@ -240,7 +239,7 @@ After opening the **spring-boot-example** application, your file structure will 
 </p>
 
 <p>
-![alt text](image2.png)
+<img src="https://docs.javaondemand.com/spring-boot/codeinjar/spring-boot-start/image2.png" alt="spring boot" class="post-image-style" />
 </p>
 
 <p>
@@ -358,7 +357,7 @@ Okay, if you now open <a href="http://localhost:8080/greeting" target="_blank">h
 </p>
 
 <p>
-![alt text](image3.png)
+<img src="https://docs.javaondemand.com/spring-boot/codeinjar/spring-boot-start/image3.png" alt="spring boot" class="post-image-style" />
 </p>
 
 <p class="medium-bold-text">
@@ -409,16 +408,14 @@ Actually, we can do more than displaying only the Hello, World message in Spring
 
 
 <p>
-```
-@RestController
+<pre><code>@RestController
 public class HelloController {
 
     @GetMapping("/greeting")
     public String getGreeting(@RequestParam(defaultValue = "World") String name){
         return "Hello, " + name;
     }
-}
-```
+}</code></pre>
 </p>
 
 
@@ -432,8 +429,10 @@ So, if you now invoke <a href="http://localhost:8080/greeting" target="_blank">h
 
 
 <p>
-![alt text](image4.png)
+<img src="https://docs.javaondemand.com/spring-boot/codeinjar/spring-boot-start/image4.png" alt="spring boot" class="post-image-style" />
 </p>
+
+
 
 <p>
 Our Hello, World spring boot application comes to it's end life. You can simply expand your java knowledge with spring boot and make sophisticated applications with confidence.

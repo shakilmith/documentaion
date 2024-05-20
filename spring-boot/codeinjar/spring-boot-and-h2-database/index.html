@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--meta tags for SEO-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="title" content="Create Your First Spring Boot Application">
+<meta name="description" content="Spring Boot Tutorial; Learn How to Bootstrap Your First Spring Boot Application">
+<meta name="keywords" content="Spring, Spring Boot, Backend, Application Development">
+<meta name="author" content="shakilmith">
+
+
+<!--meta tags for open graph protocol (og:title, og:image)-->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Create Your First Spring Boot Application" />
+<!--Image description-->
+<!--
+<meta property="og:image" content="https://example.com/rock.jpg" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="300" />
+<meta property="og:image:height" content="300" />
+-->
+
+
+
+
+
+<!--Include.js file-->
+<script src="https://file-hosting.dashnexpages.net/marketingstrategy/assets/js/include.js"></script>
+
+
+
+<!--HighlightJS-->
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+  
+<!-- and it's easy to individually load additional languages -->
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+  
+
+
+
+  <title>Create Your First Spring Boot Application | codeinjar.com</title>
+
+  <style>
+      *{
+        box-sizing: border-box;
+      }
+      html, body{
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      .post-container{
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      
+      pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 8px;
+        overflow: auto;
+        border-left: 5px solid red;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-top: 32px;
+        margin-bottom: 23px;
+    }
+    .left-border{
+        border-left: 3px solid red;
+      }  
+    
+      .highlight-text{
+        background-color: papayawhip;
+        color: black;
+        display: inline;
+        }
+        
+      .highlight-section{
+        box-sizing: border-box;
+        background-color: papayawhip;
+        border-left: 5px solid red;
+        color: black;
+        padding: 3px 8px 3px 8px;
+      }
+  
+    .large-bold-text{
+      font-size: 36px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .medium-bold-text{
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .small-bold-text{
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  
+    /** Image style in tutorial pages
+  * In desktop version, image will be centered
+  * Mobile or tablet version, it will be full width
+  */
+  
+    /* for mobile */
+    .post-image-style{
+      width: 100%; 
+      height: auto;
+      display: block;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);;
+    }
+    
+    /* for desktop */
+    @media screen and (min-width: 580px){
+      .post-image-style{
+          max-width: 50%;
+          height: auto;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 50px;
+          margin-bottom: 50px;
+          border-radius: 10px;
+      }
+    }
+
+  </style>
+  
+</head>
+<body>
+
+<!-- Top nav -->
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/header.html"></div>
+  
+
+
+
+
+
+  
+<!--Post starts-->  
+<div class="post-container">
+
+
+<h1>
+Spring Boot with H2 Database
+</h1>
+
+<p>
+In this sample post, we are going to explore how to create a simple application using spring boot and mySQL database.
+</p>
+
+<p>
+<b>Initial Requirements:</b>
+</p>
+
+<p>
+In order to create a simple Spring Boot Application, you must have to following tools already installed in your system:
+</p>
+
+<p>
+Java: 8+ (Better to use 17+)<br/>
+
+Maven: v3.6.3 or better<br/>
+
+An Ide: Intellij, Eclipse or VS Code<br/>
+</p>
+
+
+<p class="medium-bold-text">
+Bootstrap Your Spring Boot Application
+</p>
+
+<p>
+We will use here spring boot starter to bootstrap our simple spring powered application. Thus, open <a href="https://start.spring.io/" target="_blank">https://start.spring.io/</a> and configure the following requirements to create our spring boot application.
+</p>
+
+<p>
+![alt text](image1.png)
+</p>
+
+<p>
+<b>Note</b>: Package name and groupId name should be same.
+</p>
+
+<p class="medium-bold-text">
+Open Your Project in Your Favourite Ide
+</p>
+
+<p>
+After extracting the zip file, you can open you example spring boot project into your favourite ide. Such as, Intellij, VS code or Eclipse etc.
+</p>
+
+<p>
+**How to open your project in your favourite IDE:**
+</p>
+
+<p>
+<b>Eclipse</b>: File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (you have just downloaded)> Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
+
+<p>
+<b>Intellij Ide</b>: File > Open > Browse the existing spring boot project > Click Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies.
+</p>
+<p>
+<b>VS Code</b>: File > Open Folder > Browse the existing spring boot project > Select Folder.
+</p>
+
+<p>
+<b>NetBeans</b>: File > Open Project > Browse the existing spring boot project (maven project) > Open project.
+</p>
+
+<p class="medium-bold-text">
+Create an Entity 
+</p>
+
+<p>
+Let's create an entity called <b>Person.java</b> in <b>com.company/person</b> folder or package. An entity is a persistent class, that is a table of a database in other words, and all the properties are the column name  of that table. So, it is required that you annotate your java pojo class by <b>@Entity</b> annotation when it will be used as persistent class.
+</p>
+
+<p>
+<b>Person.java</b>
+</p>
+
+<p>
+```
+package com.company.model;
+
+import jakarta.persistence.*;
+@Entity(name = "Person")
+@Table(name = "person")
+public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String firstName;
+    private String lastName;
+    private int age;
+
+    public Person() {
+    }
+
+    //constructors, getter and setter methods
+}
+```
+</p>
+
+
+<p>
+<b>Note</b>: One of the property must be annotated by 
+<b>@Id</b> annotation in order to make it primary key of the database table.
+</p>
+
+
+<p class="medium-bold-text">
+Create a Repository Interface
+</p>
+
+<p>
+In order work with relational database or handling database operations, we have to define the repository interface and implements one of the spring data jpa interfaces to work with mySQL database. Here, create an interface in <b>com.company/repository</b> package and name it <b>PersonRepository.java</b>
+</p>
+
+<p>
+<b>PersonRepository.java</b>
+</p>
+
+<p>
+```
+package com.company.repository;
+
+import com.company.model.Person;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PersonRepository extends JpaRepository<Person, Integer> {
+    //custom query methods
+}
+```
+</p>
+
+
+
+<p class="medium-bold-text">
+Create a Service Class
+</p>
+
+Defining business logic for the <b>Person.java</b> entity class, we have to create the service class. Let's say our service class resides in <b>com.company/service</b> package. Please don't forget to autowired or inject the <b>PersonRepository.java</b> interface.
+
+<p>
+<b>PersonService.java</b>
+</p>
+
+<p>
+```
+package com.company.service;
+
+import com.company.model.Person;
+import com.company.repository.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+
+
+@Service
+public class PersonService {
+
+    @Autowired //works like @Inject annotation
+    private PersonRepository personRepository;
+
+    //method to retrieve all person records
+    public List<Person> getAllPerson() {
+        return personRepository.findAll();
+    }
+}
+```
+</p>
+
+<p>
+<b>Note</b>: We have to annotate this class by <b>@Service</b> annotation.
+</p>
+
+<p class="medium-bold-text">
+Create a Controller Class
+</p>
+
+<p>
+In order to handle the mapping uri or incoming request, we have to define the controller class as well. So, create a controller class in <b>com.company/controller</b> and name it <b>PersonController.java</b>. You have to annotate this class by either <b>@Controller</b> or <b>@RestController</b> annotation. As, we try to create a simple backend rest api type application, thus use the <b>@RestController</b> annotation. 
+</p>
+
+
+<p>
+<b>PersonController.java</b>
+</p>
+
+<p>
+```
+package com.company.controller;
+
+import com.company.model.Person;
+import com.company.service.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+public class PersonController {
+
+    @Autowired
+    private PersonService personService;
+
+    //getMapping for retrieving all person records
+    @GetMapping("/api/persons")
+    public Iterable<Person> getAll(){
+        return personService.getAllPerson();
+    }
+}
+```
+</p>
+
+<p>
+Here we only defined one get-mapping method to retrieve all the person records from mySQL database, but with spring mvc, we can use other useful http verbs such as, post, put or delete mappings to create a standalone application.
+</p>
+
+
+<p class="medium-bold-text">
+Map the Database Configuration
+</p>
+
+<p>
+As we have added the mySQL driver dependency in our **pom.xml** file, thus we have to provide the database metadata in order to work with mySQL database. So, open <b>application.properties</b> file and define the h2 database configurations.
+</p>
+
+<p>
+<b>application.properties</b>
+</p>
+
+<p>
+```
+spring.application.name=spring-boot-example
+
+## For H2 database configuration
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+#enabling the H2 console
+spring.h2.console.enabled=true
+
+# in order to work with data.sql file
+spring.jpa.defer-datasource-initialization=true
+```
+</p>
+
+<p>
+<b>Note</b>: Don't forget to enable the h2 console and set database-initialize property to true.
+</p>
+
+
+<p class="medium-bold-text">
+Set Up Few Initial Data For our Person Entity
+</p>
+
+<p>
+Create Data.sql file in the in the resources folder. While your application runs, the person initial data will be extracted from here. But, it is not the only option to load initial data into the database.
+</p>
+
+<p>
+<b>data.sql</b>
+</p>
+
+<p>
+```
+-- populate the person table
+INSERT INTO person (id, first_name, last_name, age) VALUES(101, 'Shakil', 'Ahmed', 30);
+INSERT INTO person (id, first_name, last_name, age) VALUES(102, 'Powel', 'Smith', 26);
+INSERT INTO person (id, first_name, last_name, age) VALUES(103, 'Jekov', 'Jenkov', 45);
+INSERT INTO person (id, first_name, last_name, age) VALUES(104, 'Selena', 'Gomez', 35);
+INSERT INTO person (id, first_name, last_name, age) VALUES(105, 'Mark', 'Smith', 39);
+```
+</p>
+
+<p>
+<b>Note</b>: firsName is our person entity property and it should be first_name while using in database.
+</p>
+
+<p>
+Test the Project
+</p>
+
+<p>
+Let's see our initial data has been stored in our h2 in-memory database or not. First of all run the application and if everything is going well, your application runs on port 8080 in localhost.
+</p>
+
+<p>
+So, open your favourite web browser and type the following url in the search bar: <a href="http://localhost:8080/h2-console" target="_blank">http://localhost:8080/h2-console</a> it will now open a new interface or window.
+</p>
+
+<p>
+![alt text](image2.png)
+</p>
+
+<p>
+Click on Connect. And you can now see, a person table has been added in the left side in your h2 console. Click on the person table and write the sql select command to retrieve all the populated person records.
+</p>
+
+<p>
+```
+SELECT * FROM PERSON;
+```
+</p>
+
+<p>
+![alt text](image3.png)
+</p>
+
+<p class="medium-bold-text">
+Rest Api Call
+</p>
+
+<p>
+As we have defined the @GetMapping to retrieve all the person records, thus if you now open your favourite web browser and type: <a href="http://localhost:8080/api/persons" target="_blank">http://localhost:8080/api/persons</a> you will all the persons info as json format.
+</p>
+
+<p>
+![alt text](image4.png)
+</p>
+
+<p>
+![alt text](image5.png)
+</p>
+
+<p>
+Thanks for reading this article.
+</p>
+
+
+
+<!--Post ends-->
+</div>
+
+
+
+
+
+<!--Footer container-->
+
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/footer.html">
+
+</div>
+
+
+
+<script>
+includeHTML();
+</script>
+<!-- js script for opening and closing the nav-->
+
+<script>
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!--invoke highlightJs-->
+<script>hljs.highlightAll();</script> 
+
+
+</body>
+</html>
