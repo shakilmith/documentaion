@@ -4,15 +4,15 @@
 <!--meta tags for SEO-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="title" content="page title for crawlers">
-<meta name="description" content="Html Tutorial">
-<meta name="keywords" content="Html, Css, Angular">
+<meta name="title" content="Developing Your First Spring Boot Project ">
+<meta name="description" content="Spring Boot Tutorial; Learn How to Create Your First Spring Boot Application">
+<meta name="keywords" content="Spring Boot, Java, Backend, Rest API">
 <meta name="author" content="shakilmith">
 
 
 <!--meta tags for open graph protocol (og:title, og:image)-->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Html Tutorial" />
+<meta property="og:title" content="Developing Your First Spring Boot Project " />
 <!--Image description-->
 <!--
 <meta property="og:image" content="https://example.com/rock.jpg" />
@@ -40,7 +40,7 @@
 
 
 
-  <title>Demo Post for codeinjar</title>
+  <title>Create Your First Spring Boot Project | codeinjar.com</title>
 
   <style>
       *{
@@ -59,6 +59,7 @@
         font-size: 16px;
         line-height: 1.5;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: black;
       }
       
       pre code {
@@ -159,7 +160,7 @@
 <h1>Create Your First Spring Boot Application</h1>
 
 <p>
-This is my first post in this spring boot tutorial series, we are going to explore how to bootstrap a simple Spring Boot Application through spring boot starter starter service. So, we will use <a href="http://start.spring.io/" target="_blank">http://start.spring.io/</a> to bootstrap our first Spring Boot Application.
+This is my first post in this spring boot tutorial series, we are going to explore how to bootstrap a simple Spring Boot Application through spring boot starter service. So, we will use <a href="http://start.spring.io/" target="_blank">http://start.spring.io/</a> to bootstrap our first Spring Boot Application.
 </p>
 
 
@@ -174,7 +175,6 @@ Maven v3.6.3+ (it will be used as a build tool) <br/>
 An Ide: Like Intellij or VS Code. <br/>
 </p>
 
-
 <p>
 Let's start building our First Spring Boot Application.
 </p>
@@ -185,7 +185,7 @@ Bootstrap Our Application
 </p>
 
 <p>
-First of all we will use <a href="http://start.spring.io/" target="_blank">http://start.spring.io/</a> to bootstrap our spring boot maven based application. So visit here: [text](http://start.spring.io/) and follow the below instructions.
+First of all we will use <a href="http://start.spring.io/" target="_blank">http://start.spring.io/</a> to bootstrap our spring boot maven based application. So visit here: <a href="http://start.spring.io/" target="_blank">http://start.spring.io/</a> and follow the below instructions.
 </p>
 
 
@@ -235,7 +235,7 @@ Now unzip the zip file and open it in your favourite ide. In my case, I use Inte
 </p>
 
 <p>
-After opening the **spring-boot-example** application, your file structure will be
+After opening the <b>spring-boot-example</b> application, your file structure will be
 </p>
 
 <p>
@@ -243,7 +243,7 @@ After opening the **spring-boot-example** application, your file structure will 
 </p>
 
 <p>
-If you open pom.xml file (a file that is used to manage our spring boot dependencies) you will see the dependencies we have added while bootstrapping the project.
+If you open <b>pom.xml</b> file (a file that is used to manage our spring boot dependencies) you will see the dependencies we have added while bootstrapping the project.
 </p>
 
 <p>
@@ -342,14 +342,12 @@ Now open, <b>SpringBootExampleApplication.java</b> class where main class reside
 </p>
 
 <p>
-```
-LiveReload server is running on port 35729
-Tomcat started on port 8080 (http) with context path ''
-```
+<pre><code>LiveReload server is running on port 35729
+Tomcat started on port 8080 (http) with context path ''</code></pre>
 </p>
 
 <p>
-Now, if you open <a href="http://localhost:8080" target="_blank">http://localhost:8080</a> in your favourite web browser, you will see a white level error page, because we don't have any page or mapping uri to handle this (soon we will see how to handle http errors). 
+Now, if you open <a href="http://localhost:8080" target="_blank">http://localhost:8080</a> in your favourite web browser, you will see a white level error page, because we don't have any page or mapping uri to handle this error page.
 </p>
 
 <p>
@@ -387,10 +385,8 @@ Usually, Spring Boot listens port 8080 in localhost but it is possible to change
 
 
 <p>
-```
-# now application listens port 9090 in localhost
-server.port=9090
-```
+<pre><code># now application listens port 9090 in localhost
+server.port=9090</code></pre>
 </p>
 
 <p class="medium-bold-text">
@@ -420,7 +416,7 @@ public class HelloController {
 
 
 <p>
-Here we have used the <b>@RequestParam</b> annotation that is used to read the request parameter from the uri (or url) but it's main role is to binding request parameters to method parameters in controller methods. Additionally we have set the defaultValue parameter, in case there is no binding parameter in uri, then it will be added instead of name parameter value.
+Here we have used the <b>@RequestParam</b> annotation that is used to read the request parameter from the uri (or url) but it's main role is to binding request parameters to the method parameters in controller methods. Additionally we have set the defaultValue parameter, in case there is no binding parameter in uri, then it will be added instead of name parameter value.
 </p>
 
 <p>
@@ -435,7 +431,7 @@ So, if you now invoke <a href="http://localhost:8080/greeting" target="_blank">h
 
 
 <p>
-Our Hello, World spring boot application comes to it's end life. You can simply expand your java knowledge with spring boot and make sophisticated applications with confidence.
+Our Hello, World spring boot application comes to it's end of life. You can simply expand your java knowledge with spring boot and make sophisticated applications with confidence.
 </p>
 
 

@@ -66,7 +66,7 @@ public class Person {
 
 ## Create a Repository Interface
 
-In order work with relational database or handling database operations, we have to define the repository interface and implements one of the spring data jpa interfaces to work with database. Here, create an interface in com.company/repository package and name it **PersonRepository.java**
+In order work with relational database or handling database operations, we have to define the repository interface and implements one of the spring data jpa interface to work with database. Here, create an interface in **com.company/repository** package and name it **PersonRepository.java**
 
 **PersonRepository.java**
 
@@ -85,7 +85,7 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
 
 ## Create a Service Class
 
-Defining business logic for the **Person.java** entity class, we have to create the service class. Let's say our service class resides in **com.company/service** package. Please don't forget to autowired or inject the PersonRepository.java interface.
+Defining business logic for the **Person.java** entity class, we have to create the service class. Let's say our service class resides in **com.company/service** package. Please don't forget to autowired or inject the **PersonRepository.java** interface.
 
 
 **PersonService.java**
@@ -121,7 +121,7 @@ public class PersonService {
 
 ## Create a Controller Class
 
-In order to handle the mapping uri or incoming request, we have to define the controller class as well. So, create a controller class in **com.company/controller** and name it **PersonController.java**. You have to annotate this class by either **@Controller** or **@RestController** annotation. As, we try to create a simple backend rest api type application, thus use the **@RestController** annotation. 
+In order to handle mapping uri or incoming request, we have to define the controller class as well. So, create a controller class in **com.company/controller** and name it **PersonController.java**. You have to annotate this class by either **@Controller** or **@RestController** annotation. As, we try to create a simple backend rest api type application, thus use the **@RestController** annotation. 
 
 
 **PersonController.java**
@@ -148,12 +148,12 @@ public class PersonController {
 }
 ```
 
-Here we only defined one get-mapping method to retrieve all the person records from database, but with spring mvc, we can use other useful http verbs such as, post, put or delete to create a standalone application.
+Here we have only defined one get-mapping method to retrieve all the person records from database, but with spring mvc, we can use other useful http verbs such as, post, put or delete methods to create a standalone application.
 
 
 ## Map the Database Configuration
 
-As we have added the h2 in-memory database dependency in our pom.xml file, thus we have to provide the database metadata in order to work with h2 database. So, open application.properties file and define the h2 database configurations.
+As we have added the MySQL driver dependency in our **pom.xml** file, thus we have to provide the database metadata in order to work with mySQL database (like saving records, retrieving tables data etc). So, open <b>application.properties</b> (which is located in the resources folder) file and define the MySQL database configurations.
 
 **application.properties**
 
@@ -175,12 +175,15 @@ spring.jpa.defer-datasource-initialization=true
 spring.sql.init.mode=always 
 ```
 
-**Note**: Here, testdb is our database name. In it the person table will reside. Then, also add the mysql user name and password info.
+
+
+**Note**: Here, testdb is our database name of MySQL. In it the person table will reside. And you must provide the user name and password info for making the connection between application and relational database.
 
 
 ## Set Up Few Initial Data For our Person Entity
 
-Create **data.sql** file in the resources folder. While your application runs, the person initial data will be extracted from here. But, it is not the only option to load initial data into the database.
+Create **data.sql** file in the resources folder. While your application runs, the person initial data will be extracted from here. But, it is not the only option to load initial data into the database. At the same time you have to remember, it is always good for development purposes, but not in production grade application.
+
 
 **data.sql**
 
@@ -195,9 +198,11 @@ INSERT INTO person (id, first_name, last_name, age) VALUES(105, 'Mark', 'Smith',
 
 **Note**: firsName is our person entity property and it should be first_name while inserting or retrieving data from database.
 
+
+
 ## Test the Project
 
-Let's open mySQL CommandLine tool and run the following sql command to retrieve all the records from the person table.
+Let's open mySQL CommandLine tool and run the following SQL command to retrieve all the records from the person table.
 
 
 ```
@@ -222,12 +227,43 @@ mysql>
 
 ## Rest Api Call
 
-As we have defined the @GetMapping to retrieve all the person records, thus if you now open your favourite web browser and type: [text](http://localhost:8080/api/persons) you will get all the persons info as a json format.
+As we have defined the @GetMapping to retrieve all the person records in the controller class, thus if you now open your favourite web browser and type: [text](http://localhost:8080/api/persons) you will get all the persons info as a json format.
 
-![alt text](image4.png)
 
-![alt text](image5.png)
-
+```
+[
+  {
+    "id": 101,
+    "firstName": "Shakil",
+    "lastName": "Ahmed",
+    "age": 30
+  },
+  {
+    "id": 102,
+    "firstName": "Powel",
+    "lastName": "Smith",
+    "age": 26
+  },
+  {
+    "id": 103,
+    "firstName": "Jekov",
+    "lastName": "Jenkov",
+    "age": 45
+  },
+  {
+    "id": 104,
+    "firstName": "Selena",
+    "lastName": "Gomez",
+    "age": 35
+  },
+  {
+    "id": 105,
+    "firstName": "Mark",
+    "lastName": "Smith",
+    "age": 39
+  }
+]
+```
 
 Thanks for reading this article.
 

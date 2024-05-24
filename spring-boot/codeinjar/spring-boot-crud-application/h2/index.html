@@ -1,0 +1,735 @@
+<!--V2, written for codeinjar.com-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--meta tags for SEO-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="title" content="">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="shakilmith">
+
+
+<!--meta tags for open graph protocol (og:title, og:image)-->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="" />
+<!--Image description-->
+<!--
+<meta property="og:image" content="https://example.com/rock.jpg" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="300" />
+<meta property="og:image:height" content="300" />
+-->
+
+
+
+
+
+<!--Include.js file-->
+<script src="https://file-hosting.dashnexpages.net/marketingstrategy/assets/js/include.js"></script>
+
+
+
+<!--HighlightJS-->
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+  
+<!-- and it's easy to individually load additional languages -->
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+  
+
+
+
+  <title>Title for your project</title>
+
+  <style>
+    /*Rubik font*/
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+      *{
+        box-sizing: border-box;
+      }
+      html, body{
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      .post-container{
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      /*Rubik font style*/
+      .rubik-font-style{
+        font-family: "Rubik", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        line-height: 1.5;
+        font-size: 16px;
+        font-style: normal;
+      }
+      
+      pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 8px;
+        overflow: auto;
+        border-left: 5px solid red;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-top: 32px;
+        margin-bottom: 23px;
+    }
+    .left-border{
+        border-left: 3px solid red;
+      }  
+    
+      .highlight-text{
+        background-color: papayawhip;
+        color: black;
+        display: inline;
+        }
+        
+      .highlight-section{
+        box-sizing: border-box;
+        background-color: papayawhip;
+        border-left: 5px solid red;
+        color: black;
+        padding: 3px 8px 3px 8px;
+      }
+  
+    .large-bold-text{
+      font-size: 36px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .medium-bold-text{
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .small-bold-text{
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  
+  /** Image style in tutorial pages
+  * In desktop version, image will be centered
+  * Mobile or tablet version, it will be full width
+  */
+  
+    /* for mobile */
+    .post-image-style{
+      width: 100%; 
+      height: auto;
+      display: block;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);;
+    }
+    
+    /* for desktop */
+    @media screen and (min-width: 580px){
+      .post-image-style{
+          max-width: 50%;
+          height: auto;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 50px;
+          margin-bottom: 50px;
+          border-radius: 10px;
+      }
+    }
+
+  </style>
+  
+</head>
+<body>
+
+<!-- Top nav -->
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/header.html"></div>
+  
+
+
+
+<!--Post starts-->  
+<div class="post-container rubik-font-style">
+
+
+<h1>Spring Boot Crud Application with H2 Database</h1>
+
+<p>
+In this sample post, we are going to explore how to create a simple crud application using Spring Boot, Spring Data JPA and H2 in-memory database.
+</p>
+
+
+<p>
+Basically, CRUD means Create, read, update and delete operations that helps to create and organize a dynamic application.
+</p>
+
+<div>
+<p>
+<b>Initial Requirements</b>:
+</p>
+<p>
+<b>JavaSE</b>: 17+ (Or latest LTS version)<br/>
+<b>Maven</b>: v3.6.3 or better <br/>
+<b>An IDE</b>: IntelliJ, VS Code or Eclipse<br/>
+</p>
+
+<p>
+<b>Note</b>: The above tools must be installed in your system.
+</p>
+</div>
+
+
+<p>
+Before dive into the actual project, we have to know, creating a simple spring boot crud application is a multi step process. Such as, We have to
+</p>
+
+
+<div>
+<p>
+1. Define an Entity model<br/>
+2. Create a Repository interface<br/>
+3. Create a Service class<br/>
+4. Create a controller class<br/>
+5. Create an error handling class<br/>
+6. Provide the database configuration in application.properties file etc.
+</p>
+</div>
+
+<p>
+So, let's get into the project.
+</p>
+
+
+<p class="medium-bold-text">
+Bootstrap Spring Boot Application with Required Dependencies
+</p>
+
+<p>
+We will use spring initializer to bootstrap our spring boot project. So, visit in [https://start.spring.io/](https://start.spring.io/) and provide the project information such as spring boot version, build tool (maven), project name, groupId, artifactId etc. and add the required dependencies such as spring web, spring data jpa and h2 database driver for this project.
+</p>
+
+<p>
+![alt text](image1.png)
+</p>
+
+<p>
+After providing the necessary info and adding the required dependencies, click on the generate button. It will then generate a zip file for you and the file name is spring-boo-example. Unzip it and then open it in your favourite ide.
+</p>
+
+
+<p class="medium-bold-text">
+Open Your Project in Your Favourite IDE
+</p>
+
+<p>
+After generating the project through spring initializer, now it's time to open your project into your favourite IDE. Let's see how to open your project in your favourite IDE.
+</p>
+
+<div>
+<p>
+<b>Eclipse</b>: File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (you have just downloaded)> Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
+</p>
+
+<p>
+**Intellij Ide**: File > Open > Browse the existing spring boot project > Click Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies.
+</p>
+
+<p>
+<b>VS Code</b>: File > Open Folder > Browse the existing spring boot project > Select Folder.
+</p>
+
+<p>
+<b>NetBeans</b>: File > Open Project > Browse the existing spring boot project (maven project) > Open project.
+</p>
+</div>
+
+
+<p class="medium-bold-text">
+Create An Entity
+</p>
+
+<p>
+In your Spring Boot project, now create a <b>Customer.java</b> entity class in <b>com.company/model</b> package. 
+</p>
+
+
+<p>
+<b>Customer.java</b>
+</p>
+
+<p>
+```
+package com.company.model;
+
+import jakarta.persistence.*;
+
+@Entity(name = "Customer")
+@Table(name = "customer")
+public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "customer_id", nullable = false)
+    private Integer id;
+
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
+    @Column(name = "email", nullable = false)
+    private String email;
+    @Column(name = "phone_number", length = 15)
+    private int phone;
+    @Column(name = "address")
+    private String address;
+
+    //constructors, getter and setter methods
+}
+```
+</p>
+
+<p>
+<b>Note</b> An entity class is nothing but a database table and all the properties of it are database column name. Every entity or model class must be annotated by <b>@Entity</b> annotation and at least one property must be annotated by <b>@Id</b> annotation that defines the primary key of this table in the database. Later it is possible to customize the entity class based on additional requirements.
+</p>
+
+
+<p class="medium-bold-text">
+Create A Repository Interface
+</p>
+
+<p>
+Now create a repository interface to handle the database operations in <b>com.company/repository</b> package.
+</p>
+
+
+<p>
+<b>CustomerRepository.java</b>
+</p>
+
+<p>
+```
+package com.company.repository;
+
+import com.company.model.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CustomerRepository extends JpaRepository<Customer, InternalError> {
+
+    //custom query methods
+}
+```
+</p>
+
+
+<p>
+<b>Note</b> The repository interface will handle the database operations such as, saving, retrieving entity or updating entity objects. But we have to extends one of the spring data jpa repository interface like <b>CrudRepository</b> or <b>ListCrudRepository</b> that provides pre built methods to handle crud operations easily. Here I have used  <b>JpaRepository</b> that also inherits CrudRepository and ListCrudRepository as well.
+</p>
+
+<p class="medium-bold-text">
+Create A Service Class
+</p>
+
+<p>
+Now create a <p>CustomerService.java</p> service class in <p>com.company/service</p> package. We also have to annotate this class by <b>@Service</b> annotation
+</p>
+
+
+<p>
+**CustomerController.java**
+</p>
+
+<p>
+```
+package com.company.service;
+
+import com.company.model.Customer;
+import com.company.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CustomerService {
+
+    @Autowired
+    private CustomerRepository customerRepository;
+
+
+    //method for getting all the customers
+    public List<Customer> getAllCustomers(){
+        return customerRepository.findAll();
+    }
+
+    //method for getting customer by id
+    public Customer getCustomerById(int id){
+        return customerRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Entity not found with id "+id));
+    }
+
+    //method for creating new customer records
+    public Customer createCustomer(Customer customer){
+        return customerRepository.save(customer);
+    }
+
+    //method for updating customer (other approaches available too)
+    public Customer updateCustomer(int id, Customer customer){
+
+        Customer entity = customerRepository.findById(id)
+                        .orElseThrow(()-> new RuntimeException("Entity not found with id "+id));
+
+        entity.setFirstName(customer.getFirstName());
+        entity.setLastName(customer.getLastName());
+        entity.setEmail(customer.getEmail());
+        entity.setPhone(customer.getPhone());
+        entity.setAddress(customer.getAddress());
+
+        return entity;
+    }
+
+    //method for deleting entity based on id
+    public void deleteCustomer(int id){
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Entity not found with id "+id));
+
+        //delete the customer if exists
+        customerRepository.delete(customer);
+         
+        /*
+         * Or write like this for simplicity: without using orElseThrow
+         * customerRepository.deleteById(id);
+         */
+    }
+}
+```
+</p>
+
+<p>
+**Note**: The role of the service class is to define the logical information of the model or entity class. But don't forget to autowired or inject the **CustomerRepository** interface. Additionally, it is required to annotate the service class by **@Service** annotation.
+</p>
+
+
+<p class="medium-bold-text">
+Create A Controller Class
+</p>
+
+<p>
+Now create a <p>CustomerController.java</p> class in <p>com.company/controller</p> package. And don't forget to annotate this class by **@RestController** annotation.
+</p>
+
+
+<p>
+<p>CustomerController.java</p>
+</p>
+
+<p>
+```
+package com.company.controller;
+
+import com.company.model.Customer;
+import com.company.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class CustomerController {
+
+    @Autowired
+    private CustomerService customerService;
+
+
+    //mapping for retrieving all customers
+    @GetMapping("/api/customers")
+    public List<Customer> getAllCustomers(){
+        return customerService.getAllCustomers();
+    }
+
+    //mapping for retrieving each customer record by id
+    @GetMapping("/api/customers/{id}")
+    public Customer getCustomerById(@PathVariable("id") int id){
+        return customerService.getCustomerById(id);
+    }
+
+    //mapping for saving new customer records
+    @PostMapping("/api/customers")
+    public Customer saveCustomer(@RequestBody Customer customer){
+        return customerService.createCustomer(customer);
+    }
+
+    //mapping for updating existing customer record
+    @PutMapping("/api/customers/{id}")
+    public Customer updateCustomer(@PathVariable("id") int id, @RequestBody Customer customer){
+        return customerService.updateCustomer(id, customer);
+    }
+
+    //method for deleting existing customer based on id
+    @DeleteMapping("/api/customers/{id}")
+    public void deleteCustomer(@PathVariable("id") int id){
+        customerService.deleteCustomer(id);
+    }
+}
+```
+</p>
+
+
+<p class="medium-bold-text">
+Map the Database Configurations
+</p>
+
+<p>
+Open <b>application.properties</b> file and configure the h2 in-memory database information so that entity records  will be saved in the correct endpoint.
+</p>
+
+
+<p>
+```
+spring.application.name=spring-boot-example
+
+## For H2 database configuration
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+## use either create, create-drop, update, none, validate
+spring.jpa.hibernate.ddl-auto=update
+## enabling the H2 console
+spring.h2.console.enabled=true
+```
+</p>
+
+<p>
+<b>Note</b>: Don't forget enable the h2 console.
+</p>
+
+<p class="medium-bold-text">
+Test The Application
+</p>
+
+<p>
+Now run your application from your ide - there is a run button, top upper right corner in IntelliJ IDE or use shortcut like (shift + F10) to run your spring boot application. Additionally you can run your spring boot application by commandLine tool. Just open your application in any terminal (integrated terminal or windows command prompt) and run the following command:
+</p>
+
+<p>
+```
+$ mvn spring-boot:run
+```
+</p>
+
+
+<p>
+If your application runs successfully, it listens port 8080 in localhost by default. So, open your favourite web browser and invoke the uri [http://localhost:8080/api/customers](http://localhost:8080/api/customers) and you will see an empty array. Because we don't save any initial customer entity records. 
+</p>
+
+<p>
+For saving few demo customer entity records, we can use postman, apiDog or cURL like rest api management software to save new entity records into the database.
+</p>
+
+
+<p>
+In my case, I am using apiDog. So either open apiDog, postman or use cURL to save few customer records into the h2 in-memory database. I mean make some POST request to the our api endpoint.
+</p>
+
+
+<p>
+So, now make some POST requests into this endpoint [http://localhost:8080/api/customers](http://localhost:8080/api/customers) using either cURL, postman or apiDog.
+</p>
+
+<p>
+```
+{
+    "firstName": "Powel",
+    "lastName": "Smith",
+    "email": "powel99@gmail.com",
+    "phone": 48870901,
+    "address": "Kuivakuja 99, Lavia"
+}
+
+//like the above, add few more customers (one after another)
+
+{
+    "firstName": "Kevin",
+    "lastName": "Rayan",
+    "email": "kevin77@gmail.com",
+    "phone": 45886879,
+    "address": "Inkereentie 41, Rauma"
+}
+{
+    "firstName": "David",
+    "lastName": "Morison",
+    "email": "david001@gmail.com",
+    "phone": 47588709,
+    "address": "Kuivakuja 43, Rovaniemi"
+}
+{
+    "firstName": "Shakil",
+    "lastName": "Ahmed",
+    "email": "itsshakilmith@gmail.com",
+    "phone": 45887097,
+    "address": "Calea Victoriei 118, Romani"
+}
+{
+    "firstName": "Jerry",
+    "lastName": "Reed",
+    "email": "jerry55@gmail.com",
+    "phone": 47887093,
+    "address": "IImalakuja 27, Pori, Finland"
+}
+```
+</p>
+
+<p>
+After saving the above demo customer data using your favourite rest api management tool, now if you visit again [http://localhost:8080/api/customers](http://localhost:8080/api/customers) this endpoint in your browser, you will see list of customer records there in json format.
+</p>
+
+<p>
+![alt text](image2.png)
+</p>
+
+<p>
+<b>Note</b>: Click on pretty-print checkbox and see the formatted json data.
+</p>
+
+
+<p>
+As we have used h2 in-memory database, now you can also check out customer data has been saved in h2 in-memory database or not. So, visit [http://localhost:8080/h2-console](http://localhost:8080/h2-console) > click connect > click customer > click run button (or run this command: SELECT * FROM CUSTOMER) 
+</p>
+
+
+<p>
+![alt text](image3.png)
+</p>
+
+
+<p class="medium-bold-text">
+Get Single Entity Record
+</p>
+
+<p>
+We can now retrieve entity records by it's id or primary key as we have defined **getCustomerById** mapping method in the controller class. So, if you now invoke the uri [http://localhost:8080/api/customers/1](http://localhost:8080/api/customers/1) you will see the json data of first customer. Similarly, this uri [http://localhost:8080/api/customers/5](http://localhost:8080/api/customers/5) will retrieve the api of customer which id is 5.
+</p>
+
+<p>
+![alt text](image4.png)
+</p>
+
+
+<p class="medium-bold-text">
+Update and Delete Entity Records
+</p>
+
+<p>
+Open postman or apiDog and create a PUT request on this uri - [http://localhost:8080/api/customers/1](http://localhost:8080/api/customers/1) with the updated data. Then you can see, the entity records which id is 1 has been updated.
+</p>
+
+
+<p>
+<b>Before Updating</b>:
+</p>
+<p>
+```
+{
+    "firstName": "Powel",
+    "lastName": "Smith",
+    "email": "powel99@gmail.com",
+    "phone": 48870901,
+    "address": "Kuivakuja 99, Lavia"
+}
+```
+</p>
+
+<p>
+<b>After Updating</b>:
+</p>
+
+<p>
+![alt text](image5.png)
+</p>
+
+
+<p>
+Similarly, if you make DELETE request on any mapping uri like [http://localhost:8080/api/customers/1](http://localhost:8080/api/customers/1), then this entity record will be deleted as well.
+</p>
+
+<p>
+![alt text](image6.png)
+</p>
+
+
+<p>
+As we have deleted the entity which id is 1, thus you can see the error message "Entity not found with id 1" in this uri.
+</p>
+
+<p>
+So, through this simple tutorial, we have learned how to create a simple CRUD application using spring boot. Hope, this tutorial was very helpful for you.
+</p>
+
+<p>
+Talk soon, <br/>
+Shakil Ahmed.
+</p>
+
+
+
+
+
+<!--Post ends-->
+</div>
+
+
+
+
+
+<!--Footer container-->
+
+<div include-html="https://file-hosting.dashnexpages.net/marketingstrategy/assets/html/footer.html">
+
+</div>
+
+
+
+<script>
+includeHTML();
+</script>
+<!-- js script for opening and closing the nav-->
+
+<script>
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!--invoke highlightJs-->
+<script>hljs.highlightAll();</script> 
+
+
+</body>
+</html>

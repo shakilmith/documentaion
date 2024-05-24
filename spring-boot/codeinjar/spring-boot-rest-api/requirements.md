@@ -4,9 +4,9 @@
 
 **Intellij Ide**: File > Open > Browse the existing spring boot project > Click Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies.
 
-VS Code: File > Open Folder > Browse the existing spring boot project > Select Folder.
+**VS Code**: File > Open Folder > Browse the existing spring boot project > Select Folder.
 
-NetBeans: File > Open Project > Browse the existing spring boot project (maven project) > Open project.
+**NetBeans**: File > Open Project > Browse the existing spring boot project (maven project) > Open project.
 
 
 **Initial requirement for spring boot project**
