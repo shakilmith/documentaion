@@ -28,9 +28,9 @@ Now in this page, Select
 
 3. Import the unzip spring-boot-example project into your favourite Ide.
 
-Eclipse: Open your Eclipse (STS) ide. File > Import > Maven > Existing Maven projects > Next > Browse your sping boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
+Eclipse: Open your Eclipse (STS) ide. File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
 
-Intellij Ide: Open your Inellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
+Intellij Ide: Open your Intellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
 
 4. After importing the project successfully, you will see the file structure like below
 
