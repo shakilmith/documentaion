@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--if hashes or elements of objects-->
+    <ul th:each="product : ${products}">
+        <li th:text="${product.attribute_name}">attribute_value</li>
+        <li th:text="${product.attribute_name}">attribute_value</li>
+        <li th:text="${product.attribute_name}">attribute_value</li>
+    </ul>
+
+    <!--if arrays-->
+    <ul th:each="product : ${products}">
+        <li th:text="product"></li>
+    </ul>
+</body>
+</html>

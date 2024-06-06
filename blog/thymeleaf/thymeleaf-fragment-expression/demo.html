@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thymeleaf Fragment Expression</title>
+</head>
+<body>
+    <div th:fragment="name_of_the_fragment">
+        //reusable contents...
+    </div>
+
+    <div th:replace="~{file_name :: name-of-the-fragment}">fragment-content-will-be-placed here..</div>
+</body>
+</html>
