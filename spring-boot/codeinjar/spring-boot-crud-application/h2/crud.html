@@ -14,7 +14,7 @@
 
 <!--meta tags for open graph protocol (og:title, og:image)-->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Spring Boot Crud Application Development Tutorial" />
+<meta property="og:title" content="Develop Your First Spring Boot Crud Application" />
 <!--Image description-->
 <!--
 <meta property="og:image" content="https://example.com/rock.jpg" />
@@ -42,7 +42,7 @@
 
 
 
-  <title>Spring Boot Crud Application with H2 Database</title>
+  <title>Spring Boot Crud Application | codeinjar.com</title>
 
   <style>
     /*Rubik font*/
@@ -210,7 +210,7 @@ Before dive into the actual project, we have to know, creating a simple spring b
 3. Create a Service class<br/>
 4. Create a controller class<br/>
 5. Create an error handling class<br/>
-6. Provide the database configuration in <b>application.properties</b> file etc.
+6. Provide the database configuration in application.properties file etc.
 </p>
 </div>
 
@@ -346,12 +346,12 @@ Create A Service Class
 </p>
 
 <p>
-Now create a <b>CustomerService.java</b> service class in <b>com.company/service</b> package. We also have to annotate this class by <b>@Service</b> annotation
+Now create a <p>CustomerService.java</p> service class in <p>com.company/service</p> package. We also have to annotate this class by <b>@Service</b> annotation
 </p>
 
 
 <p>
-<b>CustomerService.java</b>
+<b>CustomerController.java</b>
 </p>
 
 <p>
@@ -419,7 +419,7 @@ public class CustomerService {
 </p>
 
 <p>
-<b>Note</b>: The role of the service class is to define the logical information of the model or entity class. But don't forget to autowired or inject the <b>CustomerRepository</b> interface. Additionally, it is required to annotate the service class by <b>@Service</b> annotation.
+<b>Note</b>: The role of the service class is to define the logical information of the model or entity class. But don't forget to autowired or inject the <b>CustomerRepository</b> interface. Additionally, it is required to annotate the service class by **@Service** annotation.
 </p>
 
 
@@ -433,7 +433,7 @@ Now create a <b>CustomerController.java</b> class in <b>com.company/controller</
 
 
 <p>
-<b>CustomerController.java</b>
+<p>CustomerController.java</p>
 </p>
 
 <p>
@@ -477,7 +477,7 @@ public class CustomerController {
         return customerService.updateCustomer(id, customer);
     }
 
-    //mapping for deleting existing customer based on id
+    //method for deleting existing customer based on id
     @DeleteMapping(&quot;/api/customers/{id}&quot;)
     public void deleteCustomer(@PathVariable(&quot;id&quot;) int id){
         customerService.deleteCustomer(id);
@@ -485,11 +485,6 @@ public class CustomerController {
 }
 </code></pre>
 </p>
-
-<p>
-<b>Note</b>: Here, the role of the controller class is to handle http requests that comes from the clients like web browsers and after processing them, return appropriate response to the clients. We have used here <b>@RestController</b> annotation that is combined with <b>@Controller</b> and <b>@ResponseBody</b> that means all the methods in this controller class will return data directly (specially in json format) instead of views (if you use <b>@Controller</b> annotation then methods in it will return views - like html data)
-</p>
-
 
 
 <p class="medium-bold-text">
@@ -529,7 +524,9 @@ Now run your application from your ide - there is a run button, top upper right 
 </p>
 
 <p>
-<pre><code>$ mvn spring-boot:run</code></pre>
+```
+$ mvn spring-boot:run
+```
 </p>
 
 
@@ -543,7 +540,7 @@ For saving few demo customer entity records, we can use postman, apiDog or cURL 
 
 
 <p>
-In my case, I am using apiDog. So either open apiDog, postman or use cURL to save few customer records into the h2 in-memory database. I mean make some POST request to the api endpoint.
+In my case, I am using apiDog. So either open apiDog, postman or use cURL to save few customer records into the h2 in-memory database. I mean make some POST request to the our api endpoint.
 </p>
 
 
@@ -608,7 +605,7 @@ After saving the above demo customer data using your favourite rest api manageme
 
 
 <p>
-As we have used h2 in-memory database, now you can also check out customer data has been saved in h2 in-memory database or not. So, visit: <a href="http://localhost:8080/h2-console)" target="_blank">http://localhost:8080/h2-console</a> > click connect > click customer > click run button (or run this command: SELECT * FROM CUSTOMER) 
+As we have used h2 in-memory database, now you can also check out customer data has been saved in h2 in-memory database or not. So, visit [http://localhost:8080/h2-console](http://localhost:8080/h2-console) > click connect > click customer > click run button (or run this command: SELECT * FROM CUSTOMER) 
 </p>
 
 
@@ -675,7 +672,7 @@ As we have deleted the entity which id is 1, thus you can see the error message 
 </p>
 
 <p>
-So, through this simple tutorial, we have learned how to create a simple CRUD application using spring boot and H2 in-memory database. Hope, this tutorial was very helpful for you.
+So, through this simple tutorial, we have learned how to create a simple CRUD application using spring boot. Hope, this tutorial was very helpful for you.
 </p>
 
 <p>

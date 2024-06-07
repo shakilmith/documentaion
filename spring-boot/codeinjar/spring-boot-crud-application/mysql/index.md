@@ -11,8 +11,10 @@ Basically, CRUD means Create, read, update and delete operations that helps to c
 JavaSE: 17+ (Or latest LTS version)<br/>
 Maven: v3.6.3 or better <br/>
 An IDE: IntelliJ, VS Code or Eclipse<br/>
+MySQL Database
 
 **Note**: The above tools must be installed in your system.
+
 
 Before dive into the actual project, we have to know, creating a simple spring boot crud application is a multi step process. Such as, We have to
 
@@ -22,14 +24,15 @@ Before dive into the actual project, we have to know, creating a simple spring b
 3. Create a Service class
 4. Create a controller class
 5. Create an error handling class
-6. Provide the database configuration in application.properties file etc.
+6. Provide the database configuration in **application.properties** file etc.
 
 
 So, let's get into the project.
 
+
 ## Bootstrap Spring Boot Application with Required Dependencies
 
-We will use spring initializer to bootstrap our spring boot project. So, visit in [text](https://start.spring.io/) and provide the project information such as spring boot version, build tool (maven), project name, groupId, artifactId etc. and add the required dependencies such as spring web, spring data jpa and mysql database driver for this project.
+We will use spring initializer to bootstrap our spring boot project. So, visit in [https://start.spring.io/](https://start.spring.io/) and provide the project information such as spring boot version, build tool (maven), project name, groupId, artifactId etc. and add the required dependencies such as spring web, spring data jpa and mysql database driver for this project.
 
 ![alt text](image1.png)
 
@@ -51,7 +54,8 @@ After generating the project through spring initializer, now it's time to open y
 
 ## Create An Entity
 
-In your Spring Boot project, now create a **Customer.java** entity class in com.company/model package. Probably you have to create package called model in com.company folder.
+In your Spring Boot project, now create a **Customer.java** entity class in **com.company/model** package. Probably you have to create package called model in **com.company** folder.
+
 
 **Customer.java**
 
@@ -109,7 +113,7 @@ public interface CustomerRepository extends JpaRepository<Customer, InternalErro
 }
 ```
 
-**Note**: The repository interface will handle the database operations such as, saving, retrieving entity or updating entity objects. But we have to extends one of the spring data jpa repository interface like CrudRepository or ListCrudRepository that provides pre built methods to handle crud operations easily. Here I have used JpaRepository that also inherits CrudRepository and ListCrudRepository.
+**Note**: The repository interface will handle the database operations such as, saving, retrieving entity or updating entity objects. But we have to extend one of the spring data jpa repository interface like **CrudRepository** or **ListCrudRepository** that provides pre built methods to handle crud operations easily. Here I have used JpaRepository that also inherits CrudRepository and ListCrudRepository.
 
 
 
@@ -187,7 +191,9 @@ public class CustomerService {
 
 ## Create A Controller Class
 
-Now create a **CustomerController.java** class in **com.company/controller** package. And don't forget to annotate this class by **@RestController** annotation. The role of the controller class is to handle the mapping uri or incoming requests.
+Now create a **CustomerController.java** class in **com.company/controller** package. And don't forget to annotate this class by **@RestController** annotation. The role of the controller class is to handle the mapping uri or incoming requests and after processing them return appropriate response.
+
+
 
 **CustomerController.java**
 
@@ -240,7 +246,7 @@ public class CustomerController {
 }
 ```
 
-**Note**: Please, don't forget to annotate this class by **@RestController** annotation that is used to create rest api in spring boot as well as you have to autowired the **CustomerService** interface too.
+**Note**: Please, don't forget to annotate this class by **@RestController** annotation that is used to create rest api in spring boot as well as you have to autowired the **CustomerService** class here too.
 
 
 
@@ -278,9 +284,9 @@ $ mvn spring-boot:run
 
 If your application runs successfully, it listens port 8080 in localhost by default. So, open your favourite web browser and invoke the uri [text](http://localhost:8080/api/customers) and you will see an empty array. Because we don't save any initial customer entity records. 
 
-Now we can use postman, apiDog or cURL like software or rest api management tool to make crud requests to our customer endpoints. 
+Now we can use postman, apiDog or cURL like software or rest api management tool to make POST requests to the customer endpoints. 
 
-In my case, I am using apiDog. So either open apiDog, postman or use cURL to save few customer records into the h2 in-memory database.
+In my case, I am using apiDog. So either open apiDog, postman or use cURL to save few customer records into the MySQL database.
 
 So, now make some post requests into this endpoint [text](http://localhost:8080/api/customers) using either cURL, postman or apiDog.
 
@@ -333,11 +339,13 @@ After saving the above demo customer data using your favourite rest api manageme
 
 ![alt text](/h2/image2.png)
 
-Note: Click on pretty-print checkbox and see the formatted json data.
+**Note**: Click on pretty-print checkbox and see the formatted json data.
 
-As we have used h2 in-memory database, now you can also check out customer data has been saved in h2 in-memory database or not. So, visit [text](http://localhost:8080/h2-console) > click connect > click customer > click run button (or run this command: SELECT * FROM CUSTOMER) 
+You can also see the customer table in your mysql database.  
 
 ![alt text](/h2/image3.png)
+
+
 
 ## Get Entity Record By It's ID
 

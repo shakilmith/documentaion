@@ -4,39 +4,43 @@ In this simple example application, we will describe how to use One-To-One (@One
 
 If you don't have any Spring Boot application bootstrapped yet, let's create one.
 
-Let's follow the belew steps to bootstrap a simple Spring Boot application.
+Let's follow the below steps to bootstrap a simple Spring Boot application using spring initializer.
 
 1. Open [https://start.spring.io/](https://start.spring.io/) and provide necessary information to create spring boot project. The project will be a .zip file and we have to unzip it in a directory to work with it.
 
-Now in this page, Select 
+***Now in this page, Select***
     - Maven as a build tool (you can select gradle as well)
     - Java as a language
     - Spring Boot version 3.0.12 (or the latest version)
-    - In the Project Metadata section, provide your application group, artifact, package name etc. Note: The group and package name will be same. Also the artifact and name of your project will be same as well (Not mendatory). 
+    - In the Project Metadata section, provide your application group, artifact, package name etc. Note: The group and package name will be same. Also the artifact and name of your project will be same as well (Not mandatory). 
     - Then, select jar for packaging (for simplicity) and select the java language version. The java language version I use is 17 (LTS). You can choose 8, 11 or the latest LTS version.
     - The last step is to adding dependencies. Add the following starter dependencies:
         - Spring Web (MVC)
         - Spring Data JPA
-        - H2/MySQL driver dependency (H2 for emebedded database); Select H2 for simplicity 
+        - H2/MySQL driver dependency (H2 for embedded database); Select H2 for simplicity 
 
-//image: start.spring.io
-<img 
-src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-43.png" 
-alt="Spring Boot Project Structure"
-width="50%"
-height="auto"
-/>
+
+
+![img10](img10.png)
+
+
 
 2. After generating the .zip file now unzip it to any directory. 
 
 3. Import the unzip spring-boot-example project into your favourite Ide.
 
-Eclipse: Open your Eclipse (STS) Ide. File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (Reside our example spring boot project) > Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
+**Eclipse:** File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (you have just downloaded)> Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
 
-Intellij Ide: Open your Inellij Ide, then File > Open > Browse the existing spring boot project > Clikc Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies. 
+**Intellij Ide:** File > Open > Browse the existing spring boot project > Click Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies.
+
+**VS Code:** File > Open Folder > Browse the existing spring boot project > Select Folder.
+
+**NetBeans:** File > Open Project > Browse the existing spring boot project (maven project) > Open project. 
+
 
 4. The project file structure will be like this.
-//image: Spring Boot project structure
+
+![spring-project-structure](img7.png)
 
 <img 
 src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-1.png" 
@@ -45,10 +49,12 @@ width="50%"
 height="auto"
 />
 
-5. Now, Create a model package in com.company folder. Inside the model package, create an entity class called Person and Relationship entity class called Car. Both are annotated by @Entity annotation.
+5. Now, Create a model package in **com.company** folder. Inside the model package, create an entity class called **Person** and Relationship entity class called **Car**. Both are annotated by **@Entity** annotation.
 
 
-```js
+**Person.java**
+
+```
 package com.company.model;
 
 import jakarta.persistence.*;
@@ -106,17 +112,16 @@ public class Person {
                 '}';
     }
 }
-
-
 ```
 
-About the code above: We have annotated the class above by @Entity annotation to make it persistent class. By default it is the table name in your database. The Person class contains id, name as attributes. It also contains, associated class with @OneToOne annotaton. There is also @JoinColumn annotaion is used to make the person class is the relationship owner. It means, foreign key will be found in the Person table not the Car table. Note, if you don't use the @JoinColumn(name = "car_id") then the foreign key table column name would be (person_car). 
+About the code above: We have annotated the class above by **@Entity** annotation to make it persistent class. By default it is the table name in your database. The Person class contains id, name as attributes. It also contains, associated class with @OneToOne annotation. There is also @JoinColumn annotation is used to make the person class is the relationship owner. It means, foreign key will be found in the Person table not the Car table. Note that if you don't use the **@JoinColumn(name = "car_id")** then the foreign key table column name would be **(person_car)**. 
+ 
 
-Note: 
+The associated Car class is:
 
-The associated Car class: 
+**Car.java**
 
-```js
+```
 package com.company.model;
 
 import jakarta.persistence.Entity;
@@ -174,14 +179,14 @@ public class Car{
                 '}';
     }
 }
-
 ```
 
-6. Now create PersonRepository.java interface class in com.company.repository pacakge. (You may have to create the repository package first of all). Here, we extends JpaRepostory. You may aslo extends CrudRepostory as well. Then, provide the domain an it's type.
+6. Now create PersonRepository.java interface class in com.company.repository package. (You may have to create the repository package first of all). Here, we extends JpaRepository. You may also extends CrudRepository as well. Then, provide the domain an it's type.
 
-**PersonRepostory.java class**:
 
-```js
+**PersonRepository.java**:
+
+```
 package com.company.repository;
 
 import com.company.model.Person;
@@ -195,14 +200,18 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
 
     List<Person> findByName(String name);
 }
-
 ```
 
-Note: Skip findByName(String name) query method for the time being. It is a custom query method to find the entity records by name.
 
-6. Create a **PersonController.java** class in com.company.controller pacakage. 
+**Note:** Skip **findByName(String name)** query method for the time being. It is a custom query method to find the entity records by name.
 
-**PersonController.java class**
+
+
+6. Create a **PersonController.java** class in com.company.controller package. 
+
+
+
+**PersonController.java**
 
 ```js
 package com.company.controller;
@@ -258,7 +267,9 @@ public class EmployeeController {
 
 ```
 
-The most common rest annotaions (htttp verbs) have been used here like **@GetMapping**, **@PostMapping**, **@DeleteMapping** etc. We focus on **@GetMapping** and **@PostMappig** only.
+
+The most common rest annotations (http verbs) have been used here like **@GetMapping**, **@PostMapping**, **@DeleteMapping** etc. We focus on **@GetMapping** and **@PostMapping** only.
+
 
 **@GetMapping("/persons"):** Get all the person records
 
@@ -268,14 +279,15 @@ The most common rest annotaions (htttp verbs) have been used here like **@GetMap
 
 **@DeleteMapping("/persons/{id}):** Delete a single person by id
 
-Additonally, we have annotated the PersonController class by @RestController annotation to make it behave like web application and get accessable of all the rest endpoints.
+Additionally, we have annotated the PersonController class by **@RestController** annotation to make it behave like web application and get accessible of all the rest endpoints.
+
 
 7. Now, open the main class file and run the example application or type ***Shift+F10***.
 
-Note: The application listens port 8080 in localhost.
+If you run the application, by default your application listens port 8080 in localhost. 
 
 
-8. Add database configuration in application.properties file. It is located in resources folder. 
+8. Add database configurations in **application.properties** file. It is located in resources folder. 
 
 ```js
 spring.datasource.url=jdbc:h2:mem:testdb
@@ -286,20 +298,24 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 #enabling the H2 console
 spring.h2.console.enabled=true
 ```
+
 ***spring.h2.console.enabled=true*** #enable h2 embedded database to access from your web browser.
 
-9. After run the application successfully, Open Postman or use Curl to post some fake data.
 
-If Postman: 
+9. After running the application successfully, Open Postman or use Curl to post some demo data.
 
-In this step we will use Postman, a popular rest client to work with rest APIs. If in your system postman is already installed do the follwoing 
+
+**If Postman:** 
+
+In this step we will use Postman, a popular rest client or rest api management software. If postMan is already installed in your system -
     - Open it (if Postman is already installed)
     - Invoke the url: http://localhost:8080/persons
     - Select Body and row then JSON as content-type
     - Insert the below demo data (one by one)
     - At last, click on send button 
 
-```js
+
+```
 {
     "name": "Bob Smith",
     "car": {
@@ -309,7 +325,7 @@ In this step we will use Postman, a popular rest client to work with rest APIs. 
 }
 ```
 
-Add two more person records. (Clik on Send button for each person reocrd)
+Add two more person records. (Click on Send button for each person record)
 
 ```js
 {
@@ -337,37 +353,25 @@ Add two more person records. (Clik on Send button for each person reocrd)
 
 11. Now invoke the url: [http://localhost:8080/h2-console](http://localhost:8080/h2-console) from your web browser. Then, You will come to a new window. Click connect. 
 
-//image: h2 console window
-<img 
-src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-11.png" 
-alt="Spring Boot Project Structure"
-width="50%"
-height="auto"
-/>
 
-In the H2 workbence you see, there will be 2 tables - Person and Car. Clik on person or type this sql command: **SELECT * FROM PERSON** -> Clik Run. The response will be tabular data. 
+![h2-console](img9.png)
 
-<img 
-src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-30.png" 
-alt="Spring Boot Project Structure"
-width="50%"
-height="auto"
-/>
 
-Again click on Car table or type this sql command in the commnad section: **SELECT * FROM CAR;** 
+In H2 workbench you see, there will be 2 tables - Person and Car. Click on person or type this sql command: **SELECT * FROM PERSON** -> Click Run. The response will be tabular data. 
 
-The resoponse table would be: 
 
-<img 
-src="https://trash.codeinjar.com/static/backend/spring-boot/images/img-31.png" 
-alt="Spring Boot Project Structure"
-width="50%"
-height="auto"
-/>
+![img1](img1.png)
 
-Here, the Person table has id, name column inclduing a foreign key - car_id - that is the primary key or id of the Car table. (Remember we have used @JoinColumn(name="car_id") ) in the Person entity class. What if we didn't use the external @JoinColumn annotaion? Yet, there will be a forein key column in the person table but then, the column name will be: person_car (both table/class name with dash)
+
+Again click on Car table or type this sql command in the command section: **SELECT * FROM CAR;** 
+
+It will now show the following table with car info only.
+
+![img4](img2.png)
+
+
+Here, the Person table has id, name columns including a foreign key - car_id - that is the primary key or id of the Car table. (Remember we have used **@JoinColumn(name="car_id")**) in the Person entity class. What if we didn't use the external **@JoinColumn annotation?** Yet, there will be a foreign key column in the person table but then, the column name will be: **person_car** (entity names separated by underscore)
+
 
 Hope, this post will be very helpful overall. 
 
-Talk soon,<br/>
-Shail Ahmed.

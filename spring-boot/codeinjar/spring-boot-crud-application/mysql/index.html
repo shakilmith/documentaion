@@ -1,18 +1,20 @@
+<!--V2, written for codeinjar.com-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <!--meta tags for SEO-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="title" content="">
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="title" content="Spring Boot Crud Application with MySQL Database">
+<meta name="description" content="Spring Boot Tutorial; Learn to develop spring boot crud application with mysql database">
+<meta name="keywords" content="Java, Spring Boot, Backend, H2, MySQL">
 <meta name="author" content="shakilmith">
 
 
 <!--meta tags for open graph protocol (og:title, og:image)-->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="" />
+<meta property="og:title" content="Develop Spring Boot Crud Application with MySQL Database" />
 <!--Image description-->
 <!--
 <meta property="og:image" content="https://example.com/rock.jpg" />
@@ -38,11 +40,15 @@
 <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
   
 
+<!--Title that displays on browser-->
+<title>Spring Boot Crud Application with MySQL Database | codeinjar.com</title>
 
-
-  <title>Create Your First Spring Boot Application | codeinjar.com</title>
 
   <style>
+    /*Rubik font*/
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
       *{
         box-sizing: border-box;
       }
@@ -60,6 +66,16 @@
         line-height: 1.5;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
       }
+
+      /*Rubik font style*/
+      .rubik-font-style{
+        font-family: "Rubik", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        line-height: 1.5;
+        font-size: 16px;
+        font-style: normal;
+      }
       
       pre code {
         background-color: #eee;
@@ -73,6 +89,7 @@
         transition: 0.3s;
         margin-top: 32px;
         margin-bottom: 23px;
+        
     }
     .left-border{
         border-left: 3px solid red;
@@ -108,7 +125,7 @@
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
   
-    /** Image style in tutorial pages
+  /** Image style in tutorial pages
   * In desktop version, image will be centered
   * Mobile or tablet version, it will be full width
   */
@@ -150,13 +167,521 @@
 
 
 
-
-
-  
 <!--Post starts-->  
-<div class="post-container">
+<div class="post-container rubik-font-style">
 
-<h1>Post title</h1>
+
+<h1>Spring Boot Crud Application with MySQL Database</h1>
+
+
+<p>
+In this sample post, we are going to explore how to create a simple crud application using Spring Boot, Spring Data JPA and MySQL database.
+</p>
+
+
+<p>
+Basically, CRUD means Create, read, update and delete operations that helps to create and organize a dynamic application.
+</p>
+
+<p>
+<b>Initial Requirements</b>:
+</p>
+
+<p>
+JavaSE: 17+ (Or latest LTS version)<br/>
+Maven: v3.6.3 or better <br/>
+An IDE: IntelliJ, VS Code or Eclipse<br/>
+MySQL Database<br/>
+
+<b>Note</b>: The above tools must be installed in your system.
+</p>
+
+
+<p>
+Before dive into the actual project, we have to know, creating a simple spring boot crud application is a multi step process. Such as, We have to
+</p>
+
+<p>
+1. Define an Entity model<br/>
+2. Create a Repository interface<br/>
+3. Create a Service class<br/>
+4. Create a controller class<br/>
+5. Create an error handling class<br/>
+6. Provide the database configuration in <b>application.properties</b> file etc.<br/>
+</p>
+
+
+<p>
+So, let's get into the project.
+</p>
+
+
+<p class="medium-bold-text">
+Bootstrap Spring Boot Application with Required Dependencies
+</p>
+
+<p>
+We will use spring initializer to bootstrap our spring boot project. So, visit in <a href="https://start.spring.io/" target="_blank">https://start.spring.io/</a> and provide the project information such as spring boot version, build tool (maven), project name, groupId, artifactId etc. and add the required dependencies such as spring web, spring data jpa and mysql database driver for this project.
+</p>
+
+<p>
+<img src="https://docs.javaondemand.com/spring-boot/codeinjar/spring-boot-crud-application/mysql/image1.png" alt="spring boot" class="post-image-style" />
+</p>
+
+<p>
+After providing the necessary info and adding the required dependencies, click on the generate button. It will then generate a zip file for you and the file name is spring-boo-example. Unzip it and then open it in your favourite ide.
+</p>
+
+
+<div>
+<p class="medium-bold-text">
+Open Your Project in Your Favourite IDE
+</p>
+
+<p>
+After generating the project through spring initializer, now it's time to open your project into your favourite IDE. Let's see how to open your project in your favourite IDE. Such as,
+</p>
+
+<p>
+<b>Eclipse</b>: File > Import > Maven > Existing Maven projects > Next > Browse your spring boot project (you have just downloaded)> Click Finish. Please wait few seconds to complete the whole process and resolving the maven dependencies.
+</p>
+
+<p>
+<b>Intellij Ide</b>: File > Open > Browse the existing spring boot project > Click Ok. Likewise eclipse, wait few seconds to resolve maven/Gradle dependencies.
+</p>
+
+<p>
+<b>VS Code</b>: File > Open Folder > Browse the existing spring boot project > Select Folder.
+</p>
+
+<p>
+<b>NetBeans</b>: File > Open Project > Browse the existing spring boot project (maven project) > Open project.
+</p>
+</div>
+
+
+<p class="medium-bold-text">
+Create An Entity
+</p>
+
+<p>
+In your Spring Boot project, now create a <b>Customer.java</b> entity class in <b>com.company/model</b> package. Probably you have to create package called model in <b>com.company</b> folder.
+</p>
+
+
+<p>
+<b>Customer.java</b>
+</p>
+
+<p>
+<pre><code>package com.company.model;
+
+import jakarta.persistence.*;
+
+@Entity(name = &quot;Customer&quot;)
+@Table(name = &quot;customer&quot;)
+public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = &quot;customer_id&quot;, nullable = false)
+    private Integer id;
+
+    @Column(name = &quot;first_name&quot;, nullable = false)
+    private String firstName;
+    @Column(name = &quot;last_name&quot;, nullable = false)
+    private String lastName;
+    @Column(name = &quot;email&quot;, nullable = false)
+    private String email;
+    @Column(name = &quot;phone_number&quot;, length = 15)
+    private int phone;
+    @Column(name = &quot;address&quot;)
+    private String address;
+
+    //constructors, getter and setter methods
+}</code></pre>
+</p>
+
+
+<p>
+<b>Note</b>: An entity class is nothing but a database table and all the properties of it are database column name. Every entity or model class must be annotated by <b>@Entity</b> annotation and at least one property must be annotated by <b>@Id</b> annotation that defines the primary key of this table in the database. Later it is possible to customize the entity class based on requirements.
+</p>
+
+
+<p class="medium-bold-text">
+Create A Repository Interface
+</p>
+
+<p>
+Now create a repository interface to handle the database operations in <b>com.company/repository</b> package.
+</p>
+
+
+<p>
+<b>CustomerRepository.java</b>
+</p>
+
+<p>
+<pre><code>package com.company.repository;
+
+import com.company.model.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CustomerRepository extends JpaRepository&lt;Customer, InternalError&gt; {
+
+    //custom query methods
+}</code></pre>
+</p>
+
+
+<p>
+<b>Note</b>: The repository interface will handle the database operations such as, saving, retrieving entity or updating entity objects. But we have to extend one of the spring data jpa repository interface like <b>CrudRepository</b> or <b>ListCrudRepository</b> that provides pre built methods to handle crud operations easily. Here I have used JpaRepository that also inherits CrudRepository and ListCrudRepository.
+</p>
+
+<p class="medium-bold-text">
+Create A Service Class
+</p>
+
+<p>
+Now create a service class in <b>com.company/service</b> package. We also have to annotate this class by <b>@Service</b> annotation
+</p>
+
+<p>
+<b>CustomerService.java</b>
+</p>
+
+<p>
+<pre><code>package com.company.service;
+
+import com.company.model.Customer;
+import com.company.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CustomerService {
+
+    @Autowired
+    private CustomerRepository customerRepository;
+
+
+    //method for getting all the customers
+    public List&lt;Customer&gt; getAllCustomers(){
+        return customerRepository.findAll();
+    }
+
+    //method for getting customer by id
+    public Customer getCustomerById(int id){
+        return customerRepository.findById(id)
+                .orElseThrow(() -&gt; new RuntimeException(&quot;Entity not found with id &quot;+id));
+    }
+
+    //method for creating new customer records
+    public Customer createCustomer(Customer customer){
+        return customerRepository.save(customer);
+    }
+
+    //method for updating customer (other approaches available too)
+    public Customer updateCustomer(int id, Customer customer){
+
+        Customer entity = customerRepository.findById(id)
+                        .orElseThrow(()-&gt; new RuntimeException(&quot;Entity not found with id &quot;+id));
+
+        entity.setFirstName(customer.getFirstName());
+        entity.setLastName(customer.getLastName());
+        entity.setEmail(customer.getEmail());
+        entity.setPhone(customer.getPhone());
+        entity.setAddress(customer.getAddress());
+
+        return entity;
+    }
+
+    //method for deleting entity based on id
+    public void deleteCustomer(int id){
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(() -&gt; new RuntimeException(&quot;Entity not found with id &quot;+id));
+
+        //delete the customer if exists
+        customerRepository.delete(customer);
+         
+        /*
+         * Or write like this for simplicity: without using orElseThrow
+         * customerRepository.deleteById(id);
+         */
+    }
+}</code></pre>
+</p>
+
+
+<p>
+<b>Note</b>: The role of the service class is to define the logical information for the model or entity class. But don't forget to autowired or inject the <b>CustomerRepository</b> interface. Additionally, it is required to annotate the service class by <b>@Service</b> annotation.
+</p>
+
+
+<p class="medium-bold-text">
+Create A Controller Class
+</p>
+
+<p>
+Now create a <b>CustomerController.java</b> class in <b>com.company/controller</b> package. And don't forget to annotate this class by <b>@RestController</b> annotation. The role of the controller class is to handle the mapping uri or incoming requests and after processing them return appropriate response.
+</p>
+
+
+<p>
+<b>CustomerController.java</b>
+</p>
+
+<p>
+<pre><code>package com.company.controller;
+
+import com.company.model.Customer;
+import com.company.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class CustomerController {
+
+    @Autowired
+    private CustomerService customerService;
+
+
+    //mapping for retrieving all customers
+    @GetMapping(&quot;/api/customers&quot;)
+    public List&lt;Customer&gt; getAllCustomers(){
+        return customerService.getAllCustomers();
+    }
+
+    //mapping for retrieving each customer record by id
+    @GetMapping(&quot;/api/customers/{id}&quot;)
+    public Customer getCustomerById(@PathVariable(&quot;id&quot;) int id){
+        return customerService.getCustomerById(id);
+    }
+
+    //mapping for saving new customer records
+    @PostMapping(&quot;/api/customers&quot;)
+    public Customer saveCustomer(@RequestBody Customer customer){
+        return customerService.createCustomer(customer);
+    }
+
+    //mapping for updating existing customer record
+    @PutMapping(&quot;/api/customers/{id}&quot;)
+    public Customer updateCustomer(@PathVariable(&quot;id&quot;) int id, @RequestBody Customer customer){
+        return customerService.updateCustomer(id, customer);
+    }
+
+    //mapping for deleting existing customer based on id
+    @DeleteMapping(&quot;/api/customers/{id}&quot;)
+    public void deleteCustomer(@PathVariable(&quot;id&quot;) int id){
+        customerService.deleteCustomer(id);
+    }
+}
+</code></pre>
+</p>
+
+<p>
+<b>Note</b>: Please, don't forget to annotate this class by <b>@RestController</b> annotation that is used to create rest api in spring boot as well as you have to autowired the <b>CustomerService</b> class here too.
+</p>
+
+<p class="medium-bold-text">
+Map the Database Configurations
+</p>
+
+<p>
+Open <b>application.properties</b> file and configure the MySQL database information so that entity records have been saved in correct endpoint.
+</p>
+
+
+<p>
+<pre><code>spring.application.name=spring-boot-example
+
+## MySql database configuration
+
+spring.datasource.url=jdbc:mysql://localhost:3306/testdb
+spring.datasource.username=root
+spring.datasource.password=root
+
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.show-sql=true
+
+## use either create, create-drop, update, none, validate
+spring.jpa.hibernate.ddl-auto=update</code></pre>
+</p>
+
+
+<p>
+<b>Note</b>: Here testdb is the name of my mysql database. You can use yours. At the same time, please use your mysql username and password, not mine.
+</p>
+
+<p class="medium-bold-text">
+Test The Application
+</p>
+
+
+<p>
+Now, run your application from your ide - there is a run button, top upper right corner in IntelliJ IDE or use shortcut like (shift + F10) to run your spring boot application. Additionally you can run your spring boot application by commandLine tool. Just open your application in any terminal (integrated terminal or windows command prompt) and run the following command:
+</p>
+
+<p>
+<pre><code>$ mvn spring-boot:run</code></pre>
+</p>
+
+<p>
+If your application runs successfully, it listens port 8080 in localhost by default. So, open your favourite web browser and invoke the uri <a href="http://localhost:8080/api/customers" target="_blank">http://localhost:8080/api/customers</a> and you will see an empty array. Because we don't save any initial customer entity records. 
+</p>
+
+<p>
+Now we can use postman, apiDog or cURL like software or rest api management tool to make POST requests to the customer endpoints. 
+</p>
+
+<p>
+In my case, I am using apiDog. So either open apiDog, postman or use cURL to save few customer records into the MySQL database.
+</p>
+
+<p>
+So, now make some post requests into this endpoint <a href="http://localhost:8080/api/customers" target="_blank">http://localhost:8080/api/customers</a> using either cURL, postman or apiDog.
+</p>
+
+<p>
+<pre><code>{
+  "firstName": "Powel",
+  "lastName": "Smith",
+  "email": "powel99@gmail.com",
+  "phone": 48870901,
+  "address": "Kuivakuja 99, Lavia"
+}
+
+//like the above, add few more customers (one after another)
+
+{
+  "firstName": "Kevin",
+  "lastName": "Rayan",
+  "email": "kevin77@gmail.com",
+  "phone": 45886879,
+  "address": "Inkereentie 41, Rauma"
+}
+
+{
+  "firstName": "David",
+  "lastName": "Morison",
+  "email": "david001@gmail.com",
+  "phone": 47588709,
+  "address": "Kuivakuja 43, Rovaniemi"
+}
+
+{
+  "firstName": "Shakil",
+  "lastName": "Ahmed",
+  "email": "itsshakilmith@gmail.com",
+  "phone": 45887097,
+  "address": "Calea Victoriei 118, Romani"
+}
+
+{
+  "firstName": "Jerry",
+  "lastName": "Reed",
+  "email": "jerry55@gmail.com",
+  "phone": 47887093,
+  "address": "IImalakuja 27, Pori, Finland"
+}</code></pre>
+</p>
+
+
+<p>
+After saving the above demo customer data using your favourite rest api management tool, now if you visit again <a href="http://localhost:8080/api/customers" target="_blank">http://localhost:8080/api/customers</a> this endpoint in your browser, you will see list of customer records there in json format.
+</p>
+
+<p>
+<img src="https://docs.javaondemand.com/spring-boot/codeinjar/spring-boot-crud-application/h2/image2.png" alt="spring boot" class="post-image-style" />
+</p>
+
+<p>
+<b>Note</b>: Click on pretty-print checkbox and see the formatted json data.
+</p>
+
+<p>
+You can also see the customer table in your mysql database.  
+</p>
+
+<p>
+<img src="https://docs.javaondemand.com/spring-boot/codeinjar/spring-boot-crud-application/h2/image3.png" alt="spring boot" class="post-image-style" />
+</p>
+
+<p class="medium-bold-text">
+Retrieving Single Entity Based on ID
+</p>
+
+<p>
+We can now retrieve entity records by it's id or primary key as we have defined <b>getCustomerById</b> mapping method in the controller class. So, if you now invoke the uri <a href="http://localhost:8080/api/customers/1" target="_blank">http://localhost:8080/api/customers/1</a> you will see the json data of first customer. Similarly, this uri <a href="http://localhost:8080/api/customers/5" target="_blank">http://localhost:8080/api/customers/5</a> will retrieve the api of customer which id is 5.
+</p>
+
+
+<p>
+<img src="https://docs.javaondemand.com/spring-boot/codeinjar/spring-boot-crud-application/h2/image4.png" alt="spring boot" class="post-image-style" />
+</p>
+
+<p class="medium-bold-text">
+Update and Delete Entity Records
+</p>
+
+<p>
+Open postman or apiDog and create a <b>PUT</b> request on this uri - <a href="http://localhost:8080/api/customers/1" target="_blank">http://localhost:8080/api/customers/1</a> with the updated data. Then you can see, the entity records which id is 1 has been updated as well.
+</p>
+
+
+<p>
+Before Updating:
+</p>
+<p>
+```
+{
+    "firstName": "Powel",
+    "lastName": "Smith",
+    "email": "powel99@gmail.com",
+    "phone": 48870901,
+    "address": "Kuivakuja 99, Lavia"
+}
+```
+</p>
+
+<p>
+After Updating:
+<br/>
+<img src="https://docs.javaondemand.com/spring-boot/codeinjar/spring-boot-crud-application/h2/image5.png" alt="spring boot" class="post-image-style" />
+</p>
+
+
+<p>
+Similarly, if you make the <b>DELETE</b> Http request on any mapping uri like <a href="http://localhost:8080/api/customers/1" target="_blank">http://localhost:8080/api/customers/1</a> then this entity record will be deleted as well.
+</p>
+
+<p>
+<img src="https://docs.javaondemand.com/spring-boot/codeinjar/spring-boot-crud-application/h2/image6.png" alt="spring boot" class="post-image-style" />
+</p>
+
+<p>
+As we have deleted the entity which id is 1, thus you can see the error message "Entity not found with id 1" in this uri.
+</p>
+
+<p>
+So, through this tutorial, we have learned how to create a simple CRUD application using spring boot and MySQL Database. Hope, this tutorial was very helpful for you.
+</p>
+
+<p>
+Talk soon,
+</p>
+
+<p>
+Shakil Ahmed.
+</p>
+
+
+
 
 
 <!--Post ends-->
