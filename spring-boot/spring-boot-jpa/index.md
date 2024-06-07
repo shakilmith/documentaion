@@ -1,27 +1,27 @@
 ## Spring Boot JPA example application
 
 
-In this tutorial we are going to create simple spring data jpa application.
+In this tutorial we are going to create a simple Spring Data JPA Application.
 
-Basic Requirements:
-    - JavaSE: 8+
+**Initial Requirements:**
+    - JavaSE: 8+ 
     - Maven : 3.3.9+
-    - An IDE: (Eclipse or Intellij ide, You can use STS too)
+    - An IDE: (Eclipse or IntelliJ IDE, You can use STS too)
     - Spring Boot: 3.1.2
 
 
-<b>Note:</b> Spring data jpa is a superset of jpa specification for managing relation database system from the java application. It allows us to work between java objects and relational database. JPA is a set of interfaces and it doesn't provide impementaion and spring data jpa provides the impementaion as well. And jpa follows the feature of ORM - Object relational mapping and provides runtime apis for processing queries and transactions on the objects against database. 
-
-<b>
-Let's use following steps to create spring data jpa application.
-</b>
+**Note:** Spring data jpa is a superset of jpa specification for managing relation database system from the java application. It allows us to work between java objects and relational database. JPA is a set of interfaces and it doesn't provide implementation and spring data jpa provides the implementation as well. And jpa follows the feature of ORM - Object relational mapping and provides runtime apis for processing queries and transactions on the objects against database. 
 
 
-<Strong>Step 1:</strong> Open Spring Initializer. Visit here: [https://start.spring.io/](https://start.spring.io/) for creating spring boot application.
+**Let's use following steps to create spring data jpa application.**
 
-<strong>Step 2:</strong> As it wiill be a Maven based project and we use Java as a language. Spring Boot version should be 3.1.2 or vice versa.
 
-<strong>Step 3:</strong> In the Project Metadata section provide Group and Artifact name. 
+
+**Step 1:** Open Spring Initializer. Visit here: [https://start.spring.io/](https://start.spring.io/) for creating spring boot application.
+
+**Step 2:** As it will be a Maven based project and we use Java as a language. Spring Boot version should be 3.1.2 or vice versa.
+
+**Step 3:** In the Project Metadata section provide Group and Artifact name. 
 <b>Group: com.javaondemand</b>
 <b>Artifact: spring-boot-example</b> (at the end Application will be added)
 
@@ -30,24 +30,31 @@ Here, Group name will be the package name and Artifact name will be the name of 
 
 <strong>Step 4:</strong> Now we add dependency. We add here Spring web, Spring Data Jpa and H2 for in-memory database spring-boot-starter dependency. 
 
-<strong>Step 5:</strong> Clik on Generate button. It will generate your a zip file. Then, unzip or extract the spring-boot-example.zip file to any directory, remember the location. Later we will import it into our IDE.
+<strong>Step 5:</strong> Click on Generate button. It will generate your a zip file. Then, unzip or extract the spring-boot-example.zip file to any directory, remember the location. Later we will import it into our IDE.
 
-<strong>Step 6:</strong> Open your favourite Ide. In my case Intellij Ide. Improt the spring-boot-example application into your ide. 
+<strong>Step 6:</strong> Open your favourite Ide. In my case Intellij Ide. Import the spring-boot-example application into your ide. 
 
-<strong>Intellij:</strong> File -> Open -> Select the project foleder -> Ok (finish) It will now open your project in the current window or new window. Remeber your project location you have just downloaded or extracted.
+<strong>IntelliJ:</strong> File -> Open -> Select the project folder -> Ok (finish) It will now open your project in the current window or new window. Remember your project location you have just downloaded or extracted.
 
-<strong>Eclipse:</strong> File -> Import -> Existing Maven Project -> Next -> Browse (you have just downloaed and extracted) -> Select the project folder (spring-boot-example) -> Finish 
+<strong>Eclipse:</strong> File -> Import -> Existing Maven Project -> Next -> Browse (you have just download and extracted) -> Select the project folder (spring-boot-example) -> Finish 
+
+**VS Code:** File > Open Folder > Browse the existing spring boot project > Select Folder.
+
+**NetBeans:** File > Open Project > Browse the existing spring boot project (maven project) > Open project.
 
 <b>Note:</b> When you Generate the spring-boot-example project, it is a .zip file. The file name should be <b>spring-boot-example.zip</b> file. You must unzip or extract it to somewhere in order to import it into your ide okay. 
 
 
-<strong>Step 7:</strong> After successfully importing the spring boot example project, please wait few seconds to resolve the maven dependencies. Then, you see the follwing project directory in your ide. 
+<strong>Step 7:</strong> After successfully importing the spring boot example project, please wait few seconds to resolve the maven dependencies. Then, you see the following project directory structure of your spring boot project. 
 
-//image
+![img1](img1.png)
 
 <b>Step 8:</b> Create a model package in the <b>src/main/java/com/javaondemand</b> directory. And the, create Person entity class. 
 
-```java
+
+**Person.java**
+
+```
 package com.javaondemand.model;
 
 import jakarta.persistence.*;
@@ -94,23 +101,25 @@ public class Person {
         this.age = age;
     }
 }
-
 ```
 
-Here, we annotate the Person.java class by @Entity annotaion as it is persistent class. And we externally name our table person <b>@Table(name="person")</b> 
-Here, the properties are id, name and age. We must annotate the id by @Id annotaion because it will be the primary key of the database table.
+Here, we annotate the Person.java class by @Entity annotation as it is persistent class. And we externally name our table person <b>@Table(name="person")</b> 
+Here, the properties are id, name and age. We must annotate the id by @Id annotation because it will be the primary key of the database table.
 
 As well as, we generate no-arg constructors, getter and setter methods. 
-Rith clik on your mouse > Generate -> Constructors/getter-setter or follow the shortcut if you use intellij ide: Alt+Insert -> Constructor/Getter or Setter
+Right click on your mouse > Generate -> Constructors/getter-setter or follow the shortcut if you use intellij ide: Alt+Insert -> Constructor/Getter or Setter
 
 Note: When a class treats like a database table and the the attributes treat as table column name then, we say it is a persistent class. I mean, data will be persisted in the database.
 
 
 <b>Step 9:</b> Create <b>PersonRepository.java</b> interface in the <b>src/main/java/com/javaondemand/repository</b> directory. (It is not necessary to create repository package, just for ease we create new packages)
 
-In <b>PersonRepostory.java</b> interface we extends CrudRepository spring boot jpa related interface. It provides shopisticated mehtods for managing CRUD(creat, read, update, delete) operations. 
+In <b>PersonRepository.java</b> interface we extends CrudRepository spring boot jpa related interface. It provides shopisticated methods for managing CRUD(create, read, update, delete) operations. 
 
-```java
+
+**PersonRepository.java""
+
+```
 package com.javaondemand.repository;
 
 import com.javaondemand.model.Customer;
@@ -126,13 +135,12 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
 <b>Step 10:</b> Now, create <b>PersonPersistent.java</b> class inside the <b>src/main/java/com/javaondemand/dao</b> package. 
 
-Here, we implement the <b>CommandLineRunner</b> interface and annotate the class <b>@Component</b> annotaion. So that we can persist or save our person entity data. 
+Here, we implement the <b>CommandLineRunner</b> interface and annotate the class <b>@Component</b> annotation. So that we can persist or save our person entity data. 
 
-<b>Step 11:</b> Before working on <b>PersonPersistent.java</b> DAO class, we have to provide our database related information in <b>application.properites</b> file.
+<b>Step 11:</b> Before working on <b>PersonPersistent.java</b> DAO class, we have to provide our database related information in <b>application.properties</b> file.
 You find <b>application.properties</b> file in <b>src/main/resources</b> folder. Open it and provide the following H2 in-memory database information.
 
-```java
-
+```
 ## For h2 database configuration
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.driverClassName=org.h2.Driver
@@ -141,7 +149,6 @@ spring.datasource.password=
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 #enabling the H2 console
 spring.h2.console.enabled=true
-
 ```
 
 Here, we provide h2 datasource url, driver-class-name, username, password, database-platform information. Also, we have to enable the H2 console so that we find it in the browser in this url [localhost://8080/h2-console](localhost://8080/h2-console)
@@ -149,9 +156,11 @@ Here, we provide h2 datasource url, driver-class-name, username, password, datab
 Note: We can provide all the application related configurations in the application.properties file.
 
 
-<b>Step 12:</b> Now, open <b>PersonPersistent.java</b> class and create few person objects with data and invoke the CrudRepostory save method method to save the person objects in the database.
+<b>Step 12:</b> Now, open <b>PersonPersistent.java</b> class and create few person objects with data and invoke the CrudRepository save method method to save the person objects in the database.
 
-```java
+**PersonPersistent.java**
+
+```
 package com.javaondemand.dao;
 
 import com.javaondemand.model.Person;
@@ -184,44 +193,41 @@ public class PersonPersistent implements CommandLineRunner {
 
     }
 }
-
 ```
 
-Here, we have @Autowired the PersosnRepository.java interface in order to access CrudRepository save() method. 
-And the notable thing is that, we don't have to start or close the transection. If you use merely jpa, we have to start and close the transection but we can skip this boilerplate code if we use spring data jpa. \
-Note: We use persist() method to save entity object in jpa but spring data jpa provides save() method that also does the same operation like persist() method.
+Here, we have **@Autowired** the **PersonRepository.java** interface in order to access CrudRepository **save()** method. 
 
-<b>Step 13:</b> Run tha main class <b>SpringBootExampleApllication.java</b> and if it runs successfully you see the following console messeage.
+And the notable thing is that, we don't have to start or close the transaction. If you use merely jpa, we have to start and close the transaction but we can skip this boilerplate code if we use spring data jpa.
 
-```java
+**Note:** We use persist() method to save entity object in jpa but spring data jpa provides save() method that also does the same operation like persist() method.
+
+<b>Step 13:</b> Run tha main class <b>SpringBootExampleApplication.java</b> and if it runs successfully you see the following console message.
+
+```
 2023-08-26T15:10:59.138+06:00  INFO 4176 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2023-08-26T15:10:59.149+06:00  INFO 4176 --- [           main] c.j.SpringBootExampleApplication         : Started SpringBootExampleApplication in 4.67 seconds (process running for 5.511)
-
 ```
 
 It shows, our application runs on 8080 port. We can also change the port in the application.properties file as well. 
 
-Just open your application.properties file and chagne the port whatever you want.
+Just open your **application.properties** file and change the port whatever you want.
 <b>server.port=9090</b> //Terminate the application and rerun it, now it will run on port 9090 
 
 Hence, look at out last step.
 
-<b>Step 14:</b> Open your favourite browser and type: localhost://8080/h2-console and you see the following interface
+<b>Step 14:</b> Open your favourite browser and type: [http://localhost://8080/h2-console](http://localhost://8080/h2-console) and you see the following page:
 
-//image 
+![img2](img2.png)
 
-Clik on connet button and a new window will appear.
+Click on connect button and a new window will appear.
 
-//image
+![img3](img3.png)
 
 You see, a person table has already been generated. 
 
 Just run: SELECT * FROM PERSON; and it will show you the person table with 3 columns.
 
-//image 
-
-Means, our person entity data has been successfully saved in our H2 in-memory relational database. 
+![img3](img4.png)
 
 
-Talk soon, 
-Shakil Ahmed.
+Means, the data of person entity has been successfully persisted into our H2 in-memory relational database. 
