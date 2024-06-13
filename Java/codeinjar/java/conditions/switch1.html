@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Switch Statement</title>
+  
+  <style>
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+    <h1>Java Switch Statement</h1>
+    <p>
+    Switch statement in java helps us to reduce the multiple if or else-if statements. When we want to render some statement or code block  based on many conditions then we can use Java Switch statement. 
+</p>
+
+<p>
+Like, if it is Friday then you will get 20% bonus if you buy some goods from our shop.
+</br>
+In this case, we have to check all the weekly days - Saturday to Friday and show the bonus or the exact statement that fulfills the condition. 
+</p>
+<p>
+Another scenario could be - You will get 5 days break more if the month is last month of the year. In this case, then we have to go through or check all the months in a year (12 months in a year).
+</p>
+
+<p>
+What if we want to render or execute some statements after checking thousands of conditions? 
+</p>
+
+<p>
+In such case, frequent writing else-if statement could make our program more complicated and verbose. Thus, better to use more suitable one like switch statement. 
+</p>
+
+<p>
+<b>Syntax:</b>
+</p>
+
+<p>
+<pre><code class="left-border">
+switch(expression){
+   case value1:
+     //statement to be executed
+     break;
+   case value2: 
+     //statement to be executed
+     break;
+   case value3: 
+     //statement to be executed
+     break;
+   ....
+   ....
+   case valueN:
+     //statement to executed
+     break;
+   default: //optional 
+     //default statement 
+ }
+</code></pre>
+</p>
+
+<p>
+Explanation: The switch expression inside parentheses (), must be any valid java types like int, short, byte, char or even String. 
+Inside switch case statement is used. The case works almost like else if statement. If any case match with the switch expression (inside parentheses), then that case statement will be executed. 
+</p>
+
+<p>
+The value1, value2 ... are compared with the switch expression (the value1, value2 should be literals, not variables). If any match found, the code block inside that case is executed.
+</p>
+<p>
+If no matches found in entire switch, then the default statement will be executed. If you don't use default (though optional), nothing will be executed. 
+</p>
+
+<p>
+The break statement is used in every case statement to terminate a statement sequence. But it has the effect of “jumping out” of the switch.
+</p>
+
+<p>
+The default statement is optional. The code block inside default only executes when no case matches with the switch expression. 
+</p>
+
+<p>
+Let's go through few examples: 
+</p>
+
+<p>
+<b>Example 1:</b>
+</p>
+
+<p>
+Show relevant quote of the day. 
+</p>
+
+<p>
+In this example, we will render (console some case) a quote based on the day. For each day of the week you will get or see a new quote (by this concept)
+</p>
+
+<p>
+<pre><code class="left-border">
+public class Main{
+    
+    public static void main (String[] args){
+    
+    //String used as expression
+    String day = "Tuesday";
+    
+    //switch block 
+    switch (day){
+      case "Saturday": 
+        System.out.println("Quality isn't act, it is a habit.");
+        break;
+      case "Sunday": 
+        System.out.println("Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.");
+        break;
+      case "Monday": 
+        System.out.println("We do not remember days, we remember moments.");
+        break;
+      case "Tuesday": 
+        System.out.println("He who has a why to live can bear almost any how.");
+        break;
+      case "Wednesday": 
+        System.out.println("It takes half of your life before you discover life is a do-it-yourself project.");
+        break;
+      case "Thursday": 
+        System.out.println("Computers are fast, programmers keep it slow.");
+        break;
+      case "Friday": 
+        System.out.println("Programming isn't about what you know; it's about what you can figure out.");
+        break; 
+      default: 
+        System.out.println("Alas! Nothing is for you.");
+    }
+  }
+}
+  /**
+   * Output: 
+   * He who has a why to live can bear.
+   * almost any how.
+   * 
+   */
+ </code></pre>
+</p>
+
+<p>
+<b>Example 2:</b>
+</p>
+
+<p>
+In this example we render the name of the month based on the month number. 
+</p>
+
+<p>
+<pre><code class="left-border">
+public class Main{
+  public static void main (String[] args){
+    
+    //int variable
+    int number = 4; //month number 
+    String month; //declaring a String variable
+
+    //switch statement
+    switch(number){
+      case 1:
+        month = "January";
+        break;
+      case 2: 
+        month = "February";
+        break;
+      case 3:
+        month = "March";
+        break;
+      case 4: 
+        month = "April";
+        break;
+      case 5:
+        month = "May";
+        break;
+      case 6: 
+        month = "June";
+        break;
+      case 7:
+        month = "July";
+        break;
+      case 8: 
+        month = "August";
+        break;
+      case 9:
+        month = "September";
+        break;
+      case 10: 
+        month = "October";
+        break;
+      case 11:
+        month = "November";
+        break;
+      case 12: 
+        month = "December";
+        break;
+      default: 
+        month = "No match!";
+    }
+    System.out.println("It's "+ month);
+  }
+}
+  /**
+   * Output: 
+   * It's April
+   */
+</code></pre>
+</p>
+
+<p>
+But it is possible to check multiple case block instead of one. In this situation, break statement plays vital role.
+</p>
+
+<p>
+<b>Example 3:</b>
+</p>
+
+<p>
+Imagine, we have total 4 seasons in our country. And every three months a new season comes. So, let's create a program to find out which season it is! based on the number of the months. (Basically the month number is provided by the user, in real life application)
+</p>
+
+<p>
+<pre><code class="left-border">
+public class Main{
+  public static void main (String[] args){
+    
+    //int variable
+    int number = 4; //month number
+    String season; //declaring a string variable
+    
+    //switch statement
+    switch(number){
+      case 12:
+      case 1: 
+      case 2:
+        season = "Winter";
+        break;
+      case 3: 
+      case 4:
+      case 5:
+        season = "Spring"; 
+        break;
+      case 6:
+      case 7: 
+      case 8:
+        season = "Summer";
+        break;
+      case 9: 
+      case 10:
+      case 11:
+        season = "Rainy Season";
+        break;
+      default: 
+        season = "Out of Season!";
+    }
+    System.out.println("It's "+ season);
+  }
+}
+  /**
+   * Output: 
+   * It's Spring
+   */
+</code></pre>
+</p>
+
+<p>
+What happens here? The compiler checks the case blocks (like 12, 1 and 3) untill it finds the break statement. Then, it skips the next case block or blocks. This iteration happens frequently until if any case matches with the switch expression. 
+</p>
+
+//This is an ongoing article.</br>
+//Hope it helps you. Thanks.
+
+
+  </div>
+  
+</body>
+
+</html>

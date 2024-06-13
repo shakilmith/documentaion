@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java HashMap</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+    line-height: 1.5;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+  table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+   <h1>Java HashMap</h1>
+    <p>
+    When it is required to store data key, value pairs you can use Either java HashMap, LinkedHashMap or TreeMap. There are slight differences amongst the classes. But all of the classes implement Map interface. 
+</p>
+
+<p>
+<b># Syntax</b>
+</p>
+
+<p>
+<pre><code>
+HashSet<K, V> map = new HashMap<K, V>();
+
+//Like: 
+HashSet<Integer, String> map = new HashMap<Integer, String>();
+
+//Integer will be use as key and String will be used as values.
+</code></pre>
+<p>
+
+<p>
+Note: The key in HashMap must be unique, but the values can be duplicate. Null values are allowed in key and values but there is only one null value supported as key. Also, remember HashMap doesn't maintain insertion order. And if you want to iterate HashMap or Map interface, you have to use Map.Entry and entrySet() method. Map.Entry contains getKey and getValue() method. For getting the instance of Map.Entry you have to use the entrySet() method overall.
+</p>
+
+
+<p>
+<b># There are many useful methods to work with java HashMap class or Map interface.</b>
+</p>
+
+<table style="width: 100%">
+  <tr>
+    <th>Methods</th>
+    <th>Description</th>
+  </tr>
+  
+  <tr>
+    <td>put(K key, V value)</td>
+    <td>Insert new element with the specified value with the specified key in this map.</td>
+  </tr>
+  <tr>
+    <td>putAll(Map<? extends K,? extends V> m)</td>
+    <td>Copies all of the mappings from the specified map to this map.</td>
+  </tr>
+  <tr>
+    <td>remove(Object key)</td>
+    <td>Removes the mapping for the specified key from this map if present.</td>
+  </tr>
+  <tr>
+    <td>size() </br> type int</td>
+    <td>Returns the number of key-value mappings in this map.</td>
+  </tr>
+  <tr>
+    <td>clear() </br> void</td>
+    <td>Removes all of the mappings from this map.</td>
+  </tr>
+  <tr>
+    <td>clone()</td>
+    <td>Returns a shallow copy of this HashMap instance: the keys and values themselves are not cloned.</td>
+  </tr>
+  <tr>
+    <td>containsKey(Object key) </br> type boolean</td>
+    <td>Returns true if this map contains a mapping for the specified key.</td>
+  </tr>
+  <tr>
+    <td>containsValue(Object value) </br> </br> boolean</td>
+    <td>Returns true if this map maps one or more keys to the specified value.</td>
+  </tr>
+  <tr>
+    <td>isEmpty() </br> boolean</td>
+    <td>Returns true if this map contains no key-value mappings.</td>
+  </tr>
+  <tr>
+    <td>size() </br> int</td>
+    <td>Returns the number of key-value mappings in this map.</td>
+  </tr>
+  <tr>
+    <td>values()</td>
+    <td>Returns a Collection view of the values contained in this map.</td>
+  </tr>
+  
+  <tr>
+    <td>compute()</td>
+    <td>Attempts to compute a mapping for the specified key and its current mapped value</td>
+  </tr>
+  <tr>
+    <td>keySet()</td>
+    <td>Returns a Set view of the keys contained in this map</td>
+  </tr>
+</table>
+
+
+<p>
+<b># Creating HashMap and add new elements based on key, value pairs</b>
+</p>
+
+
+<p>
+<pre><code>
+import java.util.HashMap;
+
+public class Main{
+  public static void main (String[] args) {
+    //creating HashMap
+    HashMap<Integer, String> map = new HashMap<Integer, String>();
+    
+    //add new elements using put() method
+    map.put(1, "Mark Smith");
+    map.put(2, "Bob Smith");
+    map.put(3, "Jekov Jenkov");
+    map.put(4, "Shakil Ahmed");
+    map.put(5, "Jhon Peterson");
+    
+    //print the HashMap
+    System.out.println(map);
+  }
+}
+</code></pre>
+</pre>
+
+<p>
+<b>Output you will get in the console:</b>
+</p>
+
+<p>
+<pre><code>
+{1=Mark Smith, 2=Bob Smith, 3=Jekov Jenkov, 4=Shakil Ahmed, 5=Jhon Peterson}
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> in square bracket we use <Integer, String>. Thus, Integer is the key and String are the values. Following this this figure, we have add new elements using the put() method.
+</p>
+
+<p>
+<b># Retrieve specific value based on key using the get(Key) method</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.HashMap;
+
+public class Main{
+  public static void main (String[] args) {
+    //creating HashMap
+    HashMap<Integer, String> map = new HashMap<Integer, String>();
+    
+    //add new elements using put() method
+    map.put(1, "Mark Smith");
+    map.put(2, "Bob Smith");
+    map.put(3, "Jekov Jenkov");
+    map.put(4, "Shakil Ahmed");
+    map.put(5, "Jhon Peterson");
+    
+    //print the HashMap
+    System.out.println(map);
+    
+    //get the first value usin get(key)
+    System.out.println(map.get(1));
+    
+    //get the second value
+    System.out.println(map.get(2));
+    
+    //get the last value
+    System.out.println(map.get(5));
+  }
+}
+</code></pre>
+</p>
+
+<p>
+<b>After running above example you will get the following output in the console</b>
+</p>
+
+
+<p>
+<pre><code>
+{1=Mark Smith, 2=Bob Smith, 3=Jekov Jenkov, 4=Shakil Ahmed, 5=Jhon Peterson}
+
+Mark Smith
+Bob Smith
+Jhon Peterson
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> it is also possible though the key is String. (But case sensitive)
+</p>
+
+<p>
+<b># Iterate HashMap</b>
+</p>
+
+
+<p>
+<pre><code>
+import java.util.HashMap;
+
+public class Main{
+  public static void main (String[] args) {
+    //creating HashMap
+    HashMap<Integer, String> map = new
+    HashMap<Integer, String>();
+    
+    //add new elements using put() method
+    map.put(1, "Mark Smith");
+    map.put(2, "Bob Smith");
+    map.put(3, "Jekov Jenkov");
+    map.put(4, "Shakil Ahmed");
+    map.put(5, "John Peterson");
+   
+    //iterate HashMap (keys and values)
+    for(Map.Entry value: map.entrySet()){
+      System.out.println(value.getKey +" "+value.getaValue);
+    }
+  }
+}
+/**
+ * Output: (together keys and values)
+ * 1 Mark Smith
+ * 2 Bob Smith 
+ * 3 Jekov Jenkov
+ * 4 Shakil Ahmed 
+ * 5 John Peterson 
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Inserting new elements using put, putAll and putIfAbsent method and then iterate</b>
+</p>
+
+
+<p>
+<pre><code>
+import java.util.HashMap;
+
+public class Main{
+  public static void main (String[] args) {
+    //creating HashMap
+    HashMap<Integer, String> map = new
+    HashMap<Integer, String>();
+    
+    //add new elements using put() method
+    map.put(1, "Mark Smith");
+    map.put(2, "Bob Smith");
+    map.put(3, "Jekov Jenkov");
+    map.put(4, "Shakil Ahmed");
+    map.put(5, "John Peterson");
+    
+    //initial map
+    System.out.println("Initial List");
+    System.out.println(map);
+    
+    //using putIfAbsent() method
+    map.putIfAbsent(6, "Abdul Hamid");
+    map.putIfAbsent(3, "Eugune Uzbek"); // will not be updated
+    
+    //updated list 
+    System.out.println("Updated List using putIfAbsent");
+    System.out.println(map);
+    
+    //Creating new entry 
+    HashMap<Integer, String> newMap = new HashMap<Integer, String>();
+    
+    //add new elements
+    newMap.put(7, "Rebeka Ghom");
+    newMap.putAll(map); //using putAll()
+    
+    //print newMap
+    System.out.println("Updated List using putAll()");
+    System.out.println(newMap);
+    
+    //iterate map and newMap now
+    System.out.println("map iteration");
+    for(Map.Entry value: map.entrySet()){
+      System.out.println(value.getKey +" "+value.getaValue);
+    }
+    
+    System.out.println("newMap iteration");
+    for(Map.Entry value: newMap.entrySet()){
+      System.out.println(value.getKey +" "+value.getaValue);
+    }
+  }
+}
+</code></pre>
+</p>
+
+<p>
+<b>If you run the above example, you will get the following output</b>
+</p>
+
+
+<p>
+<pre><code>
+//output (together with keys and values)
+
+Initial List
+ {1=Mark Smith, 2=Bob Smith, 3=Jekov
+ Jenkov, 4=Shakil Ahmed, 5=Jhon
+ Peterson}
+ 
+Updated List using putIfAbsent()
+{1=Mark Smith, 2=Bob Smith, 3=Jekov Jenkov, 4=Shakil Ahmed, 5=Jhon Peterson, 6=Abdul Hamid}
+
+Updated List using putAll
+{1=Mark Smith, 2=Bob Smith, 3=Jekov Jenkov, 4=Shakil Ahmed, 5=Jhon Peterson, 6=Abdul Hamid, 7=Rebeka Ghom}
+
+map iteration 
+ 1 Mark Smith
+ 2 Bob Smith 
+ 3 Jekov Jenkov
+ 4 Shakil Ahmed 
+ 5 John Peterson 
+ 6 Abdul Hamid
+  
+ newMap iteration 
+ 1 Mark Smith
+ 2 Bob Smith 
+ 3 Jekov Jenkov
+ 4 Shakil Ahmed 
+ 5 John Peterson 
+ 6 Abdul Hamid
+ 7 Rebeka Ghom
+</code></pre>
+</p>
+
+
+<p>
+<b># Remove any entry based on key, value, and both (keys abd values) from HashMap</b>
+</p>
+
+
+<p>
+<pre><code>
+import java.util.HashMap;
+
+public class Main{
+  public static void main (String[] args) {
+    //creating HashMap
+    HashMap<Integer, String> map = new
+    HashMap<Integer, String>();
+    
+    //add new elements using put() method
+    map.put(1, "Mark Smith");
+    map.put(2, "Bob Smith");
+    map.put(3, "Jekov Jenkov");
+    map.put(4, "Shakil Ahmed");
+    map.put(5, "John Peterson");
+    
+    //print initial HashMap 
+    System.out.println("Initial HashMap:  "+map);
+    
+    //remove based on key
+    map.remove(5)
+    
+    //print updated list 
+    System.out.println("Updated Entry "+map);
+    
+    //remove based on value 
+    map.remove("Shakil Ahmed")
+    
+    //print updated list
+    System.out.println("Updated Entry "+map);
+    
+    //remove based on keys and values
+    map.remove(3, "Jekov Jenkov");
+    
+    //print update list
+    System.out.println("Update d Entry " +map);
+    
+    //now iterate  HashMap (after removal)
+    for(Map.Entry value: map.entrySet()){
+      System.out.println(value.getKey +" "+value.getaValue);
+    }
+  }
+}
+</code></pre>
+
+<p>
+<b>You get the following output after running the above example</b>
+</p>
+
+<p>
+<pre><code>
+//Output
+
+Initial HashMap:  {1=Mark Smith, 2=Bob Smith, 3=Jekov
+ Jenkov, 4=Shakil Ahmed, 5=Jhon
+ Peterson}
+ 
+ Updated Entry:  {1=Mark Smith, 2=Bob Smith, 3=Jekov
+  Jenkov, 4=Shakil Ahmed}
+  
+ Updated Entry:  {1=Mark Smith, 2=Bob Smith, 3=Jekov
+  Jenkov,}
+ 
+ Updated Entry:  {1=Mark Smith, 2=Bob Smith}
+ 
+ //iteration entry after removal
+1 Mark Smith
+2 Bob Smith
+</code></pre>
+<p>
+
+
+
+
+  </div>
+  
+</body>
+
+</html>

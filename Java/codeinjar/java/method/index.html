@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Method in Java</title>
+  
+   <style>
+    *{
+      box-sizing: border-box;
+    }
+    html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+  </style>
+  
+</head>
+
+<body>
+  <div>
+ <h1>Method in Java</h1>
+    <p>
+    Method in java is one kind of function that do some action when it is called. We must declare a method in java before calling or invoking it. 
+</p>
+
+<p>
+Method declaration: Method declaration involves three things. 
+return type
+followed by parentheses ()
+method body.
+</p>
+
+<p>
+type method_name (){... //code to be execute}
+</p>
+
+<p>
+Imagine, inside our Main class file we have a method called printGreeting(){} and it prints a simple "Java is awesome" message. 
+</p>
+
+<p>
+firstly create a class file called Main.java inside your java_examples application. 
+</p>
+
+<p>
+It probably contains main method. 
+</p>
+
+<p>
+So, your main class file should be like following:
+</p>
+
+<p>
+<pre><code class="left-border">
+public class Main {
+    public static void main(String[] args) {
+        //code to be executed.
+    }
+}
+
+Now, Inside the main class file create a method called printGreeting(){} //it print simple greeting message.
+
+public class Main {
+
+// creating a printGreeting() method 
+public static void printGreeting(){
+system.out.println("Java is Awesome!")
+}
+   public static void main(String[] args) {
+    
+//call the printGreeting() method inside main method
+printGreeting();
+
+   }
+
+}
+/**
+*output:
+* Java is Awesome!
+*
+*/
+</code>
+</pre>
+</p>
+
+<p>
+You can call a method multiple times.
+</p>
+
+<p>
+Like:
+</p>
+<p>
+<pre><code class="left-border">
+public class Main {
+
+// creating a printGreeting() method 
+public static void printGreeting(){
+system.out.println("Java is Awesome!")
+}
+   public static void main(String[] args) {
+    
+//call the printGreeting() method inside main method
+printGreeting();
+printGreeting();
+printGreeting();
+
+   }
+
+}
+/**
+*output:
+* Java is Awesome!
+* Java is Awesome!
+* Java is Awesome!
+*/
+</code>
+</pre>
+</p>
+
+<p>
+# Non static method:
+A method that needs object to initialize or execute it's behaviors that called non static method or instance method.
+</p>
+
+
+<p>
+Like: 
+</p>
+
+<p>
+<pre><code class="left-border">
+public class Main {
+
+// creating a printGreeting() object method 
+public void printGreeting(){
+system.out.println("Java is Awesome!")
+}
+   public static void main(String[] args) {
+    
+//creating an object of Main 
+Main obj = new Main();
+
+//call the printGreeting()
+obj.printGreeting();
+
+   }
+
+}
+/**
+*output:
+* Java is Awesome!
+*
+*/
+</code>
+</pre>
+</p>
+
+<p>
+You see, how we have created an object of Main class file and the invoke the printGreeting() method.
+</p>
+
+<p>
+# Method may have return type as well.
+</p>
+
+<p>
+You see in the method declaration we have used void keyword. It means, the method doesn't return any value. But, what if we want a method to return any value?
+</p>
+
+<p>
+Then, instead of using void, we have to use int, String, float or even valid object type to return something. 
+
+</p>
+
+<p>
+See another example:
+</p>
+
+<p>
+ <pre><code class="left-border">
+public class Main {
+
+// creating a printGreeting() method that returns int value
+public static int printSummation(){
+         return 10+10;
+}
+   public static void main(String[] args) {
+    
+//call the printSummation () method inside main method
+System.out.println(printSummation());
+
+   }
+
+}
+/**
+*output:
+* 20
+*
+*/
+</code></pre>
+</p>
+
+<p>
+Now, the method returns int value.
+</p>
+
+<p>
+Let's say you want the method should return String value.
+</p>
+
+<p>
+Just write the method like this:
+</p>
+
+<p>
+<pre><code class="left-border">
+public static String printGreeting(){
+return "Java is Awesome!";
+}
+</code></pre>
+</p>
+
+<p>
+And then call the method as usual.
+</p>
+
+<p>
+# Method that takes parameters
+</p>
+
+<p>
+In java, a method may contain parameters as well. But the parameters are recognized local variables and they must have a type and name. Any valid statement can be parameters in Java.
+</p>
+
+<p>
+# Creating a method that contains parameters.
+</p>
+
+<p>
+Guess, we have a method called printAddition and it prints the summation of two int local variables.
+</p>
+
+<p>
+Look at the example below:
+</p>
+
+<p>
+ <pre><code class="left-border">
+public class Main {
+
+// creating a printGreeting() method that returns int value
+public static int printAddition(int x, int y){
+         return x+y;
+}
+   public static void main(String[] args) {
+    
+//call the printSummation () method inside main method
+System.out.println(printSummation(10, 20));
+
+   }
+
+}
+/**
+*output:
+* 30
+*
+*/
+
+</code></pre>
+</p>
+
+<p>
+You may notice that, when we invoke the method we have passsd the parameters value. They must match the type and number as well.
+</p>
+
+<p>
+Remember, what local variables we have used inside the parentheses at the time of method declaration are called parameters. 
+</p>
+
+<p>
+And, the value we have used or passed at the time of method invocation are called arguments. The parameter numbers and types should be match with arguments. 
+</p>
+
+<p>
+This is an ongoing article. Will be improved..
+</p>
+
+  </div>
+
+<script>hljs.highlightAll();</script>
+</body>
+
+</html>

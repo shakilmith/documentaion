@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Method Overloading</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+
+<p>
+
+<h1>Method Overloading in Java</h1>
+  When more than one method have same name but with differen types of parameters or the number of parameters are different within the class (not subclass) then it is called method overloading. 
+</p>
+
+<p>
+“
+One big difference between method overriding and method overloading is that, method overloading can be achieved within the class and method overriding can be achieved within the subclass. ”
+</p>
+
+<p>
+In both way we reuse the same method but the use cases are totally different.
+</p>
+
+<p><
+Anyway, </br>
+
+<p>
+Let's check out the below example about method overloading: 
+</p>
+
+<p>
+<pre><code>
+public class Addition{
+  
+  public int add(int x, int y){
+    return x+y;
+  }
+  public int add(int x, int y, int z){
+    return x+y+z;
+  }
+  public float add(float x, float y){
+    return x+y;
+  }
+  
+  public static void main (String[] args) {
+    Addition obj = new Addition();
+    
+    System.out.println("Addition of 2 int numbers are "+ obj.add(75, 75));
+    System.out.println("Addition of 3 int numbers are "+ obj.add(75, 25, 50));
+    System.out.println("Addition of 2 float number s are "+ obj.add(7.5f, 7.5f));
+  }
+}
+</code></pre>
+</p>
+
+<p>
+Output: 
+</br>
+Addition of 2 int numbers are 150</br>
+Addition of 3 int numbers are 150</br>
+Addition of 2 float number s are 15.0</br>
+</p>
+
+<p>
+//Link: Differences between method overloading and method overriding.
+</p>
+
+</div>
+  
+</body>
+
+</html>

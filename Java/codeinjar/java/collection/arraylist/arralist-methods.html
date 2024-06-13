@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  
+  <style>
+    table, th, td{
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  
+  
+  
+  <table style="width: 100%">
+    <tr>
+      <th>Methods</th>
+      <th>Return types</th>
+      <th>Description</th>
+    </tr>
+    
+    <tr>
+      <td>add(E element)</td>
+      <td>boolean</td>
+      <td>Appends the specified element to the end of this list.</td>
+    </tr>
+    <tr>
+      <td>add(int index, E element)</td>
+      <td>void</td>
+      <td>Inserts the specified element at the specified position in this list.</td>
+    </tr>
+    
+      <tr>
+        <td>addAll(Collection<? extends E> c)</td>
+        <td>boolean</td>
+        <td>Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.</td>
+      </tr>
+      
+         <tr>
+           <td>addAll(int index, Collection<? extends E> c)</td>
+           <td>boolean</td>
+           <td>Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.</td>
+         </tr>
+            <tr>
+              <td>get(int index)</td>
+              <td>E (element type)</td>
+              <td>Returns the element at the specified position in this list.</td>
+            </tr>
+           <tr>
+             <td>isEmpty()</td>
+             <td>boolean</td>
+             <td>Returns true if this list contains no elements.</td>
+           </tr>
+        <tr>
+          <td>iterator()</td>
+          <td>Iterator(E)</td>
+          <td>Returns an iterator over the elements in this list in proper sequence.</td>
+        </tr>
+        
+    <tr>
+      <td>remove(int index)</td>
+      <td>E</td>
+      <td>Removes the element at the specified position in this list.</td>
+    </tr>
+   <tr>
+     <td>removeAll(Collection<?> c)</td>
+     <td>boolean</td>
+     <td>Removes from this list all of its elements that are contained in the specified collection.</td>
+   </tr>
+   
+      <tr>
+        <td>removeIf(Predicate<? super E> filter)</td>
+        <td>boolean</td>
+        <td>Removes all of the elements of this collection that satisfy the given predicate.</td>
+      </tr>
+      
+         <tr>
+           <td>set(int index, E element)</td>
+           <td>E</td>
+           <td>Replaces the element at the specified position in this list with the specified element.</td>
+         </tr>
+          <tr>
+            <td>size()</td>
+            <td>int</td>
+            <td>Returns the number of elements in this list.</td>
+          </tr>
+          
+             <tr>
+               <td>trimToSize()</td>
+               <td>void</td>
+               <td>Trims the capacity of this ArrayList instance to be the list's current size.</td>
+             </tr>
+        <tr>
+          <td>toArray()</td>
+          <td>Object</td>
+          <td>Returns an array containing all of the elements in this list in proper sequence (from first to last element).</td>
+        </tr>
+       <tr>
+         <td>contains()</td>
+         <td>boolean</td>
+         <td>Returns true if this list contains the specified element</td>
+       </tr>
+      <tr>
+        <td>clone()</td>
+        <td>Object</td>
+        <td>Returns a shallow copy of this ArrayList instance. (The elements themselves are not copied.)</td>
+      </tr>
+     <tr>
+       <td>equals()</td>
+       <td>boolean</td>
+       <td>Checks two lists are equal or not (returns true ir false)</td>
+     </tr>
+     
+     <tr>
+     <td>indexOf()</td>  
+     <td>int</td>
+     <td>Returns the index of the first occurrence of the specified element in this list.</td>
+     </tr>
+     
+     <tr>
+       <td>indexOf()</td>
+       <td>int</td>
+       <td>Returns the index of the last occurrence of the specified element in this list.</td>
+     </tr>
+     
+     <tr>
+       <td>sort()</td>
+       <td>void</td>
+       <td>Sorts the list alphabetically or numerically in a specified order (Eescending or Descending)</td>
+     </tr>
+    
+    <tr>
+      <td>stream()</td>
+      <td>Stream</td>
+      <td>Returns a sequential Stream with this collection as its source.</td>
+    </tr> 
+  </table>
+  
+  </be>
+  </br>
+  
+  <table style="width: 100%">
+    <tr>
+      <td>addFirst()</td>
+      <td>void</td>
+      <td>Insert new element at the beginning of the LinkedList.</td>
+    </tr>
+    
+    <tr>
+      <td>addLast()</td>
+      <td>void</td>
+      <td>Insert new element at the end of the list.</td>
+    </tr>
+    <tr>
+      <td>getFirst()</td>
+      <td></td>
+      <td>Get the item of first position of the list.</td>
+    </tr>
+    <tr>
+      <td>getLast()</td>
+      <td></td>
+      <td>Retrieve the last element of the list.</td>
+    </tr>
+    <tr>
+      <td>removeFirst()</td>
+      <td></td>
+      <td>Remove the first element from the list.</td>
+    </tr>
+    <tr>
+      <td>removeLast()</td>
+      <td></td>
+      <td>Remove the last element from the list.</td>
+    </tr>
+    
+    <tr>
+      <td>clear()</td>
+      <td>void</td>
+      <td>Remove all the elements from the list.</td>
+    </tr>
+    
+    <tr>
+      <td>clone()</td>
+      <td>Object</td>
+      <td>Returns a shallow copy of the list.</td>
+    </tr>
+    <tr>
+      <td>poll()</td>
+      <td>E</td>
+      <td>Retrieves and then remove the first element of the list.</td>
+    </tr>
+    <tr>
+      <td>peek()</td>
+      <td>E</td>
+      <td>Retrieves but doesn't remove the first element.</td>
+    </tr>
+    
+  </table>
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interface in Java</title>
+  
+  <style>
+
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+  <h1>Interface in Java</h1>
+  <p>
+    Interface in java is 100% abstract class. All the data members of an interface are abstract by default.
+</p>
+
+<p>
+Interface members could be fields/attributes and methods. All the methods are abstract by default. It is not possible to create constructor of an interface.
+</p>
+
+<p>
+<b>Interface attributes:</b> by default attributes are public, static, final of an interface. You can't change or reinitialize the interface attributes. Even, it is not possible to create object of an interface.
+</p>
+
+<p>
+<b>Interface methods:</b> methods of an interface public and abstract by default. Thus the method can't have body. The method body will be provided by the subclass. Even, you don't need to use abstract keyword externally to make a method abstract. 
+</p>
+
+<p>
+<b>Creating objects:</b> Interface can't be used to create objects. For this reason, interface doesn't contain constructor.
+</p>
+
+<p>
+<b>Method implementation:</b> All the method of an interface (1, 2, 3...) must be implemented or overriden in the implemented class. Instead of extends keyword, we have to use implements keyword when you create subclass of an interface.
+</p>
+
+<p>
+<b>Syntax:</b>
+</p>
+
+<p>
+<pre><code class="left-border">
+interface A {
+  //data members
+  
+  /**
+   * By default
+   * attributes are public, static, final
+   * methods are public and abstract
+   */
+}
+//implemented class (subclass in other form)
+class X implemens A {
+  //own data members
+  //acquires the data members of interface A
+}
+</code></pre>
+</p>
+
+<p>
+Let's look over few examples below: 
+</p>
+
+<p>
+In this example, we will create a Shape interface that returns the area of different shapes like circle, rectangular etc.
+</p>
+
+<p>
+<pre><code class="left-border">
+interface Shape{
+  //method that return the area of any shape
+  float printArea(float width, height); //this method doesn't have body
+}
+
+//implemented class 
+class Rectangular implements Shape{
+  //Override the method of the interface
+  public float printArea(float width, float height){
+    return width*height;
+  }
+}
+
+//second implemented class 
+class Square implements Shape{
+  //Override the method of the interface
+  public float printArea(float width, float height){
+    return width*height;
+  }
+}
+
+//third implemented class 
+class Circle implements Shape{
+  //Override the method of the interface
+  static float PI = 3.1416f;
+  public float printArea(float width, float height){
+    return width*height*PI;
+  }
+}
+
+
+//main class file (should be your file name)
+
+public class InterfaceExample{
+  public static void main (String[] args) {
+    //create the objects of implemented class 
+    Rectangular rect = new Rectangular();
+    Square sq = new Square();
+    Circle c = new Circle();
+    
+    //print the are of the shapes now
+    System.out.println("Area of Rectangular is: "+ rect.printArea(12.00f, 8.00f));
+    System.out.println("Area of Square is: "+sq.printArea(15.00f, 15.00f));
+    System.out.println("Area of Circle is: "+c.printArea(8.00f, 8.00f));
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you now run the above example, you will get the following output: 
+</p>
+
+<p>
+<pre><code class="left-border">
+Area of Rectangular is: 96.0
+Area of Square is: 225.0
+Area of Circle is: 201.0624
+</code></pre>
+</p>
+
+<p>
+<b>Example 2:</b>
+</p>
+
+<p>
+Let's go through another simple example. Let's guess, we have an interface class called Bank and it has an abstract method called rateOfInterest().  This method doesn't have body. The body will be provided by the implemented (sub class) classes. 
+</p>
+
+<p>
+<pre><code class="left-border">
+interface Bank{
+  float rateOfInterest();//return float
+}
+
+//implemented class (Bank names)
+
+class SBI implements Bank{
+  //override the rateOfInterest method
+  
+  @Override //not necessary to annotate
+  public float rateOfInterest(){
+    return 5.56f;
+  }
+}
+
+class PNC implements Bank{
+  //override the rateOfInterest method
+  
+  @Override //not necessary to annotate
+  public float rateOfInterest(){
+    return 8.00f;
+  }
+}
+
+class TDI implements Bank{
+  //override the rateOfInterest method
+  
+  @Override //not necessary to annotate
+  public float rateOfInterest(){
+    return 9.50f;
+  }
+}
+
+//class that contains main method
+
+public class ExampleApplication{
+  public static void main (String[] args) {
+    //Create objects of the sub classes
+    SBI sbi = new SBI();
+    PNC pnc = new PNC();
+    TDI tdi = new TDI();
+    
+    //invoke the rateOfInterest method
+    System.out.println("SBI interest rate is: "+sbi.rateOfInterest() +"%");
+    System.out.println("PNC interest rate is: "+pnc.rateOfInterest() +"%");
+    System.out.println("TD interest rate is: "+tdi.rateOfInterest() +"%");
+  }
+}
+
+</code></pre>
+</p>
+
+<p>
+If you now run the above example, you should get the following output in the console: 
+</p>
+
+<p>
+<pre><code class="left-border">
+SBI interest rate is: 5.56%
+PNC interest rate is: 8.0%
+TD interest rate is: 9.5%
+</code></pre>
+</p>
+
+<p>
+Note: When you override the interface method in the subclass, must be public. Otherwise you will get error like this: 
+</p>
+
+<p>
+<i>“attempting to assign weaker access privileges; was public”</i>
+</p>
+
+<p>
+It means, as the default method is public and abstract in the interface, thus you should add the public keyword when you override the method. Otherwise the compiler thinks it as a default method. Remember, when you don't use any access modifier for your methods then they will be default method (default implies more restrictions than public method)
+</p>
+
+<p>
+Why we should use interface in java? 
+=> To achieve security. Interface makes our program more secure. It works almost like a simple pojo java class. But provides restrictions on such thinks automatically. Interface makes our code more secure by hiding internal details and showing only functionality. 
+</p>
+
+<p>
+Such as, you send a message to your friend and he gets the message and responds you. Both of you really don't need to know how this happens (message transmission). Interface works almost like this. 
+</p>
+
+<p>
+Like, in the above example, Bank is the interface and it contains a method called rateOfInterest(). This is an empty method and there is no way to implement this method without using the implemented class. It means that, only the implemented class can see it.
+
+</p>
+
+<p>
+We can understand more interesting way interface concept is that, like though you are a citizen of X country, but you can only vote if you are at least 18 or above. 
+</p>
+
+<p>
+Another example could be, you can only enter or participate in the weeding party if you have invitation card. 
+</p>
+
+<p>
+Sorry, I want to add another example. Like, you have an account in X online banking platform like including thousands. But you can't see the balance of other user's right. So, the program could be like this, by assigning account number (somehow username, ids, mobile number etc.) he/she/you can see the balance if yours/his/her.
+</p>
+
+</div>
+  
+</body>
+
+</html>

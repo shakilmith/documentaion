@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+    line-height: 1.5;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+   <h1>Java For Loop</h1>
+    <p>
+    To iterate some statements multiple times we basically use the concept of loop. 
+There are few kinds of loop in java like for loop, while, do while loop, foreach loop etc. 
+</p>
+
+<p>
+Today we are going to talk about Java for loop. 
+</p>
+
+<p>
+<b># Java For Loop</b>
+</p>
+
+<p>
+When we know how many times we want to iterate a statement we use java for loop. 
+</p>
+
+<p>
+<b>Java for loop syntax: </b>
+</br>
+<pre><code>
+for(initialization; condition; iteration){
+  //statement to iterate 
+}
+
+//such as
+
+for(int i = 0; i < 10; i++ ){
+  System.out.println(i); //not only the inner variable, applicable for anything
+}
+</code></pre>
+</p>
+
+<p>
+<b>Explanation: </b>
+</p>
+
+<p>
+<b>Initialization:</b> In this step, we set the initial value for the loop control variable. You can declare the variable outside the parentheses as well.
+</p>
+
+<p>
+<b>Condition:</b> It is a boolean expression that tests the loop control variable. If it is true, then the for loop continues to iterate the statement until it becomes false. If the condition is false then the execution of the statement will terminate. 
+</p>
+
+<p>
+<b>Iteration:</b> We can say it increment or decrement step. It is an iteration expression that determines how the loop control variable is changed or updated every time the loop iterates.
+</p>
+
+
+<p>
+<b>++ :</b> it is called increment operator. It increases it's operand (in our case, the initial variable) by one. 
+If you initial variable is i, then i = i + 1 and i++ are same.
+</p>
+
+<p>
+<b>-- :</b> it is called decrement operator. It decrease it's operand (in our case, the initial variable) by one. 
+If you initial variable is i, then i = i - 1 and i++ are same.
+</p>
+
+
+<p>
+<b># Sample Example: </b>
+</p>
+
+<p>
+Below is a short program that
+demonstrates the java for loop.
+</p>
+
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //for lopp to print 1 to 9 (1 included)
+    for(int i = 1; i < 10; i++){
+      //statement
+      System.out.println(i);
+    }
+  }
+}
+</code></pre>
+</p>
+
+<p>
+You will get  the following output if you run the above example
+</br>
+<pre><code>
+//Output: 1 is included but not 10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</code></pre>
+</p>
+
+<p>
+<b>Explanation:</b> In this example, i is the loop control variable. It is initialized to one in the initialization step of the floor loop. At the start of each iteration (including the first one), the conditional test i < 10 is
+performed. If the outcome of this test is true, the println( ) statement is executed, and then
+the iteration step (i++) of the loop is executed. This process continues until the conditional test is false. 
+</p>
+
+
+<p>
+<b>Note:</b> In the iteration step we use i++. But we can also use i = i + 1; But most of the time in real life example we use ++ (2 plus signs) increment operator for increasing the operand by one or -- (2 minus signs) for decreasing the operand by one.
+</p>
+
+<p>
+<b># Declare the variable outside the loop</b>
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //declaring the loop control variable
+    int i;
+    //for lopp to print 1 to 10 
+    for( i = 1; i < 10; i++){
+      //statement
+      System.out.println(i);
+    }
+  }
+}
+</code></pre>
+</p>
+
+<p>
+You will get the same output if you run the above program.
+</p>
+
+<p>
+<pre><code>
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</code></pre>
+</p>
+
+<p>
+<b># Java for example that increments by 2 </b>
+</p>
+
+<p>
+We can change iteration part in any way, how we want. Instead of increasing the loop control variable by 1 (i+1) we can increase it by 2, 3 whatever or decreases it as well. 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //for lopp to print 1 to 10 
+    for(int i = 1; i < 10; i = i + 2){
+      //statement
+      System.out.println(i);
+    }
+  }
+}
+/**
+ * Output: 
+ * 1 
+ * 3
+ * 5
+ * 7
+ * 9
+ */
+ </code></pre>
+</p>
+
+<p>
+But when the initial value is set to zero (int i = 0)
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //for lopp to print 1 to 10 
+    for(int i = 0; i < 10; i = i + 2){
+      //statement
+      System.out.println(i);
+    }
+  }
+}
+/**
+ * Output:
+ * 0
+ * 2
+ * 4
+ * 6
+ * 8
+ */
+ </code></pre>
+</p>
+
+<p>
+The explanation is very simple of the above two programs. Both times, the compiler find the value 1 and 0 and print both first then increment it by 2 until it reaches to 10, I mean the false taste. Then it terminates the loop and not to print 10. 
+</p>
+
+<p>
+<b># Iterate or loop through String</b>%
+</p>
+
+<p>
+We have a String and we want to represent it by characters. In java String class, there is method called charAt() and we have to call it additionally.
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    
+    String name = "Codeinjar";
+    //for lopp to print 1 to 10 
+    for(int i = 0; i < name.length(); i++){
+      //statement
+      System.out.print(name.charAt(i) + " ");
+    }
+  }
+}
+/**
+ * C
+ * o
+ * d
+ * e
+ * i
+ * n
+ * j
+ * a
+ * r
+ */
+</code></pre>
+</p>
+
+<p>
+Or if you want to loop through the String side by side use print() than prinln().
+</br>
+<b>like:</b>
+</br>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    
+    String name = "Codeinjar";
+    //for lopp to print 1 to 10 
+    for(int i = 0; i < name.length(); i++){
+      //statement
+      System.out.print(name.charAt(i) + " ");
+    }
+  }
+}
+/**
+ * Output:
+ * C o d i n j a r
+ */
+ </code></pre>
+</p>
+
+<p>
+<b># For loop to find out odd and even number from 0 to 20 </b>
+</p>
+
+<p>
+ <pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //print odd number from 0 to 20
+    System.out.println("Odd Numbers");
+    for(int i = 1; i <= 20; i = i + 2){
+      System.out.print(i +" ");
+    }
+    //print evem number
+    System.out.println("Even numbers");
+    for(int i = 2; i <= 20; i = i + 2){
+      System.out.print(i +" ");
+    }
+  }
+}
+/**
+ * Output:
+ * Odd Numbers
+ * 1 3 5 7 9 11 13 15 17 19 
+ * Even numbers
+ * 2 4 6 8 10 12 14 16 18 20 
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Iterate an array elements using for loop</b>
+</p>
+
+<p>
+ <pre><code>
+public class Main{
+  public static void main (String[] args) {
+    
+    int [] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    
+    //loop through the array using for loop
+    for(int i = 0; i < numbers.length; i++){
+      //print the numbers
+      System.out.print(numbers[i] +" ");
+    }
+  }
+}
+/**
+ * 1 2 3 4 5 6 7 8 9 10 
+ */
+</code></pre>
+</p>
+
+
+<p>
+<b>Note:</b> We sometimes use for-each loop instead of for loop for the iteration of  array.
+</p>
+
+</div>
+  
+</body>
+
+</html>

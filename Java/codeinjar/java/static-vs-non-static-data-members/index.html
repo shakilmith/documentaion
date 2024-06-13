@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+
+<!-- and it's easy to individually load additional languages -->
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+
+
+  <title>Java Static vs Non-Static data members</title>
+  
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    html, body{
+      margin-left: 8px;
+      margin-right: 8px;
+      padding: 0px;
+    }
+    .highlight-block{
+      border-left: 3px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  
+<div>
+ <h1>Static and Non static data members in java</h1>
+ 
+  <p>
+  We know that Java class members are fields and methods. 
+A field or data member can be static or no-static. If a class member like field is static then we don't need to create object of the class to access it. 
+</p>
+
+<p>See an example below</p>
+
+<div>
+<pre><code class="language-java highlight-block">
+    public class Main {
+ 
+//static data member 
+static String name = "Mark Smith";
+static int age = 30;
+
+   public static void main(String[] args) {
+    
+//call the printSummation () method inside main method
+System.out.println("Name is "+ name);
+System.out.println("Age is "+ age);
+
+   }
+
+}
+/**
+*output:
+* Name is Mark Smith
+* Age is 30
+* 
+*/
+  </code>
+</pre>
+</div>
+
+<p>
+You see, we don't need to create object of the class to access the name and age data members as they are static. 
+</p>
+
+<p>
+But, if they are not static, then you probably have to use create method to access them, otherwise you will get error. 
+</p>
+
+<p>
+See another example, where we have created an object to access the non-sratic data members.
+
+</p>
+
+<p>
+  <pre><code class="language-java highlight-block">
+   public class Main {
+   
+   //static data member
+   String name = "Mark Smith";
+   int age = 30;
+   
+   public static void main(String[] args) {
+   
+   //creating an object of Main class
+   Main obj = new Main();
+   
+   //print name and age using the obj of the class
+   System.out.println("Name is "+ obj.name);
+   System.out.println("Age is "+ obj.age);
+   
+   }
+   
+   }
+   /**
+   *output:
+   * Name is Mark Smith
+   * Age is 30
+   *
+   */ 
+  </code></pre>
+</p>
+
+<p>
+The same logic will also be applied other types of variables or methods of the class.
+</p>
+
+
+</div>
+
+
+<!-- Call the highlightjs-->
+<script>hljs.highlightAll();</script>
+</body>
+
+</html>

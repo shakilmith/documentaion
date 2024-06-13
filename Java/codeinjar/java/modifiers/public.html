@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Public Members of a Class in Java</title>
+  
+    <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+  <h1>Public Members of a class in Java
+  </h1>
+  
+  <p>
+    When a class members are public they can be accessible within the declared class from the same package, outside the declared class within the same package, outside the declared class from a different package or through inheritance (means subclasses)
+</p>
+
+<p>
+Let's check out all the possiblity to execute public members of a class.
+</p>
+
+<p>
+<b># Within the declared class from the same package:</b>
+</p>
+
+<p>
+<pre><code>
+package com.company;
+
+public class Rectangle{
+  public float printArea(float width, float height){
+    return width*height;
+  }
+  
+  //main method
+  public static void main (String[] args)
+  {
+   //create an object of Rectangle
+   Rectangle rect = new Rectangle();
+   System.out.println(rect.printArea(12.0f, 8.0f));
+   
+  }
+}
+/**
+ * Output
+ * 96.0
+ */
+</code></pre>
+</p> 
+
+<p>
+<b># Same package but outside the declared class:</b>
+</p>
+
+<p>
+Create a class called <b>Rectangle.java</b> in <b>com.company</b> package.
+</p>
+
+<p>
+<b>Rectangle.java</b>
+</br>
+<pre><code>
+package  com.company;
+
+public class Rectangle{
+  public float printArea(float width, float height){
+    return width*height;
+  }
+}
+</code></pre>
+</p>
+
+<p>
+Create another class called <b>TestExample.java</b> in <b>com.company</b> package.
+</p>
+
+<p>
+<b>TestExample.java</b> (contains main method)
+</p>
+
+<p>
+<pre><code>
+package com.company;
+
+public class TestExample{
+  
+  public static void main (String[] args)
+  {
+   //create an object of Rectangle
+   Rectangle rect = new Rectangle();
+   System.out.println(rect.printArea(12.0f, 8.0f));
+   
+  }
+}
+/**
+ * Output
+ * 96.0
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Outside the declared class and from a different package.</b>
+</p>
+
+<p>
+Create a class <b>Rectangle.java</b> in <b>com.company</b> package.
+</p>
+
+<p>
+<b>Rectangle.java</b> 
+</p>
+
+<p>
+<pre><code>
+package com.company;
+ 
+ public class Rectangle{
+   public float printArea(float width, float height){
+     return width*height;
+   }
+}   
+</code></pre>
+</p>
+
+<p>
+Create another class called <b>TestExample.java</b> in <b>com.company.test</b> package. (Probably you have to create a new package test in <b>com.company</b>) 
+</p>
+
+<p>
+<b>TestExample.java</b> (contains main method)
+</p>  
+
+<p>
+<pre><code>
+ package com.company;
+ 
+ public class TestExample{
+   
+   public static void main (String[] args)
+   {
+    //create an object of Rectangle
+    Rectangle rect = new Rectangle();
+    System.out.println(rect.printArea(12.0f, 8.0f));
+   
+   }
+ }
+ /**
+  * Output
+  * 96.0
+  */
+ </code></pre>
+</p>
+
+<p>
+<b><i># Execute public members of a class through inheritance. (Subclass in other words)</i></b>
+</p>
+
+<p>
+Create a simple Shape class in 
+<b>com.company</b> package and it has a float method called <b>printArea().</b> This method returns float data when it is called. 
+</p>
+
+<p>
+Now, create a subclass of <b>Shape</b> class called Rectangle and it contains the main method of this application.
+</p>
+
+<p>
+Inheritance: It is a mechanism to acquire the data members (properties, methods) of a parent class. 
+</p>
+
+<p>
+<b>Rectangle.java (file name)</b>
+</p>
+
+<p>
+<pre><code>
+package com.company;
+
+class Shape{
+  public float printArea(float width, float height){
+    return width*height;
+  }
+}
+
+public class Rectangle extends Shape{
+    public static void main (String[] args) {
+  //create an object of Rectangle
+  Rectangle rect = new Rectangle();
+  System.out.println(rect.printArea(12.0f, 8.0f));
+    }
+}
+/**
+ * Output
+ * 96.0
+ */
+</code></pre>
+</p>
+
+<p>
+We have successfully execute all the above scenarios. Hope this post helps you to understand about the possibility of public members of a class. 
+</p>
+
+
+//Link: know about private members of class
+//Link: know about protected members of a class
+//Link: final members of a class
+//Link: Static members of a class
+//Non static members of a class
+ 
+
+  </div>
+  
+</body>
+
+</html>

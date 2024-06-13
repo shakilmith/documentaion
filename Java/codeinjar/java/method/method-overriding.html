@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Method Overriding</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+  <h1>Method Overriding in Java</h1>
+   <p>
+    When in inheritance, parent and subclass contains same method but different implementation is called method overriding.
+</p>
+
+<p>
+In other word, both parent and subclass share the same method name but different method implementation. 
+</p>
+
+<p>
+Look at the below example: 
+</p>
+
+<p>
+<pre><code>
+class Fruits { //parent class
+  public void taste(){
+    System.out.println("Fruits are usually tasty!");
+  }
+}
+
+class Apple extends Fruits{
+  //override the taste method
+  public void taste(){
+    System.out.println("Apple is little bit salty.");
+  }
+}
+
+class Kiwi extends Fruits{
+  //override the taste method
+  public void taste(){
+    System.out.println("Kiwi is sweet.");
+  }
+}
+
+class Orange extends Fruits{
+  //override the taste method
+  public void taste(){
+    System.out.println("Oranges are sour overall.");
+  }
+}
+
+class Carrots extends Fruits{
+  //override the taste method
+  public void taste(){
+    System.out.println("The taste of carrots are little bit bitter.");
+  }
+}
+
+public class Main{ //must be file name
+  
+  public static void main (String[] args) {
+    //create objects of fruits and subclasses
+    
+    Fruits fruits = new Fruits();
+    Apple apple = new Apple();
+    Kiwi kiwi = new Kiwi();
+    Orange orange = new Orange();
+    Carrots carrots = new Carrots();
+    
+    //invoking the method
+    fruits.taste(); //parent class
+    
+    apple.taste(); //subclass
+    orange.taste(); //subclass 
+    kiwi.taste();
+    carrots.taste(); // subclass 
+  }
+}
+</code></pre>
+</p>
+
+<p>
+Output: 
+</p>
+<p>
+Fruits are usually tasty! <br/>
+Apple is little bit salty. </br>
+Oranges are sour overall. <br/>
+Kiwi is sweet. </br>
+The taste of carrots are little bit bitter. <br/>
+</p>
+
+<p>
+You can see in the above example that, we use the same method among the sub classes but with different implementation. It's called method overriding. 
+</p>
+
+<p>
+Another real life example could be Bank object that contains a method called getInterestRate(). We will then use the same method among multiple subclasses. 
+</p>
+
+<p>
+<pre><code>
+class Bank {
+  public float getInterestRate(){
+    return 0.0f;
+  }
+}
+
+class SBI extends Bank{
+  public float getInterestRate(){
+    return 7.50f;
+  }
+}
+
+class TDI extends Bank{
+  public float getInterestRate(){
+    return 5.75f;
+  }
+}
+
+class BMO extends Bank{
+  public float getInterestRate(){
+    return 12.50f;
+  }
+}
+
+public class Main{
+  public static void main (String[] args) {
+    //create objects of sub-classes
+    SBI sbi = new SBI();
+    TDI tdi = new TDI();
+    BMO bmo = new BMO();
+    
+    System.out.println("Rate of Interest of SBI is "+sbi.getInterestRate()+"%");
+    System.out.println("Rate of Interest of TDI is "+tdi.getInterestRate()+"%");
+    System.out.println("Rate of Interest of BMO "+bmo.getInterestRate()+"%");
+  }
+}
+</code></pre>
+</p>
+
+<p>
+The following output you will get if you run the above example:
+</p>
+<p>
+Rate of Interest of SBI is 7.5%</br>
+Rate of Interest of TDI is 5.75%</br>
+Rate of Interest of BMO 12.5%</br>
+</p>
+
+<p>
+Benefits of using method overriding?
+</br></br>
+=> Reuse codes many times among related classes. </br>
+=> Method overriding is used to provide the specific implementation of a method which is already provided by its superclass. </br>
+=> Method overriding is used for runtime polymorphism </br>
+</p>
+
+</div>
+  
+</body>
+
+</html>

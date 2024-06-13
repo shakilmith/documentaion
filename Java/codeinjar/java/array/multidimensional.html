@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multidimensional Array</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+    line-height: 1.5;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+    <h1>Multidimensional Array</h1>
+    
+    <p>
+    Array can be multidimensional as matrix like. When you want to store data as a tabular form like rows and columns in a table we can use multidimensional array. 
+</p>
+
+<p>
+Syntax: 
+</p>
+
+<p>
+<pre><code>
+type [] [] array_name ={ {elements}, {elements} };
+
+Like: 
+
+int [][] numbers = { {1, 2, 3, 4, 5}, {6, 7, 8, 9, 10} };
+</code></pre>
+</p>
+
+<p>
+Note: Here, if we want to access the first {} array data, then we have to use index [0], 2nd array {} data, we have to use index [1] and use specific index number to access the elements of that array. Here, first [] brackets indicates the undex number and the second [] brackets specify the element of that index. 
+</p>
+
+<p>
+# Create a multidimensional array and access elements
+</p>
+
+<p>
+Example 1: 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //create a multidimensional array
+    int [] [] numbers = { {1, 2, 3, 4, 5}, {6, 7, 8, 9, 10} };
+    
+    //access the first array elements
+    System.out.println("First array element is "+numbers[0] [2]);
+    
+    //access the second array elements
+    System.out.println("Second array element is "+numbers[1] [4]);
+  }
+}
+/**
+ * Output: 
+ * First array element is 3
+ * Second array element is 10
+ */
+</code></pre>
+</p> 
+ 
+<p>
+We know that, array index starts with [0]. First array is [0], second array is [1], and third array is [2] and so on.  
+</p>
+
+<p>
+If we want to access the first array elements, we have to use 2 square brackets like numbers [] []. One for the array and another one for the elements of that array. 
+</p>
+
+<p>
+So, if we want second array element like 10 then the syntax should be like this:</br>
+numbers [1][4]; //output: 10
+</p>
+
+<p>
+<b># Change the array elements of multidimensional array</b> </br></br>
+
+Like a one dimensional array, you can change the array elements of multidimensional array too. 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //create a multidimensional array
+    int [] [] numbers = { {1, 2, 3, 4, 5}, {6, 7, 8, 9, 10} };
+    
+    //access the first array elements
+    System.out.println("Second element of the first array is: "+numbers[0] [2]);
+    
+    //Change the first array elements
+    numbers[0][2] = 20;
+    
+    System.out.println("Now the second element of first array is "+numbers[0][2]);
+  }
+}
+/**
+ * Output: 
+ * Second element of the first array is 3
+ * Now the Second element of first array is 20
+ */
+ </code></pre>
+</p>
+
+<p>
+You can see, how we have changed the second element of the first array. 
+</p>
+
+<p>
+<b># Loop through multidimensional array</b>
+</p>
+
+<p>
+<b>Using for loop:</b>
+</p>
+
+<p>
+<pre><code>
+public class Main{
+   public static void main (String[] args) {
+     //create a multidimensional array
+     int [] [] numbers = { {1, 2, 3, 4, 5}, {6, 7, 8, 9, 10} };
+     
+     //loop through the numbers array
+     // using nested for loop
+     //one for index, another one for elements of that index
+     
+     for(int i = 0; i < numbers.length; i++){
+       for(int j = 0; j < numbers[i].length; j++){
+         System.out.println(numbers [i] [j]);
+       }
+     }
+      
+   }
+ }
+
+/**
+ * Output: 
+ * 1
+ * 2
+ * 3
+ * 4
+ * 5
+ * 6
+ * 7
+ * 8
+ * 9
+ * 10
+ */
+</code></pre>
+</p>
+
+<p>
+<b>#  Array iteration using for each loop: </b>
+</br>
+
+<pre><code>
+public class Main{
+   public static void main (String[] args) {
+     //create a multidimensional array
+     int [] [] numbers = { {1, 2, 3, 4, 5}, {6, 7, 8, 9, 10} };
+     
+     //loop through array elements
+     for(int[] arrays : numbers){ //array
+       for(int data: arrays){ //elements of that array
+         System.out.println(data);
+       }
+     }
+      
+   }
+ }
+
+/**
+ * Output: 
+ * 1
+ * 2
+ * 3
+ * 4
+ * 5
+ * 6
+ * 7
+ * 8
+ * 9
+ * 10
+ */
+</code></pre>
+</p>
+
+<p>
+Okay. The above one is, simplest form of 2 dimensional array. So, how to create 3, 4 or 5 dimensional arrays?
+</p>
+
+<p>
+Not very difficult at all. 
+</p>
+
+<p>
+Syntax will be for n (2, 3, 4, 5...) dimensional arrays are: 
+</p>
+
+<p>
+type n[] array_name = n{};
+</p>
+
+<p>
+like for 3 dimensional array: 
+</p>
+
+<p>
+int [] [] [] myArray = {{ {1, 2, 3, 4}, {5, 6, 7, 8} }};
+</p>
+
+<p>
+Like for 4 dimensional array: 
+int [] [] [] [] myArray = {{{ {1, 2, 3, 4}, {5, 6, 7, 8} }}};
+</p>
+
+<p>
+Hope this this makes sense. 
+</p>
+
+<p>
+Now the question is, How to loop through 3 or 4 dimensional arrays? Similarly the 2 dimensional array. You have to use 1 more for loop always. 
+</p>
+
+<p>
+Look at the below 3 dimensional array and how we loop it through. (Using for each loop)
+</p>
+
+<p>
+<pre><code>
+public class Main{
+   public static void main (String[] args) {
+     int [] [] [] numbers = {{ {1, 2, 3, 4, 5}, {6, 7, 8, 9, 10} }};
+     
+     //loop through the numbers array
+     for(int [] [] arrays: numbers ){
+       for(int [] values: arrays){
+         for(int data: values){
+           System.out.println(data);
+         }
+       }
+     }
+   }
+ }
+ 
+/**
+ * Output:
+ * 1
+ * 2
+ * 3
+ * 4
+ * 5
+ * 6
+ * 7
+ * 8
+ * 9
+ * 10
+ */
+</code></pre>
+</p>
+
+  </div>
+  
+</body>
+
+</html>

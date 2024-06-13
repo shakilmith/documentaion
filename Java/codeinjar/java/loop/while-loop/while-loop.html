@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java While Loop</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+    line-height: 1.5;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+  
+  <h1>Java While Loop</h1>
+    <p>
+    To iterate some statements multiple times we basically use the concept of loop. There are few kinds of loop in java like for loop, while, do while loop, foreach loop etc. 
+</p>
+
+<p>
+Today we are going to talk about Java while loop.
+</p>
+
+<p>
+<b># Java While Loop</b>
+</p>
+
+<p>
+When we don't know how many times exactly we want to loop through a block of code we use java while loop. 
+</p>
+
+<p>
+<b># Java while loop syntax: </b>
+</p>
+
+
+<p>
+<pre><code>
+while(condition){
+      //statement to execute
+      iteration (increment/decrement);
+    }
+ </code></pre>
+</p>
+
+<p>
+<b>Condition:</b> The condition can be any boolean expression. The statement inside the loop will be executed till the condition is true. When it is false the loop will be terminated and go to next line immediately. You can omit the curely brackets if only a single statement is being repeated.
+</p>
+
+<p>
+<b>Loop control variable:</b> it should be declared first that will be checked by conditional expression. 
+</p>
+
+<p>
+<b>Iteration:</b> it is an increment or decrement portion that is also dependent on the condition. 
+</p>
+
+<p>
+<b># Simple program to demonstrate while loop in java</b>
+</p>
+
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    
+    //initial variable
+    int x = 1; 
+    int y = 10
+    while( x < 10){
+      //statement to be executed
+      System.out.print(x +" ");
+      
+      //iteration
+      x++; //increment by one
+    }
+    System.out.println(" ");
+    while(y > 0){
+      //statement to be executed
+      System.out.print(y +" ");
+      
+      //iteration
+      y--; //decrement by ine 
+    }
+  }
+}
+/**
+ * Output
+ * 1 2 3 4 5 6 7 8 9 10
+ * 10 9 8 7 6 5 4 3 2 1
+ */
+ </code></pre>
+</p>
+
+<p>
+<b># Another example of while loop</b>
+</p>
+
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    int x = 10; 
+    int y = 20; 
+    
+    while(x < y){
+      System.out.print(x +", ");
+      x++;
+    }
+    
+    //but there is no output
+    while(x > y){
+      System.out.println(x); //why no output? explains below
+      x++;
+    }
+  }
+}
+/**
+ * Output: 
+ * 10
+ * displays nothing for the second while
+ */
+</code></pre>
+</p>
+
+
+<p>
+**Since the while loop evaluates its conditional expression at the top of the loop, the body of the loop will not execute even once if the condition is false to begin with. For this reason, in the above second while fragment, the call to println( ) is never executed.
+</p>
+
+
+<p>
+<b>Note:</b> Don't forgot to set the step of iteration. Otherwise the loop will never terminate. 
+</p>
+</div>
+  
+</body>
+
+</html>

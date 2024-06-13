@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Abstract Class</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  
+  <div>
+  <h1>Abstract class in Java</h1>
+    <p>
+    Creating an abstract class as simple as creating a simple Java class but it contains abstract keyword. 
+</p>
+
+<p>
+Like, you may have a class called A and it is abstract class. Then it should be like the following
+</p>
+
+<p>
+<pre><code class="left-border">
+abstract class A(){}
+</code></pre>
+</p>
+
+<p>
+Why should we need abstract class in java? 
+<br/>
+Sometimes we don't want to reveal the internal details to our users than only show the essential functionality, in this case we need to create abstract class.
+</br>
+Such as, we send a message someone and he/she receives the message but both parties don't need to know the internal message transmission policy. 
+</br>
+Another example may be, we buy something from a shop and pay the bill through credit or debit card. User's don't need to know what's going on behind the scene.( means, the internal functionality of credit or debit cards)
+</p>
+
+<p>
+The abstract class may contain fields (variables), abstract or non abstract methods as well. Even constructor or static methods too. But the method body will be provided by the implemented class.
+</p>
+
+<p>
+Points to note about Abstract class: 
+
+1. An abstract class must declare with the abstract keyword.
+2. It may contain abstract or non abstract methods, fields, constructors etc. (class members)
+3. Even, an abstract class may contain final data members like final methods.
+</p>
+
+<p>
+# Declaring Abstract class: 
+</br>
+<pre><code class="left-border">
+abstract class A(){
+//abstract or non abstract members
+//But abstract methods don't have body
+}
+</code></pre>
+</p>
+
+<p>
+But, note that the method body must be provided by the sub class or inherited class.(The inherited class can't be abstract then). It means, the abstract class can't have main method.
+</p>
+
+<p>
+# Look at the example below: 
+</br>
+In this example, we have an abstract class Car and it has an abstract method drive(); this method doesn't have any body, as the method body will be provided in the derived class. 
+</p>
+
+<p>
+Here is the first example: 
+</br>
+<pre><code class="left-border">
+abstract class Car{
+    //abstract method: doesn't have body
+    abstract void drive();
+  }
+  
+  //now create a main class file
+  public class Main extends Car{
+    //override the abstract method here
+    @Override 
+    public void drive(){
+      System.out.println("Drive slowly!")
+    }
+    
+    public static void main(String [] arg){
+      
+      //create an object of the Main class now
+      Main obj = new Main();
+      obj.drive();
+      
+    }
+  }
+  /**
+   * Output:
+   * Drive Slowly!
+   */
+
+</code></pre>
+</p>
+
+<p>
+If you already know about inheritance basics I mean, parent child class in java, then the concept of abstract can be very easy to understand. The implementation (body) of the abstract class data members (methods or fields) will be provided by subclass. In the above example, the Main class is the subclass.
+</p>
+
+<p>
+<b>Let's look at another example.</b>
+</p>
+
+<p>
+In this example we have an abstract class called Car, and it has an abstract method called showPrice(); the method implementation or method body will be provided by our three  more sub-classes or inherited classes. 
+</p>
+
+
+<p>
+So, create a class file called TestClass into your favourite ide. Here, the TestClass contains the main method and it should be public class. Now outside the TestClass create Car abstract class and an abstract method called showPrice(); It returns int (numeric value). 
+</p>
+
+<p>
+<b>Note:</b> Abstract class may contain non abstract methods (methods which have body) as well. 
+</p>
+
+
+<p>
+Look over full example now: 
+</p>
+
+<p>
+<pre><code class="left-border">
+abstract class Car{
+  //create an abstract method
+  //the method doesn't have body
+  abstract int showPrice();
+}
+
+//now create three more public class
+//that extends Car class
+public class Volvo extends Car{
+  //override the showPrice() method here
+  @Override
+  public int showPrice(){
+    return 8500;
+  }
+}
+//Create a clasd called Maruti
+public class Maruti extends Car{
+  //override the showPrice() method here
+  @Override
+  public int showPrice(){
+    return 12300;
+  }
+}
+//create a subclass called Mustang
+public class Mustang extends Car{
+  //override the showPrice() method here
+  @Override
+  public int showPrice(){
+    return 15000;
+  }
+}
+
+//now create the main class file.
+//it should be public and contains
+//main method
+public class TestClass{
+  public static void main(String[] args){
+    
+    //Create objects of the above three 
+    //child class to access the
+    //showPrice() method
+    
+    Volvo volvo = new Volvo();
+    Maruti maruti = new Maruti();
+    Mustang mustang = new Mustang();
+    
+    System.out.println("The price of Volvo is "+ volvo.showPrice() +"$");
+    System.out.println("The price of Maruti is "+ mariti.showPrice() +"$");
+    System.out.println("The price of Mustang is "+ mustang.showPrice() +"$");
+  }
+}
+/**
+ * Output:
+ * The price of Vovo is 8500$
+ * The price of Maruri is 12300$
+ * The price of Mustang is 15000$
+ */
+</code></pre>
+</p>
+
+//This is an ongoing article...
+
+</div>
+  
+</body>
+
+</html>

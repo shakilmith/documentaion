@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Java Array</title>
+  
+  <style>
+      *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+  </style>
+  
+  
+</head>
+
+<body>
+  
+  
+  <div>
+    
+    <h1>Java Array</h1>
+    
+    <p>
+    Array is used when same type of multiple values has been stored in one variable. 
+    </p>
+    
+<p>
+Like, we want to render or store 10 int numbers (values in general). Thus we have to create 10 variables for each number. 
+</p>
+
+<p>
+<pre><code class="left">
+Like:</br> 
+int num1 = 100;</br>
+int num2 = 200;</br>
+int num3 = 300;</br>
+------</br>
+------</br>
+int num10 = 1000;
+</code></pre>
+</p>
+
+<p>
+For 10 variables, it is okay may be. But what if, you want to store 100 or even 1000 such values and required particular variable for each value?
+</p>
+
+<p>
+In this case, we can use array in java to store hundreds of values at a time in a single variable, instead of creating variable for storing each value. 
+</p>
+
+<p>
+Array declaration: 
+
+How we decalare variable in java, similarly we can also decalare array in java. But, we use extra square bracket [].
+</p>
+
+<p>
+<pre><code class="left-border">
+data_type array_name []; // or
+data_type [] array_name; 
+//Like 
+int [] numbers; 
+String [] fruits; 
+</code></pre>
+</p>
+
+<p>
+Array initialization: </br>
+
+We can initialize array at the time of declaration or using array indexes to initialize array elements. 
+</p>
+
+<p>
+Note: Each member of an array is called element of array in general. And, the positions they are stored are called cells. So, we can say array elements is stored in array cell. Or whatever!
+</p>
+
+<p>
+Like: 
+</p>
+
+<p>
+<pre><code class="left-border">
+//declaring an array </br>
+int [] numbers;  //without size defined</br>
+int [] numbers = new int [5]; //with size defined </br>
+//You can't add 6 number elements in this array now</br>
+
+//initialize or add data members in it</br>
+
+numbers[0] = 10;</br>
+numbers[1]  = 20;</br>
+numbers[2] = 30;</br>
+numbers[3]  = 40;</br>
+numbers[4] = 50;</br>
+</code></pre>
+</p>
+
+<p>
+So, we have initialized or added data members to the numbers by using indexing. 
+</p>
+
+<p>
+Note that, array index starts with 0. It means, the first member of the array array[0], second member is array[1], third member is array[2], likewise the last member is array[length-1] 
+</p>
+
+<p>
+Note: Here, array means the name of the array. And length means the size of the array. The last member or element of the array is 1 less than the length of the array. 
+</p>
+
+<p>
+Like, in the above array initialization, we have added total 5 elements to our numbers array. So, the length of the numbers array is 5. But, the total indexes are 4. Because, array index or position starts from 0 to length -1. 
+</p>
+
+<p>
+Array initialization at the time of declaration: 
+</p>
+
+<p>
+How?
+</p>
+
+<p>
+Instead of writing each data member individually by accessing the index number we can add the members at the time of declaration. 
+</p>
+
+<p>
+Like: 
+</p>
+
+<p>
+<pre><code class="left-border">
+//declaring an array and initialize it
+int [] numbers = {10, 20, 30, 40, 50}; 
+//Or
+int [] numbers = new int [] {10, 20, 30, 40, 50}; 
+</code></pre>
+</p>
+
+<p>
+Here, you can't add the size (dimension expression) and initialization together. 
+</p>
+
+<p>
+Like: 
+</p>
+
+<p>
+<pre><code class="left-border">
+int [] numbers = new int [5] {10, 20, 30, 40, 50}; //it's illegal.
+</code></pre>
+</p>
+
+<p>
+But: 
+</p>
+<p>
+<pre><code class="left-border">
+int [] numbers = new int [5]; //just array declaration would be fine.
+</code></pre>
+</p>
+
+<p>
+Okay. 
+</p>
+
+<p>
+Accessing array elements: 
+</p>
+
+<p>
+Each member of the numbers array are called elements. And we use array index to access the elements stored in the array. 
+</p>
+
+<p>
+For accessing first member we can use the syntax: numbers[0] 
+For accessing the second element we can use the syntax: numbers[1] and for accessing the last member or element of the numbers array, we can use either numbers[4] or numbers [numbers.length - 1]; 
+</p>
+
+<p>
+Note: array index is always 1 less than the length of the array or alternative.
+</p>
+
+<h3>
+Example 1: 
+</h3>
+
+<p>
+Creating an array that stores 10 int numbers;
+</p>
+
+<p>
+<pre><code class="left-border">
+public class Main{
+  public static void main (String[] args){
+    //creating an array and initialize it
+    int [] numbers = {10, 20, 30, 40, 50};
+    
+    //print the array members or 
+    //elements in the console
+    
+    //printing the first element
+    System.out.println("First element is "+ numbers[0]);
+    //printing the second element/number
+    System.out.println("Second element is "+numbers[1]);
+    
+    //printing the last elements
+    System.out.println("Last element is"+ numbers[4]);
+    //print the last element using
+    //arrays length method
+    System.out.println("Last element is "+numbers [numbers.length - 1]);
+    
+  }
+}
+/**
+ * Output: 
+ * First element is 10
+ * Second element is 20
+ * Last element is 50
+ * Last element is 50
+ * 
+ */
+</code></pre>
+</p>
+
+<h3>
+Example 2: 
+</h3>
+
+<p>
+Array iteration using for loop and foreach loop: 
+</p>
+
+<p>
+Instead of printing array members to the console using index number, we can also use for loop or enhanced for loop to print all the elements in the console.
+</p>
+
+<p>
+Let's create an array of String that stores names of fruits and iterate it through for loop.
+</p>
+
+<p>
+ <pre><code class="left-border">
+public class Main(){
+  public static void main (String[] args){
+  //creating array of fruits
+  String [] fruits = {"Apple", "Banana", "Orange", "Mango", "Grape", "Kiwi", "Cherry", "Pineapple", "Papaya", "Blueberry"}; 
+  
+  //loop through the array
+  //using for loop
+  System.out.println("Fruits List: (using for loop)");
+  for(int i = 0; i< fruits.length; i++){
+    System.out.println(fruits[i]);
+  }
+  
+  //iterate the fruits array using
+  //enhanced for/foreach loop
+  System.out.println("Fruits List: (using foreach loop)");
+  for(String fruit: fruits){
+    System.out.println(fruit);
+  }
+  }
+}
+/**
+ * Output:
+ * Fruits List: (using for loop)
+ * Apple
+ * Banana
+ * Orange
+ * Mango
+ * Grape
+ * Kiwi
+ * Cherry
+ * Pineapple
+ * Papaya
+ * Blueberry
+ * 
+ * Fruits List: (using foreach loop)
+ * Apple
+ * Banana
+ * OrangeMango
+ * Grape
+ * Kiwi
+ * Cherry
+ * Pineapple
+ * Papaya
+ * Blueberry
+ * 
+ */
+</code></pre>
+</p>
+
+<h3>
+# Changing the Array elements or reinitialize the array elements or members 
+</h3>
+<p>
+How to do it?
+</p>
+
+<p>
+First of all we have to know that we can't change the size of the array but we can change the array elements individually. For this, we can use array index with specified value. 
+</p>
+
+<p>
+Guess, we have a cars array and it has total 5 members. 
+</p>
+
+<p>
+String [] cars = {"Volvo", "Mustang", "Maruti", "BMW", "Honda"};
+</p>
+
+<p>
+Now, changing the first element of this array we can use the syntax:
+cars[0] = "Audi";
+</p>
+
+<p>
+Changing the second element we can use the syntax:
+cars [1] = "Ford";
+</p>
+
+<p>
+Likewise the above syntax, we can change the members of the array referring the index number. 
+</p>
+
+<h3>
+Example 3: (Reinitialize the array elements)
+</h3>
+
+<p>
+<pre><code class="left-border">
+public class Main{
+  public static void main (String[] args){
+    
+    //cars array 
+    String [] cars = {"Volvo", "Mustang", "Maruti", "BMW", "Honda"};
+    
+    //print the first element
+    System.out.println("First Car before changing is: "+cars[0]);
+    
+    //change the first element of the
+    //cars array
+    cars[0] = "Audi";
+    //now print the first element
+    System.out.println("First Car after changing is: "+cars[0]);
+  }
+}
+/**
+ * Output:
+ * First car before changing is: Volvo
+ * First car after changing is: Audi
+ */
+</code></pre>
+</p>
+
+</div>
+  
+ 
+</body>
+
+</html>

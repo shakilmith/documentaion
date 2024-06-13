@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Inheritance</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+  <h3>Java Inheritance</h3>
+  <p>
+    In java, inheritance means acquiring the features of another class. It's the concept of creating parent child relationship among classes. You have a class A and a derived class called B. Now the the derived class has the ability to access the members of A. Another way we can say, the child or derived class is now acquired the data members of the parent class. In this case A is super or parent class and B is child or derived class. To make a class as a child class, we use extends keyword. 
+</p>
+
+<p>
+
+<b>Syntax:</b>
+</p>
+<p>
+<pre><code class="left-border">
+class A{ // parent class
+  //data members
+  }
+
+class B extends A{ // child class
+  //acquired the data members of A
+  //own data members
+  }
+</code></pre>
+
+<p>
+Parent class (superclass): The class that use to create subclass using extends keyword or the class is being inherited from. 
+</p>
+
+<p>
+Child class (subclass): The class that inherits from another class or the class that is derived or created from the superclass. 
+</p>
+
+<p>
+<b>Note:</b> When you create the subclass using extends keyword, then the child class gets the ability to access or execute the parent class members. It means, child class is now owns the parent class data as well as it's own data members.
+</p>
+
+<p>
+<b>
+Example 1: 
+</b>
+</p>
+
+<p>
+In this example we have a class A and it has a method called showGreeting() and a child class called B and that now has the ability to execute the showGreeting() method.
+</p>
+
+<p>
+<pre><code class="left-border">
+//parent class
+class A {
+   static showGreeting(){
+      System.out.println("Greeting from A");
+   }
+}
+
+//child class (contains main method)
+class B extends A {
+  //data members of B
+  static String message = "ding dung";
+  
+  public static void main (String[] args) {
+    //call the greeting message
+    showGreeting();
+    //access message variable
+    System.out.println(message);
+  }
+}
+
+/**
+ * Output:
+ * Greetings from A
+ * ding dung
+ */
+</code></pre>
+</p>
+
+
+<p>
+This example is just for explanation. Here we don't need to create object of class B as both are static members.
+</p>
+
+<p>
+<b>Example 2:</b>
+</p>
+
+<p>
+Imagine we have a class called Animal super class and it has a method showGenre() that will be passed among the sub classes. And the subclasses are Dog and Cat. Both have their own properties, String name.
+</p>
+
+<p>
+<pre><code class="left-border">
+class Animal{ //parent class
+   
+   public String showGenre(genre){
+     return genre;
+   }
+ }
+ 
+ class Dog extends Animal{ //cild class
+   String name = "Tommy";
+ }
+ 
+ class Cat extends Animal{ //child class
+   String name = "Tommy";
+ }
+ 
+ //test class that contains main method
+ public class TestClass{
+   public static void main (String[] args) {
+     //create object of Dog and Cat
+     Dog d = new Dog();
+     Cat c = new Cat();
+     
+     //access the data members of Dog 
+     //and Cat including Animal
+     
+     //Dog members 
+     System.out.println("Name: "+d.name);
+     System.out.println("Genre: "+d.showGenre("Dog"));
+     
+     //Cat members 
+     System.out.println("Name: "+c.name);
+     System.out.println("Genre: "+c.showGenre("Dog"));
+   }
+ }
+</code></pre>
+</p>
+
+<p>
+<b>Example 3:</b>
+</p>
+
+<p>
+Imagine, the Bank is a super class and different banks are the child class of the Bank class. All the banks provide interests based on deposits. 
+</p>
+
+<p>
+<pre><code class="left-border">
+class Bank{
+   public float rateOfInterest(float x){
+     return x;
+   }
+ }
+ 
+ //child class 
+ class PNC extends Bank{
+   String bankName = "PNC Bank";
+ }
+ 
+ //child class
+ class TD extends Bank{
+    String bankName = "TD International";
+  }
+  
+  class SBM extends Bank{
+     String bankName = "SBM Bank";
+   }
+   
+   class BMO extends Bank{
+      String bankName = "BMO Bank";
+    }
+    
+    //main class file (create a new file)
+    public class TestExample{
+      public static void main (String[] args) {
+        
+        //create of objects of
+        //all the banks
+        PNC pnc = new PNC();
+        TD td = new TD();
+        SBM sbm = new SBM();
+        BMO bmo = new BMO();
+        
+        //print the data members
+        System.out.println("Bank Name: "+pnc.bankName + "Interest Rate: "+ pnc.rateOfInterest(15.00f)+"%");
+        
+       System.out.println("Bank Name: "+td.bankName + "Interest Rate: "+ td.rateOfInterest(10.45f)+"%");
+       
+       System.out.println("Bank Name: "+sbm.bankName + "Interest Rate: "+ pnc.rateOfInterest(12.00f)+"%");
+       
+       System.out.println("Bank Name: "+bmo.bankName + "Interest Rate: "+ pnc.rateOfInterest(8.75f)+"%");
+       
+      }
+    }
+</code></pre>
+</p>
+
+<p>
+Now if you run the TestExample class, then you will get the following output in the console: 
+</p>
+
+<p>
+//Output: 
+Bank Name: PNC BankInterest Rate: 15.0%
+Bank Name: TD InternationalInterest Rate: 10.45%
+Bank Name: SBM BankInterest Rate: 12.0%
+Bank Name: BMO BankInterest Rate: 8.75
+%
+</p>
+
+  
+  </div>
+  
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Inner Class</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+    line-height: 1.5;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+   <h1>Inner class or Nested class in Java</h1>
+   
+   <p>
+    When a class is decalared inside another class or interface is called inner class or nested class in java. The purpose of inner class is to group related classes together. 
+</p>
+
+<p>
+But in order to access the inner class (default inner class) or inner class members we have to create object of outer class first. 
+</p>
+
+<p>
+Let's check out a simple example: 
+</p>
+
+<p>
+<pre><code>
+class OuterClass{
+  int x = 10;
+  
+  //inner class
+  class InnerClass{
+    int y = 20;
+  }
+}
+</code></pre>
+</p>
+
+<p>
+<pre><code>
+public class Main{ // file name
+  public static void main (String[] args) {
+    //create an object of OuterClass
+    OuterClass outer = new OuterClass();
+    //create an object of InnerClass
+    OuterClass.InnerClass inner = outer.new InnerClass();
+    //access the OutrrClass property
+    System.out.println("OuterClass property is "+outer.x);
+    //access the InnerClass property
+    System.out.println("InnerClass property is "+inner.y);
+  }
+}
+
+/**
+ * Output: 
+ * OuterClass property is 10
+ * InnerClass property is 20
+ */
+</code>></pre>
+</p>
+
+<p>
+<b># Private inner class</b>
+</p>
+
+<p>
+Inner class can be private, protected as well. 
+When an inner class is private, it doesn't allow the outer class to access it's members. Means, provide restrictions over accessing the inner class members when it is private. Thus, you will get compile time error.
+</p>
+
+<p>
+<pre><code>
+class OuterClass{
+  int x = 10;
+  
+  //private inner class
+  private class InnerClass{
+    int y = 20;
+  }
+}
+
+public class Main{ // file name
+  public static void main (String[] args) {
+    //create an object of OuterClass
+    OuterClass outer = new OuterClass();
+    //create an object of InnerClass
+    OuterClass.InnerClass inner = outer.new InnerClass();
+    //access the OutrrClass property
+    System.out.println("OuterClass property is "+outer.x);
+    //access the InnerClass property
+    System.out.println("InnerClass property is "+inner.y);
+  }
+}
+</code></pre>
+</p>
+<p>
+Run, the about example. You will get the following error message in the console.
+</br></br>
+<pre><code>
+ Main.java:15: error: OuterClass.InnerClass has private access in OuterClass
+    OuterClass.InnerClass inner = outer.new InnerClass();
+              ^
+</code></pre>
+</p>
+
+<p>
+<b># Static inner class</b>
+
+
+</p>
+When inner class is static, it is possible to access the inner class properties without creating the object of outer class. 
+</p>
+
+<p>
+<pre><code>
+class OuterClass{
+  int x = 10;
+  
+  //inner class
+  static class InnerClass{
+    int y = 20;
+  }
+}
+
+public class Main{ // file name
+  public static void main (String[] args) {
+    //create an object of InnerClass
+    OutrClass.InnerClass inner = new OuterClass.InnerClass();
+    
+    //access the member of InnerClass
+    System.out.println("InnerClass property is "+inner.y);
+  }
+}
+
+/**
+ * Output: 
+ * OuterClass property is 10
+ * InnerClass property is 20
+ */
+ 
+</code></pre>
+</p> 
+
+<p>
+<b># Access the outer class members from inner class. </b>
+</p>
+
+<p>
+<pre><code>
+class OuterClass{
+  int x = 10;
+  
+  //inner class
+  class InnerClass{
+    public int accessOuter(){
+      return x;
+    }
+  }
+}
+
+public class Main{ // file name
+  public static void main (String[] args) {
+    //create an object of OuterClass
+    OuterClass outer = new OuterClass();
+    //create an object of InnerClass
+    OuterClass.InnerClass inner = outer.new InnerClass();
+    //invoke the method 
+    System.out.println("OuterClass property is "+inner.accessOuter());
+  }
+}
+/**
+ * Output: 
+ * OuterClass property is 10
+ */
+ 
+</code></pre>
+</p>
+
+
+
+
+
+  </div>
+  
+</body>
+
+</html>

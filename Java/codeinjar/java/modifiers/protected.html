@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Protected class members in Java</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+<div>
+  <h1>Protected class members in Java</h1>
+  <p>
+  We know that, protected class members (attributes or methods) can be accessed within the declared class and same package. And through subclas from a different package.
+</p>
+
+<p>
+Let's see few examples: 
+</p>
+
+<p>
+<b>Example 1:</b>
+</br>
+
+<p>
+In this example, we see protected members can be accessed within decalared class and same package or not.
+</p>
+
+<p>
+Create a class Person.java in the <b>com.company</b> package in the the src folder. It contains a protected void method called <b>printMessage();</b>  and main method too. 
+</p>
+
+<p>
+<pre><code class="left-border">
+package com.company; 
+
+public class Person{
+  //protected method
+  protected void printMessage(){
+    System.out.println("Protected members can be accessible within the decalared class and same package.");
+  }
+  
+  //nain method
+  public static void main (String[] args) {
+    //create an object of Person class
+    Person obj = new Person (); 
+    obj.printMessage();
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you now run the <b>Person.java</b> class, you will get the following output.
+</p>
+
+<p>
+Protected members can be accessible within the decalared class and same package.
+</p>
+
+<p>
+<b>Example 2:</b>
+</br>
+
+<p>
+Let's see now, protected members can be accessible within the same package but outside the decalared class (means, from a different class) 
+</p>
+
+<p>
+Create another class called 
+<b>TestExample.java</b> in <b>com.company</b> package.
+</p>
+
+<p>
+Note: please remove the main method from the <b>Person.java</b> class now.
+</p>
+
+<p>
+<b>Person.java (modified one)</b>
+</p>
+
+<p>
+<pre><code class="left-border">
+package com.company; 
+
+public class Person{
+  //protected method
+  protected void printMessage(){
+    System.out.println("Protected members can be accessible within the same package  but outside the decalared class.");
+  }
+}
+</code></pre>
+</p>
+
+<p>
+You see, there is no main method in the <b>Person.java</b> class.
+</p>
+
+<p>
+<b>TestExample.java</b>
+</p>
+
+<p>
+<pre><code class="left-border">
+package com.company;
+
+public class TestExample{
+  public static void main (String[] args) {
+    //create an object of Person
+    Person obj = new Person();
+    obj.printMessage();
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you now, execute the TestExample.java class, you see the following output in the console.
+</p>
+
+<p>
+Protected members can be accessible within the same package  but outside the decalared class.
+</p>
+
+<p>
+So, we can now assure that, protected members can be accessible within the same package but outside the declared class.
+</p>
+
+<p>
+<b>Example 3:</b>
+</p>
+
+<p>
+In this example, we try to execute our protected members from a different package. (Remember, it is not possible without creating sub classes)
+</p>
+
+<p>
+Create a <b>Person.java</b> class in <b>com.company.person</b> package. 
+</p>
+
+<p>
+<b>Person.java</b>
+</br>
+
+<pre><code class="left-border">
+package com.company.person; 
+
+public class Person{
+  //protected method
+  protected void printMessage(){
+    System.out.println("Protected members can be accessible within the same package  but outside the package can't be possible without subclass.");
+  }
+}
+</code></pre>
+</p>
+
+<p>
+Now create another class called 
+<b>TestExample.java</b> in <b>com.company.test</b> package; (or copy paste the previous one in a new package)
+</p>
+
+<p>
+<b>TestExample.java</b>
+</br>
+
+<pre><code class="left-border">
+package com.company.test;
+
+public class TestExample{
+  public static void main (String[] args) {
+    //create an object of Person
+    Person obj = new Person();
+    obj.printMessage();
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you now run the <b>TestExample.java</b> class, you definitely get the following error message. 
+</p>
+
+<p>
+<b>printMessage()</b> has protected access in com.company.person.Person class. 
+</p>
+
+<p>
+It means that, protected members can't be accessed from a different package (little modification required)
+</p>
+
+<p>
+Okay, we know that protected members can also be accessed outside the package but through subclass. ( Through inheritance actually)
+</p>
+
+<p>
+Let's modify the above 
+<b>TestExample.java</b> class. Now it extends the <b>Person</b> class, thus it acts as a subclass.
+</p>
+
+<p>
+<b>TestExample.java (modified one)</b>
+</br>
+<pre><code class="left-border">
+package com.company.test;
+
+public class TestExample extends Person {
+  public static void main (String[] args) {
+    //create an object of Person
+    TestExample obj = new TestExample();
+    obj.printMessage();
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you again, run the <b>TestExample.java</b> class, you definitely get the following output now, in your console.
+</p>
+
+<p>
+<pre><code>
+Protected members can be accessible within the same package  but outside the package can't be possible without subclass.
+</code></pre>
+</p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Boolean</title>
+  
+   <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+    line-height: 1.5;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+
+<div>
+ <h1>Java Boolean</h1>
+  <p>
+  Boolean is a java data type that has possible two values: True and false.
+</p>
+
+<p>
+<b>True can be referred: YES and ON</b></br>
+<b>False can be referred: NO and OFF</b>
+</p>
+
+<p>
+Sometimes in programing, we need to hold or show True or False values based on our requirements.
+</p>
+
+<p>
+Like: Is it leap year? Yes/No </br>
+Are you allowed to vote? Yes/No </br>
+Are You male? Yes/No </br>
+Is that book available in the book store? Yes/No...</br>
+
+Like for thousands of use cases, provably we need to present or execute Boolean values. Even any simple expression also prints boolean values. 
+</p>
+
+<p>
+<b># Create boolean variable</b>
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    Boolean isJavaDifficult = true;
+    Boolean isJavaEasy = false;
+    
+    //print the boolean values
+    System.out.println(isJavaDifficult);
+    System.out.println(isJavaEasy);
+  }
+}
+/**
+ * true
+ * false
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Expression that prints boolean values</b>
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    int x = 99; 
+    int y = 100; 
+    
+    //print the boolean values
+    System.out.println(x > y);
+    System.out.println(x < y);
+  }
+}
+/**
+ * false 
+ * true
+ */
+ 
+</code></pre>
+</p>
+
+<p>
+There is no need to create variables too.
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //boolean expression 
+    System.out.println( 10 < 20);
+    System.out.println(10 == 20);
+    System.out.println(10 != 20);
+    System.out.println(10 > 20);
+  }
+}
+/**
+ * true 
+ * false
+ * true
+ * false
+ */
+ 
+</code></pre>
+</p>
+
+<p>
+<b># Real life examples (based on boolean expression)</b>
+</p>
+
+<p>
+An example could be of boolean expression is that, a person is enough old to vote or not.
+</p>
+
+<p>
+We know that, a person must be at least 18 or above to vote in many countries. 
+</p>
+
+<p>
+Let's check out the below example: 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    int myAge = 30; 
+    int ageRequired = 18;
+   
+    System.out.println(myAge >=ageRequired);
+  }
+}
+/**
+ * Output: 
+ * true
+ */
+</code></pre>
+</p>
+
+<p>
+As it returns true, it means you are allowed to vote.
+</p>
+
+<p>
+Another example could be checking the leap year. If the month February is 29 days then it is a leap year otherwise not.
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    int daysOfMonth = 28;
+    int requiredDaysOfMonth = 29;
+    System.out.println(daysOfMonth == requiredDaysOfMonth );
+  }
+}
+/**
+ * Output: 
+ * false
+ */
+</code></pre>
+</p>
+
+<p>
+Means, it is not a leap year. 
+</p>
+
+<p>
+<b># if - else statements</b></br>
+
+If the condition of if block is true then, the code block if will be executed otherwise, it prints the else block. Such as 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    int age = 25; 
+    int requiredAge = 18; 
+    if(age >= requiredAge){
+      System.out.println("You are allowed to vote.");
+    }
+    else {
+      System.out.println("You are not allowed to vote.");
+    }
+  }
+}
+/**
+ * Output: 
+ * You are allowed to vote.
+ */
+</code></pre>
+</p>
+
+
+</div>
+
+</body>
+
+</html>

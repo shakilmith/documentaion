@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java LinkedList</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+    line-height: 1.5;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+   table, th, td{
+     border: 1px solid black;
+     border-collapse: collapse;
+   }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+  
+  <h1>Java LinkedList</h1> 
+  
+    <p>
+    LinkedList in java is a resizable array like ArrayList. There is no size limit in LinkedList. When you add new elements or items in the LinkedList, the size or capacity of LinkedList will grow. You can do many things like add new elements, remove elements, change elements, sort the elements etc. like ArrayList. Both ArrayList and LinkedList implements List interface. Thus, possibly all the methods you can use in the ArrayList can also be used in LinkedList. 
+</p>
+
+<p>
+Additionally, LinkedList provides additional methods to manipulate your data. 
+</p>
+
+<p>
+<b># Methods for LinkedList:</b>
+</p>
+
+</br>
+  <table style="width: 100%">
+    <tr>
+      <th>Methods</th>
+      <th>Return types</th>
+      <th>Description</th>
+    </tr>
+    
+    <tr>
+      <td>add(E element)</td>
+      <td>boolean</td>
+      <td>Appends the specified element to the end of this list.</td>
+    </tr>
+    <tr>
+      <td>add(int index, E element)</td>
+      <td>void</td>
+      <td>Inserts the specified element at the specified position in this list.</td>
+    </tr>
+    
+      <tr>
+        <td>addAll(Collection<? extends E> c)</td>
+        <td>boolean</td>
+        <td>Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.</td>
+      </tr>
+      
+         <tr>
+           <td>addAll(int index, Collection<? extends E> c)</td>
+           <td>boolean</td>
+           <td>Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.</td>
+         </tr>
+            <tr>
+              <td>get(int index)</td>
+              <td>E (element type)</td>
+              <td>Returns the element at the specified position in this list.</td>
+            </tr>
+           <tr>
+             <td>isEmpty()</td>
+             <td>boolean</td>
+             <td>Returns true if this list contains no elements.</td>
+           </tr>
+        <tr>
+          <td>iterator()</td>
+          <td>Iterator(E)</td>
+          <td>Returns an iterator over the elements in this list in proper sequence.</td>
+        </tr>
+        
+    <tr>
+      <td>remove(int index)</td>
+      <td>E</td>
+      <td>Removes the element at the specified position in this list.</td>
+    </tr>
+   <tr>
+     <td>removeAll(Collection<?> c)</td>
+     <td>boolean</td>
+     <td>Removes from this list all of its elements that are contained in the specified collection.</td>
+   </tr>
+   
+      <tr>
+        <td>removeIf(Predicate<? super E> filter)</td>
+        <td>boolean</td>
+        <td>Removes all of the elements of this collection that satisfy the given predicate.</td>
+      </tr>
+      
+         <tr>
+           <td>set(int index, E element)</td>
+           <td>E</td>
+           <td>Replaces the element at the specified position in this list with the specified element.</td>
+         </tr>
+          <tr>
+            <td>size()</td>
+            <td>int</td>
+            <td>Returns the number of elements in this list.</td>
+          </tr>
+          
+             <tr>
+               <td>trimToSize()</td>
+               <td>void</td>
+               <td>Trims the capacity of this ArrayList instance to be the list's current size.</td>
+             </tr>
+        <tr>
+          <td>toArray()</td>
+          <td>Object</td>
+          <td>Returns an array containing all of the elements in this list in proper sequence (from first to last element).</td>
+        </tr>
+       <tr>
+         <td>contains()</td>
+         <td>boolean</td>
+         <td>Returns true if this list contains the specified element</td>
+       </tr>
+      <tr>
+        <td>clone()</td>
+        <td>Object</td>
+        <td>Returns a shallow copy of this ArrayList instance. (The elements themselves are not copied.)</td>
+      </tr>
+     <tr>
+       <td>equals()</td>
+       <td>boolean</td>
+       <td>Checks two lists are equal or not (returns true ir false)</td>
+     </tr>
+     
+     <tr>
+     <td>indexOf()</td>  
+     <td>int</td>
+     <td>Returns the index of the first occurrence of the specified element in this list.</td>
+     </tr>
+     
+     <tr>
+       <td>indexOf()</td>
+       <td>int</td>
+       <td>Returns the index of the last occurrence of the specified element in this list.</td>
+     </tr>
+     
+     <tr>
+       <td>sort()</td>
+       <td>void</td>
+       <td>Sorts the list alphabetically or numerically in a specified order (Eescending or Descending)</td>
+     </tr>
+    
+    <tr>
+      <td>stream()</td>
+      <td>Stream</td>
+      <td>Returns a sequential Stream with this collection as its source.</td>
+    </tr> 
+
+   <tr>
+      <td>addFirst()</td>
+      <td>void</td>
+      <td>Insert new element at the beginning of the LinkedList.</td>
+    </tr>
+    
+    <tr>
+      <td>addLast()</td>
+      <td>void</td>
+      <td>Insert new element at the end of the list.</td>
+    </tr>
+    <tr>
+      <td>getFirst()</td>
+      <td></td>
+      <td>Get the item of first position of the list.</td>
+    </tr>
+    <tr>
+      <td>getLast()</td>
+      <td></td>
+      <td>Retrieve the last element of the list.</td>
+    </tr>
+    <tr>
+      <td>removeFirst()</td>
+      <td></td>
+      <td>Remove the first element from the list.</td>
+    </tr>
+    <tr>
+      <td>removeLast()</td>
+      <td></td>
+      <td>Remove the last element from the list.</td>
+    </tr>
+    
+    <tr>
+      <td>clear()</td>
+      <td>void</td>
+      <td>Remove all the elements from the list.</td>
+    </tr>
+    
+    <tr>
+      <td>clone()</td>
+      <td>Object</td>
+      <td>Returns a shallow copy of the list.</td>
+    </tr>
+    <tr>
+      <td>poll()</td>
+      <td>E</td>
+      <td>Retrieves and then remove the first element of the list.</td>
+    </tr>
+    <tr>
+      <td>peek()</td>
+      <td>E</td>
+      <td>Retrieves but doesn't remove the first element.</td>
+    </tr>
+  </table>
+
+</br></br></br>
+
+<p>
+<b># Creating LinkedList</b>
+</p>
+
+<p>
+Syntax: 
+</p>
+
+<p>
+Non generic: 
+</br></br>
+<pre><code>
+LinkedList list = new LinkedList();
+
+Generic approach: (with wrapper types)
+
+LinkedList<T> list = new LinkedList<T>(); 
+
+//T stands for type but wrapper. Primitive is not supported.
+
+//such as 
+LinkedList<String> list = new LinkedList<String>(); 
+</code></pre>
+</p>
+
+<p>
+Below is a simple example, where we created a LinkedList object and add String data using add() method.
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args){
+    //creating LinkedList
+    LinkedList<String> fruits = new LinkedList<String>(); 
+    //add new elements
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry")
+    fruits.add("Guava");
+    fruits.add("Blackberry");
+    
+    //print the elements
+    System.out.println(fruits);
+  }
+}
+
+/**
+ * Output: 
+ * [Apple, Banana, Cherry, Guava, Blackberr]
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Removing elements from the LinkedList</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.LinkedList;
+ 
+ public class Main{
+  public static void main (String[] args){
+    //creating LinkedList
+    LinkedList<String> fruits = new LinkedList<String>(); 
+    //add new elements
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Blackberry");
+    
+    //print the elements
+    System.out.println(fruits);
+    
+    //remove the first element
+    fruits.remove("Apple");
+    //Now print the above fruits list
+    System.out.println(fruits);
+  }
+}
+
+/**
+ * Output: 
+ * [Apple, Banana, Cherry, Guava, Blackberry]
+ * After removing
+ * [Banana, Cherry, Guava, Blackberry]
+ */
+</code></pre>
+</p> 
+
+<p>
+<b>Note:</b> remove(0) also works the same. One is based on element and other one is position.
+</p>
+
+<p>
+<b># Change an LinkedList element using set() method</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+
+public class Main{
+  public static void main (String[] args){
+    LinkedList<String> fruits = new LinkedList<String>();
+
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+ 
+    //iterating LinkedList elements
+    System.out.println("Before Changing");
+    for(String f: fruits){
+      System.out.println(f);
+    }
+    
+    //change the fruits and then iterate
+    System.out.println("After changing");
+    fruits.set(0, "Blueberry");
+    //iterate now 
+    for(String f: fruits){
+      System.out.println(f);
+    }
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you run the above program, you will get the following output in the console. You can see, the first fruit element has been updated.
+</p>
+
+<p>
+<pre><code>
+Before Changing
+Apple
+Banana
+Cherry
+Guava
+Plum
+After changing
+Blueberry
+Banana
+Cherry
+Guava
+Plum
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> The add(int index, element) and set(int index, element) can be used interchangeably
+</p>
+
+<p>
+<b># Iterate LinkedList elements</b>
+</p>
+
+<p>
+<b># For iterating LinkedList elements we can use java for loop.</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.LinkedList;
+
+public class Main{
+  public static void main (String[] args){
+    LinkedList<String> fruits = new LinkedList<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+    
+    //iterate
+    for(int i = 0; i <=fruits.size(); i++){
+      System.out.println(fruits.get(i));
+    }
+  }
+}
+</code></pre>
+</p>
+
+<p>
+<b>If you run the above example you get the following output:</b>
+</p>
+
+<p>
+Apple
+Banana
+Cherry
+Guava
+Plum
+</p>
+
+<p>
+<b># Iterating LinkedList elements using for each loop.</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.LinkedList;
+
+public class Main{
+  public static void main (String[] args){
+    LinkedList<String> fruits = new LinkedList<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+    
+    //iterate and print 
+    for(String f: fruits){
+      System.out.println(f);
+    }
+  }
+}
+/**
+ * Apple
+ * Banana
+ * Cherry
+ * Guava
+ * Plum
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Iterating LinkedList using Iterator</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.LinkedList;
+import java.util.Iterator;
+//import all the classes 
+//import java.util.*;
+ 
+ public class Main{
+   public static void main (String[] args) {
+     //Creating ArrayList
+     LinkedList<String> fruits = new LinkedList<String>();
+     //add elements to this ArrayList
+     fruits.add("Apple");
+     fruits.add("Banana");
+     fruits.add("Cherry");
+     fruits.add("Guava");
+     fruits.add("Plum");
+     
+     //iterate using Iterator
+     Iterator list = fruits.iterator(); //getting Iterator
+     while(list.hasNext()){ //check if any elements exists or not
+       System.out.println(list.next()); //printing the elements 
+     }
+   }
+ }
+ 
+/**
+ * Apple
+ * Banana
+ * Cherry
+ * Guava
+ * Plum
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Using addFirst(), addLast(), removeFast(), removeLast() methods in LinkedList</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.LinkedList;
+ 
+ public class Main{
+  public static void main (String[] args){
+    //creating LinkedList
+    LinkedList<String> fruits = new LinkedList<String>(); 
+    //add new elements
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Blackberry");
+    
+    //print the elements
+    System.out.println(fruits);
+    
+    //addFirst() 
+    fruits.addFirst("Orange");
+    
+    //Now print the above fruits list
+    System.out.println(fruits);
+    
+   //addLast() 
+   fruits.addLast("Plum")
+   //now print fruits
+   System.out.println(fruits);
+   
+   //removeFast()
+   fruits.removeFirst();
+   //print the list
+   System.out.println(fruits);
+   
+   //removeLast()
+   fruits.removeLast();
+   //print the list now
+   System.out.println(fruits);
+  }
+}
+</code></pre>
+</p>
+
+<p>
+After running the above program, you will get the following output. Now think, what's going on here?
+</p>
+
+<p>
+<pre><code>
+[Apple, Banana, Cherry, Guava, Blackberry]
+[Orange, Apple, Banana, Cherry, Guava, Blackberry]
+[Orange, Apple, Banana, Cherry, Guava, Blackberry, Plum]
+[Apple, Banana, Cherry, Guava, Blackberry, Plum]
+[Apple, Banana, Cherry, Guava, Blackberry]
+</code></pre>
+</p>
+
+  </div>
+  
+</body>
+
+</html>

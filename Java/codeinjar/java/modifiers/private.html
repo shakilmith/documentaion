@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Private class members in Java</title>
+    
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+  
+</head>
+
+<body>
+
+<div>
+ <h1>
+   Private members in java
+ </h1>
+ <p>
+  As we know, private members (either attributes or methods) can only be accessed within the declared class. But, outside the class it is not possible.
+</p>
+
+<p>
+Like, if you have a class A and it contains private members, then they can only be accessed or executed within the declared class A. But if you want to try execute them from outside the declared class B, then you will get error. Like - "{attribute} has private access in packag.NameOfYourClass.
+</p>
+
+<p>
+<b>Example 1:</b>
+</p>
+
+<p>
+Let's imagine, we have a class Student.java in com.company package.
+</p>
+<p>
+Student.java: contains private members and main method.
+</p>
+
+<p>
+Student.java
+</br>
+<pre><code class="left-border">
+package com.company; 
+
+public class Student{
+  //public members
+  private String name = "Mark Smith";
+  private int age = 30;
+  
+  public static void main (String[] args) {
+    //access the private members
+    Student st = new Student();
+    System.out.println(st.name);
+    System.out.println(st.age);
+  }
+}
+
+/**
+ * If you now run the example, you will
+ * get the following output: 
+ * 
+ * Mark Smith
+ * 30
+ */
+ </code></pre>
+</p>
+
+<p>
+It means, the private members can be accessed smoothly from the decalared class. 
+</p>
+
+<p>
+Now remove the main method from the Student.java class. 
+</p>
+
+<p>
+Create another class called Main.java in com.company package. It contains the main method. Now we will try to access private fields of Student.java class from Main.java class. (You will definitely get error)
+</p>
+
+<p>
+Student.java class 
+</br>
+<pre><code class="left-border">
+package com.company; 
+
+public class Student{
+  //public members
+  private String name = "Mark Smith";
+  private int age = 30;
+}
+
+Main.java (contains the main method)
+
+public class Main{
+  public static void main (String[] args) {
+    //try to access the private fields
+    //of Students class
+    Student student = new Student();
+    System.out.println(student.name);
+    System.out.println(student.age);
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you now run the main.java class, you will get the following error in the console: 
+name has private access in com.company.Student </br>
+age has private access in com.company.Student 
+</br>
+</p>
+
+<p>
+It means that it is not possible to access the private members (attributes or methods) outside the decalared class. 
+</p>
+
+<p>
+# How to access the private members from outside the decalared class: 
+</p>
+
+<p>
+Though we can't access directly private members from outside the decalared class, but it can be done through public getter and setter conventional methods.
+</p>
+
+<p>
+Getter: Helps to get or return the attributes value. </br>
+Setter: Helps to set the attributes value.
+</p>
+
+<p>
+Let's now modify the Student.java and main.java class. 
+</p>
+
+<p>
+Now Student.java class contains the private members including getter/setter methods. 
+</p>
+
+<p>
+<pre><code class="left-border">
+package com.company;
+
+public class Student{
+  private String name; //no need to initialize the variable
+  private int age;
+  
+  // public getter and setter
+  public String getName(){
+    return name;
+  }
+  public void setName(String name){
+    this.name = name;
+  }
+  public int getAge(){
+    return age;
+  }
+  public void setAge(String age){
+    this.age = age;
+  }
+}
+</code></pre>
+</p>
+
+<p>
+You see, the private members aren't initialized. 
+</p>
+<p>
+Main.java class (contains main method)
+</br>
+
+<pre><code class="left-border">
+package com.company;
+
+public class Main{
+  public static void main (String[] args) {
+    //create an object of Student class
+    
+    Student student = new Student();
+    //set the value using setter method
+    student.setName("Mark Smith");
+    student.setAge(30);
+    
+    //access the value now using getter
+    System.out.println(student.getName());
+    System.out.println(student.getAge());
+  }
+}
+</code></pre>
+</p>
+
+<p>
+Now run the Main.java class. You will get the following output: 
+</p>
+
+<p>
+<pre><code class="left-border">
+Mark Smith 
+30
+</code></pre>
+</p>
+
+<p>
+What's going on in the Main.java class?
+
+We use setter method to set the attributes value (name and age) and use getter method to access the attributes value. 
+</p>
+
+<p>
+Hope, you can now realize how to access private members from outside the declared class. 
+</p>
+
+
+</div>
+</body>
+
+</html>
+
+

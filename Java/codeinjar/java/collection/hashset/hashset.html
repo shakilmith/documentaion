@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+    line-height: 1.5;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+   table, th, td{
+     border: 1px solid black;
+     border-collapse: collapse;
+   }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+    <h1>Java HashSet</h1>
+    <p>
+    If you don't want to allow duplicate elements or items in your resizable array then you should use HashSet. Java HashSet class implements the Set interface that doesn't allow duplicate elements as it's members or elements. 
+</p>
+
+<p>
+<b>The following are the important methods that can be used in HashSet or Set interface.</b>
+</p>
+</br></br>
+
+  <table style="width: 100%">
+    <tr>
+      <th>Methods</th>
+      <th>Return types</th>
+      <th>Description</th>
+    </tr>
+    
+    <tr>
+      <td>add(E element)</td>
+      <td>boolean</td>
+      <td>Appends the specified element to the end of this list.</td>
+    </tr>
+    <tr>
+      <td>add(int index, E element)</td>
+      <td>void</td>
+      <td>Inserts the specified element at the specified position in this list.</td>
+    </tr>
+    
+      <tr>
+        <td>addAll(Collection<? extends E> c)</td>
+        <td>boolean</td>
+        <td>Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.</td>
+      </tr>
+      
+         <tr>
+           <td>addAll(int index, Collection<? extends E> c)</td>
+           <td>boolean</td>
+           <td>Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.</td>
+         </tr>
+            <tr>
+              <td>get(int index)</td>
+              <td>E (element type)</td>
+              <td>Returns the element at the specified position in this list.</td>
+            </tr>
+           <tr>
+             <td>isEmpty()</td>
+             <td>boolean</td>
+             <td>Returns true if this list contains no elements.</td>
+           </tr>
+        <tr>
+          <td>iterator()</td>
+          <td>Iterator(E)</td>
+          <td>Returns an iterator over the elements in this list in proper sequence.</td>
+        </tr>
+        
+    <tr>
+      <td>remove(int index)</td>
+      <td>E</td>
+      <td>Removes the element at the specified position in this list.</td>
+    </tr>
+   <tr>
+     <td>removeAll(Collection<?> c)</td>
+     <td>boolean</td>
+     <td>Removes from this list all of its elements that are contained in the specified collection.</td>
+   </tr>
+   
+      <tr>
+        <td>removeIf(Predicate<? super E> filter)</td>
+        <td>boolean</td>
+        <td>Removes all of the elements of this collection that satisfy the given predicate.</td>
+      </tr>
+      
+         <tr>
+           <td>set(int index, E element)</td>
+           <td>E</td>
+           <td>Replaces the element at the specified position in this list with the specified element.</td>
+         </tr>
+          <tr>
+            <td>size()</td>
+            <td>int</td>
+            <td>Returns the number of elements in this list.</td>
+          </tr>
+          
+             <tr>
+               <td>trimToSize()</td>
+               <td>void</td>
+               <td>Trims the capacity of this ArrayList instance to be the list's current size.</td>
+             </tr>
+        <tr>
+          <td>toArray()</td>
+          <td>Object</td>
+          <td>Returns an array containing all of the elements in this list in proper sequence (from first to last element).</td>
+        </tr>
+       <tr>
+         <td>contains()</td>
+         <td>boolean</td>
+         <td>Returns true if this list contains the specified element</td>
+       </tr>
+      <tr>
+        <td>clone()</td>
+        <td>Object</td>
+        <td>Returns a shallow copy of this ArrayList instance. (The elements themselves are not copied.)</td>
+      </tr>
+     <tr>
+       <td>equals()</td>
+       <td>boolean</td>
+       <td>Checks two lists are equal or not (returns true ir false)</td>
+     </tr>
+     
+     <tr>
+     <td>indexOf()</td>  
+     <td>int</td>
+     <td>Returns the index of the first occurrence of the specified element in this list.</td>
+     </tr>
+     
+     <tr>
+       <td>indexOf()</td>
+       <td>int</td>
+       <td>Returns the index of the last occurrence of the specified element in this list.</td>
+     </tr>
+     
+     <tr>
+       <td>sort()</td>
+       <td>void</td>
+       <td>Sorts the list alphabetically or numerically in a specified order (Eescending or Descending)</td>
+     </tr>
+    
+    <tr>
+      <td>stream()</td>
+      <td>Stream</td>
+      <td>Returns a sequential Stream with this collection as its source.</td>
+    </tr> 
+  </table>
+
+<p>
+<b># Creating empty HashSet instance</b>
+</p>
+
+<p>
+<pre><code>
+// Syntax: (T stands for Type)
+HashSet<T> set = new HashSet<T>();
+
+//creating empty HashSet
+HashSet<String> set = new HashSet<String>();
+</code></pre>
+</p>
+
+<p>
+<b># Adding elements to HashSet</b>
+</p>
+
+<p>
+<b># Add new elements or items using add() method.</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.HashSet;
+
+public class Main{
+  public static void main (String[] args){
+    HashSet<String> fruits = new HashSet<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+    
+    //print the elements
+    System.out.println(fruits);
+  }
+}
+</code></pre>
+
+<p>
+If you run the above example application you see the following output in the console:
+</p>
+
+<p>
+<pre><code>
+[Guava, Apple, Plum, Cherry, Banana] 
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> HashSet or Set interface doesn't maintain the insertion order. 
+</p>
+
+<p>
+<b># Numbers as elements in HashSet (Integer)</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.HashSet;
+
+public class Main{
+  public static void main (String[] args){
+    HashSet<Integer> numbers = new HashSet<Integer>();
+    //add elements using add method
+    numbers.add(1);
+    numbers.add(2);
+    numbers.add(3);
+    numbers.add(4);
+    numbers.add(5);
+    
+    //print the elements
+    System.out.println(numbers);
+  }
+}
+
+/**
+ * Output:
+ * [1, 2, 3, 4, 5]
+ */
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> Numbers always maintain the ordinal order (1, 2, 3,..)
+</p>
+
+<p>
+<b>Like:</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.HashSet;
+
+public class Main{
+  public static void main (String[] args){
+    HashSet<Integer> numbers = new HashSet<Integer>();
+    //add elements using add method
+    numbers.add(1);
+    numbers.add(2);
+    numbers.add(30);
+    numbers.add(4);
+    numbers.add(5);
+    
+    //print the elements
+    System.out.println(numbers);
+  }
+}
+
+/**
+ * Output:
+ * [1, 2, 4, 5, 30]
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Duplicate elements will be ignored</b>
+</p>
+
+<p>
+We have already learned that Set or HashSet doesn't allow duplicate members as it's items. Thus, it ignore the duplicate members.
+</p>
+
+<p>
+<pre><code>
+import java.util.HashSet;
+
+public class Main{
+  public static void main (String[] args){
+    HashSet<String> fruits = new HashSet<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Apple");
+    fruits.add("Guava");
+    fruits.add("Plum");
+    fruits.add("Banana")
+    
+    //print the elements
+    System.out.println(fruits);
+  }
+}
+
+/**
+ * Output: 
+ * [Guava, Apple, Plum, Banana]
+ */
+</code></pre>
+</p>
+
+<p>
+You see duplicate members are ignored in HashSet. So, Only use Set or HashSet in your application when maintaining insertion order is not the priority and  there will be no duplicate members. 
+</p>
+
+<p>
+<b># Iterate the HashSet elements using for loop</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+
+public class Main{
+  public static void main (String[] args){
+    HashSet<String> fruits = new HashSet<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+    
+    //iterate and print 
+    for(int i = 0; i <=fruits.size(); i++){
+      System.out.println(fruits.get(i));
+    }
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you run the above example you get the following output:
+</p>
+<p>
+<pre><code>
+Cherry 
+Banana
+Apple 
+Plum
+Guava
+</code></pre>
+</p>
+
+<p>
+<b># Iterating ArrayList elements using for each loop.</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+
+public class Main{
+  public static void main (String[] args){
+    HashSet<String> fruits = new HashSet<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+    
+    //iterating ArrayList elements
+    for(String f: fruits){
+      System.out.println(f);
+    }
+  }
+}
+/**
+ * //Output 
+ * Guava 
+ * Plum
+ * Cherry 
+ * Banana
+ * Apple
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Iterating ArrayList using Iterator</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+ //Or import all the classes 
+ //import java.util.*;
+ 
+ public class Main{
+   public static void main (String[] args) {
+     //Creating ArrayList
+     HashSet<String> fruits = new HashSet<String>();
+     //add new elements 
+     fruits.add("Apple");
+     fruits.add("Banana");
+     fruits.add("Cherry");
+     fruits.add("Guava");
+     fruits.add("Plum");
+     
+     //iterate using Iterator
+     Iterator list = fruits.iterator(); //getting Iterator
+     while(list.hasNext()){ //check if any elements exists or not
+       System.out.println(list.next()); //printing the elements 
+     }
+   }
+ }
+ 
+/**
+ * Banana 
+ * Guava
+ * Plum
+ * Apple
+ * Cherry 
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Remove an element from ArrayList</b>
+</p>
+
+<p>
+To remove an element, use the remove(int index). Don't forget to specified the index number.
+</p>
+
+<p>
+<b>Like:</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+
+public class Main{
+  public static void main (String[] args){
+    ArrayList<String> fruits = new ArrayList<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+ 
+    //iterate ArrayList 
+    System.out.println("Before Removing elements");
+    for(String f: fruits){
+      System.out.println(f);
+    }
+    
+    //
+    System.out.println("After removing the first element");
+    
+    fruits.remove(0);
+    //iterate now 
+    for(String f: fruits){
+      System.out.println(f);
+    }
+  }
+}
+</code></pre>
+</p>
+
+<p>
+<pre><code>
+//output
+Before Removing elements
+Apple
+Banana
+Cherry
+Guava
+Plum
+After removing the first element
+Banana
+Cherry
+Guava
+Plum
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> It is possible to use remove(element) to remove a particular element based on their name instead of position.
+</p>
+
+<p>
+<b># Sort HashSet elements</b>
+</p>
+
+<p>
+It is not possible to sort HashSet or Set interface items. Because, HashSet is unordered collection. It means, the items of HashSet don't maintain the insertion order. Thus you can not sort the HashSet items. But, it is required to sort the HashSet then you can convert the Set to List and then sort.
+</p>
+
+<p>
+The following error you will get if you try to sort the below example: 
+</p>
+
+<p>
+<pre><code>
+import java.util.HashSet;
+import java.util.Collections;
+
+public class Main{
+  public static void main (String[] args){
+    HashSet<String> fruits = new HashSet<String>();
+    //add new elements 
+    fruits.add("Plum");
+    fruits.add("Cherry");
+    fruits.add("Banana");
+    fruits.add("Apple");
+    fruits.add("Guava");
+    
+    //sort fruits and then iterate 
+    Collections.sort(fruits);
+    
+    //iterating HashSet elements 
+    for(String f: fruits){
+      System.out.println(f);
+    }
+  }
+}
+</code></pre>
+</p>
+<p>
+  <b>Error Message...</b>
+</p>
+<p>
+<pre><code>
+// output: (error message)
+
+Main.java:16: error: no suitable method found for sort(HashSet<String>)
+    Collections.sort(fruits);
+               ^
+    method Collections.<T#1>sort(List<T#1>) is not applicable
+      (cannot infer type-variable(s) T#1
+        (argument mismatch; HashSet<String> cannot be converted to List<T#1>))
+    method....
+  </code></pre>
+</p>
+  </div>
+  
+</body>
+
+</html>

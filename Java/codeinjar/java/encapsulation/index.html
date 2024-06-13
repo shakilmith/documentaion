@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Encapsulation</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+  <h1>Java Encapsulation</h1>
+    <p>
+    Encapsulation means, hiding sensitive data from users. Like capsule with hundreds of different medicines but none of the users aware of them.
+</p>
+
+<p>
+To achieve this behavior in java, we must: 
+=> Declare our class members (attributes and methods) are private.
+=> Use public get/set to access the private members. 
+</p>
+
+<p>
+Note: We know that private members can only be accessed within the declared class. But, outside the declared class, it is possible by using public getter and setter methods.
+</p>
+
+<p>
+getter: returns the variable value</br>
+setter: set the variable value.</br>
+this keyword: indicates the current object.
+</p>
+
+<p>
+Getter and setter syntax: 
+</p>
+<p>
+<pre><code class="left-border">
+public data_type getV(type V){
+   return V;
+}
+
+public void setV(){
+    this.V = V;
+}
+</code></pre>
+</p>
+
+<p>
+V: name of the variable or method. It must start with capital letter.
+</p>
+
+<p>
+Let's go through few examples: 
+</p>
+
+<p>
+<b>
+Example 1: 
+</b>
+</p>
+
+<p>
+Create 2 files in the src folder in your java project. 
+</p>
+
+<p>
+Person.java </br>
+
+TestExample.java</br>
+</p>
+
+<p>
+The Person class contains 2 private variables name and age. Including constructor (skip now), getter and setter methods. So that we can access the private members from outside the class. 
+</p>
+
+<p>
+The TestExample.java class contains the main method. 
+</p>
+
+<p>
+We now try to access the private fields (attributes) name and age of person class from the TestExample class. (skip the package details for the time being). 
+</p>
+
+<p>
+But we know that private members can only be accessed by get/set from outside the declared class. 
+</p>
+
+<p>
+So, after creating the object of the Person.java class, we use set method to set the value of the private message and get for getting the variable. (See in the below example)
+</p>
+
+<p>
+<pre><code class="left-border">
+//person.java 
+
+public class Person{
+  //private members
+  private String name;
+  private int age;
+  
+  //constructor
+  //public getter and setter methods
+  
+  //getter 
+  public String getName(){
+    return name;
+  }
+//setter
+public void setName(String name){
+  this.name = name;
+ }
+ 
+  //getter 
+  public int getAge(){
+    return age;
+  }
+//setter
+public void setAge(int age){
+  this.age = age;
+ }
+}
+
+
+// TestExample.java class 
+
+public class TestExample{
+  public static void main (String[] args) {
+    //create object of the Person class
+    
+    Person person = new Person(); 
+    //set the value of the private members
+    person.setName("Mark Smith");
+    person.setAge(30);
+    
+    //use getter for getting the values 
+    System.out.println("Name is: "+person.getName());
+    System.out.println("Age is: "+person.getAge());
+     
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you now run the TestExample.java class then you definitely get the following output in the console. 
+</p>
+
+<p>
+ Name is: Mark Smith</br>
+ Age is: 30</br>
+</p>
+
+<p>
+Why Encapsulation?
+</br>
+
+=> Better control of the class members like attributes and methods
+=> Make the class attributes read only or write only. 
+=> For enhancing flexibility. Possible to change one part of the code without affecting other parts.
+=> Increase security of the data.
+=> For wrapping code or programs in a single unit.
+
+</p>
+
+  </div>
+ 
+ //This post will be updated including few more examples. 
+ //Thanks
+</body>
+
+</html>

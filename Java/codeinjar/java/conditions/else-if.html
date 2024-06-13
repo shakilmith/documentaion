@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Java else-if statement</title>
+  
+   <style>
+    *{
+      box-sizing: border-box;
+    }
+    html, body{
+      margin-left: 8px;
+      margin-right: 8px;
+      padding: 0px;
+    }
+    pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+  </style>
+  
+</head>
+
+<body>
+ 
+  <div>
+  <h1>Java else if statement</h1>
+  <p>
+    Multiple if statements can be achieved through Java else-if statement. Basically when we want to check more than one condition and prints the result. 
+</p>
+
+<p>
+Java else-if statement syntax: 
+</p>
+
+<p>
+<pre><code class="left-border">
+if(condition to check){
+    //code block to execute if 
+    //the if condition is true
+  }
+  else if(condition to check){
+    //code block to execute if 
+    //the if block if false
+    //you can write many else-if block
+    //as well
+  } 
+  else{//else block
+    //execute it if the above two
+    //conditions are false
+  }
+</code></pre>
+</p>
+
+<p>
+Here we have also added the if condition too, to understand the scenario correct way.
+</p>
+
+<p>
+Let's guess an example application. Where we want to show a simple greeting message to our users based on different time in the day. Like if morning, we want to show: Good Morning! Message.
+</p>
+
+<p>
+Let's propagate this example: 
+</p>
+
+<h3>
+Example-1: 
+</h3>
+
+<p>
+<pre><code class="left-birder">
+public class Main{
+  public static void main (String[] args){
+    //int variable
+    int time = 10; 
+    if (time < 12){
+      System.out.println("Good Morning!"");
+    }
+    else if(time > 12){
+    System.out.println("Good Afternoon!");
+  } 
+  else{//else block
+    System.out.println("Nothing to show");
+  }
+ }
+}
+/**
+ * Output: 
+ * Good morning!
+ */
+
+</code></pre>
+</p>
+
+<p>
+But if you make time 16 (international format)<br/>
+It produces, Good afternoon. 
+</p>
+
+<p>
+Note: We should use java date time API in this case. (I will show you in the upcoming example)
+</p>
+
+<h3>
+Example 2: 
+</h3>
+
+<p>
+<pre><code class="left-border">
+public class Main{
+  public static void main (String[] args){
+    //int variable
+    int num1 = 100; 
+    int num2 = 110;
+    if (num1 > num2){
+      System.out.println("num1 is greater than num2");
+    }
+    else if(num1< num2){
+    System.out.println("num1 is less than num2");
+  }
+  else if(num1 == num2){
+    System.out.println("Both are equal numbers");
+  }
+  else{//else block
+    System.out.println("");
+  }
+ }
+}
+/**
+ * Output: 
+ * num1 is greater than num2
+ */
+</code></pre>
+</p>
+
+
+<p>
+As the num1 is 100 and num2 is 110 and the num2 is greater than num1. So the compiler checks the first condition and finds it false. And it then checks the else-if condition. As the second else if statement is true, thus it prints the code block and avoid the rest of the statements. 
+</p>
+
+<h3>
+Example-3: (Multiple else if statements)
+</h3>
+<p>
+<pre><code class="left-border">
+public class Main{
+  public static void main (String[] args) {
+    //Strng variable to check
+    
+    String day = "Monday";
+    if (day == "Saturday"){
+      System.out.println("It's Saturday");
+    }
+    else if (day == "Sunday"){
+      System.out.println("It's Sunday");
+    }
+    else if (day == "Sunday"){
+          System.out.println("It's Sunday");
+     }
+    else if (day == "Monday"){
+          System.out.println("It's Monday");
+     }
+    else if (day == "Tuesday"){
+          System.out.println("It's Sunday");
+     }
+    else if (day == "Sunday"){
+          System.out.println("It's Tuesday");
+    }
+    else if (day == "Wednesday"){
+          System.out.println("It's Wednesday");
+    }
+    else if (day == "Thursday"){
+          System.out.println("It's Thursday");
+    }
+    else if (day == "Friday"){
+          System.out.println("It's Friday");
+    }
+    else{
+      System.out.print("Nothing to show");
+    }
+  }
+}
+/**
+ * Output: 
+ * It's Monday
+ */
+</code></pre>
+</p>
+
+<p>
+Here we want to check the day variable value. And the initial value we have set is "Monday". 
+</p>
+
+<p>
+The compiler checks the conditions like if block and else-if block and finds the third condition or else-if block is true. So, it prints the third else-if block and avoids the rest of the code blocks. But, if none of the condition is make sense or true then the else block will be executed. 
+</p>
+
+<p>
+What if you want to check hundreds such variables and show the result to your users based on condition? Then, you have hundreds of else if block, right?
+</p>
+
+<p>
+In this case, we can use java Switch statement. It is almost like if or else if block, but reduces boilerplate else-if statements. 
+</p>
+
+<p>
+  <a href="https://codeinjar.com/java-switch-statement/" 
+  target="_blank" alt="java Switch Statement">Java Switch Statement</a>
+</p>
+  </div>
+
+
+</body>
+
+</html>

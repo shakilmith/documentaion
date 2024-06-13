@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Math class</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+    line-height: 1.5;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+  <h1>Java Math class</h1>
+  
+  <p>
+    In java, we can handle basic arithmetical operations on numbers.Like simple addition, subtraction, multiplication and division. But additionally for executing complex mathematical operations, java provides Math class. The package java.lang.Math represents the Math class. You basically don't need to import this package to perform mathematical operations as the Math class in the java.lang package. 
+
+</p>
+
+<p class="highlight-section">
+(java.lang package is automatically added to run your program in java and provides various fundamental classes like System, Integer, Object, String, Class,  Exception etc. to run your programs.)
+</p>
+
+<p>
+<b>**Yet, if you want you can import the Math class externally.</b>
+</p>
+
+<p>
+One more thing should be added here that, all the attributes of Math class are static by default. Thus you can use them directly without creating objects.
+</p>
+
+<p>
+Let's see few of the important attributes (PI only) and methods of the Math class to perform various mathematical tasks: 
+</p>
+
+
+</br></br>
+<p>
+<b>#1 Find out min and max number</b>
+</p>
+
+<p>
+There are methods <b>min()</b> and <b>max()</b> in the Math class to find out min and max number based on the provided number. 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //find out minimum number 
+    System.out.println(Math.min(10, 20));
+    
+    //find out maximum number
+    System.out.println(Math.max(10, 20));
+  }
+}
+/**
+ * Output: 
+ * 10
+ * 20
+ */
+</code></pre>
+</p>
+
+<p>
+It is okay if you provide variables as arguments. 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    int x = 10;
+    int y = 20
+    //find out minimum number 
+    System.out.println(Math.min(x, y));
+    
+    //find out maximum number
+    System.out.println(Math.max(x, y));
+  }
+}
+/**
+ * Output: 
+ * 10
+ * 20
+ */
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> The number should be int, float, double and long either positive or negative.
+</p>
+
+</br></br>
+<p>
+<b>#2 Work with Exponentiation (repeated multiplication or simply call it power)</b>
+</p>
+
+<p>
+How to return the value of x to the power of y
+</p>
+
+<p>
+There is a method called <b>pow(double, double)</b> that returns the exponential (powered) value. 
+
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    int x = 5;
+    int y = 3;
+    //find out powered value (3 power 2)
+    System.out.println(Math.pow(3, 2));
+    
+    //returns the value of x to the power y (x power y )
+    System.out.println(Math.pow(x, y));
+    
+  }
+}
+/**
+ * Output: 
+ * 9.0
+ * 125.0
+ */
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> the <b><i>Math.pow()</i></b> returns double and required two arguments.
+</p>
+
+</br></br>
+<p>
+<b>#3 Returns the random number between 0 and 1 (The alternative class is Random)</b>
+</p>
+
+<p>
+There is a method called <b>Math.random()</b> that returns random number between 0 and 1. 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+   public static void main (String[] args) {
+     System.out.println(Math.random());
+   }
+ }
+ /**
+  * Output: 
+  * 0.4053012513485045 (first compile)
+  * 0.703321370261342 (second compile)
+  */
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> <b><i>Math.random()</i></b> returns double value and accepts 0 arguments.
+</p>
+
+</br></br>
+<p>
+#3 Returns the nearest number
+</p>
+
+<p>
+The <b>Math.round()</b> method of the Math class returns the value of x rounded to its nearest integer (down or up) 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args)
+  {
+    //returns 4 as below .5
+    System.out.println(Math.round(4.3));
+    
+    //returns 5 as up .5
+    System.out.println(Math.round(4.8));
+   }
+ }
+ /**
+  * Output:
+  * 4
+  * 5
+  */
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> The number should be float or double. <b><i>Math.round()</i></b> returns int and long.
+</p>
+
+</br></br>
+<p>
+<b>#4 Find out the nearest rounded up number</b>
+</p>
+
+<p>
+There is a method called <b>ceil()</b> in Math class. It returns the value of x rounded up to it's nearest double value.
+</p>
+
+<p>
+<pre><code>
+public class Main{
+   public static void main (String[] args) {
+     
+     //nearest rounded up number 
+     System.out.println(Math.ceil(5.3)); //returns 6.0
+     System.out.println(Math.ceil(5.8)); //returns 6.0
+     
+   }
+ }
+ /**
+  * Output: (double value)
+  * 6.0
+  * 6.0
+  */
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> <b><i>Math.ceil()</i></b> method returns double value and the provided number could be positive or negative.
+</p>
+
+</br></br>
+<p>
+<b>#5 Find out the nearest down number (positive or negative)</b>
+</p>
+
+<p>
+There is a method called <b>floor()</b> in Math class. It returns the value of x rounded down to it's nearest double value.
+</p>
+
+<p>
+<pre><code>
+public class Main{
+    public static void main (String[] args) {
+      
+      //nearest rounded up number 
+      System.out.println(Math.ceil(5.3)); //returns 6.0
+      System.out.println(Math.ceil(5.8)); //returns 6.0
+      
+    }
+  }
+  /**
+   * Output: (double value)
+   * 6.0
+   * 6.0
+   */
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> <b><i>Math.floor()</i></b> method returns double value and the provided number could be positive or negative.
+</p>
+
+</br></br>
+<p>
+<b>#6 Find out the square root √ of given integer or double number</b> 
+</p>
+
+<p>
+There is a method called <b>sqrt(double)</b> in the Math class. It returns the square root of the given number
+</p>
+
+<p>
+<pre><code>
+public class Main{
+    public static void main (String[] args) {
+      
+      //returns square root
+      System.out.println(Math.sqrt(16)); //returns 4.0
+      System.out.println(Math.sqrt(64)); //returns 8.0
+    }
+  }
+  /**
+   * Output: (double value)
+   * 4.0
+   * 8.0
+   */
+ </code></pre>
+</p>
+
+<p>
+<b>Note:</b> <b><i>Math.sqrt()</i></b> method returns double and the number should be integer or double. 
+</p>
+
+</br></br>
+<p>
+<b>#7 Find out the cube root 3√ of given integer or double number</b>
+</p>
+
+<p>
+There is a method called <b>cbrt(double)</b> in the Math class. It returns the cube root of the given number
+</p>
+
+<p>
+<pre><code>
+public class Main{
+    public static void main (String[] args) {
+      
+      //returns cube root
+      System.out.println(Math.cbrt(8)); //returns 2.0
+      System.out.println(Math.cbrt(27)); //returns 3.0
+      System.out.println(Math.cbrt(64)); //returns 4.0
+    }
+  }
+  /**
+   * Output: (double value)
+   * 2.0
+   * 3.0
+   * 4.0
+   */
+ </code></pre>
+</p>
+
+<p>
+<b>Note:</b> <b><i>Math.sqrt()</i></b> method returns double and the number should be integer or double. 
+</p>
+  </div>
+  
+</body>
+
+</html>

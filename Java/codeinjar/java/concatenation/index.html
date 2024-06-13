@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Concatenation</title>
+  
+    
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+
+<h1>Java Concatenation</h1>
+<div>
+  
+  <p>
+  Concatenation means to add something like text or number at the end of some text or number. 
+</p>
+
+<p>
+Like, we have "hell" String and if we add 'o' at the end of that string then, it is called concatenation. Remember, String are concatenated but numbers are added.
+</p>
+
+<p>
+In java, we use + sign for concatenate one String to another. 
+</p>
+
+<p>
+See, a simple example: 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //String variables
+    String firstName = "Mark";
+    String lastName = "Smith";
+    System.out.println(firstName + lastName);
+  }
+}
+/**
+ * Output:
+ * Mark Smith
+ */
+</code></pre>
+</p>
+
+<p>
+Here, we used the + sign to concatenate two Strings. 
+</p>
+
+<p>
+But what if the variables are number?
+</p>
+
+<p>
+I mentioned already that, Strings are concatenated but numbers are added. 
+</p>
+
+<p>
+Like: 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //String variables
+    String x = 10;
+    String y = 10;
+    System.out.println(x + y);
+  }
+}
+/**
+ * Output:
+ * 20
+ */
+</code></pre>
+</p>
+
+<p>
+But, what will be the output for the below one?
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //String variables
+    String x = "10";
+    String y = "10";
+    System.out.println(x + y);
+  }
+}
+/**
+ * Output:
+ * 1010
+ */
+</code></pre>
+</p>
+
+<p>
+Yes, you are right. Because, Now the variable x and y are seemd to be String not number.</br>
+That's why, instead of addition they were concatenated. 
+</p>
+
+<p>
+Concatenate String and number together: 
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args) {
+    //String variables
+    System.out.println("The number is "+ 10);
+  }
+}
+/**
+ * Output:
+ * The number is 10
+ */
+</code></pre>
+</p>
+
+<p>
+Yes, for this we also use + sign.
+</p>
+
+<p>
+Note: concatenation starts from left to right. And, string are concatenated but numbers are added unless they seem to be String.
+</p>
+</div>
+
+</body>
+
+</html>

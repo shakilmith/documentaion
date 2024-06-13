@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+    table, th, td{
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+    
+  <h1>Java ArrayList</h1>
+  
+    <p>
+    ArrayList in java is a resizable array and it is  the implementation of the List interface. There is no size limit of ArrayList class. The capacity of ArrayList will grow by adding new elements. Thus, you don't have to specify the size of ArrayList. Overall it is the main difference between java built in Array and ArrayList. We know that java Array size can not be modified but ArrayList size can be modified. 
+</p>
+
+<p>
+Additionally, there are lot of methods available to work with java ArrayList.
+</p>
+
+<p>
+<b># Syntax:</b>
+</p>
+
+<p>
+<pre><code>
+ArrayList<T> list = new ArrayList<>(); 
+
+ArrayList<String> fruits = new ArrayList<String>();
+    //add elements 
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> T is the type of elements. You can't use primitive types. You have to use wrapper types like Integer, Float, String or objects. As primitive types aren't supported by ArrayList.
+</p>
+
+<p>
+As I already mentioned that, there are plenty of methods available to work with java ArrayList. 
+</p>
+
+<p>
+<b># Methods of ArrayList:</b>
+</p>
+</br>
+
+ <table style="width: 100%">
+    <tr>
+      <th>Methods</th>
+      <th>Return types</th>
+      <th>Description</th>
+    </tr>
+    
+    <tr>
+      <td>add(E element)</td>
+      <td>boolean</td>
+      <td>Appends the specified element to the end of this list.</td>
+    </tr>
+    <tr>
+      <td>add(int index, E element)</td>
+      <td>void</td>
+      <td>Inserts the specified element at the specified position in this list.</td>
+    </tr>
+    
+      <tr>
+        <td>addAll(Collection<? extends E> c)</td>
+        <td>boolean</td>
+        <td>Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.</td>
+      </tr>
+      
+         <tr>
+           <td>addAll(int index, Collection<? extends E> c)</td>
+           <td>boolean</td>
+           <td>Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.</td>
+         </tr>
+            <tr>
+              <td>get(int index)</td>
+              <td>E (element type)</td>
+              <td>Returns the element at the specified position in this list.</td>
+            </tr>
+           <tr>
+             <td>isEmpty()</td>
+             <td>boolean</td>
+             <td>Returns true if this list contains no elements.</td>
+           </tr>
+        <tr>
+          <td>iterator()</td>
+          <td>Iterator(E)</td>
+          <td>Returns an iterator over the elements in this list in proper sequence.</td>
+        </tr>
+        
+    <tr>
+      <td>remove(int index)</td>
+      <td>E</td>
+      <td>Removes the element at the specified position in this list.</td>
+    </tr>
+   <tr>
+     <td>removeAll(Collection<?> c)</td>
+     <td>boolean</td>
+     <td>Removes from this list all of its elements that are contained in the specified collection.</td>
+   </tr>
+   
+      <tr>
+        <td>removeIf(Predicate<? super E> filter)</td>
+        <td>boolean</td>
+        <td>Removes all of the elements of this collection that satisfy the given predicate.</td>
+      </tr>
+      
+         <tr>
+           <td>set(int index, E element)</td>
+           <td>E</td>
+           <td>Replaces the element at the specified position in this list with the specified element.</td>
+         </tr>
+          <tr>
+            <td>size()</td>
+            <td>int</td>
+            <td>Returns the number of elements in this list.</td>
+          </tr>
+          
+             <tr>
+               <td>trimToSize()</td>
+               <td>void</td>
+               <td>Trims the capacity of this ArrayList instance to be the list's current size.</td>
+             </tr>
+        <tr>
+          <td>toArray()</td>
+          <td>Object</td>
+          <td>Returns an array containing all of the elements in this list in proper sequence (from first to last element).</td>
+        </tr>
+       <tr>
+         <td>contains()</td>
+         <td>boolean</td>
+         <td>Returns true if this list contains the specified element</td>
+       </tr>
+      <tr>
+        <td>clone()</td>
+        <td>Object</td>
+        <td>Returns a shallow copy of this ArrayList instance. (The elements themselves are not copied.)</td>
+      </tr>
+     <tr>
+       <td>equals()</td>
+       <td>boolean</td>
+       <td>Checks two lists are equal or not (returns true ir false)</td>
+     </tr>
+     
+     <tr>
+     <td>indexOf()</td>  
+     <td>int</td>
+     <td>Returns the index of the first occurrence of the specified element in this list.</td>
+     </tr>
+     
+     <tr>
+       <td>indexOf()</td>
+       <td>int</td>
+       <td>Returns the index of the last occurrence of the specified element in this list.</td>
+     </tr>
+     
+     <tr>
+       <td>sort()</td>
+       <td>void</td>
+       <td>Sorts the list alphabetically or numerically in a specified order (Eescending or Descending)</td>
+     </tr>
+    
+    <tr>
+      <td>stream()</td>
+      <td>Stream</td>
+      <td>Returns a sequential Stream with this collection as its source.</td>
+    </tr> 
+  </table>
+
+
+<p>
+<b># Creating, adding elements to ArrayList</b>
+</p>
+
+<p>
+Creating java Generic ArrayList, add elements and print them
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+
+public class Main{
+  public static void main (String[] args){
+    ArrayList<String> fruits = new ArrayList<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+    
+    //print the elements
+    System.out.println(fruits);
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you run the above example application you see the following output in the console:
+</p>
+
+<p>
+<pre><code>
+[Apple, Banana, Cherry, Guava, Plum]
+</code></pre>
+</p>
+
+<p>
+<pre><code>
+# Iterate ArrayList elements
+</code></pre>
+</p>
+
+<p>
+For iterating ArrayList elements we can use java for loop.
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+
+public class Main{
+  public static void main (String[] args){
+    ArrayList<String> fruits = new ArrayList<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+    
+    //iterate ArrayList elements
+    for(int i = 0; i <=fruits.size(); i++){
+      System.out.println(fruits.get(i));
+    }
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you run the above example you get the following output:
+</p>
+<p>
+<pre><code>
+Apple
+Banana
+Cherry
+Guava
+Plum
+</code></pre>
+</p>
+
+<p>
+<b># Iterating ArrayList elements using for each loop.</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+
+public class Main{
+  public static void main (String[] args){
+    ArrayList<String> fruits = new ArrayList<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+    
+    //iterating ArrayList elements
+    for(String f: fruits){
+      System.out.println(f);
+    }
+  }
+}
+// output:
+/**
+ * Apple
+ * Banana
+ * Cherry
+ * Guava
+ * Plum
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Iterating ArrayList using Iterator</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+ 
+ //import all the classes 
+ //import java.util.*;
+ 
+ public class Main{
+   public static void main (String[] args) {
+     //Creating ArrayList
+     ArrayList<String> fruits = new ArrayList<String>();
+     //add elements to this ArrayList
+     fruits.add("Apple");
+     fruits.add("Banana");
+     fruits.add("Cherry");
+     fruits.add("Guava");
+     fruits.add("Plum");
+     
+     //iterate using Iterator
+     Iterator list = fruits.iterator(); //getting Iterator
+     while(list.hasNext()){ //check if any elements exists or not
+       System.out.println(list.next()); //printing the elements 
+     }
+   }
+ }
+ 
+/**
+ * Apple
+ * Banana
+ * Cherry
+ * Guava
+ * Plum
+ */
+</code></pre>
+</p>
+
+<p>
+<b># Insert new elements to the ArrayList using add() method</b>
+</p>
+
+<p>
+We can use add() method to insert new elements to our existing ArrayList object.
+</p>
+
+<p>
+<b>Note:</b> the add(element) insert new element at the end of the current list. And add(int index, element) insert new element at the specified index or position.
+</p>
+
+<p>
+<b>=> Using add(element):</b> 
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+
+public class Main{
+  public static void main (String[] args){
+    ArrayList<String> fruits = new ArrayList<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+    
+    //append a 6th number fruit
+    fruits.add("Blueberry");
+    
+    //iterating ArrayList elements
+    for(String f: fruits){
+      System.out.println(f);
+    }
+  }
+}
+/**
+ * Apple
+ * Banana
+ * Cherry
+ * Guava
+ * Plum
+ * Banana
+ */
+</code></pre>
+</p>
+
+</p>
+<b>=> Using add (int index, element) method:</b>
+</p>
+
+<p>
+<pre><code>
+public class Main{
+  public static void main (String[] args){
+    ArrayList<String> fruits = new ArrayList<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+ 
+    //iterating ArrayList elements
+    System.out.println("Before Changing");
+    for(String f: fruits){
+      System.out.println(f);
+    }
+    
+    //change the fruits and then iterate
+    System.out.println("After changing");
+    fruits.set(0, "Blueberry");
+    //iterate now 
+    for(String f: fruits){
+      System.out.println(f);
+    }
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you run the above program, you will get the following output in the console. You can see, the first fruits element has been updated.
+</p>
+
+<p>
+<pre><code>
+Before Changing
+Apple
+Banana
+Cherry
+Guava
+Plum
+After changing
+Blueberry
+Banana
+Cherry
+Guava
+Plum
+</code></pre>
+
+<p>
+<b>Note:</b> The add(int index, element) and set(int index, element) can be used interchangeably.
+</p>
+
+<p>
+<b># Change an ArrayList element using set() method</b>
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+
+public class Main{
+  public static void main (String[] args){
+    ArrayList<String> fruits = new ArrayList<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+ 
+    //iterating ArrayList elements
+    System.out.println("Before Changing");
+    for(String f: fruits){
+      System.out.println(f);
+    }
+    
+    //change the fruits and then iterate
+    System.out.println("After changing");
+    fruits.set(0, "Blueberry");
+    //iterate now 
+    for(String f: fruits){
+      System.out.println(f);
+    }
+  }
+}
+</code></pre>
+</p>
+
+<p>
+If you run the above program, you will get the following output in the console. You can see, the first fruits element has been updated.
+</p>
+
+<p>
+<pre><code>
+Before Changing
+Apple
+Banana
+Cherry
+Guava
+Plum
+
+After changing
+Blueberry
+Banana
+Cherry
+Guava
+Plum
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> The add(int index, element) and set(int index, element) can be used interchangeably.
+</p>
+
+<p>
+<b># Remove an element from ArrayList</b>
+</p>
+
+<p>
+To remove an element, use the remove(int index). Don't forget to specified the index number.
+</p>
+
+<p>
+<b>Like:</b>
+
+<pre><code>
+import java.util.ArrayList;
+
+public class Main{
+  public static void main (String[] args){
+    ArrayList<String> fruits = new ArrayList<String>();
+    //add elements using add method
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Guava");
+    fruits.add("Plum");
+ 
+    //iterate ArrayList 
+    System.out.println("Before Removing elements");
+    for(String f: fruits){
+      System.out.println(f);
+    }
+    
+    //
+    System.out.println("After removing the first element");
+    
+    fruits.remove(0);
+    //iterate now 
+    for(String f: fruits){
+      System.out.println(f);
+    }
+  }
+}
+//output
+Before Removing elements
+Apple
+Banana
+Cherry
+Guava
+Plum
+After removing the first element
+Banana
+Cherry
+Guava
+Plum
+</code></pre>
+</p>
+
+<p>
+<b>Note:</b> It is possible to use remove(element) to remove a particular element based on their name instead of position.
+</p>
+
+<p>
+<b># Sort the ArrayList elements using Collections.sort() method</b>
+</p>
+
+
+<p>
+Using Collections.sort() method we can easily sort the ArrayList in java. Sorting can be possible alphabetically (Strings) or numerically (numbers). 
+</p>
+
+<p>
+=> Sorting String elements: (Alphabetically)
+</p>
+
+<p>
+<pre><code>
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main{
+  public static void main (String[] args){
+    ArrayList<String> fruits = new ArrayList<String>();
+    //add new elements 
+    fruits.add("Plum");
+    fruits.add("Cherry");
+    fruits.add("Banana");
+    fruits.add("Apple");
+    fruits.add("Guava");
+    
+    //sory fruits ArrayList
+    Collections.sort(fruits);
+    
+    //iterating ArrayList elements 
+    for(String f: fruits){
+      System.out.println(f);
+    }
+  }
+}
+
+// output:
+/**
+ * Apple
+ * Banana
+ * Cherry
+ * Guava
+ * Plum
+ */
+</code></pre>
+</p>
+
+<p>
+ => Sorting numbers (numerically)
+ </br>
+ <pre><code>
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main{
+  public static void main (String[] args){
+    ArrayList<Integer> numbers = new ArrayList<Integer>();
+    //add new elements 
+    fruits.add(5);
+    fruits.add(3);
+    fruits.add(1);
+    fruits.add(4);
+    fruits.add(2);
+    
+    //sort numbers ArrayList
+    Collections.sort(fruits);
+    
+    //iterating ArrayList 
+    for(String number: numbers){
+      System.out.println(number);
+    }
+  }
+}
+// output:
+/**
+ * 1
+ * 2
+ * 3
+ * 4
+ * 5
+ */
+ </code></pre>
+</p>
+
+  </div>
+  
+</body>
+
+</html>

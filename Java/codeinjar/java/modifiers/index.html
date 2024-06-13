@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Modifiers</title>
+  
+  <style>
+  *{
+    box-sizing: border-box;
+  }
+  
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+   }
+    
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+  <h1>Java Modifiers</h1>
+  <p>
+  <b>Public:</b> It is used to declare class, class members like methods, constructors and properties. It provides vast visibility of the members means less restrictions implies when a class or class members are public. You can access the public members inside or outside the class within the same or different packages.
+<br/>
+//Example link
+  </p>
+
+ <p>
+<b>Private:</b> Private access modifier can be used for declaring class or class members like properties or methods. It provides restrictions to use the class members. Like, you can not access private members from a different package unless you use public getter and setter methods. 
+
+<br/>
+//Example link
+</p>
+
+<p>
+<b>Protected:</b> When class members are protected then it means, they only be accessed from subclass within the same package. The concept of the subclass is discussed in the java inheritance tutorial.
+
+<br/>
+//Example link 
+</p>
+
+<p>
+<b>Default:</b> When you don't use public, private or protected modifiers declaring your class or class members then, they are default members by default. In this case, the class members can only be accessed within the declared class from the same package. 
+
+</p>
+
+<p>
+Note: In real life application we always use access modifiers like public (declaring the class), private or protected to declare our class and class members. 
+<br/>
+//Example link: 
+</p>
+
+<p>
+<b>
+Other Important keywords: (Can be used along with access modifiers)
+</b>
+</p>
+
+<p>
+<b>Final:</b> Final keyword can be used in class or class members. When a class is final then it means, you can not create subclass of it or inheritance is not possible. 
+If class members (properties and methods) are final, then they can not be reinitialized or overriden/modified.
+
+</p>
+
+<p>
+<b>Note:</b> Methods are overriden.
+Properties are modified or reinitialized. 
+</p>
+
+<p>
+Overriden is only possible in the concept of inheritance. (When you create a class based on the super class then the derived class is called sub or child class. This concept in java is called inheritance)
+
+</p>
+
+<p>
+<b>Static:</b> Static keyword means in java is belonging to the class. 
+Static keyword can be used for declaring class members. When class members are static then it means they belong to the class itself. It also refers, static members (properties and methods) can be accessed without creating object of the class. 
+</p>
+
+<p>
+<b>Note:</b> Inside the main method of the class, all the properties are static by default. Thus you can't use static keyword inside the main method of java class. 
+</p>
+
+<p>
+<b>Abstract:</b> Class members like properties and methods can be abstract inside the abstract class only. Abstract keyword means hiding internal details and showing only the functionality in java. It's called abstraction in java overall. Here, the abstract methods (don't have body) body will be provided by the subclass only. (Look at our java inheritance tutorial). Also note that, abstract class can not be used to create objects.
+
+</p>
+
+<p>
+Interface: Interface in java is 100% abstract class. You don't need to use abstract keyword for interface class members now. Because, the abstract keyword is added by default for the interface class members. And interface can not be used to create objects.
+</p>
+
+<p>
+<b>Note:</b> In interface properties/attributes are public, static and final by default. Means, attributes or fields can't be modified.
+</br></br>
+Interface methods are public and abstract by default. Thus, don't need to use abstract keyword externally. 
+</br></br>
+The interface methods (abstract method by default) must be empty. Means, methods don't have body and the body will be provided by the implemented class. Concept almost like inheritance but instead of using extends keyword we use implements here. And all the interface methods must overriden inside the implemented class.
+</br>
+//Example link
+</p>
+  </div>
+  
+</body>
+
+</html>

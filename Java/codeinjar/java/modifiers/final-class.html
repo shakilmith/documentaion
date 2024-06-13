@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java final class</title>
+  
+  <style>
+  
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 0px;
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+    border-left: 3px solid red;
+}
+  .left-border{
+    border-left: 3px solid red;
+  }  
+
+  .highlight-text{
+    background-color: papayawhip;
+    color: black;
+    display: inline;
+    }
+  .highlight-section{
+    box-sizing: border-box;
+    background-color: papayawhip;
+    border-left: 5px solid red;
+    color: black;
+    padding: 3px 8px 3px 8px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+  
+  <div>
+   <h1>Final class in Java</h1>
+   
+   <p>
+    In java, class can also be final. But the restriction is that, final class can not be used to create subclass. It means, inheritance will not be possible for final class.
+   </p>
+   
+   <p>
+    Example 1:
+    </p>
+    
+ <p>
+ <pre><code>
+ final class A { //class
+ public void hello(){
+  System.out.println("Hello, World!");
+ }
+    
+}
+class Main {
+    
+public static void main(String[] args) {
+ //invoke the method hello()
+ new A().hello(); //run smoothly
+ }
+}
+</code></pre>
+</br>
+ Output, you will get after running the above example:
+    </p>
+    
+    <p>
+    Hello, World!
+    </p>
+    
+    <p>
+    Though, A is final class but we can't use it for inheritance.
+    </p>
+  Thus, the following one will not work.
+  </p>
+  
+  <p>
+  <pre><code>
+    final class A {
+    public void hello(){
+    System.out.println("Hello, World!");
+    }
+    
+    }
+    class HelloWorld extends A{
+    
+    public void hello(){
+    System.out.println("Hello, Jenkov!");
+    }
+    public static void main(String[] args) {
+    //invoke the method hello()
+    new Main().hello();
+    }
+    }
+   </code></pre>
+  </p>
+  
+  <p>
+    If you now run the example above java class again, you will get the following error:
+    </p>
+    
+    <p>
+    /**</br>
+    * < error_message ></br>
+    * Can not inherite final class A</br>
+    *</br>
+    */
+    </p>
+    
+    <p>
+      It's a very simple example post. Hope it make sense what we can and can't do with final class. But remember, sometimes it is really required to create final, for different use cases. When you basically don't allow other class to access your class members, then you can make your class as final. It applies super restrictions over class, class members.
+    </p>
+    
+    <p>
+      Thanks for reading this article.
+     </p>
+  </div>
+  
+</body>
+
+</html>
