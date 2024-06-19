@@ -26,7 +26,7 @@ CREATE src/app/greeting/greeting.component.css (0 bytes)
 
 If you now, open your project in your favourite ide (like VS code), you see a new greeting component has been created.
 
-![Alt text](image-1.png)
+![Alt text](image1.png)
 
 If you open the greeting.component.ts file you will see the following code:
 
