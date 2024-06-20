@@ -4,13 +4,14 @@ NgModel attribute directive is used in html form element for handling two way da
 
 The following example demonstrates this scenario.
 
-Note: First of all you need an angular application bootstrapped in your system.
+**Note:** First of all you need an angular application bootstrapped in your system.
 
-//Link: Create Your First Angular Application.
+[Create Your First Angular Application](https://javaondemand.com/create-your-first-angular-application/)
 
-1. Open app.component.ts file
 
-In this file, import FormsModule from "@angular/forms" library and add it to the AppComponent's imports array.
+1. Open **app.component.ts** file
+
+In this file, import FormsModule from **"@angular/forms"** library and add it to the AppComponent's imports array.
 
 **app.component.ts** file
 ```
@@ -35,7 +36,7 @@ export class AppComponent {
 
 2. Now, Create a an empty name string property in app.component.ts file and also create a callable method that will clear the name when you click on the button.
 
-app.component.ts file
+**app.component.ts** file
 
 ```
 export class AppComponent {
@@ -49,9 +50,9 @@ export class AppComponent {
   }
 ```
 
-3. Open app.component.ts file
+3. Open **app.component.ts** file
 
-In the app.component.html template file, write the following
+In the **app.component.html** template file, write the following
 
 **app.component.html**
 
@@ -72,7 +73,7 @@ In the app.component.html template file, write the following
 $ ng serve --open
 ```
 
-In your web browser, the first screen shows (below) an empty input element. If you now type something it will be append below. Likewise, when you click on the Clear button, the input data will be erased.
+In your web browser, the first screen shows (below) an empty input element. If you now type something it will be appeared below. Likewise, when you click on the Clear button, the input data will be erased.
 
 
 ![alt text](image1.png)
@@ -80,9 +81,9 @@ In your web browser, the first screen shows (below) an empty input element. If y
 ![alt text](image2.png)
 
 
-# Two way data binding using Input and Output decorator.
+## Two way data binding using Input and Output decorator.
 
-In app.component.ts file, write the following inside the class.
+In **app.component.ts** file, write the following inside the class.
 
 ```
 export class AppComponent {
@@ -105,11 +106,11 @@ export class AppComponent {
 }
 ```
 
-Note: Don't forget to import the Input, Output and EventEmitter from "@angular/core" library. But, if you use VS code, and when you declare @Input, @Output or @EventEmitter, automatically they will be imported at the top of the component file.
+**Note:** Don't forget to import the Input, Output and EventEmitter from **"@angular/core"** library. But, if you use VS code, and when you declare **@Input**, **@Output** or **@EventEmitter**, automatically they will be imported at the top of the component file.
 
-Now open app.component.html template file:
+Now open **app.component.html** template file:
 
-app.component.html file
+**app.component.html** file
 
 ```
 <div>
@@ -126,3 +127,6 @@ Now, after starting you development server, if you click on increment button, th
 ![alt text](image5.png)
 
 ![alt text](image4.png)
+
+
+Thanks

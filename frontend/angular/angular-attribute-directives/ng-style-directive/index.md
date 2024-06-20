@@ -2,6 +2,8 @@
 
 In angular, NgStyle is an attribute directive that updates styles dynamically for the containing html element. It can set one or more style properties for a particular html element, specified as colon separated by key-value pairs.
 
+**Syntax**
+
 ```
 [ngStyle] ="{'key.unit': value}"
 [ngStyle] ="{'color' : textColor}"
@@ -12,8 +14,10 @@ Here, key is the name of your style and the value is the css expression to be ev
 
 The following are the simple comparison using, style and ng-style attribute.
 
-Note: You may first bootstrap a simple Angular Application. Check Out: [Create Your First Angular Application](https://javaondemand.com/create-your-first-angular-application/)
-some-template.html file
+**Note:** You may first bootstrap a simple Angular Application. Check Out: [Create Your First Angular Application](https://javaondemand.com/create-your-first-angular-application/)
+
+
+**some-template.html** file
 
 ```
 <p style="color:white; font-size: 36px; background-color: green;">{{title}}</p>
@@ -27,11 +31,12 @@ some-template.html file
 <p [ngStyle]="{'color': styles.color, 'font-size.px': styles.size, 'background-color': styles.bgColor}">{{title}}</p>
 ```
 
-![alt text](image-1.png)
+![alt text](image1.png)
 
 In this case, the component file would be:
 
-app.component.ts file
+
+**app.component.ts** file
 
 ```
 export class AppComponent {
@@ -50,13 +55,16 @@ export class AppComponent {
 }
 ```
 
-# Using NgClass Directive
 
-Likewise NgStyle directive, we can also use NgClass directive to style our template elements or contents dynamically. It can help us to add and remove css classes on an HTML element dynamically. NgClass also takes property from component but you first create css classes and then add them as variables.
+## Using NgClass Directive
+
+Likewise **NgStyle** directive, we can also use **NgClass** directive to style our template elements or contents dynamically. It can help us to add and remove css classes on an HTML element dynamically. NgClass also takes property from component but you first create css classes and then add them as variables.
 
 Let's explore a simple example.
 
-## Syntax in template file: (some.component.html file or in inline template)
+## Syntax in The Template File
+
+(some.component.html file or in inline template)
 
 ```
 <p ngClass="class1 class2 class3">{{title}}</p> //same as: <p class="class1 class2 class2">{{title}}</p>
@@ -107,17 +115,20 @@ export class AppComponent {
   <p [ngClass]="{'fontStyle': true, 'headingColor': false}">{{title}}</p>
 ```
 
-If you start your development server using ng serve --open command, you will see the following screen at localhost:4200
+If you start your development server using **ng serve --open** command, you will see the following screen at [http://localhost:4200](http://localhost:4200)
 
-![alt text](image-4.png)
+
+![alt text](image4.png)
+
 
 The following image tells you more, how to apply css classes dynamically using ngClass directive.
 
-![alt text](image-2.png)
+![alt text](image2.png)
 
-# NgClass Property comes from component.
+## NgClass Property Comes From Component Side
 
 It is also possible get the ngClass property from angular component. Unlike ngStyle directive, you first create the css classes and add then set the class as component properties value. Like
+
 
 ```
 //some.component.css (we have created 4 css classes)
@@ -167,10 +178,10 @@ export class AppComponent {
 <p [ngClass]="headingObjectStyle">{{title}}</p>
 ```
 
-If you start your development server using ng serve --open command, you will see the following screen at localhost:4200
+If you start your development server using ng serve --open command, you will see the following screen at [http://localhost:4200](http://localhost:4200)
 
 
 If you check out the above code in your development environment you will the browser page will be:
 
-![alt text](image-3.png)
+![alt text](image3.png)
 
