@@ -4,5 +4,6 @@
         "jdbc",
         "qtestdb",
         "Quarkus"
-    ]
+    ],
+    "livePreview.defaultPreviewPath": "/post.html"
 }

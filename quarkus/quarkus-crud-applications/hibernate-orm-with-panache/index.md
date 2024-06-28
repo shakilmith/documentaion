@@ -84,7 +84,8 @@ public class Student extends PanacheEntity {
 }
 
 ```
-s
+
+
 Note: There is no getter and setter methods even id (primary key of your database table) as all of them will be handled by default programmatically by PanacheEntity.
 
 7. Now create the service class. Create StudentResoucre.java class in com.company.resources pacakge. (create new package resources in com.company. Remember you can put all your classes in com.company). In this class, we will explore all the jax-rs rest annotaions like @GET (Getting records), @POST (creating new records), @PUT (updating existing records), @DELETE (deleting existing resource) and few more. The code will be explained below.

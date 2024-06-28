@@ -2,7 +2,7 @@
 
 In this tutorial post, we are going to explore how to use Hibernate ORM with Panache in order to add or retrieve data from our relational database (like mySQL or postgreSQL).
 
-**Hibernate ORM Panache:** Hibernate ORM is an ORM framework like Spring Data JPA works as as implementation of JPA (jakarta persistence). It is used to save, retrieve, update or delete data from our relational database. After all, it is used to create sophisticated CRUD Applications. Hibernate ORM with Panache helps you to make your entities trivial and fun while writing in Quarkus. One more thing, if you already use Spring Data JPA, then it will be very comfortable for you to use it in your application.
+**Hibernate ORM with Panache:** Hibernate ORM with Panache is an ORM framework like Spring Data JPA works as as implementation of JPA (jakarta persistence). It is used to save, retrieve, update or delete data from our relational database. After all, it is used to create sophisticated CRUD Applications. Hibernate ORM with Panache helps you to make your entities trivial and fun while writing in Quarkus. One more thing, if you already use Spring Data JPA, then it will be very comfortable for you to use it in your application.
 
 So, let's get into the project.
 
@@ -145,6 +145,8 @@ In the **PersonResource.java** class we have defined jax/rs **@GET** and **@POST
 ## Map The Database Configuration
 
 Open **application.properties** file and add database configurations for mysql database.
+
+**application.properties**
 
 ```
 # MySQL Database Configuration

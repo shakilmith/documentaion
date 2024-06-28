@@ -6,15 +6,15 @@
 <!--meta tags for SEO-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="title" content="">
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="title" content="Quarkus Rest API Tutorial; Learn How to create CRUD Like rest api using hibernate orm with panache in quarkus.">
+<meta name="description" content="Quarkus makes it easy and comfortable to build cloud applications. Today, we are going to learn how to build simple rest api application using quarkus.">
+<meta name="keywords" content="Java, Backend, REST API, Software Development, Quarkus, Hibernate ORM with Panache, Reactive Pattern, MySQL, API Development">
 <meta name="author" content="shakilmith">
 
 
 <!--meta tags for open graph protocol (og:title, og:image)-->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="" />
+<meta property="og:title" content="Quarkus Rest API Tutorial; Learn How to create CRUD Like rest api using hibernate orm with panache in quarkus." />
 <!--Image description-->
 <!--
 <meta property="og:image" content="https://example.com/rock.jpg" />
@@ -42,7 +42,7 @@
 
 
 
-  <title>Title for your project</title>
+  <title>Jax/RS Rest API development Tutorial Using Quarkus | codeinjar.com</title>
 
   <style>
     /*Rubik font*/
@@ -213,20 +213,18 @@ If you already have quarkus application ready to get started then add the follow
 </p>
 
 <p>
-```
-<dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-rest-jackson</artifactId>
-</dependency>
-<dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-hibernate-orm-panache</artifactId>
-</dependency>
-<dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-jdbc-mysql</artifactId>
-</dependency>
-```
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+  &lt;artifactId&gt;quarkus-rest-jackson&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+  &lt;artifactId&gt;quarkus-hibernate-orm-panache&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+  &lt;artifactId&gt;quarkus-jdbc-mysql&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
 </p>
 
 
@@ -280,14 +278,13 @@ Let's create a simple entity class called <b>Person.java</b> in <b>com.company.m
 </p>
 
 <p>
-```
-package com.company.model;
+<pre><code>package com.company.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.*;
 
-@Entity(name = "Person")
-@Table(name = "person")
+@Entity(name = &quot;Person&quot;)
+@Table(name = &quot;person&quot;)
 public class Person extends PanacheEntity{
     /**
      * id field is added automatically when you
@@ -318,8 +315,7 @@ public class Person extends PanacheEntity{
      * PanacheEntity
      */
 
-}
-```
+}</code></pre>
 </p>
 
 
@@ -342,8 +338,7 @@ Resource class is just like a controller class from where we can manage our endp
 </p>
 
 <p>
-```
-package com.company.resources;
+<pre><code>package com.company.resources;
 
 import com.company.model.Person;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -354,7 +349,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
-@Path("/api/persons")
+@Path(&quot;/api/persons&quot;)
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @ApplicationScoped
@@ -362,7 +357,7 @@ public class PersonResource {
 
     //method for getting all person records
     @GET
-    public List<Person> getAll(){
+    public List&lt;Person&gt; getAll(){
         //call the listAll() method
         return Person.listAll();
     }
@@ -372,7 +367,7 @@ public class PersonResource {
     @Transactional
     public Response save(Person person){
         if(person.id !=null){
-            throw new WebApplicationException("Id was set invalidly on request", 404);
+            throw new WebApplicationException(&quot;Id was set invalidly on request&quot;, 404);
         }
         //call the persist() method
         person.persist();
@@ -381,24 +376,24 @@ public class PersonResource {
 
     //method for each person records by its id
     @GET
-    @Path("/{id}")
-    public Person getPersonById(@PathParam("id") int id){
+    @Path(&quot;/{id}&quot;)
+    public Person getPersonById(@PathParam(&quot;id&quot;) int id){
         Person entity = Person.findById(id);
         if(entity.id == null){
-            throw new WebApplicationException("Person with id of " + id + "doesn't not exist", 404);
+            throw new WebApplicationException(&quot;Person with id of &quot; + id + &quot;doesn&#39;t not exist&quot;, 404);
         }
         return Person.findById(id);
     }
 
     //method for updating person records
     @PUT
-    @Path("/{id}")
+    @Path(&quot;/{id}&quot;)
     @Transactional
     public Person updatePerson(int id, Person person){
 
         Person entity = Person.findById(id);
         if ( entity.id == null) {
-            throw new WebApplicationException("Person with id of " + id + "doesn't not exist", 404);
+            throw new WebApplicationException(&quot;Person with id of &quot; + id + &quot;doesn&#39;t not exist&quot;, 404);
         }
         entity.firstName = person.firstName; //actually it calls setFirstName under the hood
         entity.lastName = person.lastName;
@@ -411,18 +406,17 @@ public class PersonResource {
 
     //method for deleting person records
     @DELETE
-    @Path("/{id}")
+    @Path(&quot;/{id}&quot;)
     @Transactional
     public Response deleteStudent(int id){
         Person entity = Person.findById(id);
         if(entity.id == null){
-            throw new WebApplicationException("The person of id "+ id +"doesn't exist", 404);
+            throw new WebApplicationException(&quot;The person of id &quot;+ id +&quot;doesn&#39;t exist&quot;, 404);
         }
         entity.delete();
         return Response.status(204).build();
     }
-}
-```
+}</code></pre>
 </p>
 
 <p>
@@ -439,16 +433,14 @@ Open <b>application.properties</b> file and add database configurations for mysq
 
 
 <p>
-```
-# MySQL Database Configuration
+<pre><code># MySQL Database Configuration
 quarkus.datasource.db-kind=mysql
-quarkus.datasource.username=<your-username>
-quarkus.datasource.password=<your-password>
+quarkus.datasource.username=&lt;your-username&gt;
+quarkus.datasource.password=&lt;your-password&gt;
 quarkus.datasource.jdbc.url=jdbc:mysql://localhost:3306/qtestdb
 
 # Update the database schema
-quarkus.hibernate-orm.database.generation=update
-```
+quarkus.hibernate-orm.database.generation=update</code></pre>
 </p>
 
 <p>
@@ -469,10 +461,8 @@ Let's run the application using the maven/gradle command or use <b>Quarkus Tools
 </p>
 
 <p>
-```
-$ mvn quarkus: dev 
-$ gradle --console=pain quarkusDev
-```
+<pre><code>$ mvn quarkus: dev 
+$ gradle --console=pain quarkusDev</code></pre>
 </p>
 
 <p>
@@ -497,7 +487,7 @@ So, open Postman or apiDog to add some person records to this endpoint: <a href=
 </p>
 
 <p>
-![alt text](img1.png)
+<img src="https://docs.javaondemand.com/quarkus/quarkus-and-hibernate-orm/codeinjar/rest-api/img1.png" alt="quarkus-application" class="post-image-style" />
 </p>
 
 <p>
@@ -505,36 +495,34 @@ Like the above add few more person records, and click send button.
 </p>
 
 <p>
-```
-{
-    "firstName": "Mark",
-    "lastName": "Smith",
-    "age": "35",
-    "email": "mark77@gamil.com",
-    "role": "Python Developer"
+<pre><code>{
+  "firstName": "Mark",
+  "lastName": "Smith",
+  "age": "35",
+  "email": "mark77@gamil.com",
+  "role": "Python Developer"
 }
 {
-    "firstName": "Selena",
-    "lastName": "Gomez",
-    "age": "40",
-    "email": "sena55@gamil.com",
-    "role": "Rust Developer"
+  "firstName": "Selena",
+  "lastName": "Gomez",
+  "age": "40",
+  "email": "sena55@gamil.com",
+  "role": "Rust Developer"
 }
 {
-    "firstName": "Yakuv",
-    "lastName": "Plantovitch",
-    "age": "45",
-    "email": "yakuv66@gamil.com",
-    "role": "C++ Developer"
+  "firstName": "Yakuv",
+  "lastName": "Plantovitch",
+  "age": "45",
+  "email": "yakuv66@gamil.com",
+  "role": "C++ Developer"
 }
 {
-    "firstName": "Alena",
-    "lastName": "Victor",
-    "age": "50",
-    "email": "alena99@gamil.com",
-    "role": "Data Scientist"
-}
-```
+  "firstName": "Alena",
+  "lastName": "Victor",
+  "age": "50",
+  "email": "alena99@gamil.com",
+  "role": "Data Scientist"
+}</code></pre>
 </p>
 
 <p>
@@ -542,7 +530,7 @@ After adding few demo person records now if you visit the uri in your web browse
 </p>
 
 <p>
-![alt text](img2.png)
+<img src="https://docs.javaondemand.com/quarkus/quarkus-and-hibernate-orm/codeinjar/rest-api/img2.png" alt="quarkus-application" class="post-image-style" />
 </p>
 
 <p>
@@ -550,8 +538,7 @@ If you click on the pretty-print, then you will get the formatted response.
 </p>
 
 <p>
-```
-[
+<pre><code>[
   {
     "id": 1,
     "firstName": "Shakil",
@@ -592,8 +579,7 @@ If you click on the pretty-print, then you will get the formatted response.
     "email": "alena99@gamil.com",
     "role": "Data Scientist"
   }
-]
-```
+]</code></pre>
 </p>
 
 <p class="medium-bold-text">
@@ -605,32 +591,30 @@ In order to retrieve a particular person records based on id, you can invoke the
 </p>
 
 <p>
-<b>Using Browser:</b> Invoke this URI [http://localhost:8080/api/persons/1](http://localhost:8080/api/persons/1) and it will retrieve the person records which id is 1.
+<b>Using Browser:</b> Invoke this URI <a href="http://localhost:8080/api/persons/1" target="_blank">http://localhost:8080/api/persons/1</a> and it will retrieve the person records which id is 1.
 </p>
 
 <p>
-![alt text](img3.png)
+<img src="https://docs.javaondemand.com/quarkus/quarkus-and-hibernate-orm/codeinjar/rest-api/img3.png" alt="quarkus-application" class="post-image-style" />
 </p>
 
 <p>
-```
-{
+<pre><code>{
   "id": 1,
   "firstName": "Shakil",
   "lastName": "Ahmed",
   "age": 30,
   "email": "shakil11@gamil.com",
   "role": "Java Developer"
-}
-```
+}</code></pre>
 </p>
 
 <p>
-<b>Using apiDOG or Postman:</b> Open Postman or ApiDOG and use this API Path [http://localhost:8080/api/persons/1](http://localhost:8080/api/persons/1), use http GET request and then click send button.
+<b>Using apiDOG or Postman:</b> Open Postman or ApiDOG and use this API Path <a href="http://localhost:8080/api/persons/1" target="_blank">http://localhost:8080/api/persons/1</a> use http GET request and then click send button.
 </p>
 
 <p>
-![alt text](img4.png)
+<img src="https://docs.javaondemand.com/quarkus/quarkus-and-hibernate-orm/codeinjar/rest-api/img4.png" alt="quarkus-application" class="post-image-style" />
 </p>
 
 <p>
@@ -642,7 +626,7 @@ Update A Person Record
 </p>
 
 <p>
-In order to update a person records we can simply use the API Path [http://localhost:8080/api/persons/{id}](http://localhost:8080/api/persons/{id}) and make the PUT request.
+In order to update a person records we can simply use the API Path <a href="http://localhost:8080/api/persons/{id}" target="_blank">http://localhost:8080/api/persons/{id}</a> and make the PUT request.
 </p>
 
 <p>
@@ -654,33 +638,29 @@ Such as, we want to update the person records which id is 5.
 </p>
 
 <p>
-```
-{
-    "id": 5,
-    "firstName": "Alena",
-    "lastName": "Victor",
-    "age": 50,
-    "email": "alena99@gamil.com",
-    "role": "Data Scientist"
-}
-```
+<pre><code>{
+  "id": 5,
+  "firstName": "Alena",
+  "lastName": "Victor",
+  "age": 50,
+  "email": "alena99@gamil.com",
+  "role": "Data Scientist"
+}</code></pre>
 </p>
 
 <p>
-Now make the PUT request with this endpoint: [http://localhost:8080/api/persons/1](http://localhost:8080/api/persons/5) with the following updated data.
+Now make the PUT request with this endpoint: <a href="http://localhost:8080/api/persons/1" target="_blank">http://localhost:8080/api/persons/1</a> with the following updated data.
 </p>
 
 <p>
-```
-{
-    "id": 5,
-    "firstName": "John",
-    "lastName": "Smith",
-    "age": 60,
-    "email": "john@gamil.com",
-    "role": "Data Scientist"
-}
-```
+<pre><code>{
+  "id": 5,
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 60,
+  "email": "john@gamil.com",
+  "role": "Data Scientist"
+}</code></pre>
 </p>
 
 
@@ -689,7 +669,7 @@ Now make the PUT request with this endpoint: [http://localhost:8080/api/persons/
 </p>
 
 <p>
-![alt text](img5.png)
+<img src="https://docs.javaondemand.com/quarkus/quarkus-and-hibernate-orm/codeinjar/rest-api/img5.png" alt="quarkus-application" class="post-image-style" />
 </p>
 
 
@@ -698,11 +678,11 @@ Delete A Person Record
 </p>
 
 <p>
-Likewise the above, we can simply delete any person records based on id as well. Such as I want to delete the person records which id is 5. Hence, invoke the DELETE http request using Postman or cURL with this API Path [http://localhost:8080/api/persons/5](http://localhost:8080/api/persons/5) and you will get a successful message, such as your resource has been deleted (if you set one externally!).
+Likewise the above, we can simply delete any person records based on id as well. Such as I want to delete the person records which id is 5. Hence, invoke the DELETE http request using Postman or cURL with this API Path <a href="http://localhost:8080/api/persons/5" target="_blank">http://localhost:8080/api/persons/5</a> and you will get a successful message, such as your resource has been deleted (if you set one externally!).
 </p>
 
 <p>
-![alt text](img6.png)
+<img src="https://docs.javaondemand.com/quarkus/quarkus-and-hibernate-orm/codeinjar/rest-api/img6.png" alt="quarkus-application" class="post-image-style" />
 </p>
 
 <p>
@@ -710,7 +690,7 @@ As the entity records which id is 5 has been deleted already, now if you want to
 </p>
 
 <p>
-![alt text](img7.png)
+<img src="https://docs.javaondemand.com/quarkus/quarkus-and-hibernate-orm/codeinjar/rest-api/img7.png" alt="quarkus-application" class="post-image-style" />
 </p>
 
 <p>

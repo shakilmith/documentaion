@@ -1,38 +1,38 @@
 ## Developing a simple Greeting Rest service using Quarkus
 
-Initial Requirements:
+Initial Requirements: 
 
     - JavaSE version: 8+
-    - Maven or Gradle as a build tool or using CLI (see the officila doc)
+    - Maven or Gradle as a build tool or using CLI (see the official doc)
     - Maven version: 3.6.3+
     - Gradle version: 7.5+
     - And IDE that support Java and maven/gradle: Like Intellij Ide, Eclipse or VS code.
 
 Please follow the below steps to develop a simple Greeting rest service:
 
-Note: We use here https://code.quarkus.io  official site to bootstrap our quarkus application and use intellij ide to develop it. You can alos use VS Code or eclipse as well.
+Note: We use here [https://code.quarkus.io](https://code.quarkus.io)  official site to bootstrap our quarkus application and use intellij ide to develop it. You can also use VS Code or eclipse as well.
 
-1. Open https://code.quarkus.io and to bootstarap your quarkus application. Provide the folloiwng metadata:
+1. Open [https://code.quarkus.io](https://code.quarkus.io) and to bootstrap your quarkus application. Provide the following metadata:
 Group: com.company (or the default one)
 Artifact: quarkus-example (or the default one)
 Quarkus Platform Version: latest one or the recommended one
 Build tool: Maven or Gradle
 
-2. After adding the metadata, now it is time to add extensions/dependencies. As it is simple rest api that produces json Greeting response, then add RestEasy Reactive Jacksion extension. 
+2. After adding the metadata, now it is time to add extensions/dependencies. As it is simple rest api that produces json Greeting response, then add RestEasy Reactive Jackson extension. 
 
-3. Click on Genrate button. It will produce a zip file and the file name should be your Artifact name.
+3. Click on Generate button. It will produce a zip file and the file name should be your Artifact name.
 
 4. Unzip it and import it or open it in your favourite Ide like intellij ide. 
 
 Note: If you use intellij ide and want to run quarkus application from your ide, then you have to install Quarkus Tools for IntelliJ plugin from the marketplace.
 
-Quarkus Tools for Intelli: File -> Settings -> Plugins -> Marketplace -> Quarkus Tools (search it) -> Install -> Restart Your Ide
+Quarkus Tools for IntelliJ: File -> Settings -> Plugins -> Marketplace -> Quarkus Tools (search it) -> Install -> Restart Your Ide
 
 Quarkus Tools for Eclipse: File -> Settings -> Plugins -> Marketplace -> Quarkus Tools (search it) -> Install -> Restart Your Ide
 
 Quarkus Tools for VS Code: File -> Settings -> Plugins -> Marketplace -> Quarkus Tools (search it) -> Install -> Restart Your Ide
 
-5. After importing or opening the quarkus example applicaton into your ide, the file structure should be like below: 
+5. After importing or opening the quarkus example application into your ide, the file structure should be like below: 
 
 <img src="img-1.jpg" alt="Quarkus file structure" width="50%" height="auto"/>
 
@@ -40,7 +40,7 @@ Note that: There is no main Application file or main method in Quarkus applicati
 
 6. Create a simple Greeting.java pojo class in com.company package.
 
-```js
+```
 package com.company;
 
 public class Greeting {
@@ -95,13 +95,13 @@ public class GreetingResource {
 
 ```
 
-7. Run the applicaton and invoke the url: http://localhost:8080/greetings and you will see a simple greeting json response.
+7. Run the application and invoke the url: [http://localhost:8080/greetings](http://localhost:8080/greetings) and you will see a simple greeting json response.
 
 ![alt text](image.png)
 
 8. Let's add list of Greetings! 
 
-```js
+```
 package com.company;
 
 import jakarta.ws.rs.*;
@@ -127,9 +127,9 @@ public class GreetingResource {
 
 ```
 
-If you stop and again run the applicaton, the json response should be in this url: http://localhost:8080/greetings
+If you stop and again run the application, the json response should be in this url: [http://localhost:8080/greetings](http://localhost:8080/greetings)
 
-```ja
+```
 [
   {
     "id": 1,
@@ -155,7 +155,7 @@ Hence, we have successfully developed a simple Greeting json service that handle
 
 -----
 
-I want to recall one more thing here that, In jax-rs curd annotaions are: @GET, @Post, @PUT, @DELETE, @PATCH  but in Spring Boot we use @GetMapping, @PostMapping, @PutMapping, @DeleteMapping, @PatchMapping etc. If you ar the fan of Spring/Spring Boot you may familier of those.
+I want to recall one more thing here that, In jax-rs curd annotations are: @GET, @Post, @PUT, @DELETE, @PATCH  but in Spring Boot we use @GetMapping, @PostMapping, @PutMapping, @DeleteMapping, @PatchMapping etc. If you ar the fan of Spring/Spring Boot you may familiar of those.
 
 Talk Soon.
 

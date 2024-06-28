@@ -6,15 +6,15 @@
 <!--meta tags for SEO-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="title" content="">
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="title" content="Quarkus; Create Your First Quarkus Application using Quarkus initializer">
+<meta name="description" content="In this post, you are going to learn how to create a simple Quarkus Application in IntelliJ Ide">
+<meta name="keywords" content="Quarkus, Java, Backend, MySQL, Application Development">
 <meta name="author" content="shakilmith">
 
 
 <!--meta tags for open graph protocol (og:title, og:image)-->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="" />
+<meta property="og:title" content="Develop Your First Quarkus Application." />
 <!--Image description-->
 <!--
 <meta property="og:image" content="https://example.com/rock.jpg" />
@@ -42,7 +42,7 @@
 
 
 
-  <title>Title for your project</title>
+  <title>First Quarkus Application</title>
 
   <style>
     /*Rubik font*/
@@ -222,11 +222,11 @@ For bootstrapping our Quarkus application, we will use quarkus initializer. So, 
 </p>
 
 <p>
-![alt text](img1.png)
+<img src="https://docs.javaondemand.com/quarkus/first-quarkus-application/codeinjar/first-quarkus/img1.png" alt="quarkus-initializer" class="post-image-style" />
 </p>
 
 <p>
-Here I have added **quarkus-rest-jackson** (support json) extension in order to complete this simple tutorial. Later, always you can add new extensions if required.
+Here I have added <b style="text-decoration: underline;"><i>quarkus-rest-jackson</i></b> (support json) extension in order to complete this simple tutorial. Later, always you can add new extensions if required.
 </p>
 
 <p>
@@ -257,12 +257,12 @@ How to open your Quarkus Application into your favourite IDE
 
 
 <p>
-<b>Note:</b> After opening your project into your favourite IDE (in my case IntelliJ IDE) wait few seconds in order to resolve the maven dependencies. As Quarkus doesn't have main class file, thus you get compile time error - **ClassNotFoundException** while running your application for the first time. So, you have to install quarkus tools plugin if you use intelliJ Ide. <b>How to install Quarkus Tools plugin?</b> - File -> Settings -> Plugins -> Search Quarkus Tools (from the marketplace) -> Click on Quarkus Tools -> Click Apply -> As usual wait few seconds till completing the download (probably you have to restart your IDE)
+<b>Note:</b> After opening your project into your favourite IDE (in my case IntelliJ IDE) wait few seconds in order to resolve the maven dependencies. As Quarkus doesn't have main class file, thus you get compile time error - <b>ClassNotFoundException</b> while running your application for the first time. So, you have to install quarkus tools plugin if you use intelliJ Ide. <b>How to install Quarkus Tools plugin?</b> - File -> Settings -> Plugins -> Search Quarkus Tools (from the marketplace) -> Click on Quarkus Tools -> Click Apply -> As usual wait few seconds till completing the download (probably you have to restart your IDE)
 </p>
 
 
 <p>
-![alt text](img2.png)
+<img src="https://docs.javaondemand.com/quarkus/first-quarkus-application/codeinjar/first-quarkus/img2.png" alt="quarkus-initializer" class="post-image-style" />
 </p>
 
 <p>
@@ -274,7 +274,7 @@ After opening your project into your favourite ide, your project structure proba
 </p>
 
 <p>
-![alt text](img3.png)
+<img src="https://docs.javaondemand.com/quarkus/first-quarkus-application/codeinjar/first-quarkus/img3.png" alt="quarkus-initializer" class="post-image-style" />
 </p>
 
 
@@ -287,31 +287,30 @@ Open GreetingResource
 </p>
 
 <p>
-Now open **GreetingResource.java** file and modify it little bit or keep it same.
+Now open <b>GreetingResource.java</b> file and modify it little bit or keep it same.
 </p>
 
 <p>
 <b>GreetingResource.java</b>
 </p>
+
 <p>
-```
-package com.company;
+<pre><code>package com.company;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
-
-@Path("/hello")
-public class GreetingResource {
-
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String greeting(){
-        return "Hello, Quarkus";
-    }
-}
-```
+    import jakarta.ws.rs.GET;
+    import jakarta.ws.rs.Path;
+    import jakarta.ws.rs.Produces;
+    import jakarta.ws.rs.core.MediaType;
+    
+    @Path(&amp;quot;/hello&amp;quot;)
+    public class GreetingResource {
+    
+        @GET
+        @Produces(MediaType.TEXT_PLAIN)
+        public String greeting(){
+            return &amp;quot;Hello, Quarkus&amp;quot;;
+        }
+    }</code></pre>
 </p>
 
 <p>
@@ -331,10 +330,8 @@ Now run your application using the following maven/gradle command.
 </p>
 
 <p>
-```
-$ mvn quarkus:dev
-$ gradle --console=plain quarkusDev
-```
+<pre><code>$ mvn quarkus:dev
+$ gradle --console=plain quarkusDev</code></pre>
 </p>
 
 <p>
@@ -342,7 +339,7 @@ Or, if you already installed the Quarkus Tools for IntelliJ Ide, you can run you
 </p>
 
 <p>
-![alt text](img4.png)
+<img src="https://docs.javaondemand.com/quarkus/first-quarkus-application/codeinjar/first-quarkus/img4.png" alt="quarkus" class="post-image-style" />
 </p>
 
 <p>
@@ -358,9 +355,7 @@ Just open <b>application.properties</b> file and add the following configuration
 </p>
 
 <p>
-```
-quarkus.http.port=9090 
-```
+<pre><code>quarkus.http.port=9090 </code></pre>
 </p>
 
 <p>
@@ -372,7 +367,7 @@ Hot Reloading Feature is Enabled by Default
 </p>
 
 <p>
-One of the unique features Quarkus provides is the hot reloading feature. If you update your site or change something, it will automatically updated without restarting your project. Such as, I have added **QueryParam** mechanism in my **hello** endpoint so that it can now react/read the uri name parameter value. Interesting thing is that you don't have to restart your application in order to apply the changes.
+One of the unique features Quarkus provides is the hot reloading feature. If you update your site or change something, it will automatically updated without restarting your project. Such as, I have added <b>QueryParam</b> mechanism in my <b>hello</b> endpoint so that it can now react/read the uri name parameter value. Interesting thing is that you don't have to restart your application in order to apply the changes.
 </p>
 
 <p>
@@ -380,22 +375,20 @@ One of the unique features Quarkus provides is the hot reloading feature. If you
 </p>
 
 <p>
-```
-package com.company;
+<pre><code>package com.company;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
-@Path("/hello")
+@Path(&quot;/hello&quot;)
 public class GreetingResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String greeting(@DefaultValue("Quarkus") @QueryParam("name") String name){
-        return "Hello, "+ name;
+    public String greeting(@DefaultValue(&quot;Quarkus&quot;) @QueryParam(&quot;name&quot;) String name){
+        return &quot;Hello, &quot;+ name;
     }
-}
-```
+}</code></pre>
 </p>
 
 <p>
@@ -403,7 +396,7 @@ Now, open <a href="http://localhost:8080/hello" target="_blank">http://localhost
 </p>
 
 <p>
-![alt text](img5.png)
+<img src="https://docs.javaondemand.com/quarkus/first-quarkus-application/codeinjar/first-quarkus/img5.png" alt="quarkus" class="post-image-style" />
 </p>
 
 <p>

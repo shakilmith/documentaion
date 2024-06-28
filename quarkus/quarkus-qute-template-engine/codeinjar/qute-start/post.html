@@ -6,15 +6,15 @@
 <!--meta tags for SEO-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="title" content="">
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="title" content="Quarkus Qute Template Engine; Learn How to Use Qute Template Engine in Quarkus.">
+<meta name="description" content="Quarkus Qute Template Engine; Build Your First Quarkus Application with Qute View; Build Rest Api with Quarkus.">
+<meta name="keywords" content="Quarkus, Java, JPA, Hibernate, Backend, Qute Template Engine; API Design;">
 <meta name="author" content="shakilmith">
 
 
 <!--meta tags for open graph protocol (og:title, og:image)-->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="" />
+<meta property="og:title" content="Learn How to Use Qute Template Engine in Quarkus." />
 <!--Image description-->
 <!--
 <meta property="og:image" content="https://example.com/rock.jpg" />
@@ -42,11 +42,14 @@
 
 
 
-  <title>Title for your project</title>
+  <title>Quarkus Qute View | codeinjar.com</title>
 
   <style>
     /*Rubik font*/
     @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+    /*Exo font*/
+    @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
 
 
       *{
@@ -77,6 +80,35 @@
         font-style: normal;
       }
       
+      /*Exo font style*/
+      .exo-font-style {
+        font-family: "Exo", sans-serif;
+        font-optical-sizing: auto;
+        line-height: 1.5;
+        font-size: 16px;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      /*Heading Style*/
+      .primary-heading{
+        font-family: "Exo", sans-serif;
+        font-optical-sizing: auto;
+        line-height: 1.5;
+        font-size: 36px;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .secondary-heading{
+        font-family: "Exo", sans-serif;
+        font-optical-sizing: auto;
+        line-height: 1.5;
+        font-size: 30px;
+        font-weight: 600;
+        font-style: normal;
+      }
+
       pre code {
         background-color: #eee;
         border: 1px solid #999;
@@ -115,14 +147,15 @@
     }
     .medium-bold-text{
       font-size: 24px;
-      font-weight: 500;
-      font-family: "Rubik", sans-serif;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
     .small-bold-text{
       font-size: 18px;
       font-weight: bold;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
+
   
   /** Image style in tutorial pages
   * In desktop version, image will be centered
@@ -171,7 +204,7 @@
 
 
 
-<h1>Quarkus Qute View</h1>
+<h1 class="primary-heading">Quarkus Qute View</h1>
 
 
 <p>
@@ -200,7 +233,7 @@ Qute is a template engine specifically use in Quarkus Application framework. In 
 </div>
 
 
-<p class="medium-bold-text">
+<p class="secondary-heading">
 Bootstrap Your Quarkus Application
 </p>
 
@@ -245,7 +278,7 @@ In case if you don't have Quarkus application bootstrapped, use Quarkus initiali
 Visit: <a href="https://quarkus.io/get-started/" target="_blank">https://quarkus.io/get-started/</a> in order to create a new Quarkus application and don't forget to add the above required dependencies.
 </p>
 
-<p class="medium-bold-text">
+<p class="secondary-heading">
 Open Your Project Into Your Favourite IDE
 </p>
 
@@ -273,7 +306,7 @@ After downloading the zip file, unzip it to any directory and open it into your 
 <b>Note:</b> After opening your project into your favourite IDE (in my case IntelliJ IDE) wait few seconds in order to resolve the maven dependencies. As Quarkus doesn't have main class file, thus you get compile time error - <b>ClassNotFoundException</b> while running your application for the first time. So, you have to install quarkus tools plugin if you use intelliJ Ide. <b>How to install Quarkus Tools plugin?</b> - File -> Settings -> Plugins -> Search Quarkus Tools (from the marketplace) -> Click on Quarkus Tools -> Click Apply -> As usual wait few seconds till completing the download (probably you have to restart your IDE)
 </p>
 
-<p class="medium-bold-text">
+<p class="secondary-heading">
 Create A Template File
 </p>
 
@@ -305,7 +338,7 @@ Here {...} is the syntax of reading java data or variables content in Qute. Ever
 </p>
 
 
-<p class="medium-bold-text">
+<p class="secondary-heading">
 Create A Resource Class
 </p>
 
@@ -349,7 +382,7 @@ Here we have to inject the template file (greeting.html) and then register Templ
 </p>
 
 <p>
-![alt text](img1.png)
+<img src="https://docs.javaondemand.com/quarkus/quarkus-qute-template-engine/codeinjar/qute-start/img1.png" class="post-image-style" alt="quarkus-qute" />
 </p>
 
 
@@ -358,14 +391,14 @@ Here we have to inject the template file (greeting.html) and then register Templ
 </p>
 
 <p>
-![alt text](img2.png)
+<img src="https://docs.javaondemand.com/quarkus/quarkus-qute-template-engine/codeinjar/qute-start/img2.png" class="post-image-style" alt="quarkus-qute" />
 </p>
 
 <p>
 Hence, One thing is to mention here, if you use type-safe template file approach, your folder structure will be nested much. Anyway, I use to use the first approach, but requirements are usually changed.
 </p>
 
-<p class="medium-bold-text">
+<p class="secondary-heading">
 Test The Application
 </p>
 
@@ -388,14 +421,14 @@ After running your application successfully, if you now open your browser and in
 </p>
 
 <p>
-![alt text](img3.png)
+<img src="https://docs.javaondemand.com/quarkus/quarkus-qute-template-engine/codeinjar/qute-start/img3.png" class="post-image-style" alt="quarkus-qute" />
 </p>
 
 <p>
 Just we have successfully rendered sample greeting message using Qute template engine. 
 </p>
 
-<p class="medium-bold-text">
+<p class="secondary-heading">
 How to render List of Greeting Message
 </p>
 
@@ -484,7 +517,7 @@ If you now again restart your application, though you don't have to restart your
 </p>
 
 <p>
-![alt text](img4.png)
+<img src="https://docs.javaondemand.com/quarkus/quarkus-qute-template-engine/codeinjar/qute-start/img4.png" class="post-image-style" alt="quarkus-qute" />
 </p>
 
 

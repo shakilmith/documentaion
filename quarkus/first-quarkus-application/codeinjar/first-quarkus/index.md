@@ -6,7 +6,7 @@ So, let's get started.
 
 ## What is Quarkus? 
 
-It is really obvious to discuss little bit about Quarkus application framework before using it or creating new application with it. Quarkus is a JVM based (Java specially) application framework like Spring/Spring Boot, Micronaut or JakartaEE. So, basically developing dynamic database driven applications Quarkus is used.
+It is really obvious to discuss little bit about Quarkus application framework before using it or creating new application with it. Quarkus is a JVM based (Java specially) application framework like Spring/Spring Boot, Micronaut or JakartaEE. Quarkus has been designed around container first philosophy. As much as possible quarkus application tries to avoid reflection, reducing startup time and memory uses. It is container first by it's nature. So, basically developing dynamic database driven applications Quarkus is used. 
 
 
 **Initial requirements**
@@ -37,6 +37,7 @@ After adding required extensions, click on generate button, and it will now crea
 
 **NetBeans:** File > Open Project > Browse the existing spring boot project (maven project) > Open project.
 
+
 **Note:** After opening your project into your favourite IDE (in my case IntelliJ IDE) wait few seconds in order to resolve the maven dependencies. As Quarkus doesn't have main class file, thus you get compile time error - **ClassNotFoundException** while running your application for the first time. So, you have to install quarkus tools plugin if you use intelliJ Ide. **How to install Quarkus Tools plugin?** - File -> Settings -> Plugins -> Search Quarkus Tools (from the marketplace) -> Click on Quarkus Tools -> Click Apply -> As usual wait few seconds till completing the download (probably you have to restart your IDE)
 
 ![alt text](img2.png)
@@ -49,7 +50,7 @@ After opening your project into your favourite ide, your project structure proba
 
 You can either keep them or delete them, your choice.
 
-## Open GreetingResource 
+## Open GreetingResource.java Class File 
 
 Now open **GreetingResource.java** file and modify it little bit or keep it same.
 
@@ -104,7 +105,7 @@ Restart your application, and now your application runs on port 9090 in localhos
 
 ## Hot Reloading Feature is Enabled by Default
 
-One of the unique features Quarkus provides is the hot reloading feature. If you update your site or change something, it will automatically updated without restarting your project. Such as, I have added **QueryParam** mechanism in my **hello** endpoint so that it can now react/read the uri name parameter value. Interesting thing is that you don't have to restart your application in order to apply the changes.
+One of the unique features Quarkus provides is the hot reloading feature. If you update your site or change something, it will automatically updated without restarting your project. Such as, I have added **QueryParam** mechanism in my **hello** endpoint so that it can now react/read the uri name parameter value. Interesting thing is that you don't have to restart your application in order to apply the changes as hot reloading feature is enabled by default.
 
 
 **GreetingResource.java**
