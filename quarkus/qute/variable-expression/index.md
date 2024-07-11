@@ -2,6 +2,8 @@
 
 In order to render simple variable value in qute template engine, we use curly brackets in the template side. Like,
 
+**Syntax**
+
 ```
 {variable_name}
 //guess, you have a variable called name
@@ -55,7 +57,7 @@ public class GreetingResource {
 }
 ```
 
-Now create the template file named **greeting.html** and it must be located in **resources/templates** folder.
+Now create the template file named **greeting.html** and it must be located in **src/main/resources/templates** folder.
 
 ```
 <!DOCTYPE html>
@@ -78,11 +80,11 @@ Now create the template file named **greeting.html** and it must be located in *
 </html>
 ```
 
-Now, start your development server and if you now invoke the greeting uri from your favourite web browser you will see the following response.
+Now, start your development server and if you now invoke the greeting uri [http://localhost:8080/greeting](http://localhost:8080/greeting) from your favourite web browser you will see the following response.
 
 ![alt text](image1.png)
 
-Variable expression can also be used together with other built in expressions or syntax in qute part like if, for or each sections. Guess you want to print list of greeting messages and thus we will mix for section and variable expression together to display the greetings. Such as,
+Variable expression can also be used together with other built in expressions or syntax in qute part like, ***if***, ***for*** or ***each*** sections. Guess you want to print list of greeting messages and thus we will mix for section and variable expression together to display the greetings. Such as,
 
 **GreetingResource.java** (updated)
 
@@ -132,7 +134,7 @@ Please restart your application now (though it is not required as hot reloaded s
 
 ![alt text](image2.png)
 
-So, variable expression is very useful expression in qute template engine, that you will use most of the time to render content into the view.
+So, variable expression is very useful expression in qute template engine, that you will use most of the time to render component content into the view.
 
 Thanks.
 

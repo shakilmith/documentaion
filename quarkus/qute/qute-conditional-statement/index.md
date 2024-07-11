@@ -1,6 +1,7 @@
 # Qute If and Else if Statement
 
-In qute if or else if statement or section is used to conditionally render elements specially the components data.
+In qute **if** or **else if** section is used to conditionally render elements specially the components data.
+
 
 ***Syntax:***
 
@@ -36,7 +37,7 @@ In qute if or else if statement or section is used to conditionally render eleme
 
 Let's go with a simple example.
 
-In your project, create a simple Person Student and and StudentResource class.
+In your project, create a simple **Student.java** and **StudentResource.java** class.
 
 **Student.java**
 
@@ -81,7 +82,7 @@ public class StudentResource {
 }
 ```
 
-Now create a template file in resources/templates folder. It's name must be **student.html**.
+Now create a template file in **src/main/resources/templates** folder. It's name must be **student.html**.
 
 
 **student.html**

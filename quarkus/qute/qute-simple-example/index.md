@@ -4,9 +4,9 @@ Qute is a template engine designed specifically to meet the Quarkus needs. The u
 
 ***Steps that we can follow:***
 
-1. Open the Quarkus Current Quarkus project in any Ide like IntelliJ Ide or VS Code.
+1. Open the Quarkus Current project in any Ide like IntelliJ Ide or VS Code.
 
-2. Now click on pom.xml file gradle.build file (in my case, pom.xml file) and add one of the following dependency based on compatibility and reload the project to resolve the newly added extensions.
+2. Now click on **pom.xml** file or **gradle.build** file (in my case, **pom.xml** file) and add one of the following dependency based on compatibility and reload the project to resolve the newly added extensions.
 
 **pom.xml**
 
@@ -24,9 +24,9 @@ Qute is a template engine designed specifically to meet the Quarkus needs. The u
 </dependency>
 ```
 
-3. Qute template files overall located in src/main/resources/templates folder or nested folder. There are two ways you can define your template path definition. Raw template files located in templates folder, and the other one is Type-safe-template path is defined by the Template instance method. 
+3. Qute template files actually located in **src/main/resources/templates** folder or nested folder. There are two ways you can define your template path definition. Raw template files located in templates folder, and the other one is **Type-safe-template** path is defined by the Template instance method. 
 
-However, create a simple html template file in src/main/resources/templates folder and name it hello.html file. If there is no templates folder yet, please create templates folder in src/resources folder.
+However, create a simple html template file in **src/main/resources/templates** folder and name it **hello.html** file. If there is no templates folder yet, please create templates folder in **src/main/resources** folder.
 
 **hello.html**
 
@@ -107,4 +107,6 @@ Now if you again invoke the url [http://localhost:8080/hello](http://localhost:8
 ![alt text](image2.png)
 
 **Note:** Just reload or refresh page, don't have to restart your application to reflect the changes.
+
+## How to Define Templates in Type-Safe Way
 

@@ -527,3 +527,4 @@ You get primary keys or ids of person and car tables:
 
 There will be two columns: **car_id** and **person_id**.
 
+//post will be updated soon.

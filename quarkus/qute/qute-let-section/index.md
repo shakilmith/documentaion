@@ -1,6 +1,6 @@
 # Qute Let Section
 
-Qute let section is used to define local variables. 
+Qute let section is used to define local variables.
 
 **Syntax**
 
@@ -67,9 +67,10 @@ Now the age should be 36 than 26.
 
 ![alt text](image2.png)
 
+
 ## Nested Sections
 
-It is also possible to use other built in sections like if, for sections inside let section. Such as,
+It is also possible to use other built in sections like ***if***, ***for*** sections inside let section. Such as,
 
 **demo.html** (Updated one)
 

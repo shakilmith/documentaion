@@ -1,6 +1,6 @@
 # Qute When Section
 
-This section is similar to Java’s switch or Kotlin’s when constructs. It matches a tested value against all blocks sequentially until a condition is satisfied. The first matching block is executed. All other blocks are ignored (this behavior differs to the Java switch where a break statement is necessary).
+Qute when section is similar to Java’s switch or Kotlin’s when statements. It matches a tested value against all blocks sequentially until a condition is satisfied. The first matching block is executed. All other blocks are ignored (this behavior differs to the Java switch where a break statement is necessary).
 
 
 **Syntax:**
@@ -100,7 +100,7 @@ If you now start your development server and invoke the uri [http://localhost:80
 
 ![alt text](image1.png)
 
-As our value is, Sunday and it matched the first case block (here is block), so rest of the code block will not be checked.
+As our value is, Sunday and it matched the first case block (here "is" block), so rest of the code block will not be checked.
 
 What if we set the value something else than day name of the week? Now it will only print else block. Such as, I set
 

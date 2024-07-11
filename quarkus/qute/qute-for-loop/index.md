@@ -1,12 +1,12 @@
 # Render List of Elements in Qute
 
-In order to render collection of elements or iterate over elements in qute, we can use either qute for or each section.
+In order to render collection of elements or iterate over elements in qute, we can use either qute ***for*** section or ***each*** section.
 
 ***Using for section***
 
 ## Create Template and Resource File
 
-First of all create a simple template file in the **resources/templates** folder. Let's name it **planet.html** file.
+First of all create a simple template file in the **src/main/resources/templates** folder. Let's name it **planet.html** file.
 
 
 **planet.html**
@@ -34,7 +34,7 @@ First of all create a simple template file in the **resources/templates** folder
 </html>
 ```
 
-Now, for resolving the template path, create a resource class and name it **PlanetResource.java** in **com.company** package. Please, don't forget to inject template path, in our case planet.html file.
+Now, for resolving the template path, create a resource class and name it **PlanetResource.java** in **com.company** package. Please, don't forget to inject the template path, in our case **planet.html** file.
 
 **PlanetResource.java**
 
@@ -72,6 +72,7 @@ public class PlanetResource {
 ```
 
 **Note:** Also true for collection type like ArrayList, Set or Map or interface like List.
+
 
 ## Test The Application
 

@@ -17,7 +17,8 @@ The **include** and **insert** sections can be used to include another template 
 </body>
 </html>
 ```
-Note: Here, base.html will be used in home, about and contact template files respectively.
+
+**Note:** Here, **base.html** will be used in **home**, **about** and **contact** template files respectively.
 
 
 **home.html**
@@ -124,13 +125,14 @@ If you now start your development server and invoke the following urls respectiv
 
 One thing you probably notice here that, we reuse the base layout system across these three template files. Scenario will be shown clearly, if we access the developer console in our browser (specially - Inspect page)
 
-So, after invoking the home url: [http://localhost:8080/home](http://localhost:8080/home) try to access the inspect page; right click -> click inspect. 
+So, after invoking the home url: [http://localhost:8080/home](http://localhost:8080/home) try to access the inspect page: ***right click -> click inspect***. 
 
 ![alt text](image4.png)
 
 You can see the, default base html layout (base.html) has been added (default html tag) automatically. It is true for about and contact page as well.
 
-**Note:** You can also check out view source page.
+**Note:** You can also check out view source page through your browser.
+
 
 ## Display Title Variable 
 
@@ -175,5 +177,5 @@ like head, or body, they will be added automatically
 !}
 ```
 
-You will get the same result like above if you run your application.
+You will get the same result like above if you again run your application.
 

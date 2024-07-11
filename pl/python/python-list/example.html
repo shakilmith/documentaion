@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, tr, td{
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div>
+        <table>
+            <tr>
+                <th>Methods</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+
+            <tr>
+                <td>append(x)</td>
+                <td>insert a new item at the end of the list</td>
+                <td>
+                    lang = ["Java", "Python", "C++"]
+
+## using append() method to insert a new item at the end of the list
+lang.append("Rust") 
+print(lang)
+# output: ['Java', 'Python', 'C++', 'Rust']
+                </td>
+            </tr>
+
+            <tr>
+                <td>insert(index, el)</td>
+                <td>insert a new element to a given position, but required two arguments</td>
+                <td>
+                    lang = ["Java", "Python", "C++"]
+
+## using insert(index, el) method to insert a new item at the end of the list
+lang.insert(3, "Rust")
+print(lang)
+# output: ['Java', 'Python', 'C++', 'Rust']
+                </td>
+            </tr>
+            <tr>
+                <td>remove(el)</td>
+                <td>remove the specified element (one argument is required)</td>
+                <td>
+                    lang = ["Java", "Python", "C++", "Rust"]
+
+# using remove(el) method to remove element from the list
+lang.remove("Rust") # Rust is deleted now
+print(lang)
+# output: ['Java', 'Python', 'C++']
+                </td>
+            </tr>
+            <tr>
+                <td>pop(index)</td>
+                <td>remove the element from the list based on the index number. If no index is specified then the last element will be removed</td>
+                <td>
+                    list1 = ["Java", "Python", "C++", "Rust"]
+list2 = [1, 2, 3, 4, 5]
+# using pop() method to remove the element from the list
+list1.pop() # last item is removed from list1
+# remove the first element from the list
+list2.pop(0) # first item is removed from list2 as we specified the index number
+
+print(list1)
+print(list2)
+# output for list1: ['Java', 'Python', 'C++']
+# Output for list2: [2, 3, 4, 5]
+
+                </td>
+            </tr>
+            <tr>
+                <td>clear()</td>
+                <td>remove all the elements from the list. It is equivalent to del list[ :]. But the list itself will not be deleted entirely, it will remain same with empty elements.</td>
+                <td>
+                    lang = ["Java", "Python", "C++", "Rust"]
+
+# using clear() method
+lang.clear() # empty the the list
+print(lang) # returns empty list: []
+
+# now the len() function returns 0
+print(len(lang)) # output: 0
+                </td>
+            </tr>
+
+            <tr>
+                <td>count(el)</td>
+                <td>the count method returns, how many times a element is present in the list. One element is required.</td>
+                <td>
+                    person = ["Shakil", "Rebeka", "Rebeka", "Shakil", "Jenkov"]
+
+# using count() method
+x = person.count("Rebeka")
+print(x) # it returns 2
+                </td>
+            </tr>
+            <tr>
+                <td>sort() or sorted</td>
+                <td>sort the item of the list either ascending(default) or descending order</td>
+                <td>
+                    person = ["Elena", "Alfred", "Bhumi", "Fredrick", "Cobult"]
+
+# sort the person list (ascending by default)
+person.sort() # same as sorted(person)
+# if descending order
+
+print(person)
+# output: ['Alfred', 'Bhumi', 'Cobult', 'Elena', 'Fredrick']
+
+# sort the person list descending order
+person.sort(reverse= True)
+print(person)
+# output: ['Fredrick', 'Elena', 'Cobult', 'Bhumi', 'Alfred']
+
+                </td>
+            </tr>
+            <tr>
+                <td>reverse()</td>
+                <td>reverse list elements in place</td>
+                <td>
+                    person = ["Elena", "Alfred", "Bhumi", "Fredrick", "Cobult"]
+
+# before reversing
+print(person)
+# output: ['Elena', 'Alfred', 'Bhumi', 'Fredrick', 'Cobult']
+
+# after reversing
+person.reverse()
+print(person)
+# output: ['Cobult', 'Fredrick', 'Bhumi', 'Alfred', 'Elena']
+
+                </td>
+            </tr>
+            <tr>
+                <td>copy()</td>
+                <td>returns shallow copy of the list, equivalent to list[:]</td>
+                <td>
+                    person = ["Elena", "Alfred", "Bhumi", "Fredrick", "Cobult"]
+
+# using copy() method
+new_person_list = person.copy()
+print(new_person_list)
+# Output: ['Elena', 'Alfred', 'Bhumi', 'Fredrick', 'Cobult']
+
+# person == new_person_list always returns true
+print(person == new_person_list) # output: True
+
+                </td>
+            </tr> 
+        </table>
+    </div>
+</body>
+</html>
